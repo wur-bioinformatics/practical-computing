@@ -637,10 +637,36 @@ Let's try to account for all bytes in the FASTA file. The bulk of the file consi
 **What is the difference?**
 
 What is taking up these remaining bytes? As a clue, let's count the lines of the file.
-First exit less by pressing ‘q’ and then use the wc program like this:
+
+First exit `less` by pressing {kbd}`q` and then use the `wc` program like this:
+```{code-block} bash
+:class: no-copybutton
 wc -l Homo_sapiens.GRCh38.dna.chromosome.22.fa
+```
+**Do you recognize the number?**
+
+How does less know when to break to the next line? That information is stored in the text file, in the form of a hidden character, which can be visualized like this (for the first 200 characters of the file):
+```{code-block} bash
+:class: no-copybutton
+od -c -N 200 Homo_sapiens.GRCh38.dna.chromosome.22.fa
+```
+The `\n` is called the **newline** character, which takes up one byte per line.
+
+With these newline characters we should have accounted for all bytes in the file.
+
+Now we are finished with the chromosome 22 file, you can remove it to save space on our home drive:
+```{code-block} bash
+:class: no-copybutton
+rm Homo_sapiens.GRCh38.dna.chromosome.22.fa
+```
 
 ``````
+
+
+```{attention}
+Removing a file on a Linux file system is irreversible, without an undo option.
+**#! I would add that it is better to first check whether the path you are selecting to remove only contains the files you want to remove by running `ls` first before running `rm`**
+```
 
 Network
 
