@@ -156,6 +156,7 @@ user001@smith:~$ finger nijve002
 ```
 ``````
 
+The part after the command, `nijve002` in this case, is called an {term]`argument`, which specifies what the command should operate on.
 
 
 ## Computational concepts
@@ -164,7 +165,8 @@ We will now introduce some fundamental computational concepts. **#! add why?**
 ### CPU, GPU and memory
 The Central Processing Unit, {term}`CPU` or processor, is the brain of the computer and performs most of the calculations. Additionally, its functions are: running applications, managing input and output operations, and storing and retrieving data during processing. Modern computers often have two or more, whereas multi-user computers (servers) often have sixteen or more. A CPU has limited capacity (100% CPU usage). To run programs in parallel, it has multiple cores/threads.
 
-The Graphical Processing Unit, {term}`GPU` or video card, is a specialized processor that is optimized for doing the same calculation on many data points (in parallel). To perform like this, it has thousands of small cores. It was initally developed for gaming, but it is now also heavily used for AI.
+The Graphical Processing Unit, {term}`GPU` or video card, is a specialized processor that is optimized for doing the same calculation on many data points (in parallel). To perform like this, it has thousands of small cores. It was originally developed for computer graphics (video games), but it is now extensively used for machine learning applications (like ChatGPT). GPUs are very good at performing many operations simultaneously,
+which can drastically speed up matrix calculations that are at the heart of most machine learning tasks.
 
 A {term}`byte` is a unit of computer information consisting of a number of {term}`bit`s. It is how the amount of data amount of data that can be stored, processed, or transferred in a computer system is represented. 
 
@@ -223,12 +225,119 @@ user001@smith:~$ htop
 
 **How much memory does the server have?**
 
-In addition to the CPU and memory use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The **Load average** tells you how busy the server is, as a rule of thumb the number indicates how many of the CPUs are being used, if the Load average is higher than the number of CPUs then the server is overloaded and will run less efficiently. 
+In addition to the CPU and memory use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The **Load average**  **#! is this a term?** tells you how busy the server is, as a rule of thumb the number indicates how many of the CPUs are being used, if the Load average is higher than the number of CPUs then the server is overloaded and will run less efficiently. 
+**#! should this be in this exc block?**
 
-You can exit `htop` by pressing the F10 key or `q`
-
+You can exit `htop` by pressing the {kbd}`F10` key or {kbd}`q`
 ``````
 
+``````{exercise} Let's have a look at another server
+To connect from smith to a server called **doudna** you can run:
+
+```{code-block} bash
+:class: no-copybutton
+ssh doudna
+```
+Also here try `htop` to see the number of CPUs and the amount of memory. 
+```{code-block} bash
+:class: no-copybutton
+htop
+```
+**Does that work?**
+
+Again, you can use {kbd}`F10` or {kbd}`q` to get out of `htop`.
+
+The command `nproc` directly gives you the number of CPUs:
+```{code-block} bash
+:class: no-copybutton
+nproc
+```
+
+The command `free` shows the amount of memory:
+```{code-block} bash
+:class: no-copybutton
+free
+```
+
+The numbers you see can be a bit (byte?) confusing. To tell `free` to report the memory in a more human readable form, you use the option `-h`:
+```{code-block} bash
+:class: no-copybutton
+free -h
+```
+``````
+
+Doudna is named after Jennifer Doudna, who won the Nobel prize in Chemistry for her pioneer work on CRISPR gene editing. **#! funfact admonition? no I think margin or footnote is better**
+
+Similar to {term}`argument`s, {term}`option`s can be used to modify the behavior of command-line tools like `free`. Options are different from arguments in that they start with a hyphen (dash), such as `-h` in the `free` command. To make things a bit more confusing, options can have their own arguments, as we will see below.
+**#! might can be epxlained better with f.e. `command [-flag(s)] [-option(s) [value]] [argument(s)]`**
+
+
+``````{exercise} GPUs on the doudna server
+The doudna server has a couple of {term}`GPU`s. To see the GPUs in action, run the nvtop command:
+
+```{code-block} bash
+:class: no-copybutton
+nvtop
+```
+
+**What kind of GPUs are in doudna?** (look between the square brackets)
+
+The company making these GPUs is currently one of the World's most valuable companies.
+
+Leave doudna to come back to smith by either running `exit` or using {kbd}`Ctrl`+{kbd}`d`.
+``````
+
+Back on smith, let’s have a look at the data storage locations.
+
+``````{exercise} Data storage
+The `df` command shows the available disks and their sizes. If you run it, you will get quite a long list. With some {term}`option`s we can filter the list:
+
+```{code-block} bash
+:class: no-copybutton
+df -h -l --type ext4
+```
+- `-h` for human readable sizes
+- `-l` local, to see disks that are in the server
+- `--type ext4` for disks that use the Linux file system
+
+**How many local disks do you see and how large are they?**
+``````
+
+Options for commands often come in single letter variants that start with a single hyphen, and a more informative alternative, starting with two hyphens. In this case we can use `--type` or `-t`. The term `ext4` is an argument that goes with the `--type` option.
+
+
+``````{exercise} Look up the manual for a command
+If you are starting to get lost in the commands, options and arguments, no worries: Linux comes with a manual:
+```{code-block} bash
+:class: no-copybutton
+man df
+```
+``````
+
+The server also has access to a number of disks that are on a different server, so-called mounted drives **#! term or foot-note?**. These are available on all our servers, so we can easily move an analysis to another server without having to move the data.
+
+``````{exercise} Storage on mounted drives
+Every user on a Linux server has a home directory in which they can store files. The home directories for all our users are on one of these mounted drives:
+```{code-block} bash
+:class: no-copybutton
+df -h /home
+```
+
+This mounted home drive is not very large, considering the number of users, so we have an another mounted drive for storing data that is much larger. Check the size of the `/lustre/BIF` drive and how much is already in use:
+```{code-block} bash
+:class: no-copybutton
+df -h /lustre/BIF
+```
+``````
+
+### File system
+The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different file systems exist, differing in:
+- maximum file size
+- security
+- redundancy
+- speed
+- etc.
+Example of file systems are: NTFS, FAT32, EXT4, and ZFS. The size of file systems are nowadays in the terabyte range. File systems are often organized in a directory or folder structure.
 
 
 
@@ -278,5 +387,14 @@ bit
 : A unit of information that is either 0 or 1.
 
 memory
-: temporary storage used by programs.
+: Temporary storage used by programs.
+
+argument
+: Value passed to a program that specifies the input or modifies the behaviour.
+
+option
+: Setting built into the command program (or script), that alters the default behaviour of the program.
+
+file system
+: System that organizes how files are stored on a hard disk.
 ```
