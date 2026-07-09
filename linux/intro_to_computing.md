@@ -11,7 +11,7 @@ bibliography:
 ```{important} Learning outcomes
 After completing this section you should be able to:
 - explain fundamental computational concepts like CPU, memory, network, file system, compression, indexing
-- be proficient in command line (shell) usage **#!this should be more specified I think**
+- be proficient in command line (shell) usage *#!this should be more specified I think*
 ```
 
 ## Introduction
