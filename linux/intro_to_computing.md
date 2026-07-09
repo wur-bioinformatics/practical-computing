@@ -5,6 +5,9 @@ abbreviations:
     BLAST: Basic Local Alignment Search Tool
 ---
 
+## Introduction
+In this section, we will connect to a remote server running on Linux and we will explore various computational concepts in a hands-on way.
+
 ```{important} Learning outcomes
 :icon: false
 
@@ -12,9 +15,6 @@ After completing this section you should be able to:
 - explain fundamental computational concepts like CPU, memory, network, file system compression, indexing
 - be proficient in command line (shell) usage **#!this should be more specified I think**
 ```
-
-## Introduction
-In this section, we will connect to a remote server running on Linux and we will explore various computational concepts in a hands-on way.
 
 ## Operating systems
 ```{seealso}
@@ -681,7 +681,7 @@ I/O
 Indexing
 
 
-## Using BLAST from the command line
+## Using BLAST from the command-line
 Let's do some biology on the command-line. One of the most used programs in bioinformatics is called BLAST.
 
 With BLAST you can search for a protein or nucleotide sequence in a database of known sequences. It does not only find exact matches, but also similar sequences. This allows you to look for homologous sequences. These are
@@ -689,10 +689,68 @@ sequences that originate from the same ancestral gene, for instance the human he
 
 BLAST is extensively covered in the Introduction to Bioinformatics **#! link to course webpage** course. Most researchers will use BLAST via the [NCBI website](https://blast.ncbi.nlm.nih.gov/Blast.cgi), which works fine for a few sequences. If you have a lot of protein or nucleotide sequences that you want to search, using BLAST from the command-line is more efficient. 
 
-Let's start with a protein sequence for which we would like to know what it is. 
+Let's start with a protein sequence for which we would like to know what it is. **#! rewrite this sentence**
 
+``````{exercise} command-line BLAST a protein sequence
+Using the command `cp`, copy the file `proteinX.fasta` from the `/mnt/local_scratch/BIF21806` directory to your `day1_2` directory.
 
+Inspect the file with `less` to see that it contains one protein sequence in FASTA format. 
 
+We will search for it in the human protein sequences from the SwissProt database. SwissProt contains high-quality manually annotated and reviewed protein sequences **#! add reference https://www.uniprot.org/help/uniprotkb_sections here**.
+
+Copy the file `sp_human_single_line.fasta` from `/mnt/local_scratch/BIF21806` to your `day1_2` directory.
+
+Create a BLAST database of the `sp_human_single_line.fasta` file using: 
+
+```{code-block} bash
+:class: no-copybutton
+makeblastdb -in sp_human_single_line.fasta -out sp_human
+```
+
+This should create a BLAST database called sp_human, but something is still missing. Look in the options for `makeblastdb` to solve the problem:
+```{code-block} bash
+:class: no-copybutton
+makeblastdb -help
+```
+
+When you've found the right option, make the BLAST database with the corrected command.
+
+The BLAST command-line programs come is several flavors, depending on whether you want to search protein or nucleotide sequences, in a protein or a nucleotide database **#! reference to itb? https://wur-bioinformatics.github.io/introduction-to-bioinformatics/chapter2/#blast-types**. In this case we want to search a protein database for a protein sequence, which requires `blastp`.
+
+First, to get an overview of the options, run:
+
+```{code-block} bash
+:class: no-copybutton
+blastp -help
+```
+
+**What is the option to provide the query FASTA file?** \
+**What is the option to provide the name of the database?**\
+**What is the option to specify the name of the output file?**
+
+Run `blastp` with the appropriate parameters for the three options mentioned above, call the output file: `proteinX.blast`
+
+Use the `less` command to view the output file. 
+
+**What is proteinX?**
+
+Now run `blastp` again , but change the output file name to `proteinX.html` and add the option `-html`.
+
+The resulting file can be viewed in a web browser, so let's copy it over to your own computer. The easiest way to do that is to use the `scp` command on your computer:
+
+```{code-block} bash
+:class: no-copybutton
+scp smith:~/exercises/week1/day1_2/proteinX.html .
+```
+
+Locate the file on your computer and open it with a web browser.
+
+Congratulations, you completed your first command-line bioinformatics analysis! 🎉
+``````
+
+**#! should be mentioned earlier imo**
+(use the up-arrow key to scroll through your command-
+line history until you find the command)
 
 ## Glossary
 ```{glossary}
