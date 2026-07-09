@@ -23,6 +23,8 @@ In this section, you will connect to a remote server running on Linux, you will 
 - Chapter 1.1 What is Unix?
 - Chapter 1.2 Why Use Unix and the Shell?
 ```
+*#! should we explain hardware and software maybe?*
+
 An {term}`operating system` (OS) is the software that manages computer hardware and software resources of computing devices and acts as an interface between the user and hardware [@geeksforgeeks_introduction_operating]. More simply put, an operating system acts as a bridge between you (the user) and your computer, illustrated in {numref}`operating_system`. 
 
 
