@@ -3,25 +3,27 @@ title: Introduction to computing / Linux
 label: intro_to_comnputing
 abbreviations:
     BLAST: Basic Local Alignment Search Tool
+    RAM: Random Access Memory
+bibliography:
+    intro_to_computing.bib
 ---
 
-## Introduction
-In this section, we will connect to a remote server running on Linux and we will explore various computational concepts in a hands-on way.
-
 ```{important} Learning outcomes
-:icon: false
-
 After completing this section you should be able to:
-- explain fundamental computational concepts like CPU, memory, network, file system compression, indexing
+- explain fundamental computational concepts like CPU, memory, network, file system, compression, indexing
 - be proficient in command line (shell) usage **#!this should be more specified I think**
 ```
 
+## Introduction
+In this section, you will connect to a remote server running on Linux, you will explore various computational concepts in a hands-on way and run your first bioinformatics command-line tool.
+
+
 ## Operating systems
-```{seealso}
-Computing Skills for Biologists - a Tool box
-**Ch1.1** and **1.2**
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.1 What is Unix?
+- Chapter 1.2 Why Use Unix and the Shell?
 ```
-An {term}`operating system`(OS) is the software that manages computer hardware and software resources of computing devices and acts as an interface between the user and hardware, illustrated in {numref}`operating_system`. More simply put, an operating system acts as a bridge between you (the user) and your computer. 
+An {term}`operating system` (OS) is the software that manages computer hardware and software resources of computing devices and acts as an interface between the user and hardware [@geeksforgeeks_introduction_operating]. More simply put, an operating system acts as a bridge between you (the user) and your computer, illustrated in {numref}`operating_system`. 
 
 
 :::{figure}
@@ -95,37 +97,51 @@ Some operating systems you might be familiar with:
 - Chrome OS
 
 
-In this course, we will use Linux. It was created by Linus Torvalds **#!wiki links?** and has various advantages:
+In this course, we will use [Linux](wiki:linux). It was created by [Linus Torvalds](wiki:linus_torvalds) and has various advantages:
 - Linux has a powerful (remote) shell
 - Linux has many software tools available
 - Supercomputers run Linux
 
 The Linux {term}`kernel` is typically bundled with several applications into a Linux distribution to make it more user friendly. You can choose between a lot of different distributions for different purposes, for an overview see: [Linux distribution](wiki:Linux_distribution). 
 
-We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called **#!smith, still correct?**, named after bioinformatician Temple Ferris Smith, who developed the Smith-Waterman algorithm for DNA sequence alignment together with Michael Waterman.
+We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called smith. *#! still correct?*
 
-**#!additional funfact card? for the smith-waterman reference**
+:::{margin}
+The smith server is named after bioinformatician Temple Ferris Smith, who developed the Smith-Waterman algorithm for DNA sequence alignment together with Michael Waterman.
+:::
 
-## Working on a remote server
-**#! include "working on the bioinformatics servers picture in slide 18?**
 
-Now we will connect to the server **#! server name**. 
+## Computational concepts
+We will now introduce some fundamental computational concepts. *#! add why?*
 
-```{exercise} Connecting to **#! server name** from ...
-Follow the “Connecting to **#! server name** from ...” description on Brightspace that is appropriate for your operating system (Windows or macOS). If you have another OS, ask one of the teachers.
+### Network
+A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer network that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **smith**. Hostnames can have a domain: smith.**bioinformatics\.nl**.
+
+There are different communication protocols between devices, which each use a different network port, depending on the application:
+- http/https for the web
+- smtp for email
+- ssh for remote computing
+
+*#! include "working on the bioinformatics servers picture in slide 18?*
+
+Now we will connect to the server *#! server name*. 
+
+```{exercise} Connecting to *#! server name* from ...
+Follow the "Connecting to *#! server name* from ..." description on BrightSpace that is appropriate for your operating system (Windows or macOS). If you have another OS, ask one of the teachers.
 ```
 
-**#! Restructure this so it flows more logically**
-If everything worked out well and you logged in to **#! server name**, you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` looks something like this:
+If everything worked out well and you logged in to *#! server name*, you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` [@techtarget_command_prompt]. It looks something like this:
 
-`user001@server:~$` **#! change to image?**
+
+```{code-block} bash
+user001@server:~$
+```
 
 This is the {term}`command-line interface` that allows you to type all kinds of commands. The commands you type are actually handled by the {term}`shell`.
 
 
-
 ``````{exercise} Who am I?
-You are now a Linux user identified by your WUR username. To see your username you can type `whoami` after the {term}`prompt`, followed by the enter key. For example:
+You are now a Linux user identified by your WUR username. To see your username you can type `whoami` after the {term}`prompt`, followed by the {kbd}`enter`. For example:
 
 ```{code-block} bash
 :class: no-copybutton
@@ -143,10 +159,13 @@ user001@smith:~$ who
 ```
 This will give you a list of usernames. 
 
-Do you already recognize some of your fellow students or teachers? 
-
-The bioinformatics servers have over one hundred active users from various research groups (Bioinformatics, Genetics, Biosystematics, Plant Physiology, Phytopathology, Host-microbe interactomics, Nematology, Virology and Wageningen Food & Biobased Research).
+ **Do you already recognize some of your fellow students or teachers?**
 ``````
+
+```{margin}
+The bioinformatics servers have over one hundred active users from various research groups (Bioinformatics, Genetics, Biosystematics, Plant Physiology, Phytopathology, Host-microbe interactomics, Nematology, Virology and Wageningen Food & Biobased Research).
+```
+
 
 ``````{exercise} What is the name of the person associated with a username?
 To learn the name of the person associated with a username there is another
@@ -158,19 +177,16 @@ user001@smith:~$ finger nijve002
 ```
 ``````
 
-The part after the command, `nijve002` in this case, is called an {term]`argument`, which specifies what the command should operate on.
+The part after the command, `nijve002` in this case, is called an {term}`argument`, which specifies what the command should operate on.
 
-
-## Computational concepts
-We will now introduce some fundamental computational concepts. **#! add why?**
 
 ### CPU, GPU and memory
-The Central Processing Unit, {term}`CPU` or processor, is the brain of the computer and performs most of the calculations. Additionally, its functions are: running applications, managing input and output operations, and storing and retrieving data during processing. Modern computers often have two or more, whereas multi-user computers (servers) often have sixteen or more. A CPU has limited capacity (100% CPU usage). To run programs in parallel, it has multiple cores/threads.
+The Central Processing Unit, {term}`CPU` or processor, is the brain of the computer and performs most of the calculations. Additionally, its functions are: running applications, managing input and output operations, and storing and retrieving data during processing [@geeksforgeeks_cpu]. Modern computers often have two or more, whereas multi-user computers (servers) often have sixteen or more. A CPU has limited capacity (100% CPU usage). To run programs in parallel, it has multiple cores/threads.
 
 The Graphical Processing Unit, {term}`GPU` or video card, is a specialized processor that is optimized for doing the same calculation on many data points (in parallel). To perform like this, it has thousands of small cores. It was originally developed for computer graphics (video games), but it is now extensively used for machine learning applications (like ChatGPT). GPUs are very good at performing many operations simultaneously,
 which can drastically speed up matrix calculations that are at the heart of most machine learning tasks.
 
-A {term}`byte` is a unit of computer information consisting of a number of {term}`bit`s. It is how the amount of data amount of data that can be stored, processed, or transferred in a computer system is represented. 
+A {term}`byte` is a unit of computer information consisting of a number of {term}`bit`s. It is how the amount of data amount of data that can be stored, processed, or transferred in a computer system is represented [@geeksforgeeks_memory]. 
 
 ```{list-table} Multiple-byte units
 :header-rows: 1
@@ -210,9 +226,9 @@ A {term}`byte` is a unit of computer information consisting of a number of {term
   - PiB
 ```
 
-The {term}`memory`, or Random Access Memory (RAM), is used by programs to temporarily store information (data). Because it is temporary, it is not persistent and the data contained here is lost when power is shut off. However, it is much faster than a hard disk (long-term memory): 20-80 GB/s. A computer often has a memory in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications need over 1 TB. If the memory is full, the hard disk is used as "overflow". This is called swapping and is very slow.
+The {term}`memory`, or RAM, is used by programs to temporarily store information (data). Because it is temporary, it is not persistent and the data contained here is lost when power is shut off. However, it is much faster than a hard disk (long-term memory): 20-80 GB/s. A computer often has a memory in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications need over 1 TB. If the memory is full, the hard disk is used as "overflow". This is called swapping and is very slow.
 
-Now, let’s have a look at the server.
+Now, let's have a look at the server.
 
 ``````{exercise} What is the server doing?
 Run the command `htop` to see what the server is doing and how much memory it has. The bars at the top show the
@@ -223,12 +239,11 @@ individual CPUs, numbered starting at 1. Below that you can see how much memory 
 user001@smith:~$ htop
 ```
 
-**How many CPUs does the server have?**
-
+**How many CPUs does the server have?** \
 **How much memory does the server have?**
 
-In addition to the CPU and memory use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The **Load average**  **#! is this a term?** tells you how busy the server is, as a rule of thumb the number indicates how many of the CPUs are being used, if the Load average is higher than the number of CPUs then the server is overloaded and will run less efficiently. 
-**#! should this be in this exc block?**
+In addition to the CPU and memory use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The **Load average**  *#! is this a term?* tells you how busy the server is. As a rule of thumb the number indicates how many of the CPUs are being used, if the Load average is higher than the number of CPUs then the server is overloaded and will run less efficiently. 
+*#! should this be in this exc block?*
 
 You can exit `htop` by pressing the {kbd}`F10` key or {kbd}`q`
 ``````
@@ -267,15 +282,16 @@ The numbers you see can be a bit (byte?) confusing. To tell `free` to report the
 free -h
 ```
 ``````
-
-Doudna is named after Jennifer Doudna, who won the Nobel prize in Chemistry for her pioneer work on CRISPR gene editing. **#! funfact admonition? no I think margin or footnote is better**
+```{margin}
+Doudna is named after Jennifer Doudna, who won the Nobel prize in Chemistry for her pioneer work on CRISPR gene editing.
+```
 
 Similar to {term}`argument`s, {term}`option`s can be used to modify the behavior of command-line tools like `free`. Options are different from arguments in that they start with a hyphen (dash), such as `-h` in the `free` command. To make things a bit more confusing, options can have their own arguments, as we will see below.
-**#! might can be epxlained better with f.e. `command [-flag(s)] [-option(s) [value]] [argument(s)]`**
+*#! might can be epxlained better with f.e. `command [-flag(s)] [-option(s) [value]] [argument(s)]`* [@uofabioinformaticshub_linux]
 
 
 ``````{exercise} GPUs on the doudna server
-The doudna server has a couple of {term}`GPU`s. To see the GPUs in action, run the nvtop command:
+The doudna server has a couple of {term}`GPU`s. To see the GPUs in action, run the `nvtop` command:
 
 ```{code-block} bash
 :class: no-copybutton
@@ -289,7 +305,7 @@ The company making these GPUs is currently one of the World's most valuable comp
 Leave doudna to come back to smith by either running `exit` or using {kbd}`Ctrl`+{kbd}`d`.
 ``````
 
-Back on smith, let’s have a look at the data storage locations.
+Back on **smith**, let's have a look at the data storage locations.
 
 ``````{exercise} Data storage
 The `df` command shows the available disks and their sizes. If you run it, you will get quite a long list. With some {term}`option`s we can filter the list:
@@ -316,7 +332,7 @@ man df
 ```
 ``````
 
-The server also has access to a number of disks that are on a different server, so-called mounted drives **#! term or foot-note?**. These are available on all our servers, so we can easily move an analysis to another server without having to move the data.
+The server also has access to a number of disks that are on a different server, so-called mounted drives *#! term or foot-note?*. These are available on all our servers, so we can easily move an analysis to another server without having to move the data.
 
 ``````{exercise} Storage on mounted drives
 Every user on a Linux server has a home directory in which they can store files. The home directories for all our users are on one of these mounted drives:
@@ -333,6 +349,9 @@ df -h /lustre/BIF
 ``````
 
 ### File system
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.3 Getting Started with Unix
+```
 The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different file systems exist, differing in:
 - maximum file size
 - security
@@ -401,6 +420,10 @@ user001@smith:~$ man ls
 ```
 ``````
 
+```{tip}
+Use the {kbd}`↑` (up-arrow) to scroll through your command-line history.
+```
+
 You can think of the directory structure in Linux as a tree with a root and a lot of
 branches extending from this root ({numref}`file_system_structure`). 
 
@@ -424,7 +447,7 @@ Use `ls` to see the files, most are programs that you can run.
 
 ```{code-block} bash
 :class: no-copybutton
-user001@smith:~$
+user001@smith:~$ ls
 ```
 
 Also, the program that handles all your commands, the {term}`shell`, is located here: `/bin/bash`
@@ -432,7 +455,7 @@ Also, the program that handles all your commands, the {term}`shell`, is located 
 
 
 
-``````{exercise} Listing everything that matches a pattern **#! idk**
+``````{exercise} Listing everything that matches a pattern *#! idk*
 Another location for useful programs is `/usr/bin`. To only list the programs in `/usr/bin` for which the filename starts with 'bla', run: 
 ```{code-block} bash
 :class: no-copybutton
@@ -544,14 +567,27 @@ mkdir -p exercises/week1/day1_2
 ``````
 
 
-### Compression
-Text data is usually not stored efficiently in a file system. For example, A text file with 1,000,000 times the letter 'a' will take up 1,000,000 bytes of disk space (1 megabyte). To save space and network transfer time, data files are often compressed (zipped) using clever algorithms. 
+### I/O (Input/Output) and compression
+The {term}`input` of a program is the source of incoming information (data). For example:
+- Your keyboard
+- A file
+- A network
+- Memory
 
+The {term}`output` is the destination of the outgoing information. For example:
+- Your screen
+- A file
+- A network
+- Memory
+
+The I/O can be a performance bottleneck for computations.
+
+Text data is usually not stored efficiently in a file system. For example, a text file with 1,000,000 times the letter 'a' will take up 1,000,000 {term}`byte`s of disk space (1 megabyte). To save space and network transfer time, data files are often compressed (zipped) using clever algorithms. 
 
 Compressed files:
 - are much smaller
 - cannot be used directly, must be uncompressed (unzipped)
-- typically have file name extensions like: .zip or .gz
+- typically have file name extensions like: `.zip` or `.gz`
 
 
 ``````{exercise} Working with text: DNA sequence of human chromosome 22
@@ -618,8 +654,6 @@ For most text files on a Linux system, one character takes up exactly one byte.
 **Now what is the ratio of bytes per nucleotide?**
 ``````
 
-**#! should this be in a new header? for example Working with text files**
-
 Reading text files on a Linux system can be done with a number of programs, from the very simply `cat` and `more`, to more versatile text editors like `nano` and `vim`. Especially `vim` is quite powerful, but also very challenging to use.
 
 ``````{exercise} Accounting for all bytes in the file: DNA sequence of human chromosome 22
@@ -630,7 +664,7 @@ To view the uncompressed file, we will use the program `less`, which deceptively
 less Homo_sapiens.GRCh38.dna.chromosome.22.fa
 ```
 
-The text file starts with a description line, followed by many lines with the actual sequence. This follows the so-called FASTA format **#! this wiki link does not work** for sequence files (hence the `.fa` filename extension)
+The text file starts with a description line, followed by many lines with the actual sequence. This follows the so-called [FASTA format](wiki:fasta_format) for sequence files (hence the `.fa` filename extension)
 
 Looking at the nucleotides in the first lines of the sequence, you may notice that these are not informative, the same goes for the last part of the sequence (jump to the end of the file with the {kbd}`Shift`+{kbd}`g` combination and back to the top with just the {kbd}`g`). Apparently, the telomeric ends of the chromosome are not very well characterized.
 
@@ -638,7 +672,7 @@ Let's try to account for all bytes in the FASTA file. The bulk of the file consi
 
 **What is the difference?**
 
-What is taking up these remaining bytes? As a clue, let's count the lines of the file.
+**What is taking up these remaining bytes?** As a clue, let's count the lines of the file.
 
 First exit `less` by pressing {kbd}`q` and then use the `wc` program like this:
 ```{code-block} bash
@@ -647,7 +681,7 @@ wc -l Homo_sapiens.GRCh38.dna.chromosome.22.fa
 ```
 **Do you recognize the number?**
 
-How does less know when to break to the next line? That information is stored in the text file, in the form of a hidden character, which can be visualized like this (for the first 200 characters of the file):
+How does `less` know when to break to the next line? That information is stored in the text file, in the form of a hidden character, which can be visualized like this (for the first 200 characters of the file):
 ```{code-block} bash
 :class: no-copybutton
 od -c -N 200 Homo_sapiens.GRCh38.dna.chromosome.22.fa
@@ -661,42 +695,56 @@ Now we are finished with the chromosome 22 file, you can remove it to save space
 :class: no-copybutton
 rm Homo_sapiens.GRCh38.dna.chromosome.22.fa
 ```
-
 ``````
-
 
 ```{attention}
 Removing a file on a Linux file system is irreversible, without an undo option.
-**#! I would add that it is better to first check whether the path you are selecting to remove only contains the files you want to remove by running `ls` first before running `rm`**
+*#! I would add that it is better to first check whether the path you are selecting to remove only contains the files you want to remove by running `ls` first before running `rm`*
 ```
 
-Network
 
+### Indexing
+An {term}`index` can help to quickly find some information in a large file, like an index at the end of a book. Usually, the index of a file is stored in a separate file. The structure depends on the kind of data that is indexed. It is mainly created and used by computer programs. 
 
+One application is to make a genome of an organism better searchable, as was done for the plant *Arabidopsis thaliana* in {numref}`index_a_thaliana`.
 
-I/O
+```{list-table} Index of a file with the genome of *Arabidopsis thaliana*
+:header-rows: 1
+:name: index_a_thaliana
+* - Name
+  - Length (bases)
+  - Offset (bytes)
+* - Chr1 
+  - 30427671 
+  - 55
+* - Chr2 
+  - 19698289 
+  - 30934909
+* - Chr3 
+  - 23459830 
+  - 50961558
+* - Chr4 
+  - 18585056 
+  - 74812441 
+* - Chr5 
+  - 26975502 
+  - 93707303
+```
 
-
-
-Indexing
-
-
-## Using BLAST from the command-line
-Let's do some biology on the command-line. One of the most used programs in bioinformatics is called BLAST.
+Now, let's do some biology on the command-line. One of the most used programs in bioinformatics is called BLAST.
 
 With BLAST you can search for a protein or nucleotide sequence in a database of known sequences. It does not only find exact matches, but also similar sequences. This allows you to look for homologous sequences. These are
 sequences that originate from the same ancestral gene, for instance the human hemoglobin beta and delta proteins have a very similar amino acid sequence.
 
-BLAST is extensively covered in the Introduction to Bioinformatics **#! link to course webpage** course. Most researchers will use BLAST via the [NCBI website](https://blast.ncbi.nlm.nih.gov/Blast.cgi), which works fine for a few sequences. If you have a lot of protein or nucleotide sequences that you want to search, using BLAST from the command-line is more efficient. 
+BLAST is extensively covered in the [Introduction to Bioinformatics](https://wur-bioinformatics.github.io/introduction-to-bioinformatics/chapter2/#blast) course. Most researchers will use BLAST via the [NCBI website](https://blast.ncbi.nlm.nih.gov/Blast.cgi), which works fine for a few sequences. If you have a lot of protein or nucleotide sequences that you want to search, using BLAST from the command-line is more efficient. 
 
-Let's start with a protein sequence for which we would like to know what it is. **#! rewrite this sentence**
 
 ``````{exercise} command-line BLAST a protein sequence
 Using the command `cp`, copy the file `proteinX.fasta` from the `/mnt/local_scratch/BIF21806` directory to your `day1_2` directory.
 
 Inspect the file with `less` to see that it contains one protein sequence in FASTA format. 
 
-We will search for it in the human protein sequences from the SwissProt database. SwissProt contains high-quality manually annotated and reviewed protein sequences **#! add reference https://www.uniprot.org/help/uniprotkb_sections here**.
+We will search for it in the human protein sequences from the SwissProt database. SwissProt contains high-quality manually annotated and reviewed protein sequences [@uniprot_2022].
 
 Copy the file `sp_human_single_line.fasta` from `/mnt/local_scratch/BIF21806` to your `day1_2` directory.
 
@@ -713,9 +761,9 @@ This should create a BLAST database called sp_human, but something is still miss
 makeblastdb -help
 ```
 
-When you've found the right option, make the BLAST database with the corrected command.
+When you've found the right option, make the BLAST database with the corrected command. The database uses an {term}`index` to find sequences faster.
 
-The BLAST command-line programs come is several flavors, depending on whether you want to search protein or nucleotide sequences, in a protein or a nucleotide database **#! reference to itb? https://wur-bioinformatics.github.io/introduction-to-bioinformatics/chapter2/#blast-types**. In this case we want to search a protein database for a protein sequence, which requires `blastp`.
+The BLAST command-line programs come is several [flavors](https://wur-bioinformatics.github.io/introduction-to-bioinformatics/chapter2/#blast-types), depending on whether you want to search protein or nucleotide sequences, in a protein or a nucleotide database. In this case we want to search a protein database for a protein sequence, which requires `blastp`.
 
 First, to get an overview of the options, run:
 
@@ -748,9 +796,7 @@ Locate the file on your computer and open it with a web browser.
 Congratulations, you completed your first command-line bioinformatics analysis! 🎉
 ``````
 
-**#! should be mentioned earlier imo**
-(use the up-arrow key to scroll through your command-
-line history until you find the command)
+
 
 ## Glossary
 ```{glossary}
@@ -801,5 +847,17 @@ relative path
 
 compression
 : Reducing the size of a data file to save space and network transfer time.
+
+network
+: Connects different computers together.
+
+input
+: The source of incoming information (data).
+
+output
+: The destination of the outgoing information (data).
+
+index
+: A data structure that stores and organizes information within a file in such a way that it is easy to find.
 ```
 
