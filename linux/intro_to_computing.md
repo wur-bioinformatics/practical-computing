@@ -1,6 +1,8 @@
 ---
 title: Introduction to computing / Linux
 label: intro_to_comnputing
+abbreviations:
+    BLAST: Basic Local Alignment Search Tool
 ---
 
 ```{important} Learning outcomes
@@ -679,6 +681,15 @@ I/O
 Indexing
 
 
+## Using BLAST from the command line
+Let's do some biology on the command-line. One of the most used programs in bioinformatics is called BLAST.
+
+With BLAST you can search for a protein or nucleotide sequence in a database of known sequences. It does not only find exact matches, but also similar sequences. This allows you to look for homologous sequences. These are
+sequences that originate from the same ancestral gene, for instance the human hemoglobin beta and delta proteins have a very similar amino acid sequence.
+
+BLAST is extensively covered in the Introduction to Bioinformatics **#! link to course webpage** course. Most researchers will use BLAST via the [NCBI website](https://blast.ncbi.nlm.nih.gov/Blast.cgi), which works fine for a few sequences. If you have a lot of protein or nucleotide sequences that you want to search, using BLAST from the command-line is more efficient. 
+
+Let's start with a protein sequence for which we would like to know what it is. 
 
 
 
@@ -733,3 +744,4 @@ relative path
 compression
 : Reducing the size of a data file to save space and network transfer time.
 ```
+
