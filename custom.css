@@ -1,0 +1,4 @@
+/* Hides the copy button in MyST CLI code blocks */
+.no-copybutton button {
+    display: none !important;
+}
