@@ -117,6 +117,9 @@ We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the
 We will now introduce some fundamental computational concepts. *#! add why?*
 
 ### Network
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.3 Getting Started with Unix
+```
 A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **smith**. Hostnames can have a domain: smith.**bioinformatics\.nl**.
 
 There are different communication protocols between devices, which each use a different network port, depending on the application:
@@ -133,7 +136,6 @@ Follow the "Connecting to [[SERVER_NAME]] from ..." description on BrightSpace t
 ```
 
 If everything worked out well and you logged in to [[SERVER_NAME]], you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` [@techtarget_command_prompt]. It looks something like this:
-
 
 ```{code-block} bash
 user001@server:~$
@@ -341,7 +343,8 @@ df -h /lustre/BIF
 
 ### File system
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.3 Getting Started with Unix
+- Chapter 1.4 Getting Started with the Shell
+- Chapter 1.5 Basic Unix Commands
 ```
 The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file system`s exist, differing in:
 - maximum file size
