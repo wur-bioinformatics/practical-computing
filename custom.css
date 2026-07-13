@@ -2,3 +2,15 @@
 .no-copybutton button {
     display: none !important;
 }
+
+/* Change the appearance of hover links (like glossary terms) */
+a.hover-link[href^="#term-"] {
+    color: #3f8148 !important; 
+    text-decoration: none !important; 
+    text-decoration-line: none !important;
+}
+
+/* Optional: Slight color change on hover */
+a.hover-link:hover[href^="#term-"] {
+    color: #3d5840 !important; 
+}
