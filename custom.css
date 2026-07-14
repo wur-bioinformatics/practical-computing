@@ -14,3 +14,50 @@ a.hover-link[href^="#term-"] {
 a.hover-link:hover[href^="#term-"] {
     color: #3d5840 !important; 
 }
+
+/* Custom inline text colors */
+.red-text {
+    color: #fb0c0c !important;
+}
+
+/* Initialize the example counter for the page */
+body {
+    counter-reset: example-counter;
+}
+
+/* Increment the counter every time our custom class appears */
+article .myst-example, 
+main .myst-example {
+    counter-increment: example-counter;
+}
+
+/* Inject 'Example X: ' automatically into the title with proper spacing */
+.myst-example .myst-admonition-title::before,
+.myst-example header::before,
+.myst-example > p:first-child::before,
+.myst-example > div:first-child::before {
+    content: "Example: ";
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* MAIN TEXT BEHAVIOR: Override the default and add the actual number when in the main text */
+article .myst-example .myst-admonition-title::before,
+article .myst-example header::before,
+article .myst-example > p:first-child::before,
+article .myst-example > div:first-child::before,
+main .myst-example .myst-admonition-title::before,
+main .myst-example header::before,
+main .myst-example > p:first-child::before,
+main .myst-example > div:first-child::before {
+    content: "Example " counter(example-counter) ": ";
+}
+
+/* Highlights regex matches with coloured text and a colored underline */
+.regex-match {
+    color: #fb0c0c !important; /* This colors the text itself red */
+    text-decoration: underline;
+    text-decoration-color: #fb0c0c !important; 
+    text-decoration-thickness: 2.2px; 
+    text-underline-offset: 2.5px; 
+}
