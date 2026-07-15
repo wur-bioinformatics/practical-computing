@@ -1,6 +1,6 @@
 ---
 title: Introduction to computing / Linux
-label: intro_to_comnputing
+label: intro_to_computing
 abbreviations:
     BLAST: Basic Local Alignment Search Tool
     RAM: Random Access Memory
