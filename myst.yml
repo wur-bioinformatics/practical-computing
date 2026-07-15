@@ -22,7 +22,6 @@ project:
     - title: Python
     - file: data_analysis/data_analysis_intro.md
     - title: Data Analysis
-
 site:
   template: book-theme
   options:
