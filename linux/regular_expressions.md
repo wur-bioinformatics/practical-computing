@@ -197,7 +197,7 @@ The blueberries are eaten by the <span class="regex-match">bear.</span>
 
 ```{exercise}
 :label: escape_backslash
-The backslash '`\`' is also a metacharacter.
+The backslash '`\`' is also a {term}`metacharacter`.
 
 **How would you {term}`escape` the backslash?**
 ```
@@ -212,7 +212,7 @@ You can {term}`escape` the backslash by using another backslash: \
 ```{seealso} Computing Skills for Biologists - a Tool box
 - Chapter 5.4.4 Quantifiers
 ```
-Instead of using `\w\w` in the previous examples (*#!refer to all?*), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in {numref}`quantifiers_table`.
+Instead of using `\w\w` in the previous examples ({numref}`Example %s <pattern_matching_example_1>`, {numref}`Example %s <pattern_matching_example_2>`, {numref}`Example %s <escaping_wrong_example>`, {numref}`Example %s <escaping_correct_example>`), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in {numref}`quantifiers_table`.
 
 ```{list-table} Quantifiers
 :header-rows: 1
@@ -479,5 +479,5 @@ greedy
 : the pattern will return the longest possible match.
 
 group
-: set of characters that is captured by the pattern and can be returned or replaced.
+: group of characters that is captured by the pattern and can be returned or replaced.
 ```
