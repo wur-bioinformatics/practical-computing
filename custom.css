@@ -39,6 +39,7 @@ main .myst-example {
     content: "Example: ";
     font-weight: bold;
     margin-left: 10px;
+    margin-right: 1px;
 }
 
 /* MAIN TEXT BEHAVIOR: Override the default and add the actual number when in the main text */
@@ -51,6 +52,8 @@ main .myst-example header::before,
 main .myst-example > p:first-child::before,
 main .myst-example > div:first-child::before {
     content: "Example " counter(example-counter) ": ";
+    white-space: nowrap;      /* Prevents the text from wrapping to a new line */
+    display: inline-block;    /* Ensures it behaves like a solid block alongside the title */
 }
 
 /* Highlights regex matches with coloured text and a colored underline */
