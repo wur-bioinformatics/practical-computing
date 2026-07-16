@@ -27,8 +27,6 @@ Input/Output streams of Linux command-line
 
 The stdin of a program is often your keyboard or a file. This is the input that you want the program to act upon. The stdout is by default the terminal screen, but some programs include an {term}`option` to redirect the output to a file. This is the output created by the program. The stderr is by default the terminal screen. This is the stream where error messages are directed towards. [@ibm_aix_2025; @nazeer_standard_2024; @geeksforgeeks_shell_nodate]
 
-
-
 ### Redirection
 If a tool does not have the {term}`option` to redirect to a file, you can use the `>` symbol ({numref}`Example %s <redirect_example>`).
 ``````{admonition} Redirecting output to a file
@@ -397,6 +395,92 @@ Because `tr` only takes input from standard input, we used `echo` to direct the 
 
 
 ### awk
+`awk` is a text processor or manipulator [@turner_intro_2021]. It works by searching for strings and then performing an action when it finds those strings. The usage can be described as: `'pattern {action}'`. The `pattern` describes what lines `awk` should act upon and the `action` describes what should be done when the lines are found. The full `awk` program is wrapped in single quotes (`''`). 
+
+`awk` uses the `-F` {term}`option` to specify the field/column delimiter ({numref}`Example %s <awk_F_example>`). `awk` uses 1-based counting, though the `$0` means the whole line. 
+
+``````{admonition} Select lines where the longitude is greater than 13
+:name: awk_F_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+Here, we filter for lines that have a longitude (`$4`, field 4 is the location-long, or the longitude) greater than 13 (`> 13`).
+```{code-block} bash
+awk -F, '$4 > 13' crane_data.csv 
+```
+The first two lines of the output will be: 
+```{code-block} bash
+:class: no-copybutton
+event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,ground-speed,heading,tag-tech-spec,tag-voltage,sensor-type,individual-taxon-canonical-name,tag-local-identifier,individual-local-identifier,study-name
+250386109,true,2013-07-12 04:10:14.000,13.3524,57.33415,,,,,"",,"gps","Grus grus","8621","8621","GPS telemetry of Common Cranes, Sweden"
+```
+``````
+
+We can perform a filter using `'$n~/filter/'`, where `n` is the field/column number (`0` for whole line) and `filter` is the filter that we want to apply ({numref}`Example %s <awk_filter_example>`). The filter can be a {term}`Regular Expression`. 
+
+``````{admonition} Select lines with records on 12-10
+:name: awk_filter_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+The third field holds the date and time.
+```{code-block} bash
+awk -F, '$3~/12-10/' crane_data.csv
+```
+The first line of the output will be:
+```{code-block} bash
+:class: no-copybutton
+1119958195,true,2015-12-10 06:38:00.000,9.570068,53.259296,29.0,0.9,0.0,,"3",3.64,"gps","Grus grus","7558","7558","GPS telemetry of Common Cranes, Sweden"
+```
+``````
+
+Until now we have only searched for a pattern in {numref}`Example %s <awk_F_example>` and {numref}`Example %s <awk_filter_example>`. By default `awk` prints the whole line, which would be the same as the action `'{print $0}'`. Instead, we can also print parts of a line ({numref}`Example %s <awk_print_example>`).
+
+``````{admonition} Print the third field
+:name: awk_print_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+awk -F, '{print $3}' crane_data.csv
+```
+The first two lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+timestamp
+2013-07-12 04:10:14.000
+```
+``````
+
+Let's combine the search for a pattern and the action of printing a specific field in {numref}`Example %s <awk_full_example>`.
+
+``````{admonition} Print longitude of records on 12-10
+:name: awk_full_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+awk -F, '$3~/12-10/ {print $4}' crane_data.csv
+```
+The output will be:
+```{code-block} bash
+:class: no-copybutton
+9.570068
+9.623796
+9.637121
+9.637557
+9.636033
+9.635656
+9.638817
+9.63322
+```
+``````
+
+```{caution} When to use awk?
+For simple searches `grep` might be more suitable. However, when you want to find something and print something else, `awk` can be very powerful.
+```
 
 ### sed
 
