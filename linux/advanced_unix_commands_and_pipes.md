@@ -15,6 +15,7 @@ After completing this section you should be able to:
 ## Introduction
 In this section, you will learn about Input/Output streams, some advanced Linux command-line tools and how to connect them using pipelines. 
 
+(input-outputstreams)=
 ## Input/Output streams
 ### Standard input, standard output, standard error
 When running a program on the Linux command-line, you will always deal with the Input/Output streams: standard input (stdin), standard output (stdout), and standard error (stderr) ({numref}`io_streams`). 
@@ -524,29 +525,75 @@ The text-file is not edited in place, but the above output is printed to screen.
 
 
 ## Pipelines
+Now that we have seen some more advanced Linux commands, let's explore how we can combine them into pipelines. A pipeline is a string of commands for which the stdout of the previous command is the stdin of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
 
+To illustrate, we combined the commands from {numref}`Example %s <grep_redirect_example>` and {numref}`Example %s <wc_lines_example_2>` in {numref}`Example %s <pipeline_example>`. Now we don't have to create a separate text file and store it when we are only interested in the amount of entries in the FASTA file with 'sp' in the header.
 
-``````{admonition} <title>
+``````{admonition} Pipeline example
+:name: pipeline_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+cat plants.fasta | grep sp | wc –l
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+33851
+```
+The `plants.fasta` file is sent to `grep`, which only sends lines containing **sp** to the `wc` command, which in turn counts those lines. Thus, the output represents the amount of lines containing **sp**.
+``````
+
+The flow of {numref}`this <pipeline_example>` pipeline example is visualised in {numref}`fig_pipeline_example`.
+
+```{figure} img/pipeline_example.png
+:label: fig_pipeline_example
+
+Data stream of example pipeline with `cat`, `grep`, and `wc`.
+```
+
+For the next example ({numref}`Example %s <pipe_cut_sort_example>`), let's combine a `cut` command with a `sort` command.
+
+``````{admonition} Extract the third column of crane.csv and sort in reverse order
+:name: pipe_cut_sort_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+cat crane_data.csv | cut -d, -f3 | sort -r
+```
+The first five lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+timestamp
+2015-12-10 14:45:00.000
+2015-12-10 14:14:00.000
+2015-12-10 13:44:00.000
+2015-12-10 13:13:00.000
+```
+``````
+
+What if removed all newline characters from a file and counted the lines ({numref}`Example %s <tr_newline_example>`)?
+
+``````{admonition} Remove all newline characters from a file and count the lines
 :name: tr_newline_example
 :numbered: true
 :class: simple myst-example
 :icon: false
 
 ```{code-block} bash
-
+cat plants.fasta | tr '\n' ' ' | wc -l
 ```
-
+The output will be:
 ```{code-block} bash
 :class: no-copybutton
-
+0
 ```
-
+**Why do you think the output is `0`?** (Look at the usage of `wc -l`)
 ``````
 
 ## Practical
 
-## Glossary
-```{glossary}
-shell
-: Outermost layer of the operating system, acting as an intermediate between the user and the operating system.
-```
