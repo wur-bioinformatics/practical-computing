@@ -395,7 +395,9 @@ Because `tr` only takes input from standard input, we used `echo` to direct the 
 
 
 ### awk
-`awk` is a text processor or manipulator [@turner_intro_2021]. It works by searching for strings and then performing an action when it finds those strings. The usage can be described as: `'pattern {action}'`. The `pattern` describes what lines `awk` should act upon and the `action` describes what should be done when the lines are found. The full `awk` program is wrapped in single quotes (`''`). 
+`awk` is a text processor or manipulator [@turner_intro_2021]. It works by searching for strings and then performing an action when it finds those strings. The usage can be described as: \
+`'pattern {action}'`\
+The `pattern` describes what lines `awk` should act upon and the `action` describes what should be done when the lines are found. The full `awk` program is wrapped in single quotes (`''`). 
 
 `awk` uses the `-F` {term}`option` to specify the field/column delimiter ({numref}`Example %s <awk_F_example>`). `awk` uses 1-based counting, though the `$0` means the whole line. 
 
@@ -483,9 +485,42 @@ For simple searches `grep` might be more suitable. However, when you want to fin
 ```
 
 ### sed
+`sed` is short for **s**tream **ed**itor. It is used for filtering and transforming text. It takes text from either a file or standard input and returns the processed text to standard output. 
 
+The Find&Replace structure of the command is as follows: \
+`sed 's/search_pattern/replacement/' file.txt`
 
+`sed` support the usage of {term}`Regular Expressions <Regular Expression>` in the `search_pattern` part. 
 
+``````{admonition} Edit FASTA header line
+:name: sed_fasta_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+head -3 plants.fasta
+```
+```{code-block} bash
+:class: no-copybutton
+>sp|Q43495|108_SOLLC Protein 108 OS=Solanum lycopersicum PE=2 SV=1
+MASVKSSSSSSSSSFISLLLLILLVIVLQSQVIECQPQQSCTASLTGLNVCAPFLVPGSP
+TASTECCNAVQSINHDCMCNTMRIAAQIPAQCNLPPLSCSAN
+```
+Let's remove the first part of the header line by replacing it with nothing:
+
+```{code-block} bash
+sed 's/>.*|//' plants.fasta
+```
+The first three line of the output will be:
+```{code-block} bash
+:class: no-copybutton
+108_SOLLC Protein 108 OS=Solanum lycopersicum PE=2 SV=1
+MASVKSSSSSSSSSFISLLLLILLVIVLQSQVIECQPQQSCTASLTGLNVCAPFLVPGSP
+TASTECCNAVQSINHDCMCNTMRIAAQIPAQCNLPPLSCSAN
+```
+The text-file is not edited in place, but the above output is printed to screen.
+``````
 
 
 ## Pipelines
