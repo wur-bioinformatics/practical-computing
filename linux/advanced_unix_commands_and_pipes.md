@@ -17,13 +17,17 @@ In this section, you will learn about Input/Output streams, some advanced Linux 
 
 ## Input/Output streams
 ### Standard input, standard output, standard error
-When running a program on the Linux command-line, you will always deal with the Input/Output streams: standard input (stdin), standard output (stdout), and standard error (stderr) ({numref}`io_streams`). The stdin of a program is often your keyboard or a file. This is the input that you want the program to act upon. The stdout is by default the terminal screen, but some programs include an {term}`option` to redirect the output to a file. This is the output created by the program. The stderr is by default the terminal screen. This is the stream where error messages are directed towards. [@ibm_aix_2025; @nazeer_standard_2024; @geeksforgeeks_shell_nodate]
+When running a program on the Linux command-line, you will always deal with the Input/Output streams: standard input (stdin), standard output (stdout), and standard error (stderr) ({numref}`io_streams`). 
 
 ```{figure} img/input-output_streams.png
 :label: io_streams
 
 Input/Output streams of Linux command-line
 ```
+
+The stdin of a program is often your keyboard or a file. This is the input that you want the program to act upon. The stdout is by default the terminal screen, but some programs include an {term}`option` to redirect the output to a file. This is the output created by the program. The stderr is by default the terminal screen. This is the stream where error messages are directed towards. [@ibm_aix_2025; @nazeer_standard_2024; @geeksforgeeks_shell_nodate]
+
+
 
 ### Redirection
 If a tool does not have the {term}`option` to redirect to a file, you can use the `>` symbol ({numref}`Example %s <redirect_example>`).
@@ -47,17 +51,17 @@ Using the redirect symbol `>` will overwrite any contents of the file given, whi
 Now that you have mastered the basics of using the {term}`shell` in {numref}`intro_to_computing`, let's explore some more advanced command-line tools. The tools explored here are by no means an exhaustive list of Unix tools, but these tools are very useful for handling biological data (files). 
 
 ``````{caution} Remember how to search for help
-Part of mastering the command line shell is knowing how to search for help. Most tools have an extensive help page that is printed to screen when running, depending on the tool, either:
+Part of mastering the command line shell is knowing how to search for help. Most tools have a help page that is printed to screen when running (depending on the tool) either:
 ```{code-block} bash
-<tool_name> -h
+<tool> -h
 ```
 or
 ```{code-block} bash
-<tool_name> --help
+<tool> --help
 ```
 Alternatively, you can open the manual via:
 ```{code-block} bash
-man <tool_name>
+man <tool>
 ```
 ``````
 
@@ -192,7 +196,7 @@ ILNSPDRACNLAKQAFDEAISELDSLGEESYKDSTLIMQLLXDNLTLWTSDTNEDGGDEI
 :icon: false
 
 ```{code-block} bash
-grep -E "(.)\1{59}" plants.fasta –m1
+grep -E –m 1 "(.)\1{59}" plants.fasta 
 ```
 Will give the output:
 ```{code-block} bash
@@ -200,7 +204,6 @@ Will give the output:
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 ``````
-*#!`grep -E –m 1 "(.)\1{59}" plants.fasta` (in slide) does not run and gives me an error, I tried moving the -m option around but the only way it works as expected is as in the example*
 
 You can use {numref}`redirection <Redirection>` (`>`) to redirect the filtered lines to a file ({numref}`Example %s <grep_redirect_example>`)
 
@@ -231,7 +234,7 @@ Will give the output:
 :class: no-copybutton
   250177   565372 15617658 plants.fasta
 ```
-The output is the amount of lines, words, and byte counts for each file.
+The output is the amount of **lines**, **words**, and **byte counts** for each file.
 ``````
 
 To only count the amount of lines in a file, you can use the `-l` {term}`option` ({numref}`Example %s <wc_lines_example_1>`, {numref}`Example %s <wc_lines_example_2>`). 
@@ -270,6 +273,49 @@ Will give the output:
 
 
 ### cut
+With `cut` you can extract parts of lines in a file. It prints the selected parts of lines from a file or standard input to standard output. To specify what you want to select, you can use one of the {term}`options <option>`:
+- `-b` for bytes, select only these bytes
+- `-c` for characters, select only these characters ({numref}`Example %s <cut_c_example>`)
+- `-f` for fields, select only these fields/columns ({numref}`Example %s <cut_f_example>`). 
+
+It uses 1-based counting.
+
+``````{admonition} Extract the first 9 characters of crane_data.csv
+:name: cut_c_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+cut -c 1-9 crane_data.csv
+```
+The first 3 lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+event-id,
+250386109
+250386110
+```
+``````
+
+``````{admonition} Extract the first field of crane_data.csv
+:name: cut_f_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+`-d` sets field/column delimiter. The default is TAB.
+```{code-block} bash
+cut -d, -f1 crane_data.csv
+```
+The first 3 lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+event-id
+250386109
+250386110
+```
+``````
+
 
 ### sort
 
