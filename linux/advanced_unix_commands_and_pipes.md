@@ -356,8 +356,45 @@ event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,gr
 *#! this is different in the slides, there the header line is not shown*
 ``````
 
-
 ### tr
+With `tr`, you can translate characters from standard input and write to standard output ({numref}`Example %s <tr_dna_example>`, {numref}`Example %s <tr_case_example>`).
+
+``````{admonition} Translate DNA string into RNA string
+:name: tr_dna_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+echo ATGCATTAG | tr 'T' 'U'
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+AUGCAUUAG
+```
+``````
+
+``````{admonition} Make a string lowercase
+:name: tr_case_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+echo Hello World | tr 'A-Z' 'a-z'
+```
+
+```{code-block} bash
+:class: no-copybutton
+hello world
+```
+``````
+
+```{note}
+Because `tr` only takes input from standard input, we used `echo` to direct the strings in {numref}`Example %s <tr_dna_example>` and {numref}`Example %s <tr_case_example>` to stdin and the pipe (`|`) to redirect stdin to `tr`. This will be explained more extensively in {numref}`Pipelines`.
+```
+
 
 ### awk
 
@@ -368,6 +405,24 @@ event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,gr
 
 
 ## Pipelines
+
+
+``````{admonition} <title>
+:name: tr_newline_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+
+```
+
+```{code-block} bash
+:class: no-copybutton
+
+```
+
+``````
 
 ## Practical
 
