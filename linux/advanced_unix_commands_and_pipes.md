@@ -316,8 +316,46 @@ event-id
 ```
 ``````
 
-
 ### sort
+With `sort` you can write the sorted content of a file (or standard input) to standard output. You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ({numref}`Example %s <sort_k_example>`). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ({numref}`Example %s <sort_r_example>`)
+
+``````{admonition} Sort crane_data.csv on the third column
+:name: sort_k_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+sort -t, -k3,3 crane_data.csv 
+```
+The first 3 lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+250386109,true,2013-07-12 04:10:14.000,13.3524,57.33415,,,,,"",,"gps","Grus grus","8621","8621","GPS telemetry of Common Cranes, Sweden"
+250386110,true,2013-07-12 04:24:05.000,13.352072,57.333359,210.0,1.7,0.257,0.0,"3",4.18,"gps","Grus grus","8621","8621","GPS telemetry of Common Cranes, Sweden"
+250386111,true,2013-07-12 04:38:51.000,13.352212,57.333355,203.0,8.3,0.257,0.0,"3",4.18,"gps","Grus grus","8621","8621","GPS telemetry of Common Cranes, Sweden"
+```
+``````
+
+``````{admonition} Sort crane_data.csv on the third column in reverse order
+:name: sort_r_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+```{code-block} bash
+sort -t, -k3,3 -r crane_data.csv 
+```
+The first 3 lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,ground-speed,heading,tag-tech-spec,tag-voltage,sensor-type,individual-taxon-canonical-name,tag-local-identifier,individual-local-identifier,study-name
+1119958188,true,2015-12-10 14:45:00.000,9.63322,53.296234,35.0,3.8,0.0,,"3",3.65,"gps","Grus grus","7558","7558","GPS telemetry of Common Cranes, Sweden"
+1119958189,true,2015-12-10 14:14:00.000,9.638817,53.296185,34.0,1.4,2.0,,"3",3.65,"gps","Grus grus","7558","7558","GPS telemetry of Common Cranes, Sweden"
+```
+*#! this is different in the slides, there the header line is not shown*
+``````
+
 
 ### tr
 
