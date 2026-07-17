@@ -554,7 +554,7 @@ The flow of {numref}`this <pipeline_example>` pipeline example is visualised in 
 Data stream of example pipeline with `cat`, `grep`, and `wc`.
 ```
 
-For the next example ({numref}`Example %s <pipe_cut_sort_example>`), let's combine a `cut` command with a `sort` command.
+For the next example ({numref}`Example %s <pipe_cut_sort_example>`), let's combine a {ref}`cut` command with a {ref}`sort` command.
 
 ``````{admonition} Extract the third column of crane.csv and sort in reverse order
 :name: pipe_cut_sort_example
@@ -594,6 +594,43 @@ The output will be:
 ```
 **Why do you think the output is `0`?** (Look at the usage of `wc -l`)
 ``````
+
+Finally, let's combine {ref}`grep` and {ref}`sed` in a pipeline ({numref}`Example %s <pipe_grep_sed_example>`).
+
+``````{admonition} Extract all protein identifiers in plants.fasta
+:name: pipe_grep_sed_example
+:numbered: true
+:class: simple myst-example
+:icon: false
+
+If we are only interested in the header lines of a FASTA file we can filter on '>' with `grep`. 
+
+```{code-block} bash
+grep ">" plants.fasta
+```
+The first three lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+>sp|Q43495|108_SOLLC Protein 108 OS=Solanum lycopersicum PE=2 SV=1
+>sp|Q9XHP0|11S2_SESIN 11S globulin seed storage protein 2 OS=Sesamum indicum PE=2 SV=1
+>sp|P19084|11S3_HELAN 11S globulin seed storage protein G3 OS=Helianthus annuus GN=HAG3 PE=3 SV=1
+```
+
+Then we can extract just the protein identifier with `sed` as was done in {numref}`Example %s <sed_fasta_example>`.
+
+```{code-block} bash
+grep ">" plants.fasta | sed 's/>.*|//'
+```
+The first three lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+108_SOLLC Protein 108 OS=Solanum lycopersicum PE=2 SV=1
+11S2_SESIN 11S globulin seed storage protein 2 OS=Sesamum indicum PE=2 SV=1
+11S3_HELAN 11S globulin seed storage protein G3 OS=Helianthus annuus GN=HAG3 PE=3 SV=1
+```
+``````
+
+
 
 ## Practical
 
