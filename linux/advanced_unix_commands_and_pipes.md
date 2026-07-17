@@ -482,7 +482,7 @@ The output will be:
 ``````
 
 ```{caution} When to use awk?
-For simple searches `grep` might be more suitable. However, when you want to find something and print something else, `awk` can be very powerful.
+For simple searches {ref}`grep` might be more suitable. However, when you want to find something and print something else, `awk` can be very powerful.
 ```
 
 ### sed
@@ -491,7 +491,7 @@ For simple searches `grep` might be more suitable. However, when you want to fin
 The Find&Replace structure of the command is as follows: \
 `sed 's/search_pattern/replacement/' file.txt`
 
-`sed` support the usage of {term}`Regular Expressions <Regular Expression>` in the `search_pattern` part. 
+`sed` support the usage of {term}`Regular Expressions <Regular Expression>` in the `search_pattern` part ({numref}`Example %s <sed_fasta_example>`). 
 
 ``````{admonition} Edit FASTA header line
 :name: sed_fasta_example
@@ -513,7 +513,7 @@ Let's remove the first part of the header line by replacing it with nothing:
 ```{code-block} bash
 sed 's/>.*|//' plants.fasta
 ```
-The first three line of the output will be:
+The first three lines of the output will be:
 ```{code-block} bash
 :class: no-copybutton
 108_SOLLC Protein 108 OS=Solanum lycopersicum PE=2 SV=1
@@ -525,7 +525,7 @@ The text-file is not edited in place, but the above output is printed to screen.
 
 
 ## Pipelines
-Now that we have seen some more advanced Linux commands, let's explore how we can combine them into pipelines. A pipeline is a string of commands for which the stdout of the previous command is the stdin of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
+Now that we have seen some more advanced Unix commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the stdout of the previous command is redirected towards the stdin of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
 
 To illustrate, we combined the commands from {numref}`Example %s <grep_redirect_example>` and {numref}`Example %s <wc_lines_example_2>` in {numref}`Example %s <pipeline_example>`. Now we don't have to create a separate text file and store it when we are only interested in the amount of entries in the FASTA file with 'sp' in the header.
 
