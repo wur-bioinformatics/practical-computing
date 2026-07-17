@@ -1,4 +1,4 @@
-# Practical Computing for life Scientists
+# Practical Computing for Life Scientists
 
 ## Dev Installation
 ```{code} bash
