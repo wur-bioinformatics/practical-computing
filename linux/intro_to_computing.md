@@ -19,10 +19,7 @@ In this section, you will connect to a remote server running on Linux, you will 
 
 
 ## Operating systems
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.1 What is Unix?
-- Chapter 1.2 Why Use Unix and the Shell?
-```
+
 *#! should we explain hardware and software maybe?*
 
 An {term}`operating system` (OS) is the software that manages computer hardware and software resources of computing devices and acts as an interface between the user and hardware [@geeksforgeeks_introduction_operating]. More simply put, an {term}`operating system` acts as a bridge between you (the user) and your computer, illustrated in {numref}`operating_system`. 
@@ -112,7 +109,10 @@ We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the
 *#! update fun fact for relevant server*
 :::
 
-
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.1 What is Unix?
+- Chapter 1.2 Why Use Unix and the Shell?
+```
 ## Computational concepts
 We will now introduce some fundamental computational concepts. *#! add why?*
 
@@ -342,10 +342,6 @@ df -h /lustre/BIF
 ``````
 
 ### File system
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.4 Getting Started with the Shell
-- Chapter 1.5 Basic Unix Commands
-```
 The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file system`s exist, differing in:
 - maximum file size
 - security
@@ -534,7 +530,10 @@ Alternatively, you can create all three directories in one command using the `-p
 mkdir -p exercises/week1/day1_2
 ```
 ``````
-
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.4 Getting Started with the Shell
+- Chapter 1.5 Basic Unix Commands
+```
 
 ### I/O (Input/Output) and compression
 The {term}`input` of a program is the source of incoming information (data). For example:

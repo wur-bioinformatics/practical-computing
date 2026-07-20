@@ -29,9 +29,6 @@ Input/Output streams of Linux command-line
 The stdin of a program is often your keyboard or a file. This is the input that you want the program to act upon. The stdout is by default the terminal screen, but some programs include an {term}`option` to redirect the output to a file. This is the output created by the program. The stderr is by default the terminal screen. This is the stream where error messages are directed towards. [@ibm_aix_2025; @nazeer_standard_2024; @geeksforgeeks_shell_nodate]
 
 ### Redirection
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.6.1 Redirection and Pipes
-```
 If a tool does not have the {term}`option` to redirect to a file, you can use the `>` symbol ({numref}`Example %s <redirect_example>`).
 ``````{admonition} Redirecting output to a file
 :name: redirect_example
@@ -47,6 +44,10 @@ program > filename
 
 ```{caution} Be careful when using >
 Using the redirect symbol `>` will overwrite any contents of the file given, which cannot be undone. 
+```
+
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.6.1 Redirection and Pipes
 ```
 
 (Advanced_Unix_Commands)=
@@ -69,9 +70,6 @@ man <tool>
 ``````
 
 ### wget
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.9.3 Miscellaneous Commands
-```
 `wget` is a tool that can retrieve files from a URL ({numref}`Example %s <wget_example>`).
 
 ``````{admonition} Download a FASTA file
@@ -84,10 +82,11 @@ wget http://www.bioinformatics.nl/plants.fasta
 ```
 ``````
 
-### cat
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.5.2 Viewing and Processing Text Files
+- Chapter 1.9.3 Miscellaneous Commands
 ```
+
+### cat
 `cat` is a tool that prints the contents of a file (or standard input) to standard output (often the screen) ({numref}`Example %s <cat_example>`).
 
 ``````{admonition} Print contents of a FASTA file to screen
@@ -116,10 +115,11 @@ AMPLQVITNSYQISPNQAQALKMNRGSQSFLLSPGGRRS
 ```
 ``````
 
-### grep
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.6.5 Selecting Lines Using `grep`
+- Chapter 1.5.2 Viewing and Processing Text Files
 ```
+
+### grep
 `grep` is a tool that filters text for a given term. It searches for a pattern in a file or standard input ({numref}`Example %s <grep_basic_example>`).
 
 ``````{admonition} Filter lines that contain 'sp'
@@ -230,10 +230,11 @@ grep sp plants.fasta > out.txt
 ```
 ``````
 
-### wc
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.5.2 Viewing and Processing Text Files
+- Chapter 1.6.5 Selecting Lines Using `grep`
 ```
+
+### wc
 `wc` counts lines or characters in a text ({numref}`Example %s <wc_no_options_example>`).
 ``````{admonition} wc default usage
 :name: wc_no_options_example
@@ -286,11 +287,11 @@ Will give the output:
 ```
 ``````
 
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.5.2 Viewing and Processing Text Files
+```
 
 ### cut
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.6.2 Selecting Columns Using `cut`
-```
 With `cut` you can extract parts of lines in a file. It prints the selected parts of lines from a file or standard input to standard output. To specify what you want to select, you can use one of the {term}`options <option>`:
 - `-b` for bytes, select only these bytes
 - `-c` for characters, select only these characters ({numref}`Example %s <cut_c_example>`)
@@ -334,10 +335,11 @@ event-id
 ```
 ``````
 
-### sort
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.5.2 Viewing and Processing Text Files
+- Chapter 1.6.2 Selecting Columns Using `cut`
 ```
+
+### sort
 With `sort` you can write the sorted content of a file (or standard input) to standard output. You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ({numref}`Example %s <sort_k_example>`). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ({numref}`Example %s <sort_r_example>`)
 
 ``````{admonition} Sort crane_data.csv on the third column
@@ -377,10 +379,11 @@ event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,gr
 *#! this is different in the slides, there the header line is not shown*
 ``````
 
-### tr
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.6.3 Substituting Characters Using `tr`
+- Chapter 1.5.2 Viewing and Processing Text Files
 ```
+
+### tr
 With `tr`, you can translate characters from standard input and write to standard output ({numref}`Example %s <tr_dna_example>`, {numref}`Example %s <tr_case_example>`).
 
 ``````{admonition} Translate DNA string into RNA string
@@ -419,11 +422,11 @@ hello world
 Because `tr` only takes input from standard input, we used `echo` to direct the strings in {numref}`Example %s <tr_dna_example>` and {numref}`Example %s <tr_case_example>` to stdin and the pipe (`|`) to redirect stdin to `tr`. This will be explained more extensively in {numref}`Pipelines`.
 ```
 
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.6.3 Substituting Characters Using `tr`
+```
 
 ### awk
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.9.3 Miscellaneous Commands
-```
 `awk` is a text processor or manipulator [@turner_intro_2021]. It works by searching for strings and then performing an action when it finds those strings. The usage can be described as: \
 `'pattern {action}'`\
 The `pattern` describes what lines `awk` should act upon and the `action` describes what should be done when the lines are found. The full `awk` program is wrapped in single quotes (`''`). 
@@ -513,10 +516,11 @@ The output will be:
 For simple searches {ref}`grep` might be more suitable. However, when you want to find something and print something else, `awk` can be very powerful.
 ```
 
-### sed
 ```{seealso} Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
 ```
+
+### sed
 `sed` is short for **s**tream **ed**itor. It is used for filtering and transforming text. It takes text from either a file or standard input and returns the processed text to standard output. 
 
 The Find&Replace structure of the command is as follows: \
@@ -554,11 +558,11 @@ TASTECCNAVQSINHDCMCNTMRIAAQIPAQCNLPPLSCSAN
 The text-file is not edited in place, but the above output is printed to screen.
 ``````
 
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.9.3 Miscellaneous Commands
+```
 
 ## Pipelines
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.6.1 Redirection and Pipes
-```
 Now that we have seen some more advanced Unix commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the stdout of the previous command is redirected towards the stdin of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
 
 To illustrate, we combined the commands from {numref}`Example %s <grep_redirect_example>` and {numref}`Example %s <wc_lines_example_2>` in {numref}`Example %s <pipeline_example>`. Now we don't have to create a separate text file and store it when we are only interested in the amount of entries in the FASTA file with 'sp' in the header.
@@ -664,6 +668,9 @@ The first three lines of the output will be:
 ```
 ``````
 
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.6.1 Redirection and Pipes
+```
 
 
 ## Practical

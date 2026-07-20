@@ -15,20 +15,12 @@ After completing this section you should be able to:
 In this section, you will learn how to combine shell commands to organize them into a script, and how to make the script executable.
 
 ## Shell Scripting
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.7 Basic Scripting
-- Chapter 1.8 Simple `for` loops
-- Chapter 1.9.1 Setting a `PATH` in `.bash_profile`
-```
 Now that you have got more experience with {ref}`Advanced_Unix_Commands` and {ref}`Pipelines`, it is fairly easy to turn them into a script. A {term}`shell script` is a (text) file containing a series of commands that the shell can interpret and execute [@geeksforgeeks_shellscripting_2026]. A {term}`shell script` is given, by naming convention, the file extension `.sh`. The {term}`shell` program that runs the script is called `bash`.
 
 The advantages of turning pipelines into scripts are that your commands are saved into a file and can be executed any time on any (relevant) file. For example, if you have multiple FASTA files on which you want to perform the same operations, you don't have to rewrite your pipeline many times, you can just execute the script with those files. Additionally, if in 6 months you want to perform that same operation on a new FASTA file, you don't have to go through your notes to find the right pipeline. Instead, you can use your written script. 
 
 
 ### Basic Structure of a Shell Script
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.7 Basic Scripting
-```
 Let's build a simple {term}`shell script` that writes 'Hello World' to screen called `hello_world.sh`. 
 
 The first line of a {term}`shell script` is called the shebang line. The shebang (`#!`) is a combination of the sharp or hash symbol (`#`) and an exclamation mark, also known as bang (`!`). It tells the {term}`shell` the path to the program it should use to interpret the script with. Here, that program is `bash`, so the first line of our {term}`shell script` is:
@@ -60,11 +52,11 @@ echo "Hello World"
 
 Now that we have written a simple {term}`shell script`, we need to make it executable. Jump to {ref}`alter_file_permissions` to learn how.
 
-
-### Specifying Variables
 ```{seealso} Computing Skills for Biologists - a Tool box
 - Chapter 1.7 Basic Scripting
 ```
+
+### Specifying Variables
 Variables are objects that store values or user input for reuse in commands [@geeksforgeeks_shellscripting_2026]. Using variables makes {term}`shell scripts <shell script>` more flexible. 
 
 To introduce the usage of variables, let's rewrite the `hello_world.sh` program so the message is contained in a variable:
@@ -148,11 +140,11 @@ Now we can run the script with any FASTA file:
 ```
 ``````
 
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.7 Basic Scripting
+```
 
 ### for loops
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 1.8 Simple `for` loops
-```
 A `for` loop in a {term}`shell script` allows you to execute commands or pipelines repeatedly, for a specified amount of times, or for multiple files. The basic structure of a for loop in a {term}`shell script` is:
 
 ```{code-block} bash
@@ -211,16 +203,23 @@ Hello world
 
 ``````
 
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 1.8 Simple `for` loops
+```
+
 ### Conditional Statements
 *#! if statements*
 
 
 (alter_file_permissions)=
 ## Alter File Permissions
+
+*#! separate because easy access and applicable for all examples*
+
 ```{seealso} Computing Skills for Biologists - a Tool box
 - Chapter 1.6.7 Permissions
+- Chapter 1.9.1 Setting a `PATH` in `.bash_profile`
 ```
-*#! separate because easy access and applicable for all examples*
 
 
 ## Practical

@@ -19,10 +19,7 @@ In this section, you will learn about and practice with {term}`regular Expressio
 *#! needs better introduction imo, also that it can be used on the cmdline and using python modules and that syntax can differ between languages*
 
 ## What are Regular Expressions and why use them?
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.1 What Are Regular Expressions?
-- Chapter 5.2 Why Use Regular Expressions?
-```
+
 
 {term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in {numref}`Example %s <pattern_example>`.
 
@@ -44,12 +41,11 @@ This pattern can be captured by the following {term}`Regular Expression`: \
 
 *#! Could be more about the "why"*
 
-
-## Metacharacters
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.4.1 Literal Characters
+- Chapter 5.1 What Are Regular Expressions?
+- Chapter 5.2 Why Use Regular Expressions?
 ```
-
+## Metacharacters
 {term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters ({numref}`Example %s <normal_char_example>`) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`wildcards <wildcard>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, anchors, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
 
 ``````{admonition} Normal characters match themselves
@@ -60,17 +56,12 @@ This pattern can be captured by the following {term}`Regular Expression`: \
 A normal, or literal, character matches itself:
 
 `a` matches 'a'
-
 ``````
 
-### Wildcards
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.4.2 Metacharacters\*
-- Chapter 5.4.7 Raw String Notation and Escaping Metacharacters
-
-\* Note: The book calls {term}`wildcards <wildcard>` "metacharacters", but we hold the definition that a {term}`metacharacter` is any symbol with a special, non-literal meaning and a {term}`wildcard` is a specific symbol that represents unknown or unimportant data.
+- Chapter 5.4.1 Literal Characters
 ```
-
+### Wildcards
 {term}`Wildcards <wildcard>` match a range of different characters. An example of a {term}`wildcard` and what characters it matches is shown in {numref}`Example %s <word_char_example>`. 
 
 ```{admonition} Wildcard that matches any 'word' character
@@ -208,10 +199,14 @@ You can {term}`escape` the backslash by using another backslash: \
 `\\`
 ```
 
-### Quantifiers
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.4.4 Quantifiers
+- Chapter 5.4.2 Metacharacters\*
+- Chapter 5.4.7 Raw String Notation and Escaping Metacharacters
+
+\* Note: The book calls {term}`wildcards <wildcard>` "metacharacters", but we hold the definition that a {term}`metacharacter` is any symbol with a special, non-literal meaning and a {term}`wildcard` is a specific symbol that represents unknown or unimportant data.
 ```
+
+### Quantifiers
 Instead of using `\w\w` in the previous examples ({numref}`Example %s <pattern_matching_example_1>`, {numref}`Example %s <pattern_matching_example_2>`, {numref}`Example %s <escaping_wrong_example>`, {numref}`Example %s <escaping_correct_example>`), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in {numref}`quantifiers_table`.
 
 ```{list-table} Quantifiers
@@ -261,10 +256,11 @@ The pattern `b\w+r` finds the following matches:\
 The <span class="regex-match">bear</span> likes <span class="regex-match">blueberr</span>ies 
 ```
 
-### Sets
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.4.3 Sets
+- Chapter 5.4.4 Quantifiers
 ```
+
+### Sets
 In certain cases, you might want to match specific characters or a range of characters ({numref}`Example %s <set_example>`). This is possible by using a {term}`set`. {term}`Sets <set>` are denoted by square brackets: `[`and `]`. When using a {term}`set`, it means that at that position in the pattern, any of the options denoted within the square brackets may occur. To illustrate, the {term}`set` `[0-9]` represents the same as the `\d` {term}`wildcard`: any digit between 0 and 9.
 
 {term}`Sets <set>` may also be repeated by {term}`quantifiers <quantifier>`. For example, when searching for a protein string, one might only want to include the 20-letter amino acid alphabet instead of using `\w`. 
@@ -284,10 +280,11 @@ To capture both these peptides with a {term}`Regex <Regular Expression>` pattern
 
 ```
 
-### Anchors
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.4.5 Anchors
+- Chapter 5.4.3 Sets
 ```
+
+### Anchors
 If we want to match a pattern to the beginning or end of a string, we can use an {term}`anchor`. The start of a line is represented by a hat (`^`), whereas the end of a line is represented by a dollar sign (`$`). This also means that if we want to match a line with a pattern at the beginning of the line, it should start with `^` ({numref}`Example %s <anchor_start_example>`), and when matching something at the end, the pattern ends with `$` ({numref}`Example %s <anchor_end_example>`).
 
 ```{admonition} Match fruits that start with an 'a'
@@ -341,13 +338,13 @@ The hat symbol means beginning of line when it is used plainly: \
 `^a` means the pattern matches a line starting with an 'a' ({numref}`Example %s <anchor_start_example>`).
 
 However, when the hat symbol is used in a {term}`set`, such as `[^a]`, it represents the negation of that set of characters. So, in this case, in that position in the pattern there would **not** be an 'a'.
+```
 
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 5.4.5 Anchors
 ```
 
 ### Alternations
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.4.6 Alternations
-```
 Sometimes the patterns we want to match contain either one pattern or another pattern ({numref}`Example %s <alternation_example>`). This can be achieved by the pipe symbol (`|`). 
 
 ```{admonition} Life sciences 1
@@ -373,11 +370,12 @@ While studying archeology, she was majoring in anthropology.\
 Because the pipe symbol (`|`) occurs in some file formats, such as the [FASTA format](wiki:fasta_format), remember to {term}`escape` it when you want to search for it literally!
 ```
 
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 5.4.6 Alternations
+```
+
 
 ## Regex balancing act
-```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.8 The Quest for the Perfect Regular Expression
-```
 Writing a good {term}`Regex <Regular Expression>` involves striking a balance among three concerns:
 1. Matching what you want, but ONLY what you want
 2. Keeping the {term}`Regex <Regular Expression>` manageable and understandable
@@ -385,10 +383,11 @@ Writing a good {term}`Regex <Regular Expression>` involves striking a balance am
 
 *#! unsure whether it makes sense here*
 
-## Capturing (and Replacing)
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.6 Groups in Regular Expressions
+- Chapter 5.8 The Quest for the Perfect Regular Expression
 ```
+
+## Capturing (and Replacing)
 Until now, we have only illustrated what text matches a {term}`Regex <Regular Expression>` pattern. But what makes {term}`Regex <Regular Expression>` so useful is that we can capture the match for further processing or that we can replace the match with something else. 
 
 To capture a match we can use the {term}`group` {term}`metacharacters <metacharacter>`: `(` and `)` (parentheses). {term}`Groups <group>` are especially useful for when we want to capture only a specific part of a pattern ({numref}`Example %s <capturing_example>`).
@@ -410,16 +409,21 @@ We want to capture the subjects. We can perform a Find & Replace as follows:\
 The `\1` and `\2` refer to the first and second {term}`group` captured, i.e. the text that matches the patterns within the parentheses. By stating the Replace as done here, we replace the original text with only the text matched for the {term}`groups <group>`. 
 ```
 
-## Notes and Tips
 ```{seealso} Computing Skills for Biologists - a Tool box
-- Chapter 5.7 Verbose Regular Expressions
+- Chapter 5.6 Groups in Regular Expressions
 ```
+
+## Notes and Tips
 We have introduced you to the basics of {term}`Regular Expressions <Regular Expression>`, but note that this is not an exhaustive explanation of the syntax. If you want to practice with simple exercises, you can go through the tutorial of [RegexOne](https://regexone.com/).
 
 Performing Find-Replace operations can become complex. It might be necessary to perform them in multiple steps. It helps to make steps transparent (especially for yourself). Sometimes that results in making the search pattern more verbose than strictly necessary. Similarly, even if you can do something in one step, it is worth it for transparancy's sake to do it in multiple steps. When doing Find-Replace operations in a graphical text editor, this is extra work. However, on the command line you could have a sequence of as many Find-Replace terms as you like.
 
 ```{tip}
 In an intermediate step, Replace with obviously non-existing symbols or sequences (e.g. `#&#`), but avoid {term}`metacharacters <metacharacter>`.
+```
+
+```{seealso} Computing Skills for Biologists - a Tool box
+- Chapter 5.7 Verbose Regular Expressions
 ```
 
 ## Practical
