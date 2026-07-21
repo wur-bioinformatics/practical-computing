@@ -10,15 +10,42 @@ a.hover-link[href*="#term-"] {
     text-decoration-line: none !important;
 }
 
-/* Optional: Slight color change on hover */
+/* Slight color change on hover */
 a.hover-link:hover[href*="#term-"] {
     color: #3d5840 !important; 
+}
+
+/* Style custom wiki hyperlinks (using *= to catch expanded URLs) */
+a[href*="wiki"] {
+    color: inherit !important; 
+    text-decoration: underline !important; 
+    text-decoration-style: solid !important; 
+    
+    /* Force MyST's default dotted borders/shadows to disappear */
+    border-bottom: none !important; 
+    box-shadow: none !important;    
+}
+
+/* Add a slight color change or opacity shift on hover */
+a[href*="wiki"]:hover {
+    opacity: 0.7 !important; 
 }
 
 /* Custom inline text colors */
 .red-text {
     color: #fb0c0c !important;
 }
+
+
+/* Aggressively hide hover-previews for example links */
+body:has(a[href*="example"]:hover) [data-tippy-root],
+body:has(a[href*="example"]:hover) .tippy-box {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 
 /* Initialize the example counter for the page */
 body {
