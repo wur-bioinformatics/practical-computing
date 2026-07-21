@@ -7,6 +7,9 @@ label: glossary_md
 absolute path
 : Path that points to a fixed position in the directory tree.
 
+anchor
+: symbol that represents either the start (`^`) or end (`$`) of a line.
+
 argument
 : Value passed to a program that specifies the input or modifies the behaviour.
 
@@ -25,11 +28,20 @@ compression
 CPU
 : **C**entral **P**rocessing **U**nit. The brain of the computer that executes instructions and manages operations. 
 
+escape
+: make a metacharacter to be interpreted as a literal character by using the backslash `\`.
+
 file system
 : System that organizes how files are stored on a hard disk.
 
 GPU
 : **G**raphical **P**rocessing **U**nit. A specialized processor that is optimized for doing the same calculation on many data points.
+
+greedy
+: the pattern will return the longest possible match.
+
+group
+: group of characters that is captured by the pattern and can be returned or replaced.
 
 index
 : A data structure that stores and organizes information within a file in such a way that it is easy to find.
@@ -42,6 +54,9 @@ kernel
 
 memory
 : Temporary storage used by programs.
+
+metacharacter
+: a symbol with a special, non-literal meaning.
 
 network
 : Connects different computers together.
@@ -58,13 +73,23 @@ output
 prompt
 : Input field in a text-based user interface screen for an operating system.
 
+quantifier
+: symbol that specifies how often the previous character (or group or character class) must occur.
+
+Regular Expression
+: a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations.
+
 relative path
 : Path that points to a position in the directory tree from your current position.
+
+set
+: specific characters or a range of characters to match.
 
 shell
 : Outermost layer of the operating system, acting as an intermediate between the user and the operating system.
 
-
+wildcard
+: a specific symbol that represents unknown or unimportant data.
 
 
 ```

@@ -467,32 +467,4 @@ Dataset 4: OOS
 - find a word that is repeated
 
 
-## Glossary
-```{glossary}
-Regular Expression
-: a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations.
 
-metacharacter
-: a symbol with a special, non-literal meaning.
-
-wildcard
-: a specific symbol that represents unknown or unimportant data.
-
-quantifier
-: symbol that specifies how often the previous character (or group or character class) must occur.
-
-set
-: specific characters or a range of characters to match.
-
-anchor
-: symbol that represents either the start (`^`) or end (`$`) of a line.
-
-escape
-: make a metacharacter to be interpreted as a literal character by using the backslash `\`.
-
-greedy
-: the pattern will return the longest possible match.
-
-group
-: group of characters that is captured by the pattern and can be returned or replaced.
-```
