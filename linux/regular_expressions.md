@@ -22,11 +22,12 @@ In this section, you will learn about and practice with {term}`regular Expressio
 ## What are Regular Expressions and why use them?
 
 
-{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in {numref}`Example %s <pattern_example>`.
+{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in {numref}`Example %s <patterns_in_text_example>`.
+
 
 ``````{admonition} Patterns in text
-:name: pattern_example
 :numbered: true
+:label: patterns_in_text_example
 :class: simple myst-example
 :icon: false
 
