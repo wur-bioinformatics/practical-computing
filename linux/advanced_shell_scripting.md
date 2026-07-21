@@ -228,9 +228,4 @@ Computing Skills for Biologists - a Tool box
 
 ## Practical
 
-## Glossary
-```{glossary}
-shell script
-: a (text) file containing a series of commands that the shell can interpret and execute
 
-```

@@ -88,6 +88,9 @@ set
 shell
 : Outermost layer of the operating system, acting as an intermediate between the user and the operating system.
 
+shell script
+: a (text) file containing a series of commands that the shell can interpret and execute
+
 wildcard
 : a specific symbol that represents unknown or unimportant data.
 
