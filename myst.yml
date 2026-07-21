@@ -22,6 +22,8 @@ project:
     - title: Python
     - file: data_analysis/data_analysis_intro.md
     - title: Data Analysis
+    - file: glossary.md
+    - title: Glossary
 site:
   template: book-theme
   options:
