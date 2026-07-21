@@ -46,7 +46,8 @@ program > filename
 Using the redirect symbol `>` will overwrite any contents of the file given, which cannot be undone. 
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.6.1 Redirection and Pipes
 ```
 
@@ -82,7 +83,8 @@ wget http://www.bioinformatics.nl/plants.fasta
 ```
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
 ```
 
@@ -115,7 +117,8 @@ AMPLQVITNSYQISPNQAQALKMNRGSQSFLLSPGGRRS
 ```
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.5.2 Viewing and Processing Text Files
 ```
 
@@ -230,7 +233,8 @@ grep sp plants.fasta > out.txt
 ```
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.6.5 Selecting Lines Using `grep`
 ```
 
@@ -287,7 +291,8 @@ Will give the output:
 ```
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.5.2 Viewing and Processing Text Files
 ```
 
@@ -335,7 +340,8 @@ event-id
 ```
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.6.2 Selecting Columns Using `cut`
 ```
 
@@ -379,7 +385,8 @@ event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,gr
 *#! this is different in the slides, there the header line is not shown*
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.5.2 Viewing and Processing Text Files
 ```
 
@@ -422,7 +429,8 @@ hello world
 Because `tr` only takes input from standard input, we used `echo` to direct the strings in {numref}`Example %s <tr_dna_example>` and {numref}`Example %s <tr_case_example>` to stdin and the pipe (`|`) to redirect stdin to `tr`. This will be explained more extensively in {numref}`Pipelines`.
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.6.3 Substituting Characters Using `tr`
 ```
 
@@ -516,7 +524,8 @@ The output will be:
 For simple searches {ref}`grep` might be more suitable. However, when you want to find something and print something else, `awk` can be very powerful.
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
 ```
 
@@ -558,7 +567,8 @@ TASTECCNAVQSINHDCMCNTMRIAAQIPAQCNLPPLSCSAN
 The text-file is not edited in place, but the above output is printed to screen.
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
 ```
 
@@ -668,7 +678,8 @@ The first three lines of the output will be:
 ```
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.6.1 Redirection and Pipes
 ```
 

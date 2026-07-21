@@ -52,7 +52,8 @@ echo "Hello World"
 
 Now that we have written a simple {term}`shell script`, we need to make it executable. Jump to {ref}`alter_file_permissions` to learn how.
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.7 Basic Scripting
 ```
 
@@ -140,7 +141,8 @@ Now we can run the script with any FASTA file:
 ```
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.7 Basic Scripting
 ```
 
@@ -203,7 +205,8 @@ Hello world
 
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.8 Simple `for` loops
 ```
 
@@ -216,7 +219,8 @@ Hello world
 
 *#! separate because easy access and applicable for all examples*
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.6.7 Permissions
 - Chapter 1.9.1 Setting a `PATH` in `.bash_profile`
 ```

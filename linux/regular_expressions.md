@@ -16,6 +16,7 @@ After completing this section you should be able to:
 ## Introduction
 In this section, you will learn about and practice with {term}`regular Expressions <Regular Expression>`, a powerful tool to find patterns in text. They are also called 'Regex' or abbreviated as 'RE'.
 
+
 *#! needs better introduction imo, also that it can be used on the cmdline and using python modules and that syntax can differ between languages*
 
 ## What are Regular Expressions and why use them?
@@ -41,7 +42,8 @@ This pattern can be captured by the following {term}`Regular Expression`: \
 
 *#! Could be more about the "why"*
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.1 What Are Regular Expressions?
 - Chapter 5.2 Why Use Regular Expressions?
 ```
@@ -58,7 +60,8 @@ A normal, or literal, character matches itself:
 `a` matches 'a'
 ``````
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.4.1 Literal Characters
 ```
 ### Wildcards
@@ -199,7 +202,8 @@ You can {term}`escape` the backslash by using another backslash: \
 `\\`
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.4.2 Metacharacters\*
 - Chapter 5.4.7 Raw String Notation and Escaping Metacharacters
 
@@ -256,7 +260,8 @@ The pattern `b\w+r` finds the following matches:\
 The <span class="regex-match">bear</span> likes <span class="regex-match">blueberr</span>ies 
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.4.4 Quantifiers
 ```
 
@@ -280,7 +285,8 @@ To capture both these peptides with a {term}`Regex <Regular Expression>` pattern
 
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.4.3 Sets
 ```
 
@@ -340,7 +346,8 @@ The hat symbol means beginning of line when it is used plainly: \
 However, when the hat symbol is used in a {term}`set`, such as `[^a]`, it represents the negation of that set of characters. So, in this case, in that position in the pattern there would **not** be an 'a'.
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.4.5 Anchors
 ```
 
@@ -370,7 +377,8 @@ While studying archeology, she was majoring in anthropology.\
 Because the pipe symbol (`|`) occurs in some file formats, such as the [FASTA format](wiki:fasta_format), remember to {term}`escape` it when you want to search for it literally!
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.4.6 Alternations
 ```
 
@@ -383,7 +391,8 @@ Writing a good {term}`Regex <Regular Expression>` involves striking a balance am
 
 *#! unsure whether it makes sense here*
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.8 The Quest for the Perfect Regular Expression
 ```
 
@@ -409,7 +418,8 @@ We want to capture the subjects. We can perform a Find & Replace as follows:\
 The `\1` and `\2` refer to the first and second {term}`group` captured, i.e. the text that matches the patterns within the parentheses. By stating the Replace as done here, we replace the original text with only the text matched for the {term}`groups <group>`. 
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.6 Groups in Regular Expressions
 ```
 
@@ -422,7 +432,8 @@ Performing Find-Replace operations can become complex. It might be necessary to 
 In an intermediate step, Replace with obviously non-existing symbols or sequences (e.g. `#&#`), but avoid {term}`metacharacters <metacharacter>`.
 ```
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 5.7 Verbose Regular Expressions
 ```
 

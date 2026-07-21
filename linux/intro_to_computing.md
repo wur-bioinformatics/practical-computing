@@ -109,7 +109,8 @@ We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the
 *#! update fun fact for relevant server*
 :::
 
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.1 What is Unix?
 - Chapter 1.2 Why Use Unix and the Shell?
 ```
@@ -117,7 +118,8 @@ We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the
 We will now introduce some fundamental computational concepts. *#! add why?*
 
 ### Network
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.3 Getting Started with Unix
 ```
 A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **smith**. Hostnames can have a domain: smith.**bioinformatics\.nl**.
@@ -530,7 +532,8 @@ Alternatively, you can create all three directories in one command using the `-p
 mkdir -p exercises/week1/day1_2
 ```
 ``````
-```{seealso} Computing Skills for Biologists - a Tool box
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
 - Chapter 1.4 Getting Started with the Shell
 - Chapter 1.5 Basic Unix Commands
 ```
