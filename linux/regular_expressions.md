@@ -42,7 +42,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.2 Why Use Regular Expressions?
 ```
 ## Metacharacters
-{term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters ([](#normal_char_example)) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`character classes <character class>`, {term}`wildcard`, {term}`non-printable characters <non-printable character>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, anchors, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
+{term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters ([](#normal_char_example)) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`character classes <character class>`, {term}`wildcard`, {term}`non-printable characters <non-printable character>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, {term}`anchors <anchor>`, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
 
 
 (normal_char_example)=
@@ -205,7 +205,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Quantifiers
-Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1), [](#pattern_matching_example_2), [](#escaping_wrong_example), [](#escaping_correct_example)), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in [](#quantifiers_table).
+Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1), [](#pattern_matching_example_2), [](#escaping_wrong_example), [](#escaping_correct_example)), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character, {term}`character group` or {term}`character class` should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in [](#quantifiers_table).
 
 ```{list-table} Quantifiers
 :header-rows: 1
@@ -255,7 +255,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Sets
-In certain cases, you might want to match specific characters or a range of characters ([](#set_example)). This is possible by using a {term}`set`. {term}`Sets <set>` are denoted by square brackets: `[`and `]`. When using a {term}`set`, it means that at that position in the pattern, any of the options denoted within the square brackets may occur. To illustrate, the {term}`set` `[0-9]` represents the same as the `\d` {term}`wildcard`: any digit between 0 and 9.
+In certain cases, you might want to match specific characters or a range of characters ([](#set_example)). This is possible by using a {term}`set`. {term}`Sets <set>` are denoted by square brackets: `[`and `]`. When using a {term}`set`, it means that at that position in the pattern, any of the options denoted within the square brackets may occur. To illustrate, the {term}`set` `[0-9]` represents the same as the `\d` {term}`character class`: any digit between 0 and 9.
 
 {term}`Sets <set>` may also be repeated by {term}`quantifiers <quantifier>`. For example, when searching for a protein string, one might only want to include the 20-letter amino acid alphabet instead of using `\w`. 
 

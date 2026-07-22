@@ -22,6 +22,9 @@ byte
 character class
 : metacharacter that represents a group/class of characters, such as digits, letters, or whitespace.
 
+character group
+: group of characters that is captured by the pattern and can be returned or replaced.
+
 command-line interface
 : Text-based interface for the user to interact with an operating system.
 
@@ -42,9 +45,6 @@ GPU
 
 greedy
 : the pattern will return the longest possible match.
-
-group
-: group of characters that is captured by the pattern and can be returned or replaced.
 
 index
 : A data structure that stores and organizes information within a file in such a way that it is easy to find.
