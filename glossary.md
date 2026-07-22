@@ -19,6 +19,9 @@ bit
 byte
 : A unit of computer information consisting of a number of bits, usually eight bits.
 
+character class
+: metacharacter that represents a group/class of characters, such as digits, letters, or whitespace.
+
 command-line interface
 : Text-based interface for the user to interact with an operating system.
 
@@ -91,8 +94,11 @@ shell
 shell script
 : a (text) file containing a series of commands that the shell can interpret and execute
 
+string
+: a sequence of characters. How a computer stores and works with text. Written between quotes ("/')
+
 wildcard
-: a specific symbol that represents unknown or unimportant data.
+: a specific symbol (`.`) that represents any character.
 
 
 ```
