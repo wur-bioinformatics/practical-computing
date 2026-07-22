@@ -86,6 +86,8 @@ AMPLQVITNSYQISPNQAQALKMNRGSQSFLLSPGGRRS
 ```
 ``````
 
+`zcat` works similarly to `cat` except that it uncompresses files to standard output (often the screen). 
+
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 1.5.2 Viewing and Processing Text Files
