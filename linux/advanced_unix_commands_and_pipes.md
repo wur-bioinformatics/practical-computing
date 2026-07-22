@@ -29,13 +29,10 @@ Input/Output streams of Linux command-line
 The stdin of a program is often your keyboard or a file. This is the input that you want the program to act upon. The stdout is by default the terminal screen, but some programs include an {term}`option` to redirect the output to a file. This is the output created by the program. The stderr is by default the terminal screen. This is the stream where error messages are directed towards. [@ibm_aix_2025; @nazeer_standard_2024; @geeksforgeeks_shell_nodate]
 
 ### Redirection
-If a tool does not have the {term}`option` to redirect to a file, you can use the `>` symbol ({numref}`Example %s <redirect_example>`).
-``````{admonition} Redirecting output to a file
-:name: redirect_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+If a tool does not have the {term}`option` to redirect to a file, you can use the `>` symbol ([](#redirect_example)).
 
+(redirect_example)=
+``````{prf:example} Redirecting output to a file
 ```{code-block} bash
 :class: no-copybutton
 program > filename
@@ -71,13 +68,10 @@ man <tool>
 ``````
 
 ### wget
-`wget` is a tool that can retrieve files from a URL ({numref}`Example %s <wget_example>`).
+`wget` is a tool that can retrieve files from a URL ([](#wget_example)).
 
-``````{admonition} Download a FASTA file
-:name: wget_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+(vwget_example)=
+``````{prf:example} Download a FASTA file
 ```{code-block} bash
 wget http://www.bioinformatics.nl/plants.fasta
 ```
@@ -89,13 +83,10 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### cat
-`cat` is a tool that prints the contents of a file (or standard input) to standard output (often the screen) ({numref}`Example %s <cat_example>`).
+`cat` is a tool that prints the contents of a file (or standard input) to standard output (often the screen) ([](#cat_example)).
 
-``````{admonition} Print contents of a FASTA file to screen
-:name: cat_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+(cat_example)=
+``````{prf:example} Print contents of a FASTA file to screen
 ```{code-block} bash
 cat plants.fasta
 ```
@@ -123,14 +114,10 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### grep
-`grep` is a tool that filters text for a given term. It searches for a pattern in a file or standard input ({numref}`Example %s <grep_basic_example>`).
+`grep` is a tool that filters text for a given term. It searches for a pattern in a file or standard input ([](#grep_basic_example)).
 
-``````{admonition} Filter lines that contain 'sp'
-:name: grep_basic_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(grep_basic_example)=
+``````{prf:example} Filter lines that contain 'sp'
 ```{code-block} bash
 grep sp plants.fasta
 ```
@@ -150,14 +137,10 @@ The first 10 lines of the output will be:
 ```
 ``````
 
-`grep` can be used with {term}`Regular Expressions <Regular Expression>` using the `-E` {term}`option`, making it even more powerful ({numref}`Example %s <grep_regex_example_1>`, {numref}`Example %s <grep_regex_example_2>`, {numref}`Example %s <grep_regex_example_3>`, {numref}`Example %s <grep_regex_example_4>`).
+`grep` can be used with {term}`Regular Expressions <Regular Expression>` using the `-E` {term}`option`, making it even more powerful ([](#grep_regex_example_1), [](#grep_regex_example_2), [](#grep_regex_example_3), [](#grep_regex_example_4)).
 
-``````{admonition} Filter lines containing a sequence of 16 'A's
-:name: grep_regex_example_1
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(grep_regex_example_1)=
+``````{prf:example} Filter lines containing a sequence of 16 'A's
 ```{code-block} bash
 grep -E "A{16}" plants.fasta
 ```
@@ -168,12 +151,8 @@ PLLQKRQEVVTKQSNPVPPSTPSSASSAAAAAAAAAAAAAAAAATAATKGKDMAPVS
 ```
 ``````
 
-``````{admonition} Filter lines containing a sequence of 10 'A's at the start of the line
-:name: grep_regex_example_2
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(grep_regex_example_2)=
+``````{prf:example} Filter lines containing a sequence of 10 'A's at the start of the line
 ```{code-block} bash
 grep -E "^A{10}" plants.fasta
 ```
@@ -188,12 +167,8 @@ AAAAAAAAAADYDGSPPPPRGKKKKDDEERSSSLPEEKDAKNGGGDEVLSAVTTEDSSAG
 The `-m` option limits the number of matching lines.
 ```
 
-``````{admonition} Filter lines containing a pattern showing only the first occurence
-:name: grep_regex_example_3
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(grep_regex_example_3)=
+``````{prf:example} Filter lines containing a pattern showing only the first occurence
 ```{code-block} bash
 grep -m 1 -E "^[^>].*[BJOUXZ]" plants.fasta
 ```
@@ -204,12 +179,8 @@ ILNSPDRACNLAKQAFDEAISELDSLGEESYKDSTLIMQLLXDNLTLWTSDTNEDGGDEI
 ```
 ``````
 
-``````{admonition} Filter lines containing a character 59 times showing only the first occurence
-:name: grep_regex_example_4
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(grep_regex_example_4)=
+``````{prf:example} Filter lines containing a character 59 times showing only the first occurence
 ```{code-block} bash
 grep -E –m 1 "(.)\1{59}" plants.fasta 
 ```
@@ -220,14 +191,10 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 ``````
 
-You can use {numref}`redirection <Redirection>` (`>`) to redirect the filtered lines to a file ({numref}`Example %s <grep_redirect_example>`)
+You can use {numref}`redirection <Redirection>` (`>`) to redirect the filtered lines to a file ([](#grep_redirect_example)).
 
-``````{admonition} Redirect grep stdout
-:name: grep_redirect_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(grep_redirect_example)=
+``````{prf:example} Redirect grep stdout
 ```{code-block} bash
 grep sp plants.fasta > out.txt
 ```
@@ -239,13 +206,10 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### wc
-`wc` counts lines or characters in a text ({numref}`Example %s <wc_no_options_example>`).
-``````{admonition} wc default usage
-:name: wc_no_options_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+`wc` counts lines or characters in a text ([](#wc_no_options_example)).
 
+(wc_no_options_example)=
+``````{prf:example} wc default usage
 ```{code-block} bash
 wc plants.fasta
 ```
@@ -257,14 +221,10 @@ Will give the output:
 The output is the amount of **lines**, **words**, and **byte counts** for each file.
 ``````
 
-To only count the amount of lines in a file, you can use the `-l` {term}`option` ({numref}`Example %s <wc_lines_example_1>`, {numref}`Example %s <wc_lines_example_2>`). 
+To only count the amount of lines in a file, you can use the `-l` {term}`option` ([](#wc_lines_example_1), [](#wc_lines_example_2)). 
 
-``````{admonition} Count lines in a file 1
-:name: wc_lines_example_1
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(wc_lines_example_1)=
+``````{prf:example} Count lines in a file 1
 ```{code-block} bash
 wc –l plants.fasta
 ```
@@ -274,13 +234,9 @@ Will give the output:
 250177 plants.fasta
 ```
 ``````
-
-``````{admonition} Count lines in a file 2
-:name: wc_lines_example_2
-:numbered: true
-:class: simple myst-example
-:icon: false
-`out.txt` was created in {numref}`Example %s <grep_redirect_example>`, and contains all the header lines of the `plants.fasta` file that contain 'sp'.
+(wc_lines_example_2)=
+``````{prf:example} Count lines in a file 2
+contain 'sp'.
 ```{code-block} bash
 wc –l out.txt
 ```
@@ -299,16 +255,13 @@ Computing Skills for Biologists - a Tool box
 ### cut
 With `cut` you can extract parts of lines in a file. It prints the selected parts of lines from a file or standard input to standard output. To specify what you want to select, you can use one of the {term}`options <option>`:
 - `-b` for bytes, select only these bytes
-- `-c` for characters, select only these characters ({numref}`Example %s <cut_c_example>`)
-- `-f` for fields, select only these fields/columns ({numref}`Example %s <cut_f_example>`). 
+- `-c` for characters, select only these characters ([](#cut_c_example))
+- `-f` for fields, select only these fields/columns ([](#cut_f_example)). 
 
 It uses 1-based counting.
 
-``````{admonition} Extract the first 9 characters of crane_data.csv
-:name: cut_c_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+(cut_c_example)=
+``````{prf:example} Extract the first 9 characters of crane_data.csv
 
 ```{code-block} bash
 cut -c 1-9 crane_data.csv
@@ -322,11 +275,8 @@ event-id,
 ```
 ``````
 
-``````{admonition} Extract the first field of crane_data.csv
-:name: cut_f_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+(cut_f_example)=
+``````{prf:example} Extract the first field of crane_data.csv
 `-d` sets field/column delimiter. The default is TAB.
 ```{code-block} bash
 cut -d, -f1 crane_data.csv
@@ -346,14 +296,10 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### sort
-With `sort` you can write the sorted content of a file (or standard input) to standard output. You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ({numref}`Example %s <sort_k_example>`). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ({numref}`Example %s <sort_r_example>`)
+With `sort` you can write the sorted content of a file (or standard input) to standard output. You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ([](#sort_k_example)). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ([](#sort_r_example))
 
-``````{admonition} Sort crane_data.csv on the third column
-:name: sort_k_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(sort_k_example)=
+``````{prf:example} Sort crane_data.csv on the third column
 ```{code-block} bash
 sort -t, -k3,3 crane_data.csv 
 ```
@@ -366,12 +312,8 @@ The first 3 lines of the output will be:
 ```
 ``````
 
-``````{admonition} Sort crane_data.csv on the third column in reverse order
-:name: sort_r_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(sort_r_example)=
+``````{prf:example} Sort crane_data.csv on the third column in reverse order
 ```{code-block} bash
 sort -t, -k3,3 -r crane_data.csv 
 ```
@@ -391,14 +333,10 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### tr
-With `tr`, you can translate characters from standard input and write to standard output ({numref}`Example %s <tr_dna_example>`, {numref}`Example %s <tr_case_example>`).
+With `tr`, you can translate characters from standard input and write to standard output ([](#tr_dna_example), [](#tr_case_example)).
 
-``````{admonition} Translate DNA string into RNA string
-:name: tr_dna_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(tr_dna_example)=
+``````{prf:example} Translate DNA string into RNA string
 ```{code-block} bash
 echo ATGCATTAG | tr 'T' 'U'
 ```
@@ -409,12 +347,8 @@ AUGCAUUAG
 ```
 ``````
 
-``````{admonition} Make a string lowercase
-:name: tr_case_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(tr_case_example)=
+``````{prf:example} Make a string lowercase
 ```{code-block} bash
 echo Hello World | tr 'A-Z' 'a-z'
 ```
@@ -426,7 +360,7 @@ hello world
 ``````
 
 ```{note}
-Because `tr` only takes input from standard input, we used `echo` to direct the strings in {numref}`Example %s <tr_dna_example>` and {numref}`Example %s <tr_case_example>` to stdin and the pipe (`|`) to redirect stdin to `tr`. This will be explained more extensively in {numref}`Pipelines`.
+Because `tr` only takes input from standard input, we used `echo` to direct the strings in [](#tr_dna_example) and [](#tr_case_example) to stdin and the pipe (`|`) to redirect stdin to `tr`. This will be explained more extensively in {numref}`Pipelines`.
 ```
 
 ```{seealso} Further Reading
@@ -439,13 +373,10 @@ Computing Skills for Biologists - a Tool box
 `'pattern {action}'`\
 The `pattern` describes what lines `awk` should act upon and the `action` describes what should be done when the lines are found. The full `awk` program is wrapped in single quotes (`''`). 
 
-`awk` uses the `-F` {term}`option` to specify the field/column delimiter ({numref}`Example %s <awk_F_example>`). `awk` uses 1-based counting, though the `$0` means the whole line. 
+`awk` uses the `-F` {term}`option` to specify the field/column delimiter ([](#awk_F_example)). `awk` uses 1-based counting, though the `$0` means the whole line. 
 
-``````{admonition} Select lines where the longitude is greater than 13
-:name: awk_F_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+(awk_F_example)=
+``````{prf:example} Select lines where the longitude is greater than 13
 Here, we filter for lines that have a longitude (`$4`, field 4 is the location-long, or the longitude) greater than 13 (`> 13`).
 ```{code-block} bash
 awk -F, '$4 > 13' crane_data.csv 
@@ -458,13 +389,10 @@ event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,gr
 ```
 ``````
 
-We can perform a filter using `'$n~/filter/'`, where `n` is the field/column number (`0` for whole line) and `filter` is the filter that we want to apply ({numref}`Example %s <awk_filter_example>`). The filter can be a {term}`Regular Expression`. 
+We can perform a filter using `'$n~/filter/'`, where `n` is the field/column number (`0` for whole line) and `filter` is the filter that we want to apply ([](#awk_filter_example). The filter can be a {term}`Regular Expression`. 
 
-``````{admonition} Select lines with records on 12-10
-:name: awk_filter_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+(awk_filter_example)=
+``````{prf:example} Select lines with records on 12-10
 The third field holds the date and time.
 ```{code-block} bash
 awk -F, '$3~/12-10/' crane_data.csv
@@ -476,14 +404,10 @@ The first line of the output will be:
 ```
 ``````
 
-Until now we have only searched for a pattern in {numref}`Example %s <awk_F_example>` and {numref}`Example %s <awk_filter_example>`. By default `awk` prints the whole line, which would be the same as the action `'{print $0}'`. Instead, we can also print parts of a line ({numref}`Example %s <awk_print_example>`).
+Until now we have only searched for a pattern in [](#awk_F_example) and [](#awk_filter_example). By default `awk` prints the whole line, which would be the same as the action `'{print $0}'`. Instead, we can also print parts of a line [](#awk_print_example)).
 
-``````{admonition} Print the third field
-:name: awk_print_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(awk_print_example)=
+``````{prf:example} Print the third field
 ```{code-block} bash
 awk -F, '{print $3}' crane_data.csv
 ```
@@ -495,14 +419,10 @@ timestamp
 ```
 ``````
 
-Let's combine the search for a pattern and the action of printing a specific field in {numref}`Example %s <awk_full_example>`.
+Let's combine the search for a pattern and the action of printing a specific field in [](#awk_full_example).
 
-``````{admonition} Print longitude of records on 12-10
-:name: awk_full_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(awk_full_example)=
+``````{prf:example} Print longitude of records on 12-10
 ```{code-block} bash
 awk -F, '$3~/12-10/ {print $4}' crane_data.csv
 ```
@@ -535,14 +455,10 @@ Computing Skills for Biologists - a Tool box
 The Find&Replace structure of the command is as follows: \
 `sed 's/search_pattern/replacement/' file.txt`
 
-`sed` support the usage of {term}`Regular Expressions <Regular Expression>` in the `search_pattern` part ({numref}`Example %s <sed_fasta_example>`). 
+`sed` support the usage of {term}`Regular Expressions <Regular Expression>` in the `search_pattern` part ([](#sed_fasta_example)). 
 
-``````{admonition} Edit FASTA header line
-:name: sed_fasta_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(sed_fasta_example)=
+``````{prf:example} Edit FASTA header line
 ```{code-block} bash
 head -3 plants.fasta
 ```
@@ -575,14 +491,10 @@ Computing Skills for Biologists - a Tool box
 ## Pipelines
 Now that we have seen some more advanced Unix commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the stdout of the previous command is redirected towards the stdin of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
 
-To illustrate, we combined the commands from {numref}`Example %s <grep_redirect_example>` and {numref}`Example %s <wc_lines_example_2>` in {numref}`Example %s <pipeline_example>`. Now we don't have to create a separate text file and store it when we are only interested in the amount of entries in the FASTA file with 'sp' in the header.
+To illustrate, we combined the commands from [](#grep_redirect_example) and [](#wc_lines_example_2) in [](#pipeline_example). Now we don't have to create a separate text file and store it when we are only interested in the amount of entries in the FASTA file with 'sp' in the header.
 
-``````{admonition} Pipeline example
-:name: pipeline_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(pipeline_example)=
+``````{prf:example} Pipeline example
 ```{code-block} bash
 cat plants.fasta | grep sp | wc –l
 ```
@@ -602,14 +514,10 @@ The flow of {numref}`this <pipeline_example>` pipeline example is visualised in 
 Data stream of example pipeline with `cat`, `grep`, and `wc`.
 ```
 
-For the next example ({numref}`Example %s <pipe_cut_sort_example>`), let's combine a {ref}`cut` command with a {ref}`sort` command.
+For the next example ([](#pipe_cut_sort_example)), let's combine a {ref}`cut` command with a {ref}`sort` command.
 
-``````{admonition} Extract the third column of crane.csv and sort in reverse order
-:name: pipe_cut_sort_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(pipe_cut_sort_example)=
+``````{prf:example} Extract the third column of crane.csv and sort in reverse order
 ```{code-block} bash
 cat crane_data.csv | cut -d, -f3 | sort -r
 ```
@@ -624,14 +532,10 @@ timestamp
 ```
 ``````
 
-What if removed all newline characters from a file and counted the lines ({numref}`Example %s <tr_newline_example>`)?
+What if removed all newline characters from a file and counted the lines ([](#tr_newline_example))?
 
-``````{admonition} Remove all newline characters from a file and count the lines
-:name: tr_newline_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(tr_newline_example)=
+``````{prf:example} Remove all newline characters from a file and count the lines
 ```{code-block} bash
 cat plants.fasta | tr '\n' ' ' | wc -l
 ```
@@ -643,14 +547,10 @@ The output will be:
 **Why do you think the output is `0`?** (Look at the usage of `wc -l`)
 ``````
 
-Finally, let's combine {ref}`grep` and {ref}`sed` in a pipeline ({numref}`Example %s <pipe_grep_sed_example>`).
+Finally, let's combine {ref}`grep` and {ref}`sed` in a pipeline ([](#pipe_grep_sed_example)).
 
-``````{admonition} Extract all protein identifiers in plants.fasta
-:name: pipe_grep_sed_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(pipe_grep_sed_example)=
+``````{prf:example} Extract all protein identifiers in plants.fasta
 If we are only interested in the header lines of a FASTA file we can filter on '>' with `grep`. 
 
 ```{code-block} bash
@@ -664,7 +564,7 @@ The first three lines of the output will be:
 >sp|P19084|11S3_HELAN 11S globulin seed storage protein G3 OS=Helianthus annuus GN=HAG3 PE=3 SV=1
 ```
 
-Then we can extract just the protein identifiers with `sed` as was done in {numref}`Example %s <sed_fasta_example>`.
+Then we can extract just the protein identifiers with `sed` as was done in [](#sed_fasta_example>`.
 
 ```{code-block} bash
 grep ">" plants.fasta | sed 's/>.*|//'

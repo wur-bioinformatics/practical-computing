@@ -103,16 +103,11 @@ It would store `"Good morning"` in `$1` and the script would give as output:
 Good morning
 ```
 
-To apply the concept of variables to a more biological problem, in {numref}`Example %s <pipe_grep_sed_script_example>` we turn the pipeline from {numref}`Example %s <pipe_grep_sed_example>` in @adv_unix_commands_pipes into a flexible {term}`shell script`.
+To apply the concept of variables to a more biological problem, in [](#pipe_grep_sed_script_example) we turn the pipeline from [](#pipe_grep_sed_example)` in @adv_unix_commands_pipes into a flexible {term}`shell script`.
 
-
-``````{admonition} Script to print all protein identifiers in a FASTA file to screen
-:name: pipe_grep_sed_script_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
-Let's turn first the pipeline from {numref}`Example %s <pipe_grep_sed_example>` in @adv_unix_commands_pipes into a shell script:
+(pipe_grep_sed_script_example)=
+``````{prf:example} Script to print all protein identifiers in a FASTA file to screen
+Let's turn first the pipeline from [](#pipe_grep_sed_example) in @adv_unix_commands_pipes into a shell script:
 
 ```{code-block} bash
 :filename: extract_protein_ids_hardcoded.sh
@@ -155,14 +150,10 @@ do
     action
 done
 ```
-The `range` here can be a range of numbers ({numref}`Example %s <for_loop_number_example>`) or multiple files in a directory ({numref}`Example %s <for_loop_files_example>`).
+The `range` here can be a range of numbers ([](#for_loop_number_example)) or multiple files in a directory ([](#for_loop_files_example)).
 
-``````{admonition} Looping over a range of numbers
-:name: for_loop_number_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(for_loop_number_example)=
+``````{prf:example} Looping over a range of numbers
 Let's adapt the `hello_world.sh` program so now it prints a greeting 5 times.
 
 ```{code-block} bash
@@ -188,12 +179,8 @@ Hello world
 ```
 ``````
 
-``````{admonition} Looping over files in a directory
-:name: for_loop_files_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(for_loop_files_example)=
+``````{prf:example} Looping over files in a directory
 ```{code-block} bash
 
 ```
