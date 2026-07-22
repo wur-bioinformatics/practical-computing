@@ -56,6 +56,36 @@ a.link:not([href*="#term-"]):hover {
     color: rgb(37 99 235) !important; /* Slightly darker blue */
 }
 
+/* ---------------------------------------------------------
+   seealso admonition (i.e. further reading)
+   --------------------------------------------------------- */
+
+/* Change the header background color of seealso / admonitions */
+/* Scope the green-600/50 utility overrides exclusively to seealso admonitions */
+aside.myst-admonition-seealso.border-green-600,
+aside.myst-admonition-seealso .border-green-600 {
+    --tw-border-opacity: 1 !important;
+    border-color: rgb(118 22 163) !important;
+    border-top-color: rgb(118 22 163) !important;
+    border-right-color: rgb(118 22 163) !important;
+    border-bottom-color: rgb(118 22 163) !important;
+    border-left-color: rgb(118 22 163) !important;
+}
+
+aside.myst-admonition-seealso .bg-green-50 {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(118 22 163 / 13%) !important;
+}
+
+aside.myst-admonition-seealso .text-green-600 {
+    --tw-text-opacity: 1 !important;
+    color: rgb(118 22 163 / var(--tw-text-opacity, 1)) !important;
+}
+
+/* ---------------------------------------------------------
+   regex text editing
+   --------------------------------------------------------- */
+
 /* Custom inline text colors */
 .red-text {
     color: #fb0c0c !important;
