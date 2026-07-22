@@ -17,6 +17,7 @@ After completing this section you should be able to:
 
 ## General Structure of a Unix Command
 
+
 ## Basic Unix Commands
 
 ### cp
@@ -60,7 +61,30 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### cat
+`cat` is a tool that prints the contents of a file (or standard input) to standard output (often the screen) ([](#cat_example)).
 
+(cat_example)=
+``````{prf:example} Print contents of a FASTA file to screen
+```{code-block} bash
+cat plants.fasta
+```
+The first lines of the output will be:
+```{code-block} bash
+:class: no-copybutton
+>sp|Q43495|108_SOLLC Protein 108 OS=Solanum lycopersicum PE=2 SV=1
+MASVKSSSSSSSSSFISLLLLILLVIVLQSQVIECQPQQSCTASLTGLNVCAPFLVPGSP
+TASTECCNAVQSINHDCMCNTMRIAAQIPAQCNLPPLSCSAN
+>sp|Q9XHP0|11S2_SESIN 11S globulin seed storage protein 2 OS=Sesamum indicum PE=2 SV=1
+MVAFKFLLALSLSLLVSAAIAQTREPRLTQGQQCRFQRISGAQPSLRIQSEGGTTELWDE
+RQEQFQCAGIVAMRSTIRPNGLSLPNYHPSPRLVYIERGQGLISIMVPGCAETYQVHRSQ
+RTMERTEASEQQDRGSVRDLHQKVHRLRQGDIVAIPSGAAHWCYNDGSEDLVAVSINDVN
+HLSNQLDQKFRAFYLAGGVPRSGEQEQQARQTFHNIFRAFDAELLSEAFNVPQETIRRMQ
+SEEEERGLIVMARERMTFVRPDEEEGEQEHRGRQLDNGLEETFCTMKFRTNVESRREADI
+FSRQAGRVHVVDRNKLPILKYMDLSAEKGNLYSNALVSPDWSMTGHTIVYVTRGDAQVQV
+VDHNGQALMNDRVNQGEMFVVPQYYTSTARAGNNGFEWVAFKTTGSPMRSPLAGYTSVIR
+AMPLQVITNSYQISPNQAQALKMNRGSQSFLLSPGGRRS
+```
+``````
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
