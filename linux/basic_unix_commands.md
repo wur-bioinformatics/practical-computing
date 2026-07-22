@@ -10,7 +10,7 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- be proficient in command line (shell) usage *#!this should be more specified I think*
+- navigate and manipulate the Linux file system using core directory and file management utilities (cd, ls, mkdir, cp, mv, rm)
 ```
 
 ## Introduction

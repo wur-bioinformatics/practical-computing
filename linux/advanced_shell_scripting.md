@@ -8,7 +8,8 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- be proficient in command line (shell) usage *#!this should be more specified I think*
+- explain what a shell script is and when it can be useful
+- explain how the shell locates and executes scripts using executable flags (chmod +x) and the $PATH variable.
 ```
 
 ## Introduction

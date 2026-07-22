@@ -9,7 +9,8 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- be proficient in command line (shell) usage *#!this should be more specified I think*
+- explain the concepts standard input (stdin), standard output (stdout), and standard error (stderr).
+- construct command pipelines to transform and filter data across multiple Unix tools.
 ```
 
 ## Introduction

@@ -10,7 +10,7 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- be proficient in command line (shell) usage *#!this should be more specified I think*
+- explain the concept of pattern matching and identify scenarios where regular expressions are useful.
 ```
 
 ## Introduction
