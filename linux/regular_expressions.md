@@ -14,7 +14,7 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-In this section, you will learn about and practice with {term}`regular Expressions <Regular Expression>`, a powerful tool to find patterns in text. They are also called 'Regex' or abbreviated as 'RE'.
+In this section, you will learn about and practice with {term}`Regular Expressions <Regular Expression>`, a powerful tool to find patterns in text. They are also called 'Regex' or abbreviated as 'RE'.
 
 
 *#! needs better introduction imo, also that it can be used on the cmdline and using python modules and that syntax can differ between languages*
@@ -22,15 +22,10 @@ In this section, you will learn about and practice with {term}`regular Expressio
 ## What are Regular Expressions and why use them?
 
 
-{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in {numref}`Example %s <patterns_in_text_example>`.
+{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
 
-
-``````{admonition} Patterns in text
-:numbered: true
-:label: patterns_in_text_example
-:class: simple myst-example
-:icon: false
-
+(example-patterns-in-text)=
+``````{prf:example} Patterns in text
 In the following -omics fields notice the pattern in the text:
 
 <span style="color: #17cc4d;"> Gen</span><span style="color: #fb0c0c;">omics</span>\
@@ -49,11 +44,11 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.2 Why Use Regular Expressions?
 ```
 ## Metacharacters
-{term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters ({numref}`Example %s <normal_char_example>`) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`wildcards <wildcard>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, anchors, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
+{term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters (<a href="#normal-char-example">Example 2</a>) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`wildcards <wildcard>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, anchors, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
 
-``````{admonition} Normal characters match themselves
-:name: normal_char_example
-:numbered: true
+
+(normal-char-example)=
+``````{prf:example} Normal characters match themselves
 :class: simple myst-example
 :icon: false
 A normal, or literal, character matches itself:
@@ -66,13 +61,11 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.4.1 Literal Characters
 ```
 ### Wildcards
-{term}`Wildcards <wildcard>` match a range of different characters. An example of a {term}`wildcard` and what characters it matches is shown in {numref}`Example %s <word_char_example>`. 
+{term}`Wildcards <wildcard>` match a range of different characters. An example of a {term}`wildcard` and what characters it matches is shown in [](#word-char-example). 
 
-```{admonition} Wildcard that matches any 'word' character
-:name: word_char_example
-:numbered: true
-:class: simple myst-example
-:icon: false
+
+(word-char-example)=
+```{prf:example} Wildcard that matches any 'word' character
 The {term}`wildcard` `\w` matches any 'word' character:
 - `\w` matches 'a'
 - `\w` matches 'b'
@@ -120,14 +113,10 @@ The various {term}`wildcards <wildcard>` and the characters they match are liste
   - inverse of `\s`
 ```
 
-When we combine normal characters and {term}`wildcards <wildcard>`, we can create complex search patterns. Some examples are shown in {numref}`Example %s <pattern_matching_example_1>` and {numref}`Example %s <pattern_matching_example_2>`.
+When we combine normal characters and {term}`wildcards <wildcard>`, we can create complex search patterns. Some examples are shown in [](#pattern_matching_example_1) and [](#pattern_matching_example_2).
 
-```{admonition} The bear likes blueberries
-:name: pattern_matching_example_1
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(pattern_matching_example_1)=
+```{prf:example} The bear likes blueberries
 For the text:\
 The bear likes blueberries
 
@@ -138,12 +127,8 @@ The pattern `\sb\w\wr\s` finds the following match:\
 The<span class="regex-match">{sub}`_`bear{sub}`_`</span>likes blueberries
 ```
 
-```{admonition} The bear likes to be rewarded with honey
-:name: pattern_matching_example_2
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(pattern_matching_example_2)=
+```{prf:example} The bear likes to be rewarded with honey
 For the text:\
 The bear likes to be rewarded with honey
 
@@ -154,15 +139,10 @@ The pattern `b..r` finds the following matches:\
 The <span class="regex-match">bear</span> likes to <span class="regex-match">be{sub}`_`r</span>ewarded with honey
 ```
 
-But what if you want to explicitly match a {term}`wildcard`? In {numref}`Example %s <escaping_wrong_example>` it is shown what happens if we don't alter the search pattern to account for the {term}`wildcard`. 
+But what if you want to explicitly match a {term}`wildcard`? In [](#escaping_wrong_example) it is shown what happens if we don't alter the search pattern to account for the {term}`wildcard`. 
 
-
-```{admonition} The blueberries are eaten by the bear. — Incorrect
-:name: escaping_wrong_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(escaping_wrong_example)=
+```{prf:example} The blueberries are eaten by the bear. — Incorrect
 **For the following text, match `b\w\wr`, but only if it occurs at the end of a sentence:**\
 The blueberries are eaten by the bear.
 
@@ -174,15 +154,10 @@ This does not work as intended...
 **Why did this not work?**
 ```
 
-Because the dot is a {term}`metacharacter`, it needs to be "escaped". {term}`Escaping <escape>` is when we prepend the character with a backslash (`\`) so it is interpreted as the literal character and not as the {term}`metacharacter`. {numref}`Example %s <escaping_correct_example>` shows the correct way to match the pattern including the dot at the end of the sentence. 
+Because the dot is a {term}`metacharacter`, it needs to be "escaped". {term}`Escaping <escape>` is when we prepend the character with a backslash (`\`) so it is interpreted as the literal character and not as the {term}`metacharacter`. [](#escaping_correct_example) shows the correct way to match the pattern including the dot at the end of the sentence. 
 
-
-```{admonition} The blueberries are eaten by the bear. — Correct
-:name: escaping_correct_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(escaping_correct_example)=
+```{prf:example} The blueberries are eaten by the bear. — Correct
 **For the following text, match `b\w\wr`, but only if it occurs at the end of a sentence:**\
 The blueberries are eaten by the bear.
 
@@ -212,7 +187,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Quantifiers
-Instead of using `\w\w` in the previous examples ({numref}`Example %s <pattern_matching_example_1>`, {numref}`Example %s <pattern_matching_example_2>`, {numref}`Example %s <escaping_wrong_example>`, {numref}`Example %s <escaping_correct_example>`), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in {numref}`quantifiers_table`.
+Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1), [](#pattern_matching_example_2), [](#escaping_wrong_example), [](#escaping_correct_example), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in [](quantifiers_table).
 
 ```{list-table} Quantifiers
 :header-rows: 1
@@ -234,14 +209,10 @@ Instead of using `\w\w` in the previous examples ({numref}`Example %s <pattern_m
 
 ```
 
-Instead of how we wrote the first pattern in {numref}`Example %s <pattern_matching_example_1>`, we could use a {term}`quantifier` as is shown in {numref}`Example %s <quantifier_example_1>`
+Instead of how we wrote the first pattern in [](#pattern_matching_example_1), we could use a {term}`quantifier` as is shown in [](#quantifier_example_1).
 
-```{admonition} The bear likes blueberries
-:name: quantifier_example_1
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(quantifier_example_1)=
+```{prf:example} The bear likes blueberries
 For the text:\
 The bear likes blueberries
 
@@ -252,7 +223,7 @@ The <span class="regex-match">bear</span> likes blue<span class="regex-match">be
 It might not seem worth it to use a {term}`quantifier` when we try to match only two characters. However, if you want match longer words or patterns, not having to repeat the {term}`metacharacters <metacharacter>` or literal characters makes the pattern clearer and less prone to errors.
 
 ```{caution} Greediness
-In {numref}`Example %s <quantifier_example_1>`, we used the specific {term}`quantifier` `{2}`. This is because {term}`Regular Expressions <Regular Expression>` are, by default, {term}`greedy`. {term}`Greedy <greedy>` means that the pattern will search for the longest match. If, instead, we would have used the `+` {term}`quantifier`, the following would have matched:
+In [](#quantifier_example_1), we used the specific {term}`quantifier` `{2}`. This is because {term}`Regular Expressions <Regular Expression>` are, by default, {term}`greedy`. {term}`Greedy <greedy>` means that the pattern will search for the longest match. If, instead, we would have used the `+` {term}`quantifier`, the following would have matched:
 
 For the text:\
 The bear likes blueberries
@@ -267,23 +238,18 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Sets
-In certain cases, you might want to match specific characters or a range of characters ({numref}`Example %s <set_example>`). This is possible by using a {term}`set`. {term}`Sets <set>` are denoted by square brackets: `[`and `]`. When using a {term}`set`, it means that at that position in the pattern, any of the options denoted within the square brackets may occur. To illustrate, the {term}`set` `[0-9]` represents the same as the `\d` {term}`wildcard`: any digit between 0 and 9.
+In certain cases, you might want to match specific characters or a range of characters ([](#set_example)). This is possible by using a {term}`set`. {term}`Sets <set>` are denoted by square brackets: `[`and `]`. When using a {term}`set`, it means that at that position in the pattern, any of the options denoted within the square brackets may occur. To illustrate, the {term}`set` `[0-9]` represents the same as the `\d` {term}`wildcard`: any digit between 0 and 9.
 
 {term}`Sets <set>` may also be repeated by {term}`quantifiers <quantifier>`. For example, when searching for a protein string, one might only want to include the 20-letter amino acid alphabet instead of using `\w`. 
 
-```{admonition} SNP in Sickle Cell Hemoglobin peptide
-:name: set_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(set_example)=
+```{prf:example} SNP in Sickle Cell Hemoglobin peptide
 In a protein string, the amino acid at a certain position can be either glutamine or valine:\
 VHLTPEEK\
 VHLTPVEK
 
 To capture both these peptides with a {term}`Regex <Regular Expression>` pattern, we could use a {term}`set`:\
 `VHLTP[VE]EK`
-
 ```
 
 ```{seealso} Further Reading
@@ -292,14 +258,10 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Anchors
-If we want to match a pattern to the beginning or end of a string, we can use an {term}`anchor`. The start of a line is represented by a hat (`^`), whereas the end of a line is represented by a dollar sign (`$`). This also means that if we want to match a line with a pattern at the beginning of the line, it should start with `^` ({numref}`Example %s <anchor_start_example>`), and when matching something at the end, the pattern ends with `$` ({numref}`Example %s <anchor_end_example>`).
+If we want to match a pattern to the beginning or end of a string, we can use an {term}`anchor`. The start of a line is represented by a hat (`^`), whereas the end of a line is represented by a dollar sign (`$`). This also means that if we want to match a line with a pattern at the beginning of the line, it should start with `^` ([](#anchor_start_example)), and when matching something at the end, the pattern ends with `$` ([](#anchor_end_example)).
 
-```{admonition} Match fruits that start with an 'a'
-:name: anchor_start_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(anchor_start_example)=
+```{prf:example} Match fruits that start with an 'a'
 In a file, where each line is a fruit:\
 apple\
 orange\
@@ -317,12 +279,8 @@ pear\
 guave
 ```
 
-```{admonition} Match fruits that end with an 'e'
-:name: anchor_end_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(anchor_end_example)=
+```{prf:example} Match fruits that end with an 'e'
 In a file, where each line is a fruit:\
 apple\
 orange\
@@ -342,7 +300,7 @@ pear\
 
 ```{caution} The hat symbol (^) has different meaning depending on how it is used
 The hat symbol means beginning of line when it is used plainly: \
-`^a` means the pattern matches a line starting with an 'a' ({numref}`Example %s <anchor_start_example>`).
+`^a` means the pattern matches a line starting with an 'a' ([](#anchor_start_example)).
 
 However, when the hat symbol is used in a {term}`set`, such as `[^a]`, it represents the negation of that set of characters. So, in this case, in that position in the pattern there would **not** be an 'a'.
 ```
@@ -353,14 +311,10 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Alternations
-Sometimes the patterns we want to match contain either one pattern or another pattern ({numref}`Example %s <alternation_example>`). This can be achieved by the pipe symbol (`|`). 
+Sometimes the patterns we want to match contain either one pattern or another pattern ([](#alternation_example)). This can be achieved by the pipe symbol (`|`). 
 
-```{admonition} Life sciences 1
-:name: alternation_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(alternation_example)=
+```{prf:example} Life sciences 1
 In a file with the lines:\
 While studying biology, she was majoring in zoology.\
 While studying archeology, she was majoring in anthropology.\
@@ -400,14 +354,10 @@ Computing Skills for Biologists - a Tool box
 ## Capturing (and Replacing)
 Until now, we have only illustrated what text matches a {term}`Regex <Regular Expression>` pattern. But what makes {term}`Regex <Regular Expression>` so useful is that we can capture the match for further processing or that we can replace the match with something else. 
 
-To capture a match we can use the {term}`group` {term}`metacharacters <metacharacter>`: `(` and `)` (parentheses). {term}`Groups <group>` are especially useful for when we want to capture only a specific part of a pattern ({numref}`Example %s <capturing_example>`).
+To capture a match we can use the {term}`group` {term}`metacharacters <metacharacter>`: `(` and `)` (parentheses). {term}`Groups <group>` are especially useful for when we want to capture only a specific part of a pattern ([](#capturing_example)).
 
-```{admonition} Life sciences 2
-:name: capturing_example
-:numbered: true
-:class: simple myst-example
-:icon: false
-
+(capturing_example)=
+```{prf:example} Life sciences 2
 For the text:\
 While studying biology, she was majoring in zoology.
 
