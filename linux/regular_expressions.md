@@ -14,6 +14,8 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
+Biologists often work with large amounts of text-based data, including DNA and protein sequences, gene identifiers, sample names, annotation files, and experimental metadata. Regular expressions provide a powerful way to describe and search for patterns in such data. They can be used, for example, to find dates, extract gene identifiers, validate sequence formats, or identify motifs in strings of text. In this section, you will learn how to recognize and construct regular-expression patterns and apply them to biological data.
+
 In this section, you will learn about and practice with {term}`Regular Expressions <Regular Expression>`, a powerful tool to find patterns in text. They are also called 'Regex' or abbreviated as 'RE'.
 
 

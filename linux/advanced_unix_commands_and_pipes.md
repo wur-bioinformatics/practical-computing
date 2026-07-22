@@ -14,7 +14,7 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-In this section, you will learn about Input/Output streams, some advanced Linux command-line tools and how to connect them using pipelines. 
+Most Linux commands are designed to perform one specific task, such as displaying a file, counting lines, sorting values, or filtering text. By combining several commands in a pipeline, the output of one command can be passed directly to the next. This makes it possible to perform surprisingly powerful analyses on very large datasets without having to load the data into a spreadsheet or write a complete program. In this section, you will learn how to combine commands efficiently and build transparent, reusable data-processing workflows.
 
 (input-outputstreams)=
 ## Input/Output streams

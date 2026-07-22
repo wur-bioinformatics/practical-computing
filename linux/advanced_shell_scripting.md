@@ -13,7 +13,7 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-In this section, you will learn how to combine shell commands to organize them into a script, and how to make the script executable.
+Data analysis usually involves many steps, from cleaning and preparing files to running analyses and summarizing the results. These steps can be performed manually, but doing so is time-consuming and makes it difficult to reproduce the analysis later. A shell script records the commands in a file that can be executed whenever needed. In this section, you will learn how to turn a sequence of commands into a script, add variables and basic logic, and create workflows that are easier to repeat, inspect, and share.
 
 ## Shell Scripting
 Now that you have got more experience with {ref}`Advanced_Unix_Commands` and {ref}`Pipelines`, it is fairly easy to turn them into a script. A {term}`shell script` is a (text) file containing a series of commands that the shell can interpret and execute [@geeksforgeeks_shellscripting_2026]. A {term}`shell script` is given, by naming convention, the file extension `.sh`. The {term}`shell` program that runs the script is called `bash`.

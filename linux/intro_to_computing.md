@@ -1,5 +1,5 @@
 ---
-title: Introduction to computing / Linux
+title: Introduction to Computing and Linux
 label: intro_to_computing
 abbreviations:
     BLAST: Basic Local Alignment Search Tool
@@ -15,7 +15,7 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-In this section, you will connect to a remote server running on Linux, you will explore various computational concepts in a hands-on way and run your first bioinformatics command-line tool.
+Biological data analysis can often be performed using ready-made software such as Excel or tools designed for a specific task. These programs are convenient, but they also limit which analyses you can perform and how much control you have over the process. In this course, you will learn to work in a flexible computing environment in which you can build and run your own analyses. This will allow you to adapt workflows to your research questions, the structure of your data, and the available computing resources.
 
 
 ## Operating systems
