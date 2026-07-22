@@ -64,6 +64,9 @@ metacharacter
 network
 : Connects different computers together.
 
+non-printable character
+: character that does not represent a visible, written symbol, also called control character.
+
 operating system
 : Software that manages computer hardware and software resources of a computing devices and acts as an interface between user and hardware.
 
