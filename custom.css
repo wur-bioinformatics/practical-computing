@@ -31,11 +31,35 @@ a[href*="wiki"]:hover {
     opacity: 0.7 !important; 
 }
 
+/* ---------------------------------------------------------
+   INTERNAL CROSS-REFERENCES (Examples, Figures, Tables)
+   --------------------------------------------------------- */
+
+/* Target MyST's internal links, but EXPLICITLY IGNORE glossary terms */
+a.hover-link:not([href*="#term-"]),
+a.link:not([href*="#term-"]) {
+    color: rgb(37 99 235) !important; /* Standard default link blue */
+    
+    /* Override Tailwind's built-in underline properties */
+    text-decoration: none !important; 
+    text-decoration-line: none !important; 
+    text-decoration-color: transparent !important;
+}
+
+/* Add a solid underline ONLY when hovering */
+a.hover-link:not([href*="#term-"]):hover,
+a.link:not([href*="#term-"]):hover {
+    text-decoration: underline !important;
+    text-decoration-line: underline !important;
+    text-decoration-style: solid !important;
+    text-decoration-color: rgb(37 99 235) !important; /* Matches the hover text color */
+    color: rgb(37 99 235) !important; /* Slightly darker blue */
+}
+
 /* Custom inline text colors */
 .red-text {
     color: #fb0c0c !important;
 }
-
 
 /* Highlights regex matches with coloured text and a colored underline */
 .regex-match {
