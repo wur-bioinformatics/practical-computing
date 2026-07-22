@@ -176,10 +176,8 @@ Or by using square brackets:\
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
-- Chapter 5.4.2 Metacharacters\*
+- Chapter 5.4.2 Metacharacters
 - Chapter 5.4.7 Raw String Notation and Escaping Metacharacters
-
-\* Note: The book calls {term}`wildcards <wildcard>` "metacharacters", but we hold the definition that a {term}`metacharacter` is any symbol with a special, non-literal meaning and a {term}`wildcard` is a specific symbol that represents unknown or unimportant data.
 ```
 
 
