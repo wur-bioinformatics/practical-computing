@@ -37,52 +37,6 @@ a[href*="wiki"]:hover {
 }
 
 
-/* Aggressively hide hover-previews for example links */
-body:has(a[href*="example"]:hover) [data-tippy-root],
-body:has(a[href*="example"]:hover) .tippy-box {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-
-/* Initialize the example counter for the page */
-body {
-    counter-reset: example-counter;
-}
-
-/* Increment the counter every time our custom class appears */
-article .myst-example, 
-main .myst-example {
-    counter-increment: example-counter;
-}
-
-/* Inject 'Example X: ' automatically into the title with proper spacing */
-.myst-example .myst-admonition-title::before,
-.myst-example header::before,
-.myst-example > p:first-child::before,
-.myst-example > div:first-child::before {
-    content: "Example: ";
-    font-weight: bold;
-    margin-left: 10px;
-    margin-right: 1px;
-}
-
-/* MAIN TEXT BEHAVIOR: Override the default and add the actual number when in the main text */
-article .myst-example .myst-admonition-title::before,
-article .myst-example header::before,
-article .myst-example > p:first-child::before,
-article .myst-example > div:first-child::before,
-main .myst-example .myst-admonition-title::before,
-main .myst-example header::before,
-main .myst-example > p:first-child::before,
-main .myst-example > div:first-child::before {
-    content: "Example " counter(example-counter) ": ";
-    white-space: nowrap;      /* Prevents the text from wrapping to a new line */
-    display: inline-block;    /* Ensures it behaves like a solid block alongside the title */
-}
-
 /* Highlights regex matches with coloured text and a colored underline */
 .regex-match {
     color: #fb0c0c !important; /* This colors the text itself red */
