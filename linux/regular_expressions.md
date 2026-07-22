@@ -58,48 +58,36 @@ A normal, or literal, character matches itself:
 Computing Skills for Biologists - a Tool box
 - Chapter 5.4.1 Literal Characters
 ```
-### Wildcards
-{term}`Wildcards <wildcard>` match a range of different characters. An example of a {term}`wildcard` and what characters it matches is shown in [](#word-char-example). 
 
+### Character classes
+{term}`Character classes <character class>` are {term}`metacharacters <metacharacter>` that represent a group of characters such as word characters ([](#word-char-example)) or digits. 
 
 (word-char-example)=
-```{prf:example} Wildcard that matches any 'word' character
-The {term}`wildcard` `\w` matches any 'word' character:
+```{prf:example} Character class metacharacter that matches any 'word' character
+The {term}`character class` `\w` matches any 'word' character:
 - `\w` matches 'a'
 - `\w` matches 'b'
 - `\w` matches 'A'
 - `\w` matches '5'
 ```
 
-The various {term}`wildcards <wildcard>` and the characters they match are listed in {numref}`wildcards_table`.
+The character classes and what they match are presented in [](#character_class_table).
 
-```{list-table} Wildcards
+```{list-table} Character classes
 :header-rows: 1
-:label: wildcards_table
-* - Wildcard
+:label: character_class_table
+* - Character class
   - Matches ...
   - Further information
-* - `\n`
-  - newline 
-  - Line Feed or hexadecimal code: X0A
-* - `\r`
-  - carriage return
-  - hexadecimal code: X0D
-* - `\t`
-  - TAB character
-  - as in tab-delimited files (.tsv), in some editors visualised as '→'
 * - `\s`
   - any whitespace
   - tabs and spaces
 * - `\w`
   - any 'word' character 
-  - alphabet + digits
+  - alphabet + digits *#! also underscore?*
 * - `\d`
   - any digits
   - [0-9] *#! in slide says [1-9] but is zero not also a digit?*
-* - `.`
-  - any character
-  - not `\n` or `\r` unless RE modified *#! What does this mean?*
 * - `\W`
   - any non-word character
   - inverse of `\w`
@@ -111,7 +99,7 @@ The various {term}`wildcards <wildcard>` and the characters they match are liste
   - inverse of `\s`
 ```
 
-When we combine normal characters and {term}`wildcards <wildcard>`, we can create complex search patterns. Some examples are shown in [](#pattern_matching_example_1) and [](#pattern_matching_example_2).
+When we combine normal characters and {term}`character classes <character class>`, we can create complex search patterns ([](#pattern_matching_example_1)).
 
 (pattern_matching_example_1)=
 ```{prf:example} The bear likes blueberries
@@ -124,6 +112,14 @@ The <span class="regex-match">bear</span> likes blue<span class="regex-match">be
 The pattern `\sb\w\wr\s` finds the following match:\
 The<span class="regex-match">{sub}`_`bear{sub}`_`</span>likes blueberries
 ```
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 5.4.2 Metacharacters
+```
+
+### Wildcard
+There is one {term}`metacharacter` that matches any character: the {term}`wildcard` `.` ([](#pattern_matching_example_2)). 
 
 (pattern_matching_example_2)=
 ```{prf:example} The bear likes to be rewarded with honey
@@ -186,34 +182,6 @@ Computing Skills for Biologists - a Tool box
 \* Note: The book calls {term}`wildcards <wildcard>` "metacharacters", but we hold the definition that a {term}`metacharacter` is any symbol with a special, non-literal meaning and a {term}`wildcard` is a specific symbol that represents unknown or unimportant data.
 ```
 
-### Character classes
-{term}`Character classes <character class>` are metacharacters that represents a group of characters such as letters or digits. The character classes and what they match are presented in [](#character_class_table).
-
-```{list-table} Character classes
-:header-rows: 1
-:label: character_class_table
-* - Character class
-  - Matches ...
-  - Further information
-* - `\s`
-  - any whitespace
-  - tabs and spaces
-* - `\w`
-  - any 'word' character 
-  - alphabet + digits
-* - `\d`
-  - any digits
-  - [0-9] *#! in slide says [1-9] but is zero not also a digit?*
-* - `\W`
-  - any non-word character
-  - inverse of `\w`
-* - `\D`
-  - any non-digit character
-  - inverse of `\d`
-* - `\S`
-  - any non-white space character
-  - inverse of `\s`
-```
 
 ### Control characters
 
