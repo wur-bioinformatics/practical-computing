@@ -16,7 +16,7 @@ After completing this section you should be able to:
 Data analysis usually involves many steps, from cleaning and preparing files to running analyses and summarizing the results. These steps can be performed manually, but doing so is time-consuming and makes it difficult to reproduce the analysis later. A shell script records the commands in a file that can be executed whenever needed. In this section, you will learn how to turn a sequence of commands into a script, add variables and basic logic, and create workflows that are easier to repeat, inspect, and share.
 
 ## Shell Scripting
-Now that you have got more experience with {ref}`Advanced_Unix_Commands` and {ref}`Pipelines`, it is fairly easy to turn them into a script. A {term}`shell script` is a (text) file containing a series of commands that the shell can interpret and execute [@geeksforgeeks_shellscripting_2026]. A {term}`shell script` is given, by naming convention, the file extension `.sh`. The {term}`shell` program that runs the script is called `bash`.
+Now that you have got more experience with {ref}`Advanced_Linux_Commands` and {ref}`Pipelines`, it is fairly easy to turn them into a script. A {term}`shell script` is a (text) file containing a series of commands that the shell can interpret and execute [@geeksforgeeks_shellscripting_2026]. A {term}`shell script` is given, by naming convention, the file extension `.sh`. The {term}`shell` program that runs the script is called `bash`.
 
 The advantages of turning pipelines into scripts are that your commands are saved into a file and can be executed any time on any (relevant) file. For example, if you have multiple FASTA files on which you want to perform the same operations, you don't have to rewrite your pipeline many times, you can just execute the script with those files. Additionally, if in 6 months you want to perform that same operation on a new FASTA file, you don't have to go through your notes to find the right pipeline. Instead, you can use your written script. 
 
@@ -104,11 +104,11 @@ It would store `"Good morning"` in `$1` and the script would give as output:
 Good morning
 ```
 
-To apply the concept of variables to a more biological problem, in [](#pipe_grep_sed_script_example) we turn the pipeline from [](#pipe_grep_sed_example)` in @adv_unix_commands_pipes into a flexible {term}`shell script`.
+To apply the concept of variables to a more biological problem, in [](#pipe_grep_sed_script_example) we turn the pipeline from [](#pipe_grep_sed_example)` in @adv_linux_commands_pipes into a flexible {term}`shell script`.
 
 (pipe_grep_sed_script_example)=
 ``````{prf:example} Script to print all protein identifiers in a FASTA file to screen
-Let's turn first the pipeline from [](#pipe_grep_sed_example) in @adv_unix_commands_pipes into a shell script:
+Let's turn first the pipeline from [](#pipe_grep_sed_example) in @adv_linux_commands_pipes into a shell script:
 
 ```{code-block} bash
 :filename: extract_protein_ids_hardcoded.sh

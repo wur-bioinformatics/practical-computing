@@ -14,9 +14,9 @@ project:
     - title: Linux
       children:
         - file: linux/intro_to_computing.md
-        - file: linux/basic_unix_commands.md
+        - file: linux/basic_linux_commands.md
         - file: linux/regular_expressions.md
-        - file: linux/advanced_unix_commands_and_pipes.md
+        - file: linux/advanced_linux_commands_and_pipes.md
         - file: linux/advanced_shell_scripting.md
     - file: python/python_intro.md
     - title: Python
