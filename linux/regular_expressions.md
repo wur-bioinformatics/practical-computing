@@ -395,7 +395,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.8 The Quest for the Perfect Regular Expression
 ```
 
-## Practical
+## Exercises
 ### Programs and Resources
 Graphical text editor
 
@@ -404,6 +404,10 @@ https://regex101.com/
 ### Exercises
 *#! I would change the format of the practical so that the focus is not on what dataset is used (should ofc be specified) but what they are trying to achieve, so that it can be referred to more easily* 
 
+- Finding ORFs in sequences
+- Working with column data
+- Converting PROSITE pattern to regular expression
+- Finding words in a text file
 
 Dataset 1: Hemoglobin
 - find start codons
