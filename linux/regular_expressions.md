@@ -22,7 +22,7 @@ In this section, you will learn about and practice with {term}`Regular Expressio
 ## What are Regular Expressions and why use them?
 
 
-{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
+{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with {term}`strings <string>`, or {term}`string` matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
 
 (example-patterns-in-text)=
 ``````{prf:example} Patterns in text
@@ -173,7 +173,9 @@ The backslash '`\`' is also a {term}`metacharacter`.
 ```{solution} escape_backslash
 :class: dropdown
 You can {term}`escape` the backslash by using another backslash: \
-`\\`
+`\\`\
+Or by using square brackets:\
+`[\]`
 ```
 
 ```{seealso} Further Reading
@@ -183,6 +185,39 @@ Computing Skills for Biologists - a Tool box
 
 \* Note: The book calls {term}`wildcards <wildcard>` "metacharacters", but we hold the definition that a {term}`metacharacter` is any symbol with a special, non-literal meaning and a {term}`wildcard` is a specific symbol that represents unknown or unimportant data.
 ```
+
+### Character classes
+{term}`Character classes <character class>` are metacharacters that represents a group of characters such as letters or digits. The character classes and what they match are presented in [](#character_class_table).
+
+```{list-table} Character classes
+:header-rows: 1
+:label: character_class_table
+* - Character class
+  - Matches ...
+  - Further information
+* - `\s`
+  - any whitespace
+  - tabs and spaces
+* - `\w`
+  - any 'word' character 
+  - alphabet + digits
+* - `\d`
+  - any digits
+  - [0-9] *#! in slide says [1-9] but is zero not also a digit?*
+* - `\W`
+  - any non-word character
+  - inverse of `\w`
+* - `\D`
+  - any non-digit character
+  - inverse of `\d`
+* - `\S`
+  - any non-white space character
+  - inverse of `\s`
+```
+
+### Control characters
+
+
 
 ### Quantifiers
 Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1), [](#pattern_matching_example_2), [](#escaping_wrong_example), [](#escaping_correct_example), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in [](#quantifiers_table).
@@ -256,7 +291,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Anchors
-If we want to match a pattern to the beginning or end of a string, we can use an {term}`anchor`. The start of a line is represented by a hat (`^`), whereas the end of a line is represented by a dollar sign (`$`). This also means that if we want to match a line with a pattern at the beginning of the line, it should start with `^` ([](#anchor_start_example)), and when matching something at the end, the pattern ends with `$` ([](#anchor_end_example)).
+If we want to match a pattern to the beginning or end of a {term}`string`, we can use an {term}`anchor`. The start of a line is represented by a hat (`^`), whereas the end of a line is represented by a dollar sign (`$`). This also means that if we want to match a line with a pattern at the beginning of the line, it should start with `^` ([](#anchor_start_example)), and when matching something at the end, the pattern ends with `$` ([](#anchor_end_example)).
 
 (anchor_start_example)=
 ```{prf:example} Match fruits that start with an 'a'
