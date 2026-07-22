@@ -46,6 +46,9 @@ GPU
 greedy
 : the pattern will return the longest possible match.
 
+group (regex)
+: group of matched characters captured by a part of a match to a Regular Expression search pattern
+
 index
 : A data structure that stores and organizes information within a file in such a way that it is easy to find.
 

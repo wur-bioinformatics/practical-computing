@@ -355,9 +355,9 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Capturing (and Replacing)
-Until now, we have only illustrated what text matches a {term}`Regex <Regular Expression>` pattern. But what makes {term}`Regex <Regular Expression>` so useful is that we can capture the match for further processing or that we can replace the match with something else. 
+Until now, we have only illustrated what text matches a {term}`Regex <Regular Expression>` pattern. But what makes {term}`Regex <Regular Expression>` so useful is that we can capture part of the match for further processing or that we can replace parth of the match with something else. 
 
-To capture a match we can use the {term}`group` {term}`metacharacters <metacharacter>`: `(` and `)` (parentheses). {term}`Groups <group>` are especially useful for when we want to capture only a specific part of a pattern ([](#capturing_example)).
+To capture part of a match, we can enclose it in parentheses (`(` and `)`). {term}`Groups <group (regex)>` are especially useful for when we want to capture only a specific part of a pattern ([](#capturing_example)).
 
 (capturing_example)=
 ```{prf:example} Life sciences 2
@@ -369,7 +369,7 @@ We want to capture the subjects. We can perform a Find & Replace as follows:\
 **Replace:** `\1 \2`\
 **Result:** biology zoology
 
-The `\1` and `\2` refer to the first and second {term}`group` captured, i.e. the text that matches the patterns within the parentheses. By stating the Replace as done here, we replace the original text with only the text matched for the {term}`groups <group>`. 
+The `\1` and `\2` refer to the first and second {term}`group <group (regex)>` captured, i.e. the text that matches the patterns within the parentheses. By stating the Replace as done here, we replace the original text with only the text matched for the {term}`groups <group (regex)>`. 
 ```
 
 ```{seealso} Further Reading
