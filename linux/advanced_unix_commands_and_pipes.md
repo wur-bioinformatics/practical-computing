@@ -70,7 +70,7 @@ man <tool>
 ### wget
 `wget` is a tool that can retrieve files from a URL ([](#wget_example)).
 
-(vwget_example)=
+(wget_example)=
 ``````{prf:example} Download a FASTA file
 ```{code-block} bash
 wget http://www.bioinformatics.nl/plants.fasta
