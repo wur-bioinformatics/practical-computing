@@ -20,8 +20,6 @@ In this section, you will learn about and practice with {term}`Regular Expressio
 *#! needs better introduction imo, also that it can be used on the cmdline and using python modules and that syntax can differ between languages*
 
 ## What are Regular Expressions and why use them?
-
-
 {term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with {term}`strings <string>`, or {term}`string` matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
 
 (example-patterns-in-text)=
@@ -44,7 +42,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.2 Why Use Regular Expressions?
 ```
 ## Metacharacters
-{term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters [](#normal_char_example) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`wildcards <wildcard>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, anchors, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
+{term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters ([](#normal_char_example)) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`character classes <character class>`, {term}`wildcard`, {term}`non-printable characters <non-printable character>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, anchors, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
 
 
 (normal_char_example)=
@@ -119,7 +117,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Wildcard
-There is one {term}`metacharacter` that matches any character: the {term}`wildcard` `.` ([](#pattern_matching_example_2)). 
+There is one {term}`metacharacter` that matches any character: the {term}`wildcard` `.` (dot) ([](#pattern_matching_example_2)). 
 
 (pattern_matching_example_2)=
 ```{prf:example} The bear likes to be rewarded with honey
@@ -181,12 +179,33 @@ Computing Skills for Biologists - a Tool box
 ```
 
 
-### Control characters
+### Non-printable characters
+When writing or processing text, we also use characters that are not visibily seen but do exist to control the text. For example, when you press {kbd}`tab`, you have moved somehwat towards the right in the text but there are no visible characters written. Another example is when you press {kbd}`enter` in a text file, you have moved to the next line but nothing is visibly written in your document. There are actually characters representing this: the {term}`non-printable characters <non-printable character>`. In a text editor or processor, they can often be made visible (in Word: clicking ¶, or {kbd}`control`+{kbd}`shift`+{kbd}`8` (Windows) {kbd}`command`+{kbd}`8` (Mac)). The most commonly used ones are presented in [](#nonprintable_table).
 
+```{list-table} Non-printable characters
+:header-rows: 1
+:label: nonprintable_table
+* - Non-printable character
+  - Matches ...
+  - Further information
+* - `\n`
+  - newline 
+  - Line Feed or hexadecimal code: X0A
+* - `\r`
+  - carriage return
+  - hexadecimal code: X0D
+* - `\t`
+  - TAB character
+  - as in tab-delimited files (.tsv), in some editors visualised as '→'
+```
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 5.4.2 Metacharacters
+```
 
 ### Quantifiers
-Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1), [](#pattern_matching_example_2), [](#escaping_wrong_example), [](#escaping_correct_example), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in [](#quantifiers_table).
+Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1), [](#pattern_matching_example_2), [](#escaping_wrong_example), [](#escaping_correct_example)), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character or {term}`group` of characters should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in [](#quantifiers_table).
 
 ```{list-table} Quantifiers
 :header-rows: 1
@@ -205,7 +224,6 @@ Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1
   - at least `n` times
 * - `{n,m}`
   - at least `n` and at most `m` times 
-
 ```
 
 Instead of how we wrote the first pattern in [](#pattern_matching_example_1), we could use a {term}`quantifier` as is shown in [](#quantifier_example_1).
