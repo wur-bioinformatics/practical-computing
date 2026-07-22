@@ -131,59 +131,6 @@ There are different communication protocols between devices, which each use a di
 
 *#! include "working on the bioinformatics servers picture in slide 18?*
 
-Now we will connect to the server [[SERVER_NAME]]. 
-
-```{exercise} Connecting to [[SERVER_NAME]] from ...
-Follow the "Connecting to [[SERVER_NAME]] from ..." description on BrightSpace that is appropriate for your operating system (Windows or macOS). If you have another OS, ask one of the teachers.
-```
-
-If everything worked out well and you logged in to [[SERVER_NAME]], you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` [@techtarget_command_prompt]. It looks something like this:
-
-```{code-block} bash
-user001@server:~$
-```
-
-This is the {term}`command-line interface` that allows you to type all kinds of commands. The commands you type are actually handled by the {term}`shell`.
-
-
-``````{exercise} Who am I?
-You are now a Linux user identified by your WUR username. To see your username you can type `whoami` after the {term}`prompt`, followed by {kbd}`enter`. For example:
-
-```{code-block} bash
-:class: no-copybutton
-user001@[[SERVER_NAME]]:~$ whoami
-user001
-```
-``````
-
-``````{exercise} Who else is on the server?
-To see who else is currently on this server, you can use the `who` command:
-
-```{code-block} bash
-:class: no-copybutton
-user001@[[SERVER_NAME]]:~$ who
-```
-This will give you a list of usernames. 
-
- **Do you already recognize some of your fellow students or teachers?**
-``````
-
-```{margin}
-The bioinformatics servers have over one hundred active users from various research groups (Bioinformatics, Genetics, Biosystematics, Plant Physiology, Phytopathology, Host-microbe interactomics, Nematology, Virology and Wageningen Food & Biobased Research).
-```
-
-
-``````{exercise} What is the name of the person associated with a username?
-To learn the name of the person associated with a username there is another
-command:
-
-```{code-block} bash
-:class: no-copybutton
-user001@[[SERVER_NAME]]:~$ finger nijve002
-```
-``````
-
-The part after the command, `nijve002` in this case, is called an {term}`argument`, which specifies what the command should operate on.
 
 
 ### CPU, GPU and memory
@@ -232,6 +179,159 @@ A {term}`byte` is a unit of computer information consisting of a number of {term
 ```
 
 The {term}`memory`, or RAM, is used by programs to temporarily store information (data). Because it is temporary, it is not persistent and the data contained here is lost when power is shut off. However, it is much faster than a hard disk (long-term memory): 20-80 GB/s. A computer often has a {term}`memory` in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications need over 1 TB. If the {term}`memory` is full, the hard disk is used as "overflow". This is called swapping and is very slow.
+
+
+
+### File system
+The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file system`s exist, differing in:
+- maximum file size
+- security
+- redundancy
+- speed
+- etc.
+
+Example of {term}`file system`s are: NTFS, FAT32, EXT4, and ZFS. The size of {term}`file system`s are nowadays in the terabyte range. {term}`file system`s are often organized in a directory or folder structure as illustrated in {numref}`file_system_structure`.
+
+:::{figure}
+:label: file_system_structure
+```{mermaid}
+flowchart TD
+    %% Define the directories
+    Root["/root"]
+    Bin["bin"]
+    Usr["usr"]
+    Home["home"]
+    PC["BIF21806"]
+
+    %% Create the hierarchical connections
+    Root --> Bin
+    Root --> Usr
+    Root --> Home
+    Home --> PC
+
+    %% Optional: Add a simple style to make them look like folders
+    classDef folder fill:#3b90ca,stroke:#000,stroke-width:2px,color:white,rx:5,ry:5;
+    class Root,Bin,Usr,Home,PC folder;
+```
+Example hierarchical folder/directory structure of a {term}`file system`
+:::
+
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.4 Getting Started with the Shell
+- Chapter 1.5 Basic Unix Commands *#! more specific*
+```
+
+### I/O (Input/Output) and compression
+The {term}`input` of a program is the source of incoming information (data). For example:
+- Your keyboard
+- A file
+- A {term}`network`
+- {term}`memory`
+
+The {term}`output` is the destination of the outgoing information. For example:
+- Your screen
+- A file
+- A {term}`network`
+- {term}`memory`
+
+The I/O can be a performance bottleneck for computations.
+
+Text data is usually not stored efficiently in a {term}`file system`. For example, a text file with 1,000,000 times the letter 'a' will take up 1,000,000 {term}`byte`s of disk space (1 megabyte). To save space and {term}`network` transfer time, data files are often compressed (zipped) using clever algorithms. 
+
+Compressed files:
+- are much smaller
+- cannot be used directly, must be uncompressed (unzipped)
+- typically have file name extensions like: `.zip` or `.gz`
+
+
+### Indexing
+An {term}`index` can help to quickly find some information in a large file, like an index at the end of a book. Usually, the {term}`index` of a file is stored in a separate file. The structure depends on the kind of data that is indexed. It is mainly created and used by computer programs. 
+
+One application is to make a genome of an organism better searchable, as was done for the plant *Arabidopsis thaliana* in {numref}`index_a_thaliana`.
+
+```{list-table} Index of a file with the genome of *Arabidopsis thaliana*
+:header-rows: 1
+:name: index_a_thaliana
+* - Name
+  - Length (bases)
+  - Offset (bytes)
+* - Chr1 
+  - 30427671 
+  - 55
+* - Chr2 
+  - 19698289 
+  - 30934909
+* - Chr3 
+  - 23459830 
+  - 50961558
+* - Chr4 
+  - 18585056 
+  - 74812441 
+* - Chr5 
+  - 26975502 
+  - 93707303
+```
+
+## Exercises
+
+### Connecting to a server
+Now we will connect to the server [[SERVER_NAME]]. 
+
+```{exercise} Connecting to [[SERVER_NAME]] from ...
+Follow the "Connecting to [[SERVER_NAME]] from ..." description on BrightSpace that is appropriate for your operating system (Windows or macOS). If you have another OS, ask one of the teachers.
+```
+
+If everything worked out well and you logged in to [[SERVER_NAME]], you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` [@techtarget_command_prompt]. It looks something like this:
+
+```{code-block} bash
+user001@server:~$
+```
+
+This is the {term}`command-line interface` that allows you to type all kinds of commands. The commands you type are actually handled by the {term}`shell`.
+
+
+### Looking around the server
+
+``````{exercise} Who am I?
+You are now a Linux user identified by your WUR username. To see your username you can type `whoami` after the {term}`prompt`, followed by {kbd}`enter`. For example:
+
+```{code-block} bash
+:class: no-copybutton
+user001@[[SERVER_NAME]]:~$ whoami
+user001
+```
+``````
+
+``````{exercise} Who else is on the server?
+To see who else is currently on this server, you can use the `who` command:
+
+```{code-block} bash
+:class: no-copybutton
+user001@[[SERVER_NAME]]:~$ who
+```
+This will give you a list of usernames. 
+
+ **Do you already recognize some of your fellow students or teachers?**
+``````
+
+```{margin}
+The bioinformatics servers have over one hundred active users from various research groups (Bioinformatics, Genetics, Biosystematics, Plant Physiology, Phytopathology, Host-microbe interactomics, Nematology, Virology and Wageningen Food & Biobased Research).
+```
+
+
+``````{exercise} What is the name of the person associated with a username?
+To learn the name of the person associated with a username there is another
+command:
+
+```{code-block} bash
+:class: no-copybutton
+user001@[[SERVER_NAME]]:~$ finger nijve002
+```
+``````
+
+The part after the command, `nijve002` in this case, is called an {term}`argument`, which specifies what the command should operate on.
 
 Now, let's have a look at the server.
 
@@ -304,6 +404,8 @@ The company making these {term}`GPU`s is currently one of the World's most valua
 Leave doudna to come back to [[SERVER_NAME]] by either running `exit` or using {kbd}`Ctrl`+{kbd}`d`.
 ``````
 
+### Data storage
+
 Back on [[SERVER_NAME]], let's have a look at the data storage locations.
 
 ``````{exercise} Data storage
@@ -343,40 +445,7 @@ df -h /lustre/BIF
 ```
 ``````
 
-### File system
-The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file system`s exist, differing in:
-- maximum file size
-- security
-- redundancy
-- speed
-- etc.
-
-Example of {term}`file system`s are: NTFS, FAT32, EXT4, and ZFS. The size of {term}`file system`s are nowadays in the terabyte range. {term}`file system`s are often organized in a directory or folder structure as illustrated in {numref}`file_system_structure`.
-
-:::{figure}
-:label: file_system_structure
-```{mermaid}
-flowchart TD
-    %% Define the directories
-    Root["/root"]
-    Bin["bin"]
-    Usr["usr"]
-    Home["home"]
-    PC["BIF21806"]
-
-    %% Create the hierarchical connections
-    Root --> Bin
-    Root --> Usr
-    Root --> Home
-    Home --> PC
-
-    %% Optional: Add a simple style to make them look like folders
-    classDef folder fill:#3b90ca,stroke:#000,stroke-width:2px,color:white,rx:5,ry:5;
-    class Root,Bin,Usr,Home,PC folder;
-```
-Example hierarchical folder/directory structure of a {term}`file system`
-:::
-
+### Directories and Files
 On a Linux server you are always inside a directory, starting out in your home directory.
 
 ``````{exercise} What is your current directory?
@@ -532,61 +601,3 @@ Alternatively, you can create all three directories in one command using the `-p
 mkdir -p exercises/week1/day1_2
 ```
 ``````
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 1.4 Getting Started with the Shell
-- Chapter 1.5 Basic Unix Commands *#! more specific*
-```
-
-### I/O (Input/Output) and compression
-The {term}`input` of a program is the source of incoming information (data). For example:
-- Your keyboard
-- A file
-- A {term}`network`
-- {term}`memory`
-
-The {term}`output` is the destination of the outgoing information. For example:
-- Your screen
-- A file
-- A {term}`network`
-- {term}`memory`
-
-The I/O can be a performance bottleneck for computations.
-
-Text data is usually not stored efficiently in a {term}`file system`. For example, a text file with 1,000,000 times the letter 'a' will take up 1,000,000 {term}`byte`s of disk space (1 megabyte). To save space and {term}`network` transfer time, data files are often compressed (zipped) using clever algorithms. 
-
-Compressed files:
-- are much smaller
-- cannot be used directly, must be uncompressed (unzipped)
-- typically have file name extensions like: `.zip` or `.gz`
-
-
-### Indexing
-An {term}`index` can help to quickly find some information in a large file, like an index at the end of a book. Usually, the {term}`index` of a file is stored in a separate file. The structure depends on the kind of data that is indexed. It is mainly created and used by computer programs. 
-
-One application is to make a genome of an organism better searchable, as was done for the plant *Arabidopsis thaliana* in {numref}`index_a_thaliana`.
-
-```{list-table} Index of a file with the genome of *Arabidopsis thaliana*
-:header-rows: 1
-:name: index_a_thaliana
-* - Name
-  - Length (bases)
-  - Offset (bytes)
-* - Chr1 
-  - 30427671 
-  - 55
-* - Chr2 
-  - 19698289 
-  - 30934909
-* - Chr3 
-  - 23459830 
-  - 50961558
-* - Chr4 
-  - 18585056 
-  - 74812441 
-* - Chr5 
-  - 26975502 
-  - 93707303
-```
-
-
