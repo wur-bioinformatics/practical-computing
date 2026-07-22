@@ -354,20 +354,6 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.4.6 Alternations
 ```
 
-
-## Regex balancing act
-Writing a good {term}`Regex <Regular Expression>` involves striking a balance among three concerns:
-1. Matching what you want, but ONLY what you want
-2. Keeping the {term}`Regex <Regular Expression>` manageable and understandable
-3. Keep it computationally efficient (not of immediate concern)
-
-*#! unsure whether it makes sense here*
-
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 5.8 The Quest for the Perfect Regular Expression
-```
-
 ## Capturing (and Replacing)
 Until now, we have only illustrated what text matches a {term}`Regex <Regular Expression>` pattern. But what makes {term}`Regex <Regular Expression>` so useful is that we can capture the match for further processing or that we can replace the match with something else. 
 
@@ -394,15 +380,19 @@ Computing Skills for Biologists - a Tool box
 ## Notes and Tips
 We have introduced you to the basics of {term}`Regular Expressions <Regular Expression>`, but note that this is not an exhaustive explanation of the syntax. If you want to practice with simple exercises, you can go through the tutorial of [RegexOne](https://regexone.com/).
 
-Performing Find-Replace operations can become complex. It might be necessary to perform them in multiple steps. It helps to make steps transparent (especially for yourself). Sometimes that results in making the search pattern more verbose than strictly necessary. Similarly, even if you can do something in one step, it is worth it for transparancy's sake to do it in multiple steps. When doing Find-Replace operations in a graphical text editor, this is extra work. However, on the command line you could have a sequence of as many Find-Replace terms as you like.
+Writing a good {term}`Regex <Regular Expression>` involves striking a balance among three concerns:
+1. Matching what you want, but ONLY what you want
+2. Keeping the {term}`Regex <Regular Expression>` manageable and understandable
+3. Keep it computationally efficient (not of immediate concern)
 
-```{tip}
-In an intermediate step, Replace with obviously non-existing symbols or sequences (e.g. `#&#`), but avoid {term}`metacharacters <metacharacter>`.
-```
+Performing Find-Replace operations can become complex. It might be necessary to perform them in multiple steps. It helps to make steps transparent (especially for yourself). One way to do that is, as an intermediate step, Replace with obviously non-existing symbols or sequences (e.g. `#&#`), but avoid {term}`metacharacters <metacharacter>`. That way, you can make it cleary visible what is being replaced and assess whether that is what you expected. 
+
+Additionally, it can help to make the search pattern more verbose than strictly necessary. Sometimes {term}`Regular Expressions <Regular Expression>` become very hard to read. Explicitly stating what each part of the {term}`Regular Expression` matches, with for example comments (`#`), can aid readability and reusability. 
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 5.7 Verbose Regular Expressions
+- Chapter 5.8 The Quest for the Perfect Regular Expression
 ```
 
 ## Practical
