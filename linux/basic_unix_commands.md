@@ -21,22 +21,71 @@ After completing this section you should be able to:
 
 ### cp
 
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.1 Handling Directories and Files
+```
+
 ### mv
+
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.1 Handling Directories and Files
+```
 
 ### rm
 
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.1 Handling Directories and Files
+```
+
 ### mkdir
+
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.1 Handling Directories and Files
+```
 
 ### less
 
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.2 Viewing and Processing Text Files
+```
+
 ### cat
+
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.2 Viewing and Processing Text Files
+```
 
 ### wc
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.2 Viewing and Processing Text Files
+```
+
 ### head
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.2 Viewing and Processing Text Files
+```
 
 ### tail
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.5.2 Viewing and Processing Text Files
+```
 
 ## Exercises
