@@ -66,7 +66,7 @@ You are always somewhere in the {term}`file system`. To **p**rint the path to yo
 ```{code-block} bash
 pwd
 ```
-
+Will give the output:
 ```{code-block} bash
 :class: no-copybutton
 /home/user001
@@ -89,6 +89,7 @@ cd exercises
 ```{code-block} bash
 pwd
 ```
+Will give the output:
 ```{code-block} bash
 :class: no-copybutton
 /home/user001/exercises
@@ -100,8 +101,8 @@ Additionally, you can change directory with `cd` using shortcuts ([](#cd_shortcu
 ```{list-table} cd shortcuts for navigation
 :header-rows: 1
 :name: cd_shortcuts
-* - short-cut
-  - action
+* - Shortcut
+  - Action
 * - `cd ..`
   - Move one directory up
 * - `cd /`
@@ -115,6 +116,7 @@ Additionally, you can change directory with `cd` using shortcuts ([](#cd_shortcu
 ```{code-block} bash
 pwd
 ```
+Will give the output:
 ```{code-block} bash
 :class: no-copybutton
 /home/user001/exercises
@@ -131,6 +133,7 @@ Current directory:
 ```{code-block} bash
 pwd
 ```
+Will give the output:
 ```{code-block} bash
 :class: no-copybutton
 /home/user001
@@ -143,6 +146,51 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### ls
+Without GUI to see what files and subdirectories are present in your current directory or a directory of interest, you can use `ls`. It **l**i**s**ts all the files and subdirectories. It can be used without an {term}`argument` ([](#example_ls_no_arg)) or with the path to the directory of interest ([](#example_ls_dir)).
+
+(example_ls_no_arg)=
+``````{prf:example} List all files and subdirectories in your current directory
+```{code-block} bash
+ls
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+exercises
+```
+``````
+
+(example_ls_dir)=
+``````{prf:example} List all files and subdirectories in a directory
+```{code-block} bash
+ls exercises/
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+week1
+```
+``````
+
+The usage of `ls` can be altered by using {term}`options <option>` ([](#ls_options)). 
+
+```{list-table} ls options
+:header-rows: 1
+:name: ls_options
+* - Option
+  - Behaviour
+* - `-a`
+  - List **a** files and directories, including hidden ones
+* - `-l`
+  - Use a **l**ong listing format, providing additional details about the files and directories
+```
+
+When using `ls -l`, you can also supply it with a file as {term}`argument`, to see the file's details. 
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.4.3 Navigating the Directory System
+```
 
 ### cp
 
@@ -328,8 +376,6 @@ To find programs that start with a 'q' or a 'z', try:
 ls /usr/bin/[qz]*
 ```
 ``````
-
-An {term}`absolute path` points to a fixed position in the directory tree, like `/usr/bin`. A {term}`relative path` is the path from your current location in the directory tree to the designated location. A {term}`relative path` does not start with `/`.
 
 
 ``````{exercise} Absolute and relative paths
