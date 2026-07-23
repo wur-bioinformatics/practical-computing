@@ -127,7 +127,7 @@ We will now introduce some fundamental computational concepts. *#! add why?*
 ### Network
 A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **smith**. Hostnames can have a domain: smith.**bioinformatics\.nl**.
 
-There are different communication protocols between devices, which each use a different {term}`network port`, depending on the application [](#network_ports). You can imagine these {term}`network ports  <network port>` to act like a service desk at for example the municipality: for each service there is a different desk, one for getting a new passport, one for getting married, one for registering yourself when you have just moved, etc.. Similarly, each {term}`network port` serves as a virtual connection to provide different services. 
+There are different communication protocols between devices, which each use a different {term}`network port`, depending on the application ([](#network_ports)). You can imagine these {term}`network ports  <network port>` to act like a service desk at for example the municipality: for each service there is a different desk, one for getting a new passport, one for getting married, one for registering yourself when you have just moved, etc.. Similarly, each {term}`network port` serves as a virtual connection to provide different services. [@geeksforgeeks_networkport_2025 ; @juric_port_nodate]
 
 ```{list-table} Examples of network ports
 :header-rows: 1

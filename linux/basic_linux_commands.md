@@ -16,6 +16,11 @@ After completing this section you should be able to:
 ## Introduction
 When you connect to a Linux system, you enter an environment with its own structure, conventions, and language. In this section, you will learn how to navigate the file system, inspect the available computing resources, see who else is using the system, and organize your files and directories. Becoming comfortable with the command line is an essential first step towards using a compute server efficiently and confidently.
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.3.2 Directory Structure
+```
+
 ## General Structure of a Linux Command
 
 
