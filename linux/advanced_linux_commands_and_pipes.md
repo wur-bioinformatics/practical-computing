@@ -554,5 +554,12 @@ Computing Skills for Biologists - a Tool box
 ```
 
 
-## Practical
+## Exercises
 
+
+### Working with Column-Separated Data
+
+
+### Finding the Longest Word -- Revisited
+
+### Bonus: Analyze the Word Use of Shakespeare's Collected Works
