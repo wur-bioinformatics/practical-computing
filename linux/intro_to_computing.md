@@ -127,7 +127,7 @@ We will now introduce some fundamental computational concepts. *#! add why?*
 ### Network
 A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **smith**. Hostnames can have a domain: smith.**bioinformatics\.nl**.
 
-There are different communication protocols between devices, which each use a different {term}`network port`, depending on the application ([](#network_ports)). You can imagine these {term}`network ports  <network port>` to act like a service desk at for example the municipality: for each service there is a different desk, one for getting a new passport, one for getting married, one for registering yourself when you have just moved, etc.. Similarly, each {term}`network port` serves as a virtual connection to provide different services. [@geeksforgeeks_networkport_2025 ; @juric_port_nodate]
+There are different communication protocols between devices, which each use a different {term}`network port`, depending on the application ([](#network_ports)). You can imagine these {term}`network ports  <network port>` to act like a service desk at for example the municipality: for each service there is a different desk, one for getting a new passport, one for getting married, one for registering yourself when you have just moved, etc.. Similarly, each {term}`network port` serves as a virtual connection to provide different services. [@geeksforgeeks_networkport_2025 ;@juric_port_nodate]
 
 ```{list-table} Examples of network ports
 :header-rows: 1
@@ -155,13 +155,74 @@ There are different communication protocols between devices, which each use a di
 ### CPU, GPU and Memory
 The Central Processing Unit, {term}`CPU` or processor, is the brain of the computer and performs most of the calculations. Additionally, its functions are: running applications, managing {term}`input` and {term}`output` operations, and storing and retrieving data during processing [@geeksforgeeks_cpu]. Modern computers often have two or more, whereas multi-user computers (servers) often have sixteen or more. A {term}`CPU` has limited capacity (100% {term}`CPU` usage). To run programs in parallel, it has multiple cores/threads.
 
-The Graphical Processing Unit, {term}`GPU` or video card, is a specialized processor that is optimized for doing the same calculation on many data points (in parallel). To perform like this, it has thousands of small cores. It was originally developed for computer graphics (video games), but it is now extensively used for machine learning applications (like ChatGPT). {term}`GPU`s are very good at performing many operations simultaneously, which can drastically speed up matrix calculations that are at the heart of most machine learning tasks.
+The Graphical Processing Unit, {term}`GPU` or video card, is a specialized processor that is optimized for doing the same calculation on many data points (in parallel). To perform like this, it has thousands of small cores. It was originally developed for computer graphics (video games), but it is now extensively used for machine learning applications (like ChatGPT). {term}`GPUs <GPU>` are very good at performing many operations simultaneously, which can drastically speed up matrix calculations that are at the heart of most machine learning tasks.
 
-A {term}`byte` is a unit of computer information consisting of a number of {term}`bit`s. It is how the amount of data amount of data that can be stored, processed, or transferred in a computer system is represented [@geeksforgeeks_memory]. 
+Data is stored in basic units of information. There are multiple ways to encode data: binary, decimal, and hexidecimal. The binary encoding uses two symbols: 0 and 1. One unit of binary information is called a {term}`bit`. A {term}`byte` is a unit of computer information consisting of a number of {term}`bits <bit>`. When a {term}`byte` consists of eight bits it can represent any number from 0 to 255. Four bits is called a {term}`nibble`, which can represent any number from 0 to 15 ([](#nibble_example)). Alternatively, data can be encoded using ten symbols (0-9, decimal encoding) or sixteen symbols (0-9 and A-F, hexidecimal encoding) ([](#encoding_example)). 
 
-```{list-table} Multiple-byte units
+(nibble_example)= 
+``````{prf:example} Nibbles
+::::{grid} 1 1 4 4
+:::{grid-item}
+:columns: 1
+`0000`: 0\
+`0001`: 1\
+`0010`: 2\
+`0011`: 3
+:::
+
+:::{grid-item}
+:columns: 1
+`0100`: 4\
+`0101`: 5\
+`0110`: 6\
+`0111`: 7
+:::
+
+:::{grid-item}
+:columns: 1
+`1000`: 8\
+`1001`: 9\
+`1010`: 10\
+`1011`: 11
+:::
+
+:::{grid-item}
+:columns: 1
+`1100`: 12\
+`1101`: 13\
+`1110`: 14\
+`1111`: 15
+:::
+::::
+``````
+
+(encoding_example)=
+```{prf:example} Converting binary to decimal or hexadecimal
+Given the binary number: \
+`11100010`{sub}`bin`
+
+**Convert to decimal**:\
+2{sup}`7` + 2{sup}`6` + 2{sup}`5` + 2{sup}`1` = `226`{sub}`dec`
+
+**Convert to hexadecimal**:\
+First split into two nibbles, then take the hexadecimal number of each:\
+`1110`{sub}`bin` = `14`{sub}`dec` = `E`{sub}`hex`\
+`0010`{sub}`bin` = `2`{sub}`dec` = `2`{sub}`hex`\
+Resulting:\
+`E2`{sub}`hex` or `0xE2`
+
+Back to decimal: \
+14 x 16{sup}`1` + 2 = 226
+```
+
+The amount of data that can be stored, processed, or transferred in a computer system is represented by the amount of {term}`bytes <byte>` [@geeksforgeeks_memory]. There are two conventions: kilo-based ([](#multiple-byte_units_kilo)) or kibi-based ([](#multiple-byte_units_kibi)). However, often kibi-based storage systems are called using the kilo-based naming conventions, which can be confusing. 
+
+::::{grid} 1 1 2 2 
+:::{grid-item}
+:columns: 1
+```{list-table} Multiple-byte units 1000-base
 :header-rows: 1
-:name: multiple-byte_units
+:name: multiple-byte_units_kilo
 * - Multiple-byte unit
   - Amount of bytes
   - Abbreviation
@@ -180,6 +241,17 @@ A {term}`byte` is a unit of computer information consisting of a number of {term
 * - petabyte
   - 1000{sup}`5`
   - PB
+```
+:::
+
+:::{grid-item}
+:columns: 1
+```{list-table} Multiple-byte units 1024-base
+:header-rows: 1
+:name: multiple-byte_units_kibi
+* - Multiple-byte unit
+  - Amount of bytes
+  - Abbreviation
 * - kibibyte
   - 1024
   - KiB
@@ -196,6 +268,11 @@ A {term}`byte` is a unit of computer information consisting of a number of {term
   - 1024{sup}`5`
   - PiB
 ```
+:::
+
+::::
+
+
 
 The {term}`memory`, or RAM, is used by programs to temporarily store information (data). Because it is temporary, it is not persistent and the data contained here is lost when power is shut off. However, it is much faster than a hard disk (long-term memory): 20-80 GB/s. A computer often has a {term}`memory` in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications need over 1 TB. If the {term}`memory` is full, the hard disk is used as "overflow". This is called swapping and is very slow.
 
@@ -209,7 +286,7 @@ The {term}`file system` is the system that organizes how files are stored on a h
 - speed
 - etc.
 
-Example of {term}`file system`s are: NTFS, FAT32, EXT4, and ZFS. The size of {term}`file system`s are nowadays in the terabyte range. {term}`file system`s are often organized in a directory or folder structure as illustrated in {numref}`file_system_structure`.
+Example of {term}`file system`s are: NTFS, FAT32, EXT4, and ZFS. The size of {term}`file system`s are nowadays in the terabyte range. {term}`file system`s are often organized in a directory or folder structure as illustrated in [](#file_system_structure).
 
 :::{figure}
 :label: file_system_structure
@@ -257,7 +334,7 @@ The {term}`output` is the destination of the outgoing information. For example:
 
 The I/O can be a performance bottleneck for computations.
 
-Text data is usually not stored efficiently in a {term}`file system`. For example, a text file with 1,000,000 times the letter 'a' will take up 1,000,000 {term}`byte`s of disk space (1 megabyte). To save space and {term}`network` transfer time, data files are often compressed (zipped) using clever algorithms. 
+Text data is usually not stored efficiently in a {term}`file system`. For example, a text file with 1,000,000 times the letter 'a' will take up 1,000,000 {term}`bytes<byte>` of disk space (1 megabyte). To save space and {term}`network` transfer time, data files are often compressed (zipped) using clever algorithms. 
 
 Compressed files:
 - are much smaller
@@ -275,7 +352,7 @@ One application is to make a genome of an organism better searchable, as was don
 :name: index_a_thaliana
 * - Name
   - Length (bases)
-  - Offset (bytes)
+  - Offset ({term}`bytes<byte>`)
 * - Chr1 
   - 30427671 
   - 55

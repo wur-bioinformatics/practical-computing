@@ -73,6 +73,9 @@ network
 network port
 : virtual end-point of a computer that mediates data transmission across applications, services or computers within a network
 
+nibble
+: data unit of four bits, representing any number from 0 to 15
+
 non-printable character
 : character that does not represent a visible, written symbol, also called control character.
 
