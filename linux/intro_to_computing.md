@@ -272,21 +272,19 @@ The amount of data that can be stored, processed, or transferred in a computer s
 
 ::::
 
-
-
 The {term}`memory`, or RAM, is used by programs to temporarily store information (data). Because it is temporary, it is not persistent and the data contained here is lost when power is shut off. However, it is much faster than a hard disk (long-term memory): 20-80 GB/s. A computer often has a {term}`memory` in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications need over 1 TB. If the {term}`memory` is full, the hard disk is used as "overflow". This is called swapping and is very slow.
 
-
+Some {term}`operating systems <operating system>` also have so-called {term}`mounted drives <mounted drive>` . {term}`Mounted drives <mounted drive>` are hard disks that are accessible across devices within the {term}`operating system`.
 
 ### File System
-The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file system`s exist, differing in:
+The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file systems <file system>` exist, differing in:
 - maximum file size
 - security
 - redundancy
 - speed
 - etc.
 
-Example of {term}`file system`s are: NTFS, FAT32, EXT4, and ZFS. The size of {term}`file system`s are nowadays in the terabyte range. {term}`file system`s are often organized in a directory or folder structure as illustrated in [](#file_system_structure).
+Example of {term}`file systems <file system>` are: NTFS, FAT32, EXT4, and ZFS. The size of {term}`file systems <file system>` are nowadays in the terabyte range. {term}`File systems <file system>` are often organized in a directory or folder structure as illustrated in [](#file_system_structure).
 
 :::{figure}
 :label: file_system_structure
@@ -315,8 +313,7 @@ Example hierarchical folder/directory structure of a {term}`file system`
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
-- Chapter 1.4 Getting Started with the Shell
-- Chapter 1.5 Basic Unix Commands *#! more specific*
+- Chapter 1.3.2 Directory Structure
 ```
 
 ### I/O (Input/Output) and Compression
@@ -334,7 +331,7 @@ The {term}`output` is the destination of the outgoing information. For example:
 
 The I/O can be a performance bottleneck for computations.
 
-Text data is usually not stored efficiently in a {term}`file system`. For example, a text file with 1,000,000 times the letter 'a' will take up 1,000,000 {term}`bytes<byte>` of disk space (1 megabyte). To save space and {term}`network` transfer time, data files are often compressed (zipped) using clever algorithms. 
+Text data is usually not stored efficiently in a {term}`file system`. For example, a text file with 1,000,000 times the letter 'a' will take up 1,000,000 {term}`bytes<byte>` of disk space (1 megabyte). To save space and network transfer time, data files are often compressed (zipped) using clever algorithms. 
 
 Compressed files:
 - are much smaller
@@ -373,10 +370,10 @@ One application is to make a genome of an organism better searchable, as was don
 ## Exercises
 
 ### Connecting to a server
-Now we will connect to the server [[SERVER_NAME]]. 
+We will connect to the server [[SERVER_NAME]]. 
 
 ```{exercise} Connecting to [[SERVER_NAME]] from ...
-Follow the "Connecting to [[SERVER_NAME]] from ..." description on BrightSpace that is appropriate for your operating system (Windows or macOS). If you have another OS, ask one of the teachers.
+Follow the "Connecting to [[SERVER_NAME]] from ..." description on BrightSpace that is appropriate for your {term}`operating system` (Windows or macOS). If you have another OS, ask one of the teachers.
 ```
 
 If everything worked out well and you logged in to [[SERVER_NAME]], you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` [@techtarget_command_prompt]. It looks something like this:
@@ -389,7 +386,6 @@ This is the {term}`command-line interface` that allows you to type all kinds of 
 
 
 ### Looking around the server
-
 ``````{exercise} Who am I?
 You are now a Linux user identified by your WUR username. To see your username you can type `whoami` after the {term}`prompt`, followed by {kbd}`enter`. For example:
 
@@ -407,6 +403,7 @@ To see who else is currently on this server, you can use the `who` command:
 :class: no-copybutton
 user001@[[SERVER_NAME]]:~$ who
 ```
+
 This will give you a list of usernames. 
 
  **Do you already recognize some of your fellow students or teachers?**
@@ -415,7 +412,6 @@ This will give you a list of usernames.
 ```{margin}
 The bioinformatics servers have over one hundred active users from various research groups (Bioinformatics, Genetics, Biosystematics, Plant Physiology, Phytopathology, Host-microbe interactomics, Nematology, Virology and Wageningen Food & Biobased Research).
 ```
-
 
 ``````{exercise} What is the name of the person associated with a username?
 To learn the name of the person associated with a username there is another
@@ -429,22 +425,19 @@ user001@[[SERVER_NAME]]:~$ finger nijve002
 
 The part after the command, `nijve002` in this case, is called an {term}`argument`, which specifies what the command should operate on.
 
-Now, let's have a look at the server.
-
 ``````{exercise} What is the server doing?
 Run the command `htop` to see what the server is doing and how much {term}`memory` it has. The bars at the top show the
-individual {term}`CPU`s, numbered starting at 1. Below that you can see how much {term}`memory` is available and how long the server has been running (Uptime).
+individual {term}`CPUs <CPU>`, numbered starting at 1. Below that you can see how much {term}`memory` is available and how long the server has been running (Uptime).
 
 ```{code-block} bash
 :class: no-copybutton
 user001@[[SERVER_NAME]]:~$ htop
 ```
 
-**How many {term}`CPU`s does the server have?** \
+**How many {term}{term}`CPUs <CPU>` does the server have?** \
 **How much {term}`memory` does the server have?**
 
-In addition to the {term}`CPU` and {term}`memory` use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The **Load average**  *#! is this a term?* tells you how busy the server is. As a rule of thumb the number indicates how many of the {term}`CPU`s are being used, if the Load average is higher than the number of {term}`CPU`s then the server is overloaded and will run less efficiently. 
-*#! should this be in this exc block?*
+In addition to the {term}`CPU` and {term}`memory` use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The {term}`load average` tells you how busy the server is. As a rule of thumb the number indicates how many of the {term}`CPUs <CPU>` are being used, if the {term}`load average` is higher than the number of {term}`CPUs <CPU>` then the server is overloaded and will run less efficiently. 
 
 You can exit `htop` by pressing the {kbd}`F10` or {kbd}`q`.
 ``````
@@ -455,7 +448,7 @@ To connect from [[SERVER_NAME]] to a server called **doudna** you can run:
 ```{code-block} bash
 ssh doudna
 ```
-Also here try `htop` to see the number of {term}`CPU`s and the amount of {term}`memory`. 
+Also here try `htop` to see the number of {term}`CPUs <CPU>` and the amount of {term}`memory`. 
 ```{code-block} bash
 htop
 ```
@@ -463,7 +456,7 @@ htop
 
 Again, you can use {kbd}`F10` or {kbd}`q` to get out of `htop`.
 
-The command `nproc` directly gives you the number of {term}`CPU`s:
+The command `nproc` directly gives you the number of {term}`CPUs <CPU>`:
 ```{code-block} bash
 nproc
 ```
@@ -482,30 +475,32 @@ free -h
 Doudna is named after [Jennifer Doudna](wiki:Jennifer_Doudna), who won the Nobel prize in Chemistry for her pioneer work on CRISPR gene editing.
 ```
 
-Similar to {term}`argument`s, {term}`option`s can be used to modify the behavior of command-line tools like `free`. {term}`option`s are different from {term}`argument`s in that they start with a hyphen (dash), such as `-h` in the `free` command. To make things a bit more confusing, {term}`option`s can have their own {term}`argument`s, as we will see below.
-*#! might can be epxlained better with f.e. `command [-flag(s)] [-option(s) [value]] [argument(s)]`* [@uofabioinformaticshub_linux]
-
-
 ``````{exercise} GPUs on the doudna server
-The doudna server has a couple of {term}`GPU`s. To see the {term}`GPU`s in action, run the `nvtop` command:
+The doudna server has a couple of {term}`GPUs <GPU>`. To see the {term}`GPUs <GPU>` in action, run the `nvtop` command:
 
 ```{code-block} bash
 nvtop
 ```
 
-**What kind of {term}`GPU`s are in doudna?** (look between the square brackets)
+**What kind of {term}`GPUs <GPU>` are in doudna?** (look between the square brackets)
 
-The company making these {term}`GPU`s is currently one of the World's most valuable companies.
+The company making these {term}`GPUs <GPU>` is currently one of the World's most valuable companies.
 
 Leave doudna to come back to [[SERVER_NAME]] by either running `exit` or using {kbd}`Ctrl`+{kbd}`d`.
 ``````
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.4 Getting Started with the Shell
+- Chapter 1.4.1 Invoking and Controlling Basic Unix Commands
+```
 
 ### Data storage
 
 Back on [[SERVER_NAME]], let's have a look at the data storage locations.
 
 ``````{exercise} Data storage
-The `df` command shows the available disks and their sizes. If you run it, you will get quite a long list. With some {term}`option`s we can filter the list:
+The `df` command shows the available disks and their sizes. If you run it, you will get quite a long list. With some {term}`options <option>` we can filter the list:
 
 ```{code-block} bash
 df -h -l --type ext4
@@ -517,27 +512,19 @@ df -h -l --type ext4
 **How many local disks do you see and how large are they?**
 ``````
 
-{term}`option`s for commands often come in single letter variants that start with a single hyphen, and a more informative alternative, starting with two hyphens. In this case we can use `--type` or `-t`. The term `ext4` is an {term}`argument` that goes with the `--type` {term}`option`.
+In [](#basic_linux_commands_page), you will learn more about {term}`options <option>` and {term}`arguments <argument>`.
 
 
-``````{exercise} Look up the manual for a command
-If you are starting to get lost in the commands, {term}`option`s and {term}`argument`s, no worries: Linux comes with a manual:
-```{code-block} bash
-man df
-```
-``````
-
-The server also has access to a number of disks that are on a different server, so-called mounted drives *#! term or foot-note?*. These are available on all our servers, so we can easily move an analysis to another server without having to move the data.
+The server also has access to a number of disks that are on a different server, the {term}`mounted drives <mounted drive>`. These are available on all our servers, so we can easily move an analysis to another server without having to move the data.
 
 ``````{exercise} Storage on mounted drives
-Every user on a Linux server has a home directory in which they can store files. The home directories for all our users are on one of these mounted drives:
+Every user on a Linux server has a home directory in which they can store files. The home directories for all our users are on one of these {term}`mounted drives <mounted drive>`:
 ```{code-block} bash
 df -h /home
 ```
 
-This mounted home drive is not very large, considering the number of users, so we have an another mounted drive for storing data that is much larger. Check the size of the `/lustre/BIF` drive and how much is already in use:
+This mounted home drive is not very large, considering the number of users, so we have an another {term}`mounted drive` for storing data that is much larger. Check the size of the `/lustre/BIF` drive and how much is already in use:
 ```{code-block} bash
 df -h /lustre/BIF
 ```
 ``````
-

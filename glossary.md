@@ -61,11 +61,17 @@ input
 kernel
 : Core component of the operating system. It is the primary interface between the operating system an the hardware, containing the software libraries that are required to interact with the hardware.
 
+load average
+: average number of processes actively running on the server.
+
 memory
 : Temporary storage used by programs.
 
 metacharacter
 : a symbol with a special, non-literal meaning.
+
+mounted drive
+: hard disk accessible across devices within an operating system
 
 network
 : Connects different computers together.
