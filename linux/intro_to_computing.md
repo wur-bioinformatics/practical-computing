@@ -3,6 +3,10 @@ title: Introduction to Computing and Linux
 label: intro_to_computing
 abbreviations:
     BLAST: Basic Local Alignment Search Tool
+    HTTP: Hypertext Transfer Protocol
+    HTTPS: Hypertext Transfer Protocol Secure
+    SSH: Secure Shell
+    SMTP: Simple Mail Transfer Protocol
     RAM: Random Access Memory
 bibliography:
     intro_to_computing.bib
@@ -121,20 +125,32 @@ Computing Skills for Biologists - a Tool box
 We will now introduce some fundamental computational concepts. *#! add why?*
 
 ### Network
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 1.3 Getting Started with Unix
-```
 A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **smith**. Hostnames can have a domain: smith.**bioinformatics\.nl**.
 
-There are different communication protocols between devices, which each use a different network port, depending on the application:
-- http/https for the web
-- smtp for email
-- ssh for remote computing
+There are different communication protocols between devices, which each use a different {term}`network port`, depending on the application [](#network_ports). You can imagine these {term}`network ports  <network port>` to act like a service desk at for example the municipality: for each service there is a different desk, one for getting a new passport, one for getting married, one for registering yourself when you have just moved, etc.. Similarly, each {term}`network port` serves as a virtual connection to provide different services. 
 
-*#! include "working on the bioinformatics servers picture in slide 18?*
-
-
+```{list-table} Examples of network ports
+:header-rows: 1
+:name: network_ports
+* - Network port
+  - Abbreviation
+  - Service
+* - 22
+  - SSH
+  - Remote computing
+* - 25
+  - SMTP
+  - Server-to-server email
+* - 80
+  - HTTP
+  - Unencrypted web traffic
+* - 443
+  - HTTPS
+  - Encrypted web traffic
+* - 3000
+  - HTTP 
+  - Local web development
+```
 
 ### CPU, GPU and Memory
 The Central Processing Unit, {term}`CPU` or processor, is the brain of the computer and performs most of the calculations. Additionally, its functions are: running applications, managing {term}`input` and {term}`output` operations, and storing and retrieving data during processing [@geeksforgeeks_cpu]. Modern computers often have two or more, whereas multi-user computers (servers) often have sixteen or more. A {term}`CPU` has limited capacity (100% {term}`CPU` usage). To run programs in parallel, it has multiple cores/threads.

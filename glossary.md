@@ -70,6 +70,9 @@ metacharacter
 network
 : Connects different computers together.
 
+network port
+: virtual end-point of a computer that mediates data transmission across applications, services or computers within a network
+
 non-printable character
 : character that does not represent a visible, written symbol, also called control character.
 
