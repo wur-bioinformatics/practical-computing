@@ -122,7 +122,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.2 Why Use Unix and the Shell?
 ```
 ## Computational Concepts
-We will now introduce some fundamental computational concepts. *#! add why?*
+We will now go over a number of fundamental concepts in computing to make sure we have a shared understanding of what they mean. Some of these you will already know, for others you may not directly see their relevance yet until we encounter them again later in the course.
 
 ### Network
 A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **smith**. Hostnames can have a domain: smith.**bioinformatics\.nl**.
