@@ -21,7 +21,38 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.3.2 Directory Structure
 ```
 
-## General Structure of a Linux Command
+## Structure of a Linux Command
+The general structure of Linux commands can be written as:
+
+```{code-block} bash
+:class: no-copybutton
+command [-option(s) [value]] [argument(s)]
+```
+
+An {term}`argument` is a value passed to a command, often specifying the input. An {term}`option` modifies the default behaviour of the command. They start with a hyphen/dash (`-`). {term}`Options <option>` can have values. These are written after the {term}`option`. 
+
+Some commands can run without any {term}`option` or {term}`argument` , others require at least one of the two. 
+
+## Searching for Help
+Part of mastering the command line {term}`shell` is knowing how to search for help. Most commands/tools/programs have a help page that is printed to screen when running either:
+```{code-block} bash
+<tool> -h
+```
+or
+```{code-block} bash
+<tool> --help
+```
+Alternatively, you can open the manual via:
+```{code-block} bash
+man <tool>
+```
+
+where you replace `<tool>` with the relevant tool/program/command.
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.4.2 How to Get Help in Unix
+```
 
 
 ## Basic Linux Commands
