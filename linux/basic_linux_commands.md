@@ -59,7 +59,7 @@ Computing Skills for Biologists - a Tool box
 When working on a server, there is no graphical user interface (GUI). Instead, there is a {term}`command-line interface`, which means you will type in commands, and often assess the text-based output printed to screeen. That also means that there is no GUI {term}`file system` ([](#file-system)), where you can see where you are, and what files are available for you to manipulate (such as File Explorer for Windows *#! mac version?*). Luckily, Linux comes with utilities that help to navigate the Linux {term}`file system` ([](#file-system)): `pwd`, `ls`, and `cd`. Additionally, there are utilities that allow you to create, copy, move, and remove files and directories: `mkdir`, `cp`, `mv`, and `rm`, respectively. 
 
 ### pwd
-To **p**rint the path to your current **w**orking **d**irectory you can use `pwd`.
+You are always somewhere in the {term}`file system`. To **p**rint the path to your current **w**orking **d**irectory you can use `pwd` ([](#example_pwd)).
 
 (example_pwd)=
 ``````{prf:example} Print path to current working directory
@@ -73,8 +73,74 @@ pwd
 ```
 ``````
 
-### cd
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.4.3 Navigating the Directory System
+```
 
+### cd
+You can also move around within the {term}`file system`. To **c**hange **d**irectory, you can use `cd` with as argument your (already existing) directory of choice ([](#example_cd)).
+
+(example_cd)=
+``````{prf:example} Change to exercises directory
+```{code-block} bash
+cd exercises
+```
+```{code-block} bash
+pwd
+```
+```{code-block} bash
+:class: no-copybutton
+/home/user001/exercises
+```
+``````
+
+Additionally, you can change directory with `cd` using shortcuts ([](#cd_shortcuts), [](#example_cd_shortcuts)).
+
+```{list-table} cd shortcuts for navigation
+:header-rows: 1
+:name: cd_shortcuts
+* - short-cut
+  - action
+* - `cd ..`
+  - Move one directory up
+* - `cd /`
+  - Move to the root directory
+* - `cd ~`
+  - Move to your home directory
+```
+
+(example_cd_shortcuts)=
+``````{prf:example} Change back to home from exercises directory
+```{code-block} bash
+pwd
+```
+```{code-block} bash
+:class: no-copybutton
+/home/user001/exercises
+```
+Go back home with:
+```{code-block} bash
+cd ..
+```
+or:
+```{code-block} bash
+cd ~
+```
+Current directory:
+```{code-block} bash
+pwd
+```
+```{code-block} bash
+:class: no-copybutton
+/home/user001
+```
+``````
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.4.3 Navigating the Directory System
+```
 
 ### ls
 
