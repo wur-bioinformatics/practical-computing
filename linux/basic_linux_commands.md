@@ -58,6 +58,9 @@ Computing Skills for Biologists - a Tool box
 ## Basic Linux Commands
 When working on a server, there is no graphical user interface (GUI). Instead, there is a {term}`command-line interface`, which means you will type in commands, and often assess the text-based output printed to screeen. That also means that there is no GUI {term}`file system` ([](#file-system)), where you can see where you are, and what files are available for you to manipulate (such as File Explorer for Windows *#! mac version?*). Luckily, Linux comes with utilities that help to navigate the Linux {term}`file system` ([](#file-system)): `pwd`, `ls`, and `cd`. Additionally, there are utilities that allow you to create, copy, move, and remove files and directories: `mkdir`, `cp`, `mv`, and `rm`, respectively. 
 
+
+When navigating and managing the {term}`file system`, you will use either {term}`absolute paths <absolute path>` or {term}`relative paths <relative path>` to indicate where you want to go or where you want to manage files/directories. An {term}`absolute path` points to a fixed position in the directory tree, like `/usr/bin`. A {term}`relative path` is the path from your current location in the directory tree to the designated location. A {term}`relative path` does not start with `/`.
+
 ### pwd
 You are always somewhere in the {term}`file system`. To **p**rint the path to your current **w**orking **d**irectory you can use `pwd` ([](#example_pwd)).
 
