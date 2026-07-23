@@ -18,7 +18,7 @@ After completing this section you should be able to:
 Biological data analysis can often be performed using ready-made software such as Excel or tools designed for a specific task. These programs are convenient, but they also limit which analyses you can perform and how much control you have over the process. In this course, you will learn to work in a flexible computing environment in which you can build and run your own analyses. This will allow you to adapt workflows to your research questions, the structure of your data, and the available computing resources.
 
 
-## Operating systems
+## Operating Systems
 
 *#! should we explain hardware and software maybe?*
 
@@ -114,7 +114,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.1 What is Unix?
 - Chapter 1.2 Why Use Unix and the Shell?
 ```
-## Computational concepts
+## Computational Concepts
 We will now introduce some fundamental computational concepts. *#! add why?*
 
 ### Network
@@ -133,7 +133,7 @@ There are different communication protocols between devices, which each use a di
 
 
 
-### CPU, GPU and memory
+### CPU, GPU and Memory
 The Central Processing Unit, {term}`CPU` or processor, is the brain of the computer and performs most of the calculations. Additionally, its functions are: running applications, managing {term}`input` and {term}`output` operations, and storing and retrieving data during processing [@geeksforgeeks_cpu]. Modern computers often have two or more, whereas multi-user computers (servers) often have sixteen or more. A {term}`CPU` has limited capacity (100% {term}`CPU` usage). To run programs in parallel, it has multiple cores/threads.
 
 The Graphical Processing Unit, {term}`GPU` or video card, is a specialized processor that is optimized for doing the same calculation on many data points (in parallel). To perform like this, it has thousands of small cores. It was originally developed for computer graphics (video games), but it is now extensively used for machine learning applications (like ChatGPT). {term}`GPU`s are very good at performing many operations simultaneously, which can drastically speed up matrix calculations that are at the heart of most machine learning tasks.
@@ -182,7 +182,7 @@ The {term}`memory`, or RAM, is used by programs to temporarily store information
 
 
 
-### File system
+### File System
 The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file system`s exist, differing in:
 - maximum file size
 - security
@@ -223,7 +223,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.5 Basic Unix Commands *#! more specific*
 ```
 
-### I/O (Input/Output) and compression
+### I/O (Input/Output) and Compression
 The {term}`input` of a program is the source of incoming information (data). For example:
 - Your keyboard
 - A file
@@ -445,159 +445,3 @@ df -h /lustre/BIF
 ```
 ``````
 
-### Directories and Files
-On a Linux server you are always inside a directory, starting out in your home directory.
-
-``````{exercise} What is your current directory?
-To see your current directory, use the `pwd` command:
-```{code-block} bash
-pwd
-```
-``````
-
-``````{exercise} What is in your current directory?
-Use the `ls` command to see the files and directories in your current directory.
-
-```{code-block} bash
-ls
-```
-
-Like most commands, `ls` also has a number of {term}`option`s to alter its behavior. Add
-the `-a` {term}`option`:
-```{code-block} bash
-ls -a
-```
-
-**What do you think the `-a` {term}`option` does?**
-
-Check your assumption in the manual for `ls`:
-```{code-block} bash
-man ls
-```
-``````
-
-```{tip}
-Use the {kbd}`↑` (up-arrow) to scroll through your command-line history.
-```
-
-You can think of the directory structure in Linux as a tree with a root and a lot of
-branches extending from this root ({numref}`file_system_structure`). 
-
-``````{exercise} List all the files in root
-To list the files in the root of the system you can simply use: 
-```{code-block} bash
-ls /
-```
-``````
-
-So, the `/home/user001` directory is two levels away from the root.
-
-``````{exercise} Move to a different directory
-To move to a different directory, you can use the `cd` command, for **c**hange **d**irectory. Move to the directory `/bin` using:
-```{code-block} bash
-cd /bin
-```
-Use `ls` to see the files, most are programs that you can run. 
-
-```{code-block} bash
-ls
-```
-
-Also, the program that handles all your commands, the {term}`shell`, is located here: `/bin/bash`
-``````
-
-*#! Insert python sidenote here?*
-
-``````{exercise} Listing everything that matches a pattern *#! idk*
-Another location for useful programs is `/usr/bin`. To only list the programs in `/usr/bin` for which the filename starts with 'bla', run: 
-```{code-block} bash
-ls /usr/bin/bla*
-```
-In the list of files, you should see the program `blastp` that we will use at the end of this practical.
-
-To find programs that contain 'seq' in their name, try:
-```{code-block} bash
-ls /usr/bin/*seq*
-```
-To find programs that start with a 'q' or a 'z', try: 
-
-```{code-block} bash
-ls /usr/bin/[qz]*
-```
-``````
-
-An {term}`absolute path` points to a fixed position in the directory tree, like `/usr/bin`. A {term}`relative path` is the path from your current location in the directory tree to the designated location. A {term}`relative path` does not start with `/`.
-
-
-``````{exercise} Absolute and relative paths
-Compare what you get with the following commands (in this order):
-
-```{code-block} bash
-cd /usr
-```
-
-```{code-block} bash
-cd bin
-```
-
-```{code-block} bash
-pwd
-```
-
-```{code-block} bash
-cd /bin
-```
-
-```{code-block} bash
-pwd
-```
-
-```{code-block} bash
-cd bin
-```
-
-The last `cd` gave an error, because there is no `/bin/bin` directory.
-
-In {term}`relative path`s you can use `..` to move up one directory and `.` for the current
-directory:
-
-```{code-block} bash
-cd /home
-```
-**#! change to your username?**
-```{code-block} bash
-cd ./user001 
-```
-
-```{code-block} bash
-cd ../../usr/bin
-```
-``````
-
-``````{exercise} Go back to home
-Go back to your home directory using `cd` without any {term}`option`s or attributes (your home directory is the default): *#! explain attribute?*
-```{code-block} bash
-cd
-```
-Or with `cd ~` (the tilde is shorthand for your home directory):
-```{code-block} bash
-cd ~
-```
-``````
-
-``````{exercise} Creating a new directory
-Create a new directory called `exercises` using the command `mkdir`. Inside that directory, create a directory called `week1`, and inside that directory create a directory called `day1_2`. 
-```{code-block} bash
-mkdir exercises
-```
-Move to the `exercises` directory with the command you've just learned
-```{code-block} bash
-mkdir week1
-```
-Move to the `week1` directory and make the `day1_2` directory with the commands you've just learned.
-
-Alternatively, you can create all three directories in one command using the `-p` {term}`option`.
-```{code-block} bash
-mkdir -p exercises/week1/day1_2
-```
-``````
