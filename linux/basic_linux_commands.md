@@ -61,6 +61,8 @@ When working on a server, there is no graphical user interface (GUI). Instead, t
 
 When navigating and managing the {term}`file system`, you will use either {term}`absolute paths <absolute path>` or {term}`relative paths <relative path>` to indicate where you want to go or where you want to manage files/directories. An {term}`absolute path` points to a fixed position in the directory tree, like `/usr/bin`. A {term}`relative path` is the path from your current location in the directory tree to the designated location. A {term}`relative path` does not start with `/`.
 
+*#! maybe fig with directory tree that I am using in the next examples?*
+
 ### pwd
 You are always somewhere in the {term}`file system`. To **p**rint the path to your current **w**orking **d**irectory you can use `pwd` ([](#example_pwd)).
 

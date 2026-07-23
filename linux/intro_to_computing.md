@@ -434,7 +434,7 @@ individual {term}`CPUs <CPU>`, numbered starting at 1. Below that you can see ho
 user001@[[SERVER_NAME]]:~$ htop
 ```
 
-**How many {term}{term}`CPUs <CPU>` does the server have?** \
+**How many {term}`CPUs <CPU>` does the server have?** \
 **How much {term}`memory` does the server have?**
 
 In addition to the {term}`CPU` and {term}`memory` use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The {term}`load average` tells you how busy the server is. As a rule of thumb the number indicates how many of the {term}`CPUs <CPU>` are being used, if the {term}`load average` is higher than the number of {term}`CPUs <CPU>` then the server is overloaded and will run less efficiently. 
