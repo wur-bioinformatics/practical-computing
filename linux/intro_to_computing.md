@@ -15,14 +15,11 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-Biological data analysis can often be performed using ready-made software such as Excel or tools designed for a specific task. These programs are convenient, but they also limit which analyses you can perform and how much control you have over the process. In this course, you will learn to work in a flexible computing environment in which you can build and run your own analyses. This will allow you to adapt workflows to your research questions, the structure of your data, and the available computing resources.
+Biological data analysis can often be performed using ready-made {term}`software` such as Excel or tools designed for a specific task. These programs are convenient, but they also limit which analyses you can perform and how much control you have over the process. In this course, you will learn to work in a flexible computing environment in which you can build and run your own analyses. This will allow you to adapt workflows to your research questions, the structure of your data, and the available computing resources.
 
 
 ## Operating Systems
-
-*#! should we explain hardware and software maybe?*
-
-An {term}`operating system` (OS) is the software that manages computer hardware and software resources of computing devices and acts as an interface between the user and hardware [@geeksforgeeks_introduction_operating]. More simply put, an {term}`operating system` acts as a bridge between you (the user) and your computer, illustrated in {numref}`operating_system`. 
+A computer system consists of {term}`hardware` and {term}`software`. {term}`Hardware <hardware>` are the physical components, whereas {term}`software` are the programs and applications that control the {term}`hardware`. An {term}`operating system` (OS) is the {term}`software` that manages computer {term}`hardware` and {term}`software` resources of computing devices and acts as an interface between the user and {term}`hardware` [@geeksforgeeks_introduction_operating]. More simply put, an {term}`operating system` acts as a bridge between you (the user) and your computer, illustrated in {numref}`operating_system`. 
 
 
 :::{figure}
@@ -79,11 +76,11 @@ flowchart TD
     class OSND red;
     class DiskND cylinder;
 ```
-Role of {term}`operating system` in connecting the user with the hardware and software of a computer
+Role of {term}`operating system` in connecting the user with the {term}`hardware` and {term}`software` of a computer
 :::
 
 An {term}`operating system` contains two basic components: 
-- The {term}`kernel` is the core component of the {term}`operating system`. It contains the software libraries that are required to interact with the hardware and is therefore the primary interface between the {term}`operating system` and the hardware
+- The {term}`kernel` is the core component of the {term}`operating system`. It contains the {term}`software` libraries that are required to interact with the {term}`hardware` and is therefore the primary interface between the {term}`operating system` and the {term}`hardware`
 - The {term}`shell` is the outermost layer of the {term}`operating system`. It acts as an intermediate between the user and the {term}`operating system`. It interprets {term}`input` for the {term}`operating system` and handles the {term}`output` from the {term}`operating system`.
 
 Some {term}`operating system`s you might be familiar with:
@@ -98,16 +95,22 @@ Some {term}`operating system`s you might be familiar with:
 
 In this course, we will use [Linux](wiki:linux). It was created by [Linus Torvalds](wiki:linus_torvalds) and has various advantages:
 - Linux has a powerful (remote) {term}`shell`
-- Linux has many software tools available
+- Linux has many {term}`software` tools available
 - Supercomputers run Linux
 
 The Linux {term}`kernel` is typically bundled with several applications into a Linux distribution to make it more user friendly. You can choose between a lot of different distributions for different purposes, for an overview see: [Linux distribution](wiki:Linux_distribution). 
 
-We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called [[SERVER_NAME]]. 
+We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called [[SERVER_NAME]]. Servers are not always connected to the internet. Therefore, it is necessary to jump from your computer via a host or proxy server to the WUR Bioinformatics servers. 
 
 :::{margin}
 *#! update fun fact for relevant server*
 :::
+
+```{figure} img/working_on_remote_server.png
+:label: working_on_remote_server_img
+
+Working on WUR Bioinformatics servers
+```
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box

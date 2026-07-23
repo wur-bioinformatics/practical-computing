@@ -49,6 +49,9 @@ greedy
 group (regex)
 : group of matched characters captured by a part of a match to a Regular Expression search pattern
 
+hardware
+: the physical components of a computer system
+
 index
 : A data structure that stores and organizes information within a file in such a way that it is easy to find.
 
@@ -99,6 +102,9 @@ shell
 
 shell script
 : a (text) file containing a series of commands that the shell can interpret and execute
+
+software
+: non-physical parts of a computer system, the applications and programs that interact with the computer hardware to performs tasks
 
 string
 : a sequence of characters. How a computer stores and works with text. Written between quotes ("/')
