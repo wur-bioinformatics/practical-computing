@@ -53,7 +53,7 @@ Computing Skills for Biologists - a Tool box
 ## Advanced Linux Commands
 Now that you have mastered the basics of using the {term}`shell` in {numref}`intro_to_computing`, let's explore some more advanced command-line tools. The tools explored here are by no means an exhaustive list of Linux tools, but these tools are very useful for handling biological data (files). 
 
-``````{caution} Remember how to search for help
+``````{tip} Remember how to search for help
 Part of mastering the command line shell is knowing how to search for help. Most tools have a help page that is printed to screen when running (depending on the tool) either:
 ```{code-block} bash
 <tool> -h
