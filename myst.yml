@@ -19,11 +19,9 @@ project:
         - file: linux/advanced_linux_commands_and_pipes.md
         - file: linux/shell_scripting.md
     - file: python/python_intro.md
-    - title: Python
     - file: data_analysis/data_analysis_intro.md
-    - title: Data Analysis
     - file: glossary.md
-    - title: Glossary
+
 site:
   template: book-theme
   options:
