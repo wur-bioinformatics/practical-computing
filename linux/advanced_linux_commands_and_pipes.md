@@ -555,10 +555,25 @@ Computing Skills for Biologists - a Tool box
 
 
 ## Exercises
+In the following exercises, you will:
+- build up complex pipelines from small, less complex 'Lego' blocks;
+- make bigger 'Lego' blocks and extend on those. 
 
+The exact syntax of [`awk`](#awk) is not that important, but try to see what it does. 
+
+``````{tip}
+As you add parts of your pipeline, check what actually comes out after each addition. 
+
+To not "flood" your screen by intermediary output, you can always add a temporary `head` command. For example, if you only want the first five lines to be printed to stdout, add: 
+```{code-block} bash
+| head -5
+```
+``````
 
 ### Working with Column-Separated Data
+For these exercises you will work with a smaller sample of the `crane.csv` dataset containing only the first and last one hundred lines of the original: `first_and_last_100_lines_crane_data.csv`. You will practice with extracting specific columns from tab delimited files, and with selecting lines on matches in only one column. You will also practice with two other very useful tools that can sort columns and extract and count unique content of columns and text.
 
+*#! add how to get the file*
 
 ### Finding the Longest Word -- Revisited
 
