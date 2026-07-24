@@ -133,9 +133,9 @@ AAAAAAAAAADYDGSPPPPRGKKKKDDEERSSSLPEEKDAKNGGGDEVLSAVTTEDSSAG
 ```
 ``````
 
-```{tip}
-The `-m` option limits the number of matching lines.
-```
+
+The `-m` {term}`option` limits the number of matching lines.
+
 
 (grep_regex_example_3)=
 ``````{prf:example} Filter lines containing a pattern showing only the first occurence
