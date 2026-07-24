@@ -430,38 +430,38 @@ you can add "modifiers" to the {term}`Regular Expression`. Type `'g'` as the mod
 For these exercises, you will use the dataset `HemoglobinAs.fa`, containing Hemoglobin, subunit A1, coding sequences (RefSeq) for human, cow, and mouse.
 
 (exc_hemoglobin_start_codon_1)=
-``````{exercise} Find potential start codon (ATG) 1
+```{exercise} Find potential start codon (ATG) 1
 Find potential start codon (ATG). Use the Find operation settings for your graphical text editor ([](#graphical_text_editors_table)).
 
 **How many potential start codons do you find?**
-``````
+```
 
 (exc_hemoglobin_remove_newlines)=
-``````{exercise} Remove newlines from HemoglobinAs.fa
+```{exercise} Remove newlines from HemoglobinAs.fa
 Because of the newlines in the file it is quite possible that one of the potential start codons was missed. To fix this you can remove the newlines from the file. Use the Find/Replace operation settings for your graphical text editor ([](#graphical_text_editors_table)).
 
 Now you should be able to search and replace all newlines (`\r\n` in this file).
-``````
+```
 
 (exc_hemoglobin_add_newlines)=
-``````{exercise} (Optional) Add newlines back to HemoglobinAs.fa to create separate entries
+```{exercise} (Optional) Add newlines back to HemoglobinAs.fa to create separate entries
 When you did the Find/Replace operation in [](#exc_hemoglobin_remove_newlines), the three sequences will be all on the same line, including their description lines. 
 
 Use the Find/Replace functions of the editor to insert newlines so that the sequences are separated from the description lines, for instance using unique characters or words at the start and end of these lines. 
 
 You should end up with a file with 6 lines, 2 lines for each sequence entry in the file.
-``````
+```
 
 (exc_hemoglobin_start_codon_2)=
-``````{exercise} Find potential start codon (ATG) 2
+```{exercise} Find potential start codon (ATG) 2
 Repeat the search for start codons as was done in [](#exc_hemoglobin_start_codon_1). \
 **How many do you find now?**\
 **Did you miss any in your first attempt in [](#exc_hemoglobin_start_codon_1)?**
-``````
+```
 
 For the next exercise, 
 
-``````{exercise} Find Open Reading Frames (ORFs)
+```{exercise} Find Open Reading Frames (ORFs)
 Go to [regex101](https://regex101.com/). As 'Flavor', select 'Python'. As 'Test String', put the sequence (without newlines) for just the Homo sapiens hemoglobin subunit alpha 1 mRNA.
 
 Now try to match a complete open reading frame (ORF), starting with a start codon and ending with a stop codon (nb. the sequence actually contains two ORFs).
@@ -470,10 +470,39 @@ For an ORF, combine in order:
 1. a start codon (ATG)
 2. zero or more codons that are not stop codons (start codons are allowed, they just code for methionine). Watch out for [greediness](#greediness_caution)...!
 3. a stop codon (TAG, TGA or TAA)
-``````
+```
 
 ### Working with Column Data
+Load in `first_and_last_100_lines_crane_data.csv` in your editor.
 
+```{exercise} Convert from CSV to TSV
+Convert from comma-delimited to tab-delimited using Find/Replace. You can use no more than three sequential Find/Replaces.
+```
+
+(cranes_extract_columns)=
+``````{exercise} Extract columns
+Extract only the 1{sup}`st` and 3{sup}`rd` column of the original file, using Find/Replace (for the time being, you don't need to be concerned with the header line).
+
+Result should look like this (for all lines):
+```{code-block} bash
+:class: no-copybutton
+250386109,2013-07-12 04:10:14
+250386110,2013-07-12 04:24:05
+...
+```
+``````
+
+``````{exercise} Extract and split columns
+From the original file, repeat [](#cranes_extract_columns), but now format column 3 by making separate columns for date and time. 
+
+Result should look like this:
+```{code-block} bash
+:class: no-copybutton
+250386110,2013-07-12,04:24:05
+250386111,2013-07-12,04:38:51
+...
+```
+``````
 
 
 ### Converting a PROSITE Pattern to a Regular Expression
