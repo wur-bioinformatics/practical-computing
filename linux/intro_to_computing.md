@@ -316,6 +316,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.3.2 Directory Structure
 ```
 
+(io_compression)=
 ### I/O (Input/Output) and Compression
 The {term}`input` of a program is the source of incoming information (data). For example:
 - Your keyboard
