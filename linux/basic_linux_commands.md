@@ -593,6 +593,12 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### wc
+To see the line, **w**ord, and byte (**c**haracter) count of a file, we can use `wc`:
+```{code-block} bash
+:class: no-copybutton
+wc [OPTION] [FILE]
+```
+Where `FILE` is the file of interest. You can also only print the **l**ine, only the **w**ord or only the byte/**c**haracter count by using options `-l`, `-w`, `-c`, resepctively.
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
