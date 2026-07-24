@@ -522,8 +522,23 @@ Computing Skills for Biologists - a Tool box
 
 ### file
 You can determine the type of a **file** using `file`:
+```{code-block} bash
+:class: no-copybutton
+file [OPTION] FILE
+```
+Where `FILE` is the file of interest ([](#example_file_cranes)).
 
-
+(example_file_cranes)=
+``````{prf:example} File type of cranes.csv
+```{code-block} bash
+file cranes.csv
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+cranes.csv: CSV ASCII text
+```
+``````
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
