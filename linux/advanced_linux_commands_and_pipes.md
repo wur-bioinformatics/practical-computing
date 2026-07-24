@@ -708,7 +708,7 @@ awk '$2~/2015-11/'
 uniq -c
 ```
 We need the [`sort`](#sort) command because [`uniq`](#uniq) expects a sorted list. \
-The [`uniq`](#uniq) commands means: show unique records, and counts occurrences because of `-c` {term}`option`.
+The [`uniq`](#uniq) command means: show unique records, and counts occurrences because of `-c` {term}`option`.
 ``````
 
 Now download the entire Common Crane tracking data set, using the command [`wget`](#wget):
@@ -836,3 +836,83 @@ Which 17-character words are there? Use the building blocks from [](#exc_18_char
 
 
 ### Bonus: Analyze the Word Use of Shakespeare's Collected Works
+In this exercise (inspired by @Robbins2005-ry), you will make a shell one-liner to analyze the word use of the collected works of William Shakespeare. This may well be the most studied literary work written in modern history. Many thousands of students and scholars have labored for days, weeks, nay, months on end to understand the literary genius of The Bard. And now, you can easily extract some vital statistics on the collected works in milliseconds!
+
+Let's first get a copy:
+```{code-block} bash
+wget http://www.bioinformatics.nl/courses/BIF-21806/Examples/Shakespeare/shakespeare.tar.gz
+```
+
+Mind that this is actually a collection of files (an archive), first "tarred" into a single file, then zipped. This is common practice in Linux systems to compress entire directories and their content.
+
+To upack, do:
+```{code-block} bash
+tar -xzvf shakespeare.tar.gz
+```
+Then go to the directory `Shakespeare`:
+```{code-block} bash
+cd Shakespeare
+```
+
+(exc_shakespeare_words_1)=
+``````{exercise} Print the 30 most frequent words 1
+Process the text by putting each word on its own line (split on non-word characters), remove all empty lines, then sort alphabetically so that you can make the words unique and get their counts, and then sort the result by going from most frequent to least frequent word. Finally display the 30 most frequent words.
+
+You should start with:
+```{code-block} bash
+cat *.txt
+```
+**Why?**
+
+Combine the remaining building blocks into a pipeline:
+```{code-block} bash
+grep -v '^$'
+```
+```{code-block} bash
+uniq -c
+```
+```{code-block} bash
+sed "s/[^{A-Za-z'}]/\n/g"
+```
+```{code-block} bash
+sort
+```
+```{code-block} bash
+head -30
+```
+```{code-block} bash
+sort -k1,1nr
+```
+```{code-block} bash
+grep -v -E '[A-Z]{2,}'
+```
+
+The [`grep`](#grep) command `grep -v '^$'` filters out empty lines.\
+The [`sort`](#sort) command `sort -k1,1nr` sorts numerically on the first column, in descending order.\
+The [`grep`](#grep) command `grep -v -E '[A-Z]{2,}'` filters out words with two or more consecutive capital letters.
+
+**What are the 30 most frequent words?**
+``````
+
+The result of [](#exc_shakespeare_words_1) is not perfect. For instance, the top 30 contains both 'the' as well as 'The'. Another problem is the use of single-quotes, not just inside a word, but also as quotations. Let's add some extra building blocks in [](#exc_shakespeare_words_2) to resolve this.
+
+
+(exc_shakespeare_words_2)=
+``````{exercise} Print the 30 most frequent words 2
+Add these three building blocks, in the correct position, in your pipeline of [](#exc_shakespeare_words_1):
+
+```{code-block} bash
+tr 'A-Z' 'a-z'
+```
+```{code-block} bash
+sed "s/^'//"
+```
+```{code-block} bash
+sed "s/'$//"
+```
+
+```{tip}
+They will not be useful at the end of your previous pipeline.
+```
+**Is there a difference in the result?**
+``````
