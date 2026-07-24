@@ -458,6 +458,13 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
 ```
 
+### uniq
+the uniq tool can only recognize that lines are the same if they are consecutive lines. That
+is why you usually need to do a sort before doing a uniq
+
+
+### tar
+
 ## Pipelines
 Now that we have seen some more advanced Linux commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the stdout of the previous command is redirected towards the stdin of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
 
@@ -516,6 +523,10 @@ The output will be:
 ```
 **Why do you think the output is `0`?** (Look at the usage of `wc -l`)
 ``````
+:::{dropdown} Solution
+`wc -l` counts newline characters
+:::
+
 
 Finally, let's combine {ref}`grep` and {ref}`sed` in a pipeline ([](#pipe_grep_sed_example)).
 
@@ -559,21 +570,243 @@ In the following exercises, you will:
 - build up complex pipelines from small, less complex 'Lego' blocks;
 - make bigger 'Lego' blocks and extend on those. 
 
-The exact syntax of [`awk`](#awk) is not that important, but try to see what it does. 
+For each of the exercises you will get commands which serve as building blocks of the pipeline. Connect them in the right order using the pipe (`|`) symbol as discussed in [](#pipelines). 
+
 
 ``````{tip}
 As you add parts of your pipeline, check what actually comes out after each addition. 
 
-To not "flood" your screen by intermediary output, you can always add a temporary `head` command. For example, if you only want the first five lines to be printed to stdout, add: 
+To not "flood" your screen by intermediary output, you can always add a temporary [`head`](#head) command. For example, if you only want the first five lines to be printed to stdout, add: 
 ```{code-block} bash
 | head -5
 ```
 ``````
 
+```{note} 
+The exact syntax of [`awk`](#awk) is not that important, but try to see what it does. 
+```
+
+
 ### Working with Column-Separated Data
-For these exercises you will work with a smaller sample of the `crane.csv` dataset containing only the first and last one hundred lines of the original: `first_and_last_100_lines_crane_data.csv`. You will practice with extracting specific columns from tab delimited files, and with selecting lines on matches in only one column. You will also practice with two other very useful tools that can sort columns and extract and count unique content of columns and text.
+For these exercises you will work with a smaller sample of the `crane.csv` dataset containing only the first and last one hundred lines of the original: `first_and_last_100_lines_crane_data.csv`. You will practice with extracting specific columns from tab-delimited files and selecting lines based on matches in only one column. You will also practice with two other very useful tools that can sort columns and extract and count unique content of columns and text.
+
+```{tip}
+Many of the shell tools that work easily with column data, recognize TAB (or any whitespace) as default delimiter. 
+
+Converting from comma- to tab-delimited text therefore saves having to specify the delimiter for every tool separately. There can be vast differences in what {term}`option` each tool used to specify the delimiter.
+```
 
 *#! add how to get the file*
+
+``````{exercise} Extract columns from data
+Extract the first and third column of the data
+```{tip}
+The first command should read the data file.
+```
+```{code-block} bash
+sed 's/,/\t/g' | sed 's/\t /, /g'
+```
+```{code-block} bash
+cat first_and_last_100_lines_crane_data.csv
+```
+```{code-block} bash
+cut -f1,3
+```
+The [`cut`](#cut) command means: take the first and third column; no delimiter specified so assumes TAB
+``````
+
+
+``````{exercise} Split a column into two columns & print columns in alternate order
+Extract first and third columns, create separate columns for date and time, and print first date, then time, and then the observation id.
+```{code-block} bash
+cut -f1,3
+```
+```{code-block} bash
+awk '{print $2"\t"$3"\t"$1}
+```
+```{code-block} bash
+cat first_and_last_100_lines_crane_data.csv
+```
+```{code-block} bash
+sed 's/,/\t/g' | sed 's/\t /, /g'
+```
+```{code-block} bash
+sed 's/ /\t/'
+```
+The [`awk`](#awk) command prints second, third, and first column, in that order. [`awk`](#awk) will use any whitespace as column delimiter by default. To be explicit, in this example the space between the data and time in column 2 is explicitly converted to TAB. Always work as explicit as possible unless you know exactly how your tools are behaving.
+``````
+
+
+(exc_selecting_lines_1)=
+``````{exercise} Select only those lines containing a specific date 1
+Extract first and third columns, create separate columns for date and time, and select only those lines pertaining November 2015. 
+```{code-block} bash
+cut -f1,3
+```
+```{code-block} bash
+awk '$2~/2015-11/'
+```
+```{code-block} bash
+cat first_and_last_100_lines_crane_data.csv
+```
+```{code-block} bash
+sed 's/ /\t/'
+```
+```{code-block} bash
+sed 's/,/\t/g' | sed 's/\t /, /g'
+```
+The [`awk`](#awk) command means: line selected if second column contains '2015-11'
+``````
+
+
+``````{exercise} Select only those lines containing a specific date 2
+Now do the same, but include latitude, longitude, and animal ID (the latter found in column 14). 
+```{code-block} bash
+awk '$2~/2015-11/'
+```
+```{code-block} bash
+cat first_and_last_100_lines_crane_data.csv
+```
+```{code-block} bash
+sed 's/,/\t/g' | sed 's/\t /, /g'
+```
+```{code-block} bash
+cut -f1,3,4,5,14
+```
+```{code-block} bash
+sed 's/ /\t/'
+```
+**What is the only difference with [](#exc_selecting_lines_1)?**
+``````
+
+
+(exc_count_observations_date)=
+``````{exercise} Count number of observations on a specific date 1 
+**Count the number of observations per day in November 2015.**
+```{code-block} bash
+cut -f2
+```
+```{code-block} bash
+cut -f1,3
+```
+```{code-block} bash
+cat first_and_last_100_lines_crane_data.csv
+```
+```{code-block} bash
+sort
+```
+```{code-block} bash
+sed 's/,/\t/g' | sed 's/\t /, /g'
+```
+```{code-block} bash
+sed 's/ /\t/'
+```
+```{code-block} bash
+awk '$2~/2015-11/'
+```
+```{code-block} bash
+uniq -c
+```
+We need the [`sort`](#sort) command because [`uniq`](#uniq) expects a sorted list. \
+The [`uniq`](#uniq) commands means: show unique records, and counts occurrences because of `-c` {term}`option`.
+``````
+
+Now download the entire Common Crane tracking data set, using the command [`wget`](#wget):
+
+```{code-block} bash
+wget http://www.bioinformatics.nl/courses/BIF-21806/Examples/Common_Crane_tracking/GPS_telemetry_of_Common_Cranes_Sweden.csv.gz
+```
+
+The file is zipped. You can unzip it, but remember that these datasets could easily be five times larger ([](#io_compression)). Fortunately, there is a flavor of `cat` that can directly read zipped files: `zcat`.
+
+
+``````{exercise} Count observations of complete file
+```{code-block} bash
+wc -l
+```
+```{code-block} bash
+zcat GPS_telemetry_of_Common_Cranes_Sweden.csv.gz
+```
+**How many observations does the complete file contain?**
+``````
+
+
+``````{exercise} Count number of observations on a specific date for a specific animal
+Similar to [](#exc_count_observations_date), extract date and time (put in different, tab-delimited columns), latitude, longitude,
+and animal ID, for animal with ID 9480 for the month of November for every year. 
+```{code-block} bash
+cut -f1,3,4,5,14
+```
+```{code-block} bash
+wc -l
+```
+```{code-block} bash
+zcat GPS_telemetry_of_Common_Cranes_Sweden.csv.gz
+```
+```{code-block} bash
+awk '$1~/-11-/'
+```
+```{code-block} bash
+sed 's/,/\t/g' | sed 's/\t /, /g'
+```
+```{code-block} bash
+sed 's/ /\t/'
+```
+```{code-block} bash
+awk '$5~/9480'
+```
+**Count the number of occurrences.**
+``````
+
+
+``````{exercise} Count number of observations per animal
+```{code-block} bash
+cut -f14
+```
+```{code-block} bash
+zcat GPS_telemetry_of_Common_Cranes_Sweden.csv.gz
+```
+```{code-block} bash
+sort
+```
+```{code-block} bash
+sed 's/,/\t/g' | sed 's/\t /, /g'
+```
+```{code-block} bash
+uniq -c
+```
+**How many observations are there for each animal?**
+``````
+
+
+
+``````{exercise} (optional) Selecting lines on numerical columns using > and <
+**How many observations are there for the vicinity of Wageningen (square between 51° and 52° lat, 5° and 6° lon)?**
+
+Omit `wc -l` to answer the following two questions:\
+**How many animals were involved?** \
+**And when?**
+```{code-block} bash
+cut -f3,4,5,14
+```
+```{code-block} bash
+sed 's/ /\t/'
+```
+```{code-block} bash
+awk '$3>5&&$3<6&&$4>51&&$4<52
+```
+```{code-block} bash
+zcat GPS_telemetry_of_Common_Cranes_Sweden.csv.gz
+```
+```{code-block} bash
+sed 's/,/\t/g' | sed 's/\t /, /g'
+```
+```{code-block} bash
+wc -l
+```
+
+When values in a column can be interpreted numerically, you can use [`awk`](#awk) to select based on comparison (smaller, larger, equal). You can include logic 'AND' by separating comparisons by double '`&&`' (logic 'OR' can be implemented by double pipe '`||`')
+``````
 
 ### Finding the Longest Word -- Revisited
 
