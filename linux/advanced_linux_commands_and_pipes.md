@@ -84,12 +84,12 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### grep
-`grep` is a tool that filters text for a given term. It searches for a pattern in a file or standard input ([](#grep_basic_example)).
+`grep` is a tool that filters text for a given term. It searches for a pattern in a file or standard input ([](#grep_basic_example)). When using the `--color` {term}`option`, the part of the line that is matched will be colored in the stdout.
 
 (grep_basic_example)=
 ``````{prf:example} Filter lines that contain 'sp'
 ```{code-block} bash
-grep sp plants.fasta
+grep --color sp plants.fasta
 ```
 The first 10 lines of the output will be:
 ```{code-block} bash
@@ -112,7 +112,7 @@ The first 10 lines of the output will be:
 (grep_regex_example_1)=
 ``````{prf:example} Filter lines containing a sequence of 16 'A's
 ```{code-block} bash
-grep -E "A{16}" plants.fasta
+grep --color -E "A{16}" plants.fasta
 ```
 Will give the output:
 ```{code-block} bash
@@ -124,7 +124,7 @@ PLLQKRQEVVTKQSNPVPPSTPSSASSAAAAAAAAAAAAAAAAATAATKGKDMAPVS
 (grep_regex_example_2)=
 ``````{prf:example} Filter lines containing a sequence of 10 'A's at the start of the line
 ```{code-block} bash
-grep -E "^A{10}" plants.fasta
+grep --color -E "^A{10}" plants.fasta
 ```
 Will give the output:
 ```{code-block} bash
@@ -140,7 +140,7 @@ The `-m` {term}`option` limits the number of matching lines.
 (grep_regex_example_3)=
 ``````{prf:example} Filter lines containing a pattern showing only the first occurence
 ```{code-block} bash
-grep -m 1 -E "^[^>].*[BJOUXZ]" plants.fasta
+grep --color -m 1 -E "^[^>].*[BJOUXZ]" plants.fasta
 ```
 Will give the output:
 ```{code-block} bash
@@ -152,7 +152,7 @@ ILNSPDRACNLAKQAFDEAISELDSLGEESYKDSTLIMQLLXDNLTLWTSDTNEDGGDEI
 (grep_regex_example_4)=
 ``````{prf:example} Filter lines containing a character 59 times showing only the first occurence
 ```{code-block} bash
-grep -E –m 1 "(.)\1{59}" plants.fasta 
+grep --color -E –m 1 "(.)\1{59}" plants.fasta 
 ```
 Will give the output:
 ```{code-block} bash
