@@ -560,7 +560,12 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### cat
-`cat` is a tool that prints the contents of a file (or standard input) to standard output (often the screen) ([](#cat_example)).
+With `cat` you can con**cat**enate and print files to screen (standard output):
+```{code-block} bash
+:class: no-copybutton
+cat [OPTION] [FILE]
+```
+Where `FILE` is either one or multiple files. When only one file is provided, the contents are printed to screen ([](#cat_example)). When multiple files are provided, they are concatenated and then printed to screen.
 
 (cat_example)=
 ``````{prf:example} Print contents of a FASTA file to screen
