@@ -546,7 +546,13 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### less
+With `less` you can progressively look at a file, meaning it does not open the whole file in a text editer, but loads only the bits that are displayed on screen. This makes it especially useful when you want to inspect large files. 
 
+To navigate the `less` environment:
+- {kbd}`Ctrl`+ {kbd}`F` for moving one screen **f**orward
+- {kbd}`Ctrl`+ {kbd}`B` for moving one screen **b**ackward
+- {kbd}`h` for the manual/**h**elp
+- {kbd}`q` for exiting/**q**uitting the environment
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
