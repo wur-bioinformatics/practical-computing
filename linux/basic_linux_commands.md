@@ -56,8 +56,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Basic Linux Commands
-When working on a server, there is no graphical user interface (GUI). Instead, there is a {term}`command-line interface`, which means you will type in commands, and often assess the text-based output printed to screeen. That also means that there is no GUI {term}`file system` ([](#file-system)), where you can see where you are, and what files are available for you to manipulate (such as File Explorer for Windows *#! mac version?*). Luckily, Linux comes with utilities that help to navigate the Linux {term}`file system` ([](#file-system)): `pwd`, `ls`, and `cd`. Additionally, there are utilities that allow you to create, copy, move, and remove files and directories: `mkdir`, `cp`, `mv`, and `rm`, respectively. 
-
+When working on a server, there is no graphical user interface (GUI). Instead, there is a {term}`command-line interface`, which means you will type in commands, and often assess the text-based output printed to screen. That also means that there is no GUI {term}`file system` ([](#file-system)), where you can see where you are, and what files are available for you to manipulate (such as File Explorer for Windows *#! mac version?*). Luckily, Linux comes with utilities that help to navigate the Linux {term}`file system`: `pwd`, `ls`, and `cd`. Additionally, there are utilities that allow you to create, copy, move, and remove files and directories: `mkdir`, `cp`, `mv`, and `rm`, respectively. 
 
 When navigating and managing the {term}`file system`, you will use either {term}`absolute paths <absolute path>` or {term}`relative paths <relative path>` to indicate where you want to go or where you want to manage files/directories. An {term}`absolute path` points to a fixed position in the directory tree, like `/usr/bin`. A {term}`relative path` is the path from your current location in the directory tree to the designated location. A {term}`relative path` does not start with `/`.
 
@@ -179,7 +178,7 @@ week1
 
 The usage of `ls` can be altered by using {term}`options <option>` ([](#ls_options)). 
 
-```{list-table} ls options
+```{list-table} Some useful ls options
 :header-rows: 1
 :name: ls_options
 * - Option
@@ -198,7 +197,69 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### cp
+With `cp` you can **c**o**p**y a file or directory. It requires two arguments:
+```{code-block} bash
+:class: no-copybutton
+cp [OPTION] SOURCE DESTINATION
+```
+Where `SOURCE` is the file or directory you want to copy and `DESTINATION` is the location to which you want to copy. When you want to copy a directory you need to add {term}`option` `-r` for **r**ecursive. Then, the directory and all its contents (including subdirectories and their contents) will be copied to the destination. You can use the `.` to specify that you want to copy to your current location ([](#example_copy_dir)). 
 
+(example_copy_dir)=
+``````{prf:example} Copy day directory to home directory
+Current directory:
+```{code-block} bash
+pwd
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+/home/user001
+```
+Copy `day2` to current directory (`home`)
+```{code-block} bash
+cp -r exercises/week1/day2 .
+```
+Let's see if it worked:
+```{code-block} bash
+ls
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+exercises
+day2
+```
+``````
+
+When copying, you can also rename the file or directory in the process, by giving the `DESTINATION` a different name ([](#example_copy_dir_rename)).
+
+(example_copy_dir_rename)=
+``````{prf:example} Copy day2 directory to exercises directory and rename to w1d2
+Current directory:
+```{code-block} bash
+pwd
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+/home/user001
+```
+Suppose we don't want a nested structure for our exercises of `weekX/dayY`, where `X` is the week number and `Y` is the day number. Instead, we want all our exercises in the `exercises` directory as `wXdY`. We can do that using `cp`:
+
+```{code-block} bash
+cp -r exercises/week1/day2 exercises/w1d2
+```
+Let's see if it worked:
+```{code-block} bash
+ls exercises/
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+w1d2
+week1
+```
+``````
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -206,7 +267,80 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### mv
+With `mv`, you can **m**o**v**e a file or directory. Similarly to [`cp`](#cp), you need the `SOURCE` and `DESTINATION` to supply of the file/directory you want to move as arguments:
+```{code-block} bash
+:class: no-copybutton
+mv [OPTION] SOURCE DESTINATION
+```
 
+In contrast to [`cp`](#cp), `mv` will automatically copy all the contents of a directory to the new destination, without the need of adding an {term}`option` ([](#example_mv_dir)).
+
+(example_mv_dir)=
+``````{prf:example} Move w1d2 directory to home
+Current directory:
+```{code-block} bash
+pwd
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+/home/user001
+```
+Suppose we don't want to use the `exercises` directory at all, but want to have all our exercises in our `home` directory. In general, this is not recommended, because it will get unorganized quickly. But for this example's sake:
+
+```{code-block} bash
+mv exercises/w1d2/ .
+```
+Let's see if it worked:
+```{code-block} bash
+ls 
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+day2
+exercises
+w1d2
+```
+```{code-block} bash
+ls exercises/
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+week1
+```
+``````
+
+We can also rename a file or directory using `mv`. This can be done in the process of moving by supplying the new name as the `DESTINATION`. It can also be done by moving "in-place", thereby renaming the file/directory but not actually moving to a new destination ([](#example_mv_rename)).
+
+(example_mv_rename)=
+``````{prf:example} Rename a directory by moving in place
+Current directory:
+```{code-block} bash
+pwd
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+/home/user001
+```
+Suppose we want to rename our `w1d2` directory to a longer format of `week1day2`, we can do that using `mv`:
+```{code-block} bash
+mv w1d2/ week1day2
+```
+Let's see if it worked:
+```{code-block} bash
+ls 
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+day2
+exercises
+week1day2
+```
+``````
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -214,7 +348,80 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### rm
+To **r**e**m**ove a file or directory we can use `rm`. The usage can be written as:
+```{code-block} bash
+:class: no-copybutton
+rm [OPTION] FILE
+```
+Where `FILE` is a file or directory. With the `-r` {term}`option` (for **r**ecursive), you can delete a directory with its contents ([](#example_rm)). 
 
+```{caution} Removing a file is irreversible
+**Removing a file on a Linux {term}`file system` is irreversible, without an undo option.** There is no trash bin!
+
+To ensure that the path to the file or directory you want to remove is correct, you can first specify it with `ls`. Then, you can see if you are only hitting your suspected target for removal, before accidentally removing unwanted files/directories. If the path is correct, you can change the `ls` to `rm` for files and `rm -r` for directories and execute. 
+```
+
+(example_rm)=
+``````{prf:example} Clean up our home directory
+Current directory:
+```{code-block} bash
+pwd
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+/home/user001
+```
+
+Let's get organised again and clean up our home directory. First, we are going to remove the `day2` directory. Check whether the path is targeting only the directory using `ls -d` (`-d` for listing **d**irectories themselves, not their contents):
+
+```{code-block} bash
+ls -d day2/
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+day2/
+```
+Now we know for sure that this is our only target, so let's remove it from home:
+```{code-block} bash
+rm -r day2/
+```
+Let's see if it worked:
+```{code-block} bash
+ls 
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+exercises
+week1day2
+```
+
+Again for `week1day2`:
+```{code-block} bash
+ls -d week1day2/
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+week1day2/
+```
+Now we know for sure that this is our only target, so let's remove it from home:
+```{code-block} bash
+rm -r week1day2/
+```
+Let's see if it worked:
+```{code-block} bash
+ls 
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+exercises
+```
+We are all organised again 😄.
+``````
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
