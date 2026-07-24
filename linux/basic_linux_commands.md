@@ -603,7 +603,7 @@ To see the line, **w**ord, and byte (**c**haracter) count of a file, we can use 
 :class: no-copybutton
 wc [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest. You can also only print the **l**ine, only the **w**ord or only the byte/**c**haracter count by using options `-l`, `-w`, `-c`, resepctively.
+Where `FILE` is the file of interest. You can also only print the **l**ine, only the **w**ord or only the byte/**c**haracter count by using {term}`options <option>` `-l`, `-w`, `-c`, resepctively.
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -611,6 +611,26 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### head
+To inspect the **head** of a file, or the first couple of lines, you can use `head`:
+```{code-block} bash
+:class: no-copybutton
+head [OPTION] [FILE]
+```
+Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) is printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#)).
+
+(example_head_n)=
+``````{prf:example} Print the first 3 lines of cranes.csv
+```{code-block} bash
+head -3 cranes.csv
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,ground-speed,heading,tag-tech-spec,tag-voltage,sensor-type,individual-taxon-canonical-name,tag-local-identifier,individual-local-identifier,study-name
+250386109,true,2013-07-12 04:10:14.000,13.3524,57.33415,,,,,"",,"gps","Grus grus","8621","8621","GPS telemetry of Common Cranes, Sweden"
+250386110,true,2013-07-12 04:24:05.000,13.352072,57.333359,210.0,1.7,0.257,0.0,"3",4.18,"gps","Grus grus","8621","8621","GPS telemetry of Common Cranes, Sweden"
+```
+``````
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
