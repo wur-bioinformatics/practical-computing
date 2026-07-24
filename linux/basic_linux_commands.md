@@ -83,7 +83,12 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### cd
-You can also move around within the {term}`file system`. To **c**hange **d**irectory, you can use `cd` with as argument your (already existing) directory of choice ([](#example_cd)).
+You can also move around within the {term}`file system`. To **c**hange **d**irectory, you can use `cd`:
+```{code-block} bash
+:class: no-copybutton
+cd [OPTION] DIRECTORY
+```
+Where `DIRECTORY` is the {term}`argument` specifying your (already existing) directory of choice ([](#example_cd)).
 
 (example_cd)=
 ``````{prf:example} Change to exercises directory
@@ -150,19 +155,12 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### ls
-Without GUI to see what files and subdirectories are present in your current directory or a directory of interest, you can use `ls`. It **l**i**s**ts all the files and subdirectories. It can be used without an {term}`argument` ([](#example_ls_no_arg)) or with the path to the directory of interest ([](#example_ls_dir)).
-
-(example_ls_no_arg)=
-``````{prf:example} List all files and subdirectories in your current directory
-```{code-block} bash
-ls
-```
-Will give the output:
+Without GUI to see what files and subdirectories are present in your current directory or a directory of interest, you can use `ls`. It **l**i**s**ts all the files and subdirectories.
 ```{code-block} bash
 :class: no-copybutton
-exercises
+ls [OPTION] FILE
 ```
-``````
+Where `FILE` is the file/directory of which you want to list the information ([](#example_ls_dir)), the default (without an {term}`argument`) is the current directory ([](#example_ls_no_arg)). 
 
 (example_ls_dir)=
 ``````{prf:example} List all files and subdirectories in a directory
@@ -176,6 +174,18 @@ week1
 ```
 ``````
 
+(example_ls_no_arg)=
+``````{prf:example} List all files and subdirectories in your current directory
+```{code-block} bash
+ls
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+exercises
+```
+``````
+
 The usage of `ls` can be altered by using {term}`options <option>` ([](#ls_options)). 
 
 ```{list-table} Some useful ls options
@@ -184,9 +194,11 @@ The usage of `ls` can be altered by using {term}`options <option>` ([](#ls_optio
 * - Option
   - Behaviour
 * - `-a`
-  - List **a** files and directories, including hidden ones
+  - List **a**ll files and directories, including hidden ones
 * - `-l`
   - Use a **l**ong listing format, providing additional details about the files and directories
+* - `-d`
+  - List **d**irectories themselves, not their contents
 ```
 
 When using `ls -l`, you can also supply it with a file as {term}`argument`, to see the file's details. 
@@ -429,7 +441,79 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### mkdir
+If we want to **m**a**k**e a new **dir**ectory we can use `mkdir`:
+```{code-block} bash
+:class: no-copybutton
+mkdir [OPTION] DIRECTORY
+```
+Where `DIRECTORY` is the path to the directory we want to create ([](#example_mkdir)). A useful {term}`option` is `-p`, which allows you to make parent directories to the final directory if they don't exist yet ([](#example_mkdir_nested)).
 
+(example_mkdir)=
+``````{prf:example} Make new directory for exercises of week 1 day 3
+Current directory:
+```{code-block} bash
+pwd
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+/home/user001
+```
+
+Suppose we want to prepare for tomorrow and already make the `day3` directory:
+```{code-block} bash
+mkdir exercises/week1/day3
+```
+
+Let's see if it worked:
+```{code-block} bash
+ls exercises/week1/
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+day2
+day3
+```
+``````
+
+(example_mkdir_nested)=
+``````{prf:example} Make new directories for exercises of week 2 day 1
+Current directory:
+```{code-block} bash
+pwd
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+/home/user001
+```
+
+Suppose we want to prepare for next week and already make the `week2/day1` directories in one go:
+```{code-block} bash
+mkdir -p exercises/week2/day1
+```
+
+Let's see if it worked:
+```{code-block} bash
+ls exercises/
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+week1
+week2
+```
+
+```{code-block} bash
+ls exercises/week2/
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+day1
+```
+``````
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -437,6 +521,8 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### file
+You can determine the type of a **file** using `file`:
+
 
 
 ```{seealso} Further Reading
