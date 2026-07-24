@@ -616,7 +616,7 @@ To inspect the **head** of a file, or the first couple of lines, you can use `he
 :class: no-copybutton
 head [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) is printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#)).
+Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) is printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#example_head_n)).
 
 (example_head_n)=
 ``````{prf:example} Print the first 3 lines of cranes.csv
@@ -638,6 +638,27 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### tail
+You can print the **tail**, or last couple of lines, of a file using `tail`:
+```{code-block} bash
+:class: no-copybutton
+tail [OPTION] [FILE]
+```
+Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) is printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#example_tail_n)).
+
+
+(example_tail_n)=
+``````{prf:example} Print the last 3 lines of cranes.csv
+```{code-block} bash
+tail -3 cranes.csv
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+1119958190,true,2015-12-10 13:44:00.000,9.635656,53.272591,28.0,2.8,0.0,,"3",3.66,"gps","Grus grus","7558","7558","GPS telemetry of Common Cranes, Sweden"
+1119958189,true,2015-12-10 14:14:00.000,9.638817,53.296185,34.0,1.4,2.0,,"3",3.65,"gps","Grus grus","7558","7558","GPS telemetry of Common Cranes, Sweden"
+1119958188,true,2015-12-10 14:45:00.000,9.63322,53.296234,35.0,3.8,0.0,,"3",3.65,"gps","Grus grus","7558","7558","GPS telemetry of Common Cranes, Sweden"
+```
+``````
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
