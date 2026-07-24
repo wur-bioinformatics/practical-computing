@@ -422,8 +422,7 @@ For some of the following exercises, it is recommended to use a graphical text e
   - Under 'Find and Replace', select the 'Search mode' as 'Regular expression'
 ```
 
-For other exercises, you can use the [regex101](https://regex101.com/). This site is very handy for experimenting with {term}`Regular Expressions <Regular Expression>`. At the left side of the page, you can select the {term}`regex <Regular Expression>` "flavor". At the top of the page, you can type your {term}`Regular Expression`. This is followed by the `"` character after which
-you can add "modifiers" to the {term}`Regular Expression`. Type `'g'` as the modifier, so that any {term}`Regular Expression` you make will become "global". 
+For other exercises, you can use the [regex101](https://regex101.com/). This site is very handy for experimenting with {term}`Regular Expressions <Regular Expression>`. At the left side of the page, you can select the {term}`regex <Regular Expression>` "flavor". For these exercises select 'Python' as 'Flavor'. At the top of the page, you can type your {term}`Regular Expression`. This is followed by the `"` character after which you can add "modifiers" to the {term}`Regular Expression`. For these exercises, type `'g'` as the modifier, so that any {term}`Regular Expression` you make will become "global". 
 
 
 ### Finding ORFs in Sequences
@@ -462,7 +461,7 @@ Repeat the search for start codons as was done in [](#exc_hemoglobin_start_codon
 For the next exercise, 
 
 ```{exercise} Find Open Reading Frames (ORFs)
-Go to [regex101](https://regex101.com/). As 'Flavor', select 'Python'. As 'Test String', put the sequence (without newlines) for just the Homo sapiens hemoglobin subunit alpha 1 mRNA.
+Go to [regex101](https://regex101.com/). As 'Test String', put the sequence (without newlines) for just the Homo sapiens hemoglobin subunit alpha 1 mRNA.
 
 Now try to match a complete open reading frame (ORF), starting with a start codon and ending with a stop codon (nb. the sequence actually contains two ORFs).
 
@@ -506,6 +505,36 @@ Result should look like this:
 
 
 ### Converting a PROSITE Pattern to a Regular Expression
+Load the file `sp_human_single_line.fasta` in your editor. Use the Find/Replace settings of your specific editor [](#graphical_text_editors_table) for the following exercises.
+
+This file contains the human proteins that are in the SwissProt section of the UniProt database. The SwissProt section contains manually curated protein sequences and is considered more reliable than the trEMBL section, which contains protein sequences
+obtained by translating predicted open reading frames. The newlines were removed from the sequences to facility pattern matching.
+
+Look up the [PROSITE consensus pattern for ACTINS_1](https://prosite.expasy.org/PDOC00340).
+
+``````{exercise} Convert PROSITE pattern to Regular Expression
+Convert the PROSITE pattern to a {term}`Regular Expression`. 
+
+The syntax is quite similar, but PROSITE patterns
+- have a '`-`' to separate elements in, 
+- use an '`x`' to indicate any amino acid
+- use parentheses '`()`' instead of curly braces '`{}`' to indicate repetition. 
+
+You are advised to first test the {term}`Regular Expression` on [regex101](https://regex101.com/) with the "sp|P62736|ACTA_HUMAN Actin" sequence. 
+
+When that works, use the {term}`Regular Expression` in the whole file to find the human proteins that belong to the actin family. 
+
+**How many do you find?**
+``````
+
+
+``````{exercise} Use an anchor in a Regular Expression
+**How many protein sequences in the file do not have an M as the first amino acid?**
+
+```{tip}
+Check the two functions of the `^` character in {term}`Regular Expression` ([](#anchors))
+```
+``````
 
 
 ### Finding Words in a Text File
