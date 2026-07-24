@@ -399,7 +399,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Exercises
-For some of the following exercises, it is recommended to use a graphical text editor. The options for your {term}`operating system` and their functions for either Find operation or Find/Replace operations are summarized in [](#graphical_text_editors_table).
+For some of the following exercises, it is recommended to use a graphical text editor. The options for your {term}`operating system` and their functions for either Find or Find/Replace operations are summarized in [](#graphical_text_editors_table).
 
 (graphical_text_editors_table)=
 ```{list-table} Graphical text editors for Find/Replace
@@ -426,7 +426,7 @@ For other exercises, you can use the [regex101](https://regex101.com/). This sit
 
 
 ### Finding ORFs in Sequences
-For these exercises, you will use the dataset `HemoglobinAs.fa`, containing Hemoglobin, subunit A1, coding sequences (RefSeq) for human, cow, and mouse.
+For these exercises, you will use the dataset `HemoglobinAs.fa`, containing Hemoglobin subunit A1 coding sequences (RefSeq) for human, cow, and mouse. Load the file in your graphical text editor.
 
 (exc_hemoglobin_start_codon_1)=
 ```{exercise} Find potential start codon (ATG) 1
@@ -457,8 +457,6 @@ Repeat the search for start codons as was done in [](#exc_hemoglobin_start_codon
 **How many do you find now?**\
 **Did you miss any in your first attempt in [](#exc_hemoglobin_start_codon_1)?**
 ```
-
-For the next exercise, 
 
 ```{exercise} Find Open Reading Frames (ORFs)
 Go to [regex101](https://regex101.com/). As 'Test String', put the sequence (without newlines) for just the Homo sapiens hemoglobin subunit alpha 1 mRNA.
@@ -503,9 +501,8 @@ Result should look like this:
 ```
 ``````
 
-
 ### Converting a PROSITE Pattern to a Regular Expression
-Load the file `sp_human_single_line.fasta` in your editor. Use the Find/Replace settings of your specific editor [](#graphical_text_editors_table) for the following exercises.
+Load the file `sp_human_single_line.fasta` in your editor. Use the Find/Replace settings of your specific editor ([](#graphical_text_editors_table)) for the following exercises.
 
 This file contains the human proteins that are in the SwissProt section of the UniProt database. The SwissProt section contains manually curated protein sequences and is considered more reliable than the trEMBL section, which contains protein sequences
 obtained by translating predicted open reading frames. The newlines were removed from the sequences to facility pattern matching.
@@ -526,7 +523,6 @@ When that works, use the {term}`Regular Expression` in the whole file to find th
 
 **How many do you find?**
 ``````
-
 
 ``````{exercise} Use an anchor in a Regular Expression
 **How many protein sequences in the file do not have an M as the first amino acid?**
@@ -559,7 +555,4 @@ Find the longest word(s) in the text, for instance using `\w` ([](#character-cla
 Try to find a word that is (accidentally?) repeated in the text, separated by a space, so like this: \
 "try to find a word **that that** is repeated"
 ``````
-
-
-
 
