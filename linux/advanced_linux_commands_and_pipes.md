@@ -809,5 +809,30 @@ When values in a column can be interpreted numerically, you can use [`awk`](#awk
 ``````
 
 ### Finding the Longest Word -- Revisited
+Remember that problem you solved yesterday? The one where you found the longest word in Charles Darwin's "On the Origin of Species"? Did you get '18' as the answer? 
+
+Here we will do the same exercise, but now we will extract ONLY the words that are 18 (word) characters long.
+
+The file is available on [[SERVER_NAME]] at: `/mnt/local_scratch/BIF21806/TOoS.txt` *#! still correct?*
+
+(exc_18_char_words)=
+``````{exercise} Select words that are 18 characters long
+Find and extract the longest words using:
+```{code-block} bash
+grep -E '^\w{18}$'
+```
+```{code-block} bash
+sed "s/[^{A-Za-z'}]/\n/g"
+```
+```{code-block} bash
+cat TooS.txt
+```
+Note that the [`sed`](#sed) expressions are now double-quoted because of searching for single-quote in the expression itself. You can use either single or double quotes, but they have to close correctly.
+``````
+
+``````{exercise} Select words that are 17 characters long
+Which 17-character words are there? Use the building blocks from [](#exc_18_char_words).
+``````
+
 
 ### Bonus: Analyze the Word Use of Shakespeare's Collected Works
