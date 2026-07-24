@@ -241,6 +241,7 @@ The <span class="regex-match">bear</span> likes blue<span class="regex-match">be
 
 It might not seem worth it to use a {term}`quantifier` when we try to match only two characters. However, if you want match longer words or patterns, not having to repeat the {term}`metacharacters <metacharacter>` or literal characters makes the pattern clearer and less prone to errors.
 
+(greediness_caution)=
 ```{caution} Greediness
 In [](#quantifier_example_1), we used the specific {term}`quantifier` `{2}`. This is because {term}`Regular Expressions <Regular Expression>` are, by default, {term}`greedy`. {term}`Greedy <greedy>` means that the pattern will search for the longest match. If, instead, we would have used the `+` {term}`quantifier`, the following would have matched:
 
@@ -398,37 +399,89 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Exercises
-### Programs and Resources
-Graphical text editor
+For some of the following exercises, it is recommended to use a graphical text editor. The options for your {term}`operating system` and their functions for either Find operation or Find/Replace operations are summarized in [](#graphical_text_editors_table).
 
-https://regex101.com/
+(graphical_text_editors_table)=
+```{list-table} Graphical text editors for Find/Replace
+:header-rows: 1
+* - Graphical text editor
+  - Operating system
+  - Find operation settings
+  - Find/Replace operation settings
+* - [Notepad++](https://notepad-plus-plus.org/)
+  - Windows
+  - Use the 'Mark' option under 'Find'
+  - Under 'Find and Replace', select the 'Search mode' as 'Regular expression'
+* - [BBEdit](https://www.barebones.com/products/bbedit/)
+  - macOS
+  - Use the 'Find All' option
+  - Under 'Find and Replace', select 'Grep'
+* - [Gedit/Text Editor](https://gedit-text-editor.org/install.html)
+  - macOS, Linux, Windows
+  - Use  the 'Find...' option
+  - Under 'Find and Replace', select the 'Search mode' as 'Regular expression'
+```
 
-### Exercises
-*#! I would change the format of the practical so that the focus is not on what dataset is used (should ofc be specified) but what they are trying to achieve, so that it can be referred to more easily* 
+For other exercises, you can use the [regex101](https://regex101.com/). This site is very handy for experimenting with {term}`Regular Expressions <Regular Expression>`. At the left side of the page, you can select the {term}`regex <Regular Expression>` "flavor". At the top of the page, you can type your {term}`Regular Expression`. This is followed by the `"` character after which
+you can add "modifiers" to the {term}`Regular Expression`. Type `'g'` as the modifier, so that any {term}`Regular Expression` you make will become "global". 
 
-- Finding ORFs in sequences
-- Working with column data
-- Converting PROSITE pattern to regular expression
-- Finding words in a text file
 
-Dataset 1: Hemoglobin
-- find start codons
-- remove newline characters
-- find orfs
+### Finding ORFs in Sequences
+For these exercises, you will use the dataset `HemoglobinAs.fa`, containing Hemoglobin, subunit A1, coding sequences (RefSeq) for human, cow, and mouse.
 
-Dataset 2: Crane tracking data
-- csv→tsv
-- extract columns
-- split column
+(exc_hemoglobin_start_codon_1)=
+``````{exercise} Find potential start codon (ATG) 1
+Find potential start codon (ATG). Use the Find operation settings for your graphical text editor ([](#graphical_text_editors_table)).
 
-Dataset 3: Human protein sequences
-- convert PROSITE pattern to regular expression
-- use of `^` in a regular expression
+**How many potential start codons do you find?**
+``````
 
-Dataset 4: OOS
-- using meta characters to find 4-letter words
-- use `\w` to find the longest word(s) in the text
-- find a word that is repeated
+(exc_hemoglobin_remove_newlines)=
+``````{exercise} Remove newlines from HemoglobinAs.fa
+Because of the newlines in the file it is quite possible that one of the potential start codons was missed. To fix this you can remove the newlines from the file. Use the Find/Replace operation settings for your graphical text editor ([](#graphical_text_editors_table)).
+
+Now you should be able to search and replace all newlines (`\r\n` in this file).
+``````
+
+(exc_hemoglobin_add_newlines)=
+``````{exercise} (Optional) Add newlines back to HemoglobinAs.fa to create separate entries
+When you did the Find/Replace operation in [](#exc_hemoglobin_remove_newlines), the three sequences will be all on the same line, including their description lines. 
+
+Use the Find/Replace functions of the editor to insert newlines so that the sequences are separated from the description lines, for instance using unique characters or words at the start and end of these lines. 
+
+You should end up with a file with 6 lines, 2 lines for each sequence entry in the file.
+``````
+
+(exc_hemoglobin_start_codon_2)=
+``````{exercise} Find potential start codon (ATG) 2
+Repeat the search for start codons as was done in [](#exc_hemoglobin_start_codon_1). \
+**How many do you find now?**\
+**Did you miss any in your first attempt in [](#exc_hemoglobin_start_codon_1)?**
+``````
+
+For the next exercise, 
+
+``````{exercise} Find Open Reading Frames (ORFs)
+Go to [regex101](https://regex101.com/). As 'Flavor', select 'Python'. As 'Test String', put the sequence (without newlines) for just the Homo sapiens hemoglobin subunit alpha 1 mRNA.
+
+Now try to match a complete open reading frame (ORF), starting with a start codon and ending with a stop codon (nb. the sequence actually contains two ORFs).
+
+For an ORF, combine in order:
+1. a start codon (ATG)
+2. zero or more codons that are not stop codons (start codons are allowed, they just code for methionine). Watch out for [greediness](#greediness_caution)...!
+3. a stop codon (TAG, TGA or TAA)
+``````
+
+### Working with Column Data
+
+
+
+### Converting a PROSITE Pattern to a Regular Expression
+
+
+### Finding Words in a Text File
+
+
 
 
 
