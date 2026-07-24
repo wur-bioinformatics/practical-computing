@@ -538,7 +538,27 @@ Check the two functions of the `^` character in {term}`Regular Expression` ([](#
 
 
 ### Finding Words in a Text File
+Open the file that contains the first 2000 characters of chapter 13 of "The Origin" in a text editor (`Origin_of_Species_2000chars.txt`), and subsequently paste the content into [regex101](https://regex101.com/).
 
+``````{exercise} Use metacharacters to find 4-letter words
+Using only the {term}`metacharacters <metacharacter>` covered today, make a {term}`Regular Expression` to find all 4-letter words. 
+
+**How many matches did you get?** \
+**Did you find all of them?** 
+
+If not, what kind of {term}`wildcard` or {term}`metacharacter would you require to make this search more precise?
+``````
+
+Download the complete text of ["The Origin of Species by Means of Natural Selection by Charles Darwin" in utf-8]( https://www.bioinformatics.nl/courses/BIF-50806/pg2009.txt).
+
+``````{exercise} Find the longest word(s)
+Find the longest word(s) in the text, for instance using `\w` ([](#character-classes))
+``````
+
+``````{exercise} Find repeated words
+Try to find a word that is (accidentally?) repeated in the text, separated by a space, so like this: \
+"try to find a word **that that** is repeated"
+``````
 
 
 
