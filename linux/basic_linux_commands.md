@@ -614,7 +614,34 @@ To see the line, **w**ord, and byte (**c**haracter) count of a file, we can use 
 :class: no-copybutton
 wc [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest. You can also only print the **l**ine, only the **w**ord or only the byte/**c**haracter count by using {term}`options <option>` `-l`, `-w`, `-c`, respectively.
+Where `FILE` is the file of interest ([](#wc_no_options_example)). You can also only print the **l**ine ([](#wc_lines_example_1)), only the **w**ord or only the byte/**c**haracter count by using {term}`options <option>` `-l`, `-w`, `-c`, respectively.
+
+(wc_no_options_example)=
+``````{prf:example} wc default usage
+```{code-block} bash
+wc plants.fasta
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+  250177   565372 15617658 plants.fasta
+```
+The output is the amount of **lines**, **words**, and **byte counts** for each file.
+``````
+
+
+(wc_lines_example_1)=
+``````{prf:example} Count lines in a file 1
+```{code-block} bash
+wc –l plants.fasta
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+250177 plants.fasta
+```
+``````
+
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box

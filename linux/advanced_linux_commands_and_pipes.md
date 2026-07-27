@@ -192,54 +192,6 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.6.5 Selecting Lines Using `grep`
 ```
 
-(wc_section)=
-### wc
-`wc` counts lines or characters in a text ([](#wc_no_options_example)).
-
-(wc_no_options_example)=
-``````{prf:example} wc default usage
-```{code-block} bash
-wc plants.fasta
-```
-Will give the output:
-```{code-block} bash
-:class: no-copybutton
-  250177   565372 15617658 plants.fasta
-```
-The output is the amount of **lines**, **words**, and **byte counts** for each file.
-``````
-
-To only count the amount of lines in a file, you can use the `-l` {term}`option` ([](#wc_lines_example_1), [](#wc_lines_example_2)). 
-
-(wc_lines_example_1)=
-``````{prf:example} Count lines in a file 1
-```{code-block} bash
-wc –l plants.fasta
-```
-Will give the output:
-```{code-block} bash
-:class: no-copybutton
-250177 plants.fasta
-```
-``````
-(wc_lines_example_2)=
-``````{prf:example} Count lines in a file 2
-contain 'sp'.
-```{code-block} bash
-wc –l out.txt
-```
-Will give the output:
-```{code-block} bash
-:class: no-copybutton
-33851 out.txt
-```
-``````
-
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 1.5.2 Viewing and Processing Text Files
-```
-
 (cut_section)=
 ### cut
 With `cut` you can extract parts of lines in a file:
