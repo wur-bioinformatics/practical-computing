@@ -453,6 +453,8 @@ TASTECCNAVQSINHDCMCNTMRIAAQIPAQCNLPPLSCSAN
 The text-file is not edited in place, but the above output is printed to screen.
 ``````
 
+`sed` can edit a file in place by adding {term}`option` `-i`.
+
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
