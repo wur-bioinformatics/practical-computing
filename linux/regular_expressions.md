@@ -14,15 +14,12 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-Biologists often work with large amounts of text-based data, including DNA and protein sequences, gene identifiers, sample names, annotation files, and experimental metadata. Regular expressions provide a powerful way to describe and search for patterns in such data. They can be used, for example, to find dates, extract gene identifiers, validate sequence formats, or identify motifs in strings of text. In this section, you will learn how to recognize and construct regular-expression patterns and apply them to biological data.
+Biologists often work with large amounts of text-based data, including DNA and protein sequences, gene identifiers, sample names, annotation files, and experimental metadata. {term}`Regular Expressions <Regular Expression>` provide a powerful way to describe and search for patterns in such data. They can be used, for example, to find dates, extract gene identifiers, validate sequence formats, or identify motifs in strings of text. In this section, you will learn how to recognize and construct regular-expression patterns and apply them to biological data.
 
-In this section, you will learn about and practice with {term}`Regular Expressions <Regular Expression>`, a powerful tool to find patterns in text. They are also called 'Regex' or abbreviated as 'RE'.
-
-
-*#! needs better introduction imo, also that it can be used on the cmdline and using python modules and that syntax can differ between languages*
+Many programming language can use {term}`Regular Expressions <Regular Expression>` and there can be slight differences in syntax. Here, we mainly use the Bash syntax (for [`grep](#grep_section), [`awk`](#awk_section), and ([`sed`](#sed_section))) and the Python syntax (*#! forward ref to python part*). 
 
 ## What are Regular Expressions and why use them?
-{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with {term}`strings <string>`, or {term}`string` matching, i.e. 'find and replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
+{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with {term}`strings <string>`, or {term}`string` matching, i.e. 'Find and Replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are also called 'Regex' or abbreviated as 'RE'. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
 
 (example-patterns-in-text)=
 ``````{prf:example} Patterns in text
@@ -36,13 +33,13 @@ This pattern can be captured by the following {term}`Regular Expression`: \
 <span style="color: #17cc4d;"> \\w+</span><span style="color: #fb0c0c;">omics</span>
 ``````
 
-*#! Could be more about the "why"*
-
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 5.1 What Are Regular Expressions?
 - Chapter 5.2 Why Use Regular Expressions?
 ```
+
+
 ## Metacharacters
 {term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters ([](#normal_char_example)) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`character classes <character class>`, {term}`wildcard`, {term}`non-printable characters <non-printable character>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, {term}`anchors <anchor>`, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
 
