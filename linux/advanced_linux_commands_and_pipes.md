@@ -404,7 +404,7 @@ The output will be:
 ``````
 
 ```{caution} When to use awk?
-For simple searches {ref}`grep` might be more suitable. However, when you want to find something and print something else, `awk` can be very powerful.
+For simple searches [`grep`](#grep_section) might be more suitable. However, when you want to find something and print something else, `awk` can be very powerful.
 ```
 
 ```{seealso} Further Reading
@@ -473,8 +473,22 @@ is why you usually need to do a sort before doing a uniq
 tar [OPTION...] [FILE]...
 ```
 
+(pipelines)=
 ## Pipelines
 Now that we have seen some more advanced Linux commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the {term}`stdout` of the previous command is redirected towards the {term}`stdin` of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
+
+(wc_lines_example_2)=
+``````{prf:example} Count lines in a file 2
+Only lines in `plants.fasta` that contain 'sp'.
+```{code-block} bash
+wc –l out.txt
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+33851 out.txt
+```
+``````
 
 To illustrate, we combined the commands from [](#grep_redirect_example) and [](#wc_lines_example_2) in [](#pipeline_example). Now we don't have to create a separate text file and store it when we are only interested in the amount of entries in the FASTA file with 'sp' in the header.
 
@@ -499,7 +513,7 @@ The flow of {numref}`this <pipeline_example>` pipeline example is visualised in 
 Data stream of example pipeline with `cat`, `grep`, and `wc`.
 ```
 
-For the next example ([](#pipe_cut_sort_example)), let's combine a {ref}`cut` command with a {ref}`sort` command.
+For the next example ([](#pipe_cut_sort_example)), let's combine a [`cut`](#cut_section) command with a [`sort`](#sort_section) command.
 
 (pipe_cut_sort_example)=
 ``````{prf:example} Extract the third column of crane.csv and sort in reverse order
@@ -536,11 +550,11 @@ The output will be:
 :::
 
 
-Finally, let's combine {ref}`grep` and {ref}`sed` in a pipeline ([](#pipe_grep_sed_example)).
+Finally, let's combine [`grep`](#grep_section) and [`sed`](#sed_section) in a pipeline ([](#pipe_grep_sed_example)).
 
 (pipe_grep_sed_example)=
 ``````{prf:example} Extract all protein identifiers in plants.fasta
-If we are only interested in the header lines of a FASTA file we can filter on '>' with `grep`. 
+If we are only interested in the header lines of a FASTA file we can filter on '>' with [`grep`](#grep_section). 
 
 ```{code-block} bash
 grep ">" plants.fasta
@@ -553,7 +567,7 @@ The first three lines of the output will be:
 >sp|P19084|11S3_HELAN 11S globulin seed storage protein G3 OS=Helianthus annuus GN=HAG3 PE=3 SV=1
 ```
 
-Then we can extract just the protein identifiers with `sed` as was done in [](#sed_fasta_example>`.
+Then we can extract just the protein identifiers with [`sed`](#sed_section) as was done in [](#sed_fasta_example>`.
 
 ```{code-block} bash
 grep ">" plants.fasta | sed 's/>.*|//'
@@ -591,7 +605,7 @@ To not "flood" your screen by intermediary output, you can always add a temporar
 ``````
 
 ```{note} 
-The exact syntax of [`awk`](#awk) is not that important, but try to see what it does. 
+The exact syntax of [`awk`](#awk_section) is not that important, but try to see what it does. 
 ```
 
 
@@ -620,7 +634,7 @@ cat first_and_last_100_lines_crane_data.csv
 ```{code-block} bash
 cut -f1,3
 ```
-The [`cut`](#cut) command means: take the first and third column; no delimiter specified so assumes TAB
+The [`cut`](#cut_section) command means: take the first and third column; no delimiter specified so assumes TAB
 ``````
 
 
@@ -641,7 +655,7 @@ sed 's/,/\t/g' | sed 's/\t /, /g'
 ```{code-block} bash
 sed 's/ /\t/'
 ```
-The [`awk`](#awk) command prints second, third, and first column, in that order. [`awk`](#awk) will use any whitespace as column delimiter by default. To be explicit, in this example the space between the data and time in column 2 is explicitly converted to TAB. Always work as explicit as possible unless you know exactly how your tools are behaving.
+The [`awk`](#awk_section) command prints second, third, and first column, in that order. [`awk`](#awk_section) will use any whitespace as column delimiter by default. To be explicit, in this example the space between the data and time in column 2 is explicitly converted to TAB. Always work as explicit as possible unless you know exactly how your tools are behaving.
 ``````
 
 
@@ -663,7 +677,7 @@ sed 's/ /\t/'
 ```{code-block} bash
 sed 's/,/\t/g' | sed 's/\t /, /g'
 ```
-The [`awk`](#awk) command means: line selected if second column contains '2015-11'
+The [`awk`](#awk_section) command means: line selected if second column contains '2015-11'
 ``````
 
 
@@ -715,11 +729,11 @@ awk '$2~/2015-11/'
 ```{code-block} bash
 uniq -c
 ```
-We need the [`sort`](#sort) command because [`uniq`](#uniq) expects a sorted list. \
-The [`uniq`](#uniq) command means: show unique records, and counts occurrences because of `-c` {term}`option`.
+We need the [`sort`](#sort_section) command because [`uniq`](#uniq_section) expects a sorted list. \
+The [`uniq`](#uniq_section) command means: show unique records, and counts occurrences because of `-c` {term}`option`.
 ``````
 
-Now download the entire Common Crane tracking data set, using the command [`wget`](#wget):
+Now download the entire Common Crane tracking data set, using the command [`wget`](#wget_section):
 
 ```{code-block} bash
 wget http://www.bioinformatics.nl/courses/BIF-21806/Examples/Common_Crane_tracking/GPS_telemetry_of_Common_Cranes_Sweden.csv.gz
@@ -813,7 +827,7 @@ sed 's/,/\t/g' | sed 's/\t /, /g'
 wc -l
 ```
 
-When values in a column can be interpreted numerically, you can use [`awk`](#awk) to select based on comparison (smaller, larger, equal). You can include logic 'AND' by separating comparisons by double '`&&`' (logic 'OR' can be implemented by double pipe '`||`')
+When values in a column can be interpreted numerically, you can use [`awk`](#awk_section) to select based on comparison (smaller, larger, equal). You can include logic 'AND' by separating comparisons by double '`&&`' (logic 'OR' can be implemented by double pipe '`||`')
 ``````
 
 ### Finding the Longest Word -- Revisited
@@ -835,7 +849,7 @@ sed "s/[^{A-Za-z'}]/\n/g"
 ```{code-block} bash
 cat TooS.txt
 ```
-Note that the [`sed`](#sed) expressions are now double-quoted because of searching for single-quote in the expression itself. You can use either single or double quotes, but they have to close correctly.
+Note that the [`sed`](#sed_section) expressions are now double-quoted because of searching for single-quote in the expression itself. You can use either single or double quotes, but they have to close correctly.
 ``````
 
 ``````{exercise} Select words that are 17 characters long
@@ -895,9 +909,9 @@ sort -k1,1nr
 grep -v -E '[A-Z]{2,}'
 ```
 
-The [`grep`](#grep) command `grep -v '^$'` filters out empty lines.\
-The [`sort`](#sort) command `sort -k1,1nr` sorts numerically on the first column, in descending order.\
-The [`grep`](#grep) command `grep -v -E '[A-Z]{2,}'` filters out words with two or more consecutive capital letters.
+The [`grep`](#grep_section) command `grep -v '^$'` filters out empty lines.\
+The [`sort`](#sort_section) command `sort -k1,1nr` sorts numerically on the first column, in descending order.\
+The [`grep`](#grep_section) command `grep -v -E '[A-Z]{2,}'` filters out words with two or more consecutive capital letters.
 
 **What are the 30 most frequent words?**
 ``````
