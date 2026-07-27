@@ -19,7 +19,7 @@ Most Linux commands are designed to perform one specific task, such as displayin
 (input-outputstreams)=
 ## Input/Output streams
 ### Standard input, standard output, standard error
-When running a program on the Linux command-line, you will always deal with the Input/Output streams: standard input (stdin), standard output (stdout), and standard error (stderr) ({numref}`io_streams`). 
+When running a program on the Linux command-line, you will always deal with the Input/Output streams: standard input ({term}`stdin`), standard output ({term}`stdout`), and standard error ({term}`stderr`) ({numref}`io_streams`). 
 
 ```{figure} img/input-output_streams.png
 :label: io_streams
@@ -27,7 +27,7 @@ When running a program on the Linux command-line, you will always deal with the 
 Input/Output streams of Linux command-line
 ```
 
-The stdin of a program is often your keyboard or a file. This is the input that you want the program to act upon. The stdout is by default the terminal screen, but some programs include an {term}`option` to redirect the output to a file. This is the output created by the program. The stderr is by default the terminal screen. This is the stream where error messages are directed towards. [@ibm_aix_2025; @nazeer_standard_2024; @geeksforgeeks_shell_nodate]
+The {term}`stdin` of a program is often your keyboard or a file. This is the input that you want the program to act upon. The {term}`stdout` is by default the terminal screen, but some programs include an {term}`option` to redirect the output to a file. This is the output created by the program. The {term}`stderr` is by default the terminal screen. This is the stream where error messages are directed towards. [@ibm_aix_2025; @nazeer_standard_2024; @geeksforgeeks_shell_nodate]
 
 ### Redirection
 If a tool does not have the {term}`option` to redirect to a file, you can use the `>` symbol ([](#redirect_example)).
@@ -86,7 +86,7 @@ Computing Skills for Biologists - a Tool box
 
 (grep_section)=
 ### grep
-`grep` is a tool that filters text for a given term. It searches for a pattern in a file or standard input ([](#grep_basic_example)). When using the `--color` {term}`option`, the part of the line that is matched will be colored in the stdout.
+`grep` is a tool that filters text for a given term. It searches for a pattern in a file or {term}`standard input <stdin>` ([](#grep_basic_example)). When using the `--color` {term}`option`, the part of the line that is matched will be colored in the {term}`stdout`.
 
 (grep_basic_example)=
 ``````{prf:example} Filter lines that contain 'sp'
@@ -227,7 +227,7 @@ Computing Skills for Biologists - a Tool box
 
 (cut_section)=
 ### cut
-With `cut` you can extract parts of lines in a file. It prints the selected parts of lines from a file or standard input to standard output. To specify what you want to select, you can use one of the {term}`options <option>`:
+With `cut` you can extract parts of lines in a file. It prints the selected parts of lines from a file or {term}`standard input <stdin>` to {term}`standard output <stdout>`. To specify what you want to select, you can use one of the {term}`options <option>`:
 - `-b` for bytes, select only these bytes
 - `-c` for characters, select only these characters ([](#cut_c_example))
 - `-f` for fields, select only these fields/columns ([](#cut_f_example)). 
@@ -271,7 +271,7 @@ Computing Skills for Biologists - a Tool box
 
 (sort_section)=
 ### sort
-With `sort` you can write the sorted content of a file (or standard input) to standard output. You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ([](#sort_k_example)). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ([](#sort_r_example))
+With `sort` you can write the sorted content of a file (or {term}`standard input <stdin>`) to {term}`standard output <stdout>`. You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ([](#sort_k_example)). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ([](#sort_r_example))
 
 (sort_k_example)=
 ``````{prf:example} Sort crane_data.csv on the third column
@@ -309,7 +309,7 @@ Computing Skills for Biologists - a Tool box
 
 (tr_section)=
 ### tr
-With `tr`, you can translate characters from standard input and write to standard output ([](#tr_dna_example), [](#tr_case_example)).
+With `tr`, you can translate characters from {term}`standard input <stdin>` and write to {term}`standard output <stdout>` ([](#tr_dna_example), [](#tr_case_example)).
 
 (tr_dna_example)=
 ``````{prf:example} Translate DNA string into RNA string
@@ -336,7 +336,7 @@ hello world
 ``````
 
 ```{note}
-Because `tr` only takes input from standard input, we used `echo` to direct the strings in [](#tr_dna_example) and [](#tr_case_example) to stdin and the pipe (`|`) to redirect stdin to `tr`. This will be explained more extensively in {numref}`Pipelines`.
+Because `tr` only takes input from {term}`standard input <stdin>`, we used `echo` to direct the strings in [](#tr_dna_example) and [](#tr_case_example) to {term}`stdin` and the pipe (`|`) to redirect {term}`stdin` to `tr`. This will be explained more extensively in {numref}`Pipelines`.
 ```
 
 ```{seealso} Further Reading
@@ -428,7 +428,7 @@ Computing Skills for Biologists - a Tool box
 
 (sed_section)=
 ### sed
-`sed` is short for **s**tream **ed**itor. It is used for filtering and transforming text. It takes text from either a file or standard input and returns the processed text to standard output. 
+`sed` is short for **s**tream **ed**itor. It is used for filtering and transforming text. It takes text from either a file or {term}`standard input <stdin>` and returns the processed text to {term}`standard output <stdout>`. 
 
 The Find&Replace structure of the command is as follows: \
 `sed 's/search_pattern/replacement/' file.txt`
@@ -476,7 +476,7 @@ is why you usually need to do a sort before doing a uniq
 ### tar
 
 ## Pipelines
-Now that we have seen some more advanced Linux commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the stdout of the previous command is redirected towards the stdin of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
+Now that we have seen some more advanced Linux commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the {term}`stdout` of the previous command is redirected towards the {term}`stdin` of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
 
 To illustrate, we combined the commands from [](#grep_redirect_example) and [](#wc_lines_example_2) in [](#pipeline_example). Now we don't have to create a separate text file and store it when we are only interested in the amount of entries in the FASTA file with 'sp' in the header.
 
@@ -586,7 +586,7 @@ For each of the exercises you will get commands which serve as building blocks o
 ``````{tip}
 As you add parts of your pipeline, check what actually comes out after each addition. 
 
-To not "flood" your screen by intermediary output, you can always add a temporary [`head`](#head_section) command. For example, if you only want the first five lines to be printed to stdout, add: 
+To not "flood" your screen by intermediary output, you can always add a temporary [`head`](#head_section) command. For example, if you only want the first five lines to be printed to {term}`stdout`, add: 
 ```{code-block} bash
 | head -5
 ```

@@ -118,6 +118,15 @@ shell script
 software
 : non-physical parts of a computer system, the applications and programs that interact with the computer hardware to performs tasks
 
+stdin
+: standard input, data stream that is the input for a program to act upon, often a file or the keyboard.
+
+stdout
+: standard doutput, data stream that is the output that a program creates, often the terminal screen.
+
+stderr
+: standard error, data stream where error messages are directed towards, by default the terminal screen.
+
 string
 : a sequence of characters. How a computer stores and works with text. Written between quotes ("/')
 
