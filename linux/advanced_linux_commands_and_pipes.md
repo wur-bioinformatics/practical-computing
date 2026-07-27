@@ -30,7 +30,7 @@ Input/Output streams of Linux command-line
 The {term}`stdin` of a program is often your keyboard or a file. This is the input that you want the program to act upon. The {term}`stdout` is by default the terminal screen, but some programs include an {term}`option` to redirect the output to a file. This is the output created by the program. The {term}`stderr` is by default the terminal screen. This is the stream where error messages are directed towards. [@ibm_aix_2025; @nazeer_standard_2024; @geeksforgeeks_shell_nodate]
 
 ### Redirection
-If a tool does not have the {term}`option` to redirect to a file, you can use the `>` symbol ([](#redirect_example)).
+If a tool does not have the {term}`option` to save the {term}`standard output <stdout>` to a file, you can use the `>` symbol, to redirect the contents of {term}`standard output <stdout>` to a file ([](#redirect_example)).
 
 (redirect_example)=
 ``````{prf:example} Redirecting output to a file
