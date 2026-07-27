@@ -456,22 +456,24 @@ Computing Skills for Biologists - a Tool box
 
 (uniq_section)=
 ### uniq
-
+With `uniq` you can filter adjacent matching lines from `INPUT` (or {term}`standard input<stdin>`), writing to `OUTPUT` (or {term}`standard output <stdout>`):
 ```{code-block} bash
 :class: no-copybutton
 uniq [OPTION]... [INPUT [OUTPUT]]
 ```
-the uniq tool can only recognize that lines are the same if they are consecutive lines. That
-is why you usually need to do a sort before doing a uniq
+
+It can be especially useful when using {term}`option` `-c` to **c**ount the matching lines. The `uniq` tool can only recognize that lines are the same if they are consecutive lines. Thus, you usually need to do a [`sort`](#sort_section) before doing a `uniq`.
 
 
 (tar_section)=
 ### tar
-
+With `tar` you can save multiple files together in a single archive, and you can restore individual files from the archive:
 ```{code-block} bash
 :class: no-copybutton
-tar [OPTION...] [FILE]...
+tar [OPTION] [FILE]
 ```
+where `FILE` is either the archive from which the files are to be extracted (using {term}`option` `-xf`), or the files to put into an archive (using {term}`option` `-cf`).
+
 
 (pipelines)=
 ## Pipelines
