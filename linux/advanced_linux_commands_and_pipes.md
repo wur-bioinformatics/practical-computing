@@ -68,6 +68,7 @@ man <tool>
 ```
 ``````
 
+(wget_section)=
 ### wget
 `wget` is a tool that can retrieve files from a URL ([](#wget_example)).
 
@@ -83,6 +84,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
 ```
 
+(grep_section)=
 ### grep
 `grep` is a tool that filters text for a given term. It searches for a pattern in a file or standard input ([](#grep_basic_example)). When using the `--color` {term}`option`, the part of the line that is matched will be colored in the stdout.
 
@@ -175,6 +177,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.6.5 Selecting Lines Using `grep`
 ```
 
+(wc_section)=
 ### wc
 `wc` counts lines or characters in a text ([](#wc_no_options_example)).
 
@@ -222,6 +225,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.5.2 Viewing and Processing Text Files
 ```
 
+(cut_section)=
 ### cut
 With `cut` you can extract parts of lines in a file. It prints the selected parts of lines from a file or standard input to standard output. To specify what you want to select, you can use one of the {term}`options <option>`:
 - `-b` for bytes, select only these bytes
@@ -265,6 +269,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.6.2 Selecting Columns Using `cut`
 ```
 
+(sort_section)=
 ### sort
 With `sort` you can write the sorted content of a file (or standard input) to standard output. You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ([](#sort_k_example)). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ([](#sort_r_example))
 
@@ -302,6 +307,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.5.2 Viewing and Processing Text Files
 ```
 
+(tr_section)=
 ### tr
 With `tr`, you can translate characters from standard input and write to standard output ([](#tr_dna_example), [](#tr_case_example)).
 
@@ -338,6 +344,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.6.3 Substituting Characters Using `tr`
 ```
 
+(awk_section)=
 ### awk
 `awk` is a text processor or manipulator [@turner_intro_2021]. It works by searching for strings and then performing an action when it finds those strings. The usage can be described as: \
 `'pattern {action}'`\
@@ -419,6 +426,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
 ```
 
+(sed_section)=
 ### sed
 `sed` is short for **s**tream **ed**itor. It is used for filtering and transforming text. It takes text from either a file or standard input and returns the processed text to standard output. 
 
@@ -458,11 +466,13 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.9.3 Miscellaneous Commands
 ```
 
+(uniq_section)=
 ### uniq
 the uniq tool can only recognize that lines are the same if they are consecutive lines. That
 is why you usually need to do a sort before doing a uniq
 
 
+(tar_section)=
 ### tar
 
 ## Pipelines
@@ -576,7 +586,7 @@ For each of the exercises you will get commands which serve as building blocks o
 ``````{tip}
 As you add parts of your pipeline, check what actually comes out after each addition. 
 
-To not "flood" your screen by intermediary output, you can always add a temporary [`head`](#head) command. For example, if you only want the first five lines to be printed to stdout, add: 
+To not "flood" your screen by intermediary output, you can always add a temporary [`head`](#head_section) command. For example, if you only want the first five lines to be printed to stdout, add: 
 ```{code-block} bash
 | head -5
 ```
