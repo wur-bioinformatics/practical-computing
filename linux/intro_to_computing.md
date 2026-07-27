@@ -276,6 +276,7 @@ The {term}`memory`, or RAM, is used by programs to temporarily store information
 
 Some {term}`operating systems <operating system>` also have so-called {term}`mounted drives <mounted drive>` . {term}`Mounted drives <mounted drive>` are hard disks that are accessible across devices within the {term}`operating system`.
 
+(file_system)=
 ### File System
 The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file systems <file system>` exist, differing in:
 - maximum file size
