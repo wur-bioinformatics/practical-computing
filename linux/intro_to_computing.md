@@ -19,7 +19,7 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-Biological data analysis can often be performed using ready-made {term}`software` such as Excel or tools designed for a specific task. These programs are convenient, but they also limit which analyses you can perform and how much control you have over the process. In this course, you will learn to work in a flexible computing environment in which you can build and run your own analyses. This will allow you to adapt workflows to your research questions, the structure of your data, and the available computing resources.
+Biological data analysis can often be performed using ready-made {term}`software` such as Excel or tools designed for a specific task. These programs are convenient, but they also limit which analyses you can perform and how much control you have over the process. In this course, you will learn to work in a flexible computing environment in which you can build and run your own analyses. This will allow you to adapt workflows to your research questions, the structure of your data, and the available computing resources. In the exercises, you will connect to a server, inspect the available computing resources, and see who else is using the system.
 
 
 ## Operating Systems
