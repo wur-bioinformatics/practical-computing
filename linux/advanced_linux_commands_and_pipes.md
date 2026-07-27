@@ -187,6 +187,8 @@ grep sp plants.fasta > out.txt
 ```
 ``````
 
+A special kind of `grep` is `zgrep`, which can look for the pattern in compressed input files by looking at their uncompressed contents.
+
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 1.6.5 Selecting Lines Using `grep`
@@ -235,6 +237,8 @@ event-id
 250386110
 ```
 ``````
+
+
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -404,7 +408,7 @@ The output will be:
 ``````
 
 ```{caution} When to use awk?
-For simple searches [`grep`](#grep_section) might be more suitable. However, when you want to find something and print something else, `awk` can be very powerful.
+For some operations you can use either [`grep`](#grep_section) or `awk`. For simple searches [`grep`](#grep_section) might be more suitable and it is a bit easier to understand. Even though, `awk` is a bit harder to understand, it can do some things that [`grep`](#grep_section) cannot. Namely, when you want to find something and print something else, `awk` can be very powerful. Additionally, `awk` can work with columns.
 ```
 
 ```{seealso} Further Reading
