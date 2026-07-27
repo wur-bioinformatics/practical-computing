@@ -152,11 +152,13 @@ There are different communication protocols between devices, which each use a di
   - Local web development
 ```
 
-### CPU, GPU and Memory
+### CPU and GPU
 The Central Processing Unit, {term}`CPU` or processor, is the brain of the computer and performs most of the calculations. Additionally, its functions are: running applications, managing {term}`input` and {term}`output` operations, and storing and retrieving data during processing [@geeksforgeeks_cpu]. Modern computers often have two or more, whereas multi-user computers (servers) often have sixteen or more. A {term}`CPU` has limited capacity (100% {term}`CPU` usage). To run programs in parallel, it has multiple cores/threads.
 
 The Graphical Processing Unit, {term}`GPU` or video card, is a specialized processor that is optimized for doing the same calculation on many data points (in parallel). To perform like this, it has thousands of small cores. It was originally developed for computer graphics (video games), but it is now extensively used for machine learning applications (like ChatGPT). {term}`GPUs <GPU>` are very good at performing many operations simultaneously, which can drastically speed up matrix calculations that are at the heart of most machine learning tasks.
 
+
+### Memory
 Data is stored in basic units of information. There are multiple ways to encode data: binary, decimal, and hexidecimal. The binary encoding uses two symbols: 0 and 1. One unit of binary information is called a {term}`bit`. A {term}`byte` is a unit of computer information consisting of a number of {term}`bits <bit>`. When a {term}`byte` consists of eight bits it can represent any number from 0 to 255. Four bits is called a {term}`nibble`, which can represent any number from 0 to 15 ([](#nibble_example)). Alternatively, data can be encoded using ten symbols (0-9, decimal encoding) or sixteen symbols (0-9 and A-F, hexidecimal encoding) ([](#encoding_example)). 
 
 (nibble_example)= 
@@ -318,7 +320,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (io_compression)=
-### I/O (Input/Output) and Compression
+### I/O (Input/Output)
 The {term}`input` of a program is the source of incoming information (data). For example:
 - Your keyboard
 - A file
@@ -333,6 +335,8 @@ The {term}`output` is the destination of the outgoing information. For example:
 
 The I/O can be a performance bottleneck for computations.
 
+
+### Compression
 Text data is usually not stored efficiently in a {term}`file system`. For example, a text file with 1,000,000 times the letter 'a' will take up 1,000,000 {term}`bytes<byte>` of disk space (1 megabyte). To save space and network transfer time, data files are often compressed (zipped) using clever algorithms. 
 
 Compressed files:
