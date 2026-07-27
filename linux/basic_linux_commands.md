@@ -629,7 +629,6 @@ Will give the output:
 The output is the amount of **lines**, **words**, and **byte counts** for each file.
 ``````
 
-
 (wc_lines_example_1)=
 ``````{prf:example} Count lines in a file 1
 ```{code-block} bash
