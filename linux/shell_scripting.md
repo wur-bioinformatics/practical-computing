@@ -16,21 +16,38 @@ After completing this section you should be able to:
 Data analysis usually involves many steps, from cleaning and preparing files to running analyses and summarizing the results. These steps can be performed manually, but doing so is time-consuming and makes it difficult to reproduce the analysis later. A shell script records the commands in a file that can be executed whenever needed. In this section, you will learn how to turn a sequence of commands into a script, add variables and basic logic, and create workflows that are easier to repeat, inspect, and share.
 
 ## Shell Scripting
-Now that you have got more experience with {ref}`Advanced_Linux_Commands` and {ref}`Pipelines`, it is fairly easy to turn them into a script. A {term}`shell script` is a (text) file containing a series of commands that the shell can interpret and execute [@geeksforgeeks_shellscripting_2026]. A {term}`shell script` is given, by naming convention, the file extension `.sh`. The {term}`shell` program that runs the script is called `bash`.
+Now that you have got more experience with {ref}`Advanced_Linux_Commands` and {ref}`Pipelines`, it is fairly easy to turn them into a script. Scripts can be written in different programming and scripting languages, such as Python, Bash, and R. Each language has its own syntax, rules, and vocabulary.
+
+File extensions are commonly used to indicate the language in which a script is written. For example, Python scripts usually have the `.py` extension, while R scripts usually have the `.R` extension and bash shell scripts often have the `.sh` extension.
+
+On Windows, the file extension determines which program is used to open or run a script. On Linux, the extension is mainly informative. To specify which interpreter should execute the script, you can add a *shebang* as the first line of the file.
+
+```{margin}
+The shebang (`#!`) is a combination of the sharp or hash symbol (`#`) and an exclamation mark, also known as bang (`!`).
+```
 
 The advantages of turning pipelines into scripts are that your commands are saved into a file and can be executed any time on any (relevant) file. For example, if you have multiple FASTA files on which you want to perform the same operations, you don't have to rewrite your pipeline many times, you can just execute the script with those files. Additionally, if in 6 months you want to perform that same operation on a new FASTA file, you don't have to go through your notes to find the right pipeline. Instead, you can use your written script. 
 
 
 ### Basic Structure of a Shell Script
+A {term}`shell script` is a (text) file containing a series of commands that the shell can interpret and execute [@geeksforgeeks_shellscripting_2026]. 
+
 Let's build a simple {term}`shell script` that writes 'Hello World' to screen called `hello_world.sh`. 
 
-The first line of a {term}`shell script` is called the shebang line. The shebang (`#!`) is a combination of the sharp or hash symbol (`#`) and an exclamation mark, also known as bang (`!`). It tells the {term}`shell` the path to the program it should use to interpret the script with. Here, that program is `bash`, so the first line of our {term}`shell script` is:
+
+The first line of a {term}`shell script` is called the shebang line. It tells the {term}`shell` the path to the program it should use to interpret the script with. Here, that program is `bash`, so the first line of our {term}`shell script` is:
 ```{code-block} bash
 :filename: hello_world.sh
 :linenos:
 :emphasize-lines: 1
 #!/bin/bash
 ```
+ 
+Alternatively, you can explicitly provide the interpreter when running the script, for example:
+```{code-block} bash
+bash hello_world.sh
+```
+ 
 
 Apart from the shebang line, we can write comments in our {term}`shell script` using the hashtag (`#`), these lines will not be executed:
 ```{code-block} bash
@@ -51,17 +68,84 @@ Let's add the command:
 echo "Hello World"
 ```
 
-Now that we have written a simple {term}`shell script`, we need to make it executable. Jump to {ref}`alter_file_permissions` to learn how.
-
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 1.7 Basic Scripting
 ```
 
+
+### Running a Shell Script
+Now that we have written a simple {term}`shell script`, we would like to run it in the same way as a Linux command:
+```{code-block} bash
+hello_world.sh
+```
+ 
+However, two issues must be addressed before this will work.
+ 
+First, Linux searches for commands only in a predefined set of directories. These directories are listed in the `PATH` environment variable. To see which these are, you can print the value of `PATH`:
+```{code-block} bash
+printenv PATH
+```
+or
+```{code-block} bash
+echo $PATH
+```
+
+
+The directory containing your script is usually not included in `PATH`. Therefore, typing only the script name may result in a "command not found" error, even when the script is located in your current working directory.
+ 
+You could add the directory to `PATH`, but the simplest solution is to specify the location of the script explicitly. When the script is in the current directory, use the {term}`relative path`:
+```{code-block} bash
+./hello_world.sh
+```
+
+```{tip}
+The `.` represents the current directory. 
+```
+ 
+You may now receive a "permission denied" error. For security reasons, Linux does not allow every file to be executed as a command. You can view the permission flags of a file using:
+```{code-block} bash
+ls -l hello_world.sh
+```
+```{code-block} bash
+:class: no-copybutton
+-rw-r--r-- 1 user001 domain users 98 Jul 27 18:05 hello_world.sh
+```
+
+The first 10 characters indicate file properties/permissions:
+```{code-block} bash
+:class: no-copybutton
+-rw-r--r--
+1234567890
+```
+- The very first character (1) is `-` for normal files, and for instance `d` for **d**irectories. 
+- Characters 2-4 show the permissions for the owner of the file (`user001`), who can **r**ead and **w**rite (`rw-`).
+- Characters 5-7 show the permissions for users in the usergroup (`domain users`), who can only **r**ead (`r--`) 
+- Characters 8-0 show the permissions for all other users on the system, who also can only **r**ead (`r--`)
+
+An `x` would indicate execution permission, which nobody has for this file. To give the script executable permission, we can run the `chmod` command:
+```{code-block} bash
+chmod +x hello_world.sh
+```
+This gives everyone on the system executable permission. 
+
+
+After that, you can run the script with:
+```{code-block} bash
+./hello_world.sh
+```
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 1.6.7 Permissions
+- Chapter 1.7 Basic Scripting
+- Chapter 1.9.1 Setting a `PATH` in `.bash_profile`
+```
+
 ### Specifying Variables
 Variables are objects that store values or user input for reuse in commands [@geeksforgeeks_shellscripting_2026]. Using variables makes {term}`shell scripts <shell script>` more flexible. 
 
-To introduce the usage of variables, let's rewrite the `hello_world.sh` program so the message is contained in a variable:
+To introduce the usage of variables, let's make a new version of the `hello_world.sh` program called `greeting.sh` so the message is contained in a variable:
 ```{code-block} bash
 :filename: greeting.sh
 :linenos:
@@ -202,16 +286,8 @@ Computing Skills for Biologists - a Tool box
 *#! if statements*
 
 
-(alter_file_permissions)=
-## Alter File Permissions
 
-*#! separate because easy access and applicable for all examples*
 
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 1.6.7 Permissions
-- Chapter 1.9.1 Setting a `PATH` in `.bash_profile`
-```
 
 
 ## Practical
