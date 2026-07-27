@@ -103,7 +103,7 @@ You could add the directory to `PATH`, but the simplest solution is to specify t
 The `.` represents the current directory. 
 ```
  
-You may now receive a "permission denied" error. For security reasons, Linux does not allow every file to be executed as a command. You can view the permission flags of a file using:
+Second, you may now receive a "permission denied" error. For security reasons, Linux does not allow every file to be executed as a command. You can view the permission flags of a file using:
 ```{code-block} bash
 ls -l hello_world.sh
 ```
@@ -123,7 +123,7 @@ The first 10 characters indicate file properties/permissions:
 - Characters 5-7 show the permissions for users in the usergroup (`domain users`), who can only **r**ead (`r--`) 
 - Characters 8-0 show the permissions for all other users on the system, who also can only **r**ead (`r--`)
 
-An `x` would indicate execution permission, which nobody has for this file. To give the script executable permission, we can run the `chmod` command:
+An `x` would indicate e**x**ecution permission, which nobody has for this file. To give the script executable permission, we can run the `chmod` command:
 ```{code-block} bash
 chmod +x hello_world.sh
 ```
@@ -285,11 +285,25 @@ Computing Skills for Biologists - a Tool box
 ### Conditional Statements
 *#! if statements*
 
+En wat inspiratie voor conditional statements:
+ 
+printwelcome() {
+    HOUR=`date "+%H"`
+    NAME=`finger $USER | grep Fullname: | sed 's/Fullname:\s\+//'`
+    if [ $HOUR -lt 12 ]; then
+        TIMEOFDAY="morning"
+    elif [ $HOUR -lt 18 ]; then
+        TIMEOFDAY="afternoon"
+    else
+        TIMEOFDAY="evening"
+    fi
+ 
+    echo Good $TIMEOFDAY $NAME, you look great today!
+}
 
 
 
 
-
-## Practical
+## Exercises
 
 
