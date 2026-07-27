@@ -51,7 +51,7 @@ Computing Skills for Biologists - a Tool box
 
 (Advanced_Linux_Commands)=
 ## Advanced Linux Commands
-Now that you have mastered the basics of using the {term}`shell` in {numref}`intro_to_computing`, let's explore some more advanced command-line tools. The tools explored here are by no means an exhaustive list of Linux tools, but these tools are very useful for handling biological data (files). 
+Now that you have mastered the basics of using the {term}`shell` in [](#basic_linux_commands_page), let's explore some more advanced command-line tools. The tools explored here are by no means an exhaustive list of Linux tools, but these tools are very useful for handling biological data (files). 
 
 ``````{tip} Remember how to search for help
 Part of mastering the command line shell is knowing how to search for help. Most tools have a help page that is printed to screen when running (depending on the tool) either:
@@ -70,7 +70,12 @@ man <tool>
 
 (wget_section)=
 ### wget
-`wget` is a tool that can retrieve files from a URL ([](#wget_example)).
+`wget` is a tool that can retrieve files from a URL:
+```{code-block} bash
+:class: no-copybutton
+wget [OPTIONS] [URL]
+```
+where  `URL` is the URL or link to the file to download ([](#wget_example)).
 
 (wget_example)=
 ``````{prf:example} Download a FASTA file
@@ -86,7 +91,17 @@ Computing Skills for Biologists - a Tool box
 
 (grep_section)=
 ### grep
-`grep` is a tool that filters text for a given term. It searches for a pattern in a file or {term}`standard input <stdin>` ([](#grep_basic_example)). When using the `--color` {term}`option`, the part of the line that is matched will be colored in the {term}`stdout`.
+`grep` is a tool that filters text for a given term. It searches for a pattern in a file or {term}`standard input <stdin>`: 
+```{code-block} bash
+:class: no-copybutton
+grep [OPTION] PATTERNS [FILE]
+```
+where `PATTERNS` is/are the pattern(s) to search for in each `FILE` ([](#grep_basic_example)).
+
+```{tip}
+When using the `--color` {term}`option`, the part of the line that is matched will be colored in the {term}`stdout`.
+```
+
 
 (grep_basic_example)=
 ``````{prf:example} Filter lines that contain 'sp'
@@ -135,9 +150,9 @@ AAAAAAAAAADYDGSPPPPRGKKKKDDEERSSSLPEEKDAKNGGGDEVLSAVTTEDSSAG
 ```
 ``````
 
-
+```{tip}
 The `-m` {term}`option` limits the number of matching lines.
-
+```
 
 (grep_regex_example_3)=
 ``````{prf:example} Filter lines containing a pattern showing only the first occurence
@@ -227,12 +242,17 @@ Computing Skills for Biologists - a Tool box
 
 (cut_section)=
 ### cut
-With `cut` you can extract parts of lines in a file. It prints the selected parts of lines from a file or {term}`standard input <stdin>` to {term}`standard output <stdout>`. To specify what you want to select, you can use one of the {term}`options <option>`:
+With `cut` you can extract parts of lines in a file:
+```{code-block} bash
+:class: no-copybutton
+cut OPTION [FILE]
+```
+where the `OPTION` specifies on what you want to select in each `FILE` (a file or {term}`standard input <stdin>`). The selected parts of lines are printed to {term}`standard output <stdout>`. 
+
+To specify what you want to select, you can use one of the {term}`options <option>`:
 - `-b` for bytes, select only these bytes
 - `-c` for characters, select only these characters ([](#cut_c_example))
 - `-f` for fields, select only these fields/columns ([](#cut_f_example)). 
-
-It uses 1-based counting.
 
 (cut_c_example)=
 ``````{prf:example} Extract the first 9 characters of crane_data.csv
@@ -271,7 +291,13 @@ Computing Skills for Biologists - a Tool box
 
 (sort_section)=
 ### sort
-With `sort` you can write the sorted content of a file (or {term}`standard input <stdin>`) to {term}`standard output <stdout>`. You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ([](#sort_k_example)). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ([](#sort_r_example))
+With `sort` you can write the sorted content of a `FILE` (or {term}`standard input <stdin>`) to {term}`standard output <stdout>`:
+```{code-block} bash
+:class: no-copybutton
+sort [OPTION] [FILE]
+```
+
+You can sort based on a field/column when using both the `-k` and `-t` {term}`options <option>` ([](#sort_k_example)). The {term}`option` `-k` specifies the start and stop position of the field/column, and the {term}`option` `-t` specifies the delimiter. With {term}`option` `-r`, you can sort in reverse order ([](#sort_r_example))
 
 (sort_k_example)=
 ``````{prf:example} Sort crane_data.csv on the third column
@@ -309,7 +335,12 @@ Computing Skills for Biologists - a Tool box
 
 (tr_section)=
 ### tr
-With `tr`, you can translate characters from {term}`standard input <stdin>` and write to {term}`standard output <stdout>` ([](#tr_dna_example), [](#tr_case_example)).
+With `tr`, you can translate characters from {term}`standard input <stdin>` and write to {term}`standard output <stdout>`:
+```{code-block} bash
+:class: no-copybutton
+tr [OPTION] STRING1 [STRING2]
+```
+where `STRING1` is the string/character you want to translate into the `STRING2` string/character ([](#tr_dna_example), [](#tr_case_example)).
 
 (tr_dna_example)=
 ``````{prf:example} Translate DNA string into RNA string
@@ -346,11 +377,14 @@ Computing Skills for Biologists - a Tool box
 
 (awk_section)=
 ### awk
-`awk` is a text processor or manipulator [@turner_intro_2021]. It works by searching for strings and then performing an action when it finds those strings. The usage can be described as: \
-`'pattern {action}'`\
-The `pattern` describes what lines `awk` should act upon and the `action` describes what should be done when the lines are found. The full `awk` program is wrapped in single quotes (`''`). 
+`awk` is a text processor or manipulator [@turner_intro_2021]. It works by executing a "program" on a `FILE`, often by searching for strings and then performing an action when it finds those strings:
+```{code-block} bash
+:class: no-copybutton
+awk [OPTIONS] 'PROGRAM' FILE
+```
+where the awk `PROGRAM` can be described as: `'pattern {action}'`. The `pattern` describes what lines `awk` should act upon and the `action` describes what should be done when the lines are found. The full `awk` program is wrapped in single quotes (`''`). 
 
-`awk` uses the `-F` {term}`option` to specify the field/column delimiter ([](#awk_F_example)). `awk` uses 1-based counting, though the `$0` means the whole line. 
+`awk` uses the `-F` {term}`option` to specify the field/column delimiter ([](#awk_F_example)). In `awk`, the `$0` means the whole line. 
 
 (awk_F_example)=
 ``````{prf:example} Select lines where the longitude is greater than 13
@@ -428,10 +462,12 @@ Computing Skills for Biologists - a Tool box
 
 (sed_section)=
 ### sed
-`sed` is short for **s**tream **ed**itor. It is used for filtering and transforming text. It takes text from either a file or {term}`standard input <stdin>` and returns the processed text to {term}`standard output <stdout>`. 
-
-The Find&Replace structure of the command is as follows: \
-`sed 's/search_pattern/replacement/' file.txt`
+`sed` is short for **s**tream **ed**itor. It is used for filtering and transforming text. It takes text from either a file or {term}`standard input <stdin>` and returns the processed text to {term}`standard output <stdout>`:
+```{code-block} bash
+:class: no-copybutton
+sed [OPTION] 'SCRIPT' [FILE]
+```
+where the `'SCRIPT'` contains a Find&Replace statement as: `'s/search_pattern/replacement/'`.
 
 `sed` support the usage of {term}`Regular Expressions <Regular Expression>` in the `search_pattern` part ([](#sed_fasta_example)). 
 
@@ -468,12 +504,22 @@ Computing Skills for Biologists - a Tool box
 
 (uniq_section)=
 ### uniq
+
+```{code-block} bash
+:class: no-copybutton
+uniq [OPTION]... [INPUT [OUTPUT]]
+```
 the uniq tool can only recognize that lines are the same if they are consecutive lines. That
 is why you usually need to do a sort before doing a uniq
 
 
 (tar_section)=
 ### tar
+
+```{code-block} bash
+:class: no-copybutton
+tar [OPTION...] [FILE]...
+```
 
 ## Pipelines
 Now that we have seen some more advanced Linux commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the {term}`stdout` of the previous command is redirected towards the {term}`stdin` of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
