@@ -419,7 +419,7 @@ For some of the following exercises, it is recommended to use a graphical text e
   - Under 'Find and Replace', select the 'Search mode' as 'Regular expression'
 ```
 
-For other exercises, you can use the [regex101](https://regex101.com/). This site is very handy for experimenting with {term}`Regular Expressions <Regular Expression>`. At the left side of the page, you can select the {term}`regex <Regular Expression>` "flavor". For these exercises select 'Python' as 'Flavor'. At the top of the page, you can type your {term}`Regular Expression`. This is followed by the `"` character after which you can add "modifiers" to the {term}`Regular Expression`. For these exercises, type `'g'` as the modifier, so that any {term}`Regular Expression` you make will become "global". 
+For other exercises, you can use the [regex101](https://regex101.com/). This site is very handy for experimenting with {term}`Regular Expressions <Regular Expression>`. At the left side of the page, you can select the {term}`regex <Regular Expression>` 'Flavor'. For these exercises select 'Python' as 'Flavor'. At the top of the page, you can type your {term}`Regular Expression`. This is followed by the `"` character after which you can add "modifiers" to the {term}`Regular Expression`. For these exercises, type `'g'` as the modifier, so that any {term}`Regular Expression` you make will become "global". 
 
 
 ### Finding ORFs in Sequences
@@ -450,7 +450,8 @@ You should end up with a file with 6 lines, 2 lines for each sequence entry in t
 
 (exc_hemoglobin_start_codon_2)=
 ```{exercise} Find potential start codon (ATG) 2
-Repeat the search for start codons as was done in [](#exc_hemoglobin_start_codon_1). \
+Repeat the search for start codons as was done in [](#exc_hemoglobin_start_codon_1). 
+
 **How many do you find now?**\
 **Did you miss any in your first attempt in [](#exc_hemoglobin_start_codon_1)?**
 ```
@@ -509,8 +510,8 @@ Look up the [PROSITE consensus pattern for ACTINS_1](https://prosite.expasy.org/
 ``````{exercise} Convert PROSITE pattern to Regular Expression
 Convert the PROSITE pattern to a {term}`Regular Expression`. 
 
-The syntax is quite similar, but PROSITE patterns
-- have a '`-`' to separate elements in, 
+The syntax is quite similar, but PROSITE patterns:
+- have a '`-`' to separate elements in
 - use an '`x`' to indicate any amino acid
 - use parentheses '`()`' instead of curly braces '`{}`' to indicate repetition. 
 
@@ -539,7 +540,7 @@ Using only the {term}`metacharacters <metacharacter>` covered today, make a {ter
 **How many matches did you get?** \
 **Did you find all of them?** 
 
-If not, what kind of {term}`wildcard` or {term}`metacharacter would you require to make this search more precise?
+**If not, what kind of {term}`wildcard` or {term}`metacharacter` would you require to make this search more precise?**
 ``````
 
 Download the complete text of ["The Origin of Species by Means of Natural Selection by Charles Darwin" in utf-8]( https://www.bioinformatics.nl/courses/BIF-50806/pg2009.txt).
