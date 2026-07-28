@@ -16,6 +16,9 @@ argument
 bit
 : A unit of information that is either 0 or 1.
 
+Boolean data type
+: represents truth values and can be one of two values: `True` or `False`.
+
 byte
 : A unit of computer information consisting of a number of bits, usually eight bits.
 
@@ -40,6 +43,9 @@ escape
 file system
 : System that organizes how files are stored on a hard disk.
 
+float
+: or floating point number, is a positive or negative number containing one or more decimals.
+
 GPU
 : **G**raphical **P**rocessing **U**nit. A specialized processor that is optimized for doing the same calculation on many data points.
 
@@ -57,6 +63,9 @@ index
 
 input
 : The source of incoming information (data).
+
+integer
+: or int, a whole number, positive or negative, and can be of unlimited length.
 
 kernel
 : Core component of the operating system. It is the primary interface between the operating system an the hardware, containing the software libraries that are required to interact with the hardware.
@@ -118,14 +127,14 @@ shell script
 software
 : non-physical parts of a computer system, the applications and programs that interact with the computer hardware to performs tasks
 
+stderr
+: standard error, data stream where error messages are directed towards, by default the terminal screen.
+
 stdin
 : standard input, data stream that is the input for a program to act upon, often a file or the keyboard.
 
 stdout
 : standard doutput, data stream that is the output that a program creates, often the terminal screen.
-
-stderr
-: standard error, data stream where error messages are directed towards, by default the terminal screen.
 
 string
 : a sequence of characters. How a computer stores and works with text. Written between quotes ("/')
