@@ -25,8 +25,10 @@ After completing this section you should be able to:
 
 ### Jupyter Notebook
 
+
+(data_types_section)=
 ## Data Types
-Python contains different data types to store values: {term}`integers <integer>`, {term}`floats<float>` (real numbers), {term}`Booleans <Boolean data type>` (True, False), and strings. These data types are automatically detected by the Python interpreter [@w3schools_pythonnumbers_nodate;@w3schools_pythonbooleans_nodate;@w3schools_pythonstrings_nodate;@pythonsoftwarefoundation_built-types_2026]. To find out the data type of a value, you can use function `type()` ([](#example_type_function)).
+Python contains different data types to store values: {term}`integers <integer>`, {term}`floats<float>` (real numbers), {term}`Booleans <Boolean data type>` (True, False), and {term}`strings<string>`. These data types are automatically detected by the Python interpreter [@w3schools_pythonnumbers_nodate;@w3schools_pythonbooleans_nodate;@w3schools_pythonstrings_nodate;@pythonsoftwarefoundation_built-types_2026]. To find out the data type of a value, you can use function `type()` ([](#example_type_function)).
 
 (example_type_function)=
 ``````{prf:example} Find out the data type of value 1.5
@@ -39,6 +41,10 @@ type(1.5)
 ```
 ``````
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.3.3 Simple Calculations with Basic Data Types
+```
 
 ### Integers
 An {term}`integer`, abbreviated as int, is a whole number ([](#example_int_whole_number)). An {term}`integer` can be positive or negative ([](#example_int_negative)), and can be of unlimited length. 
@@ -116,7 +122,7 @@ Will give the output:
 ``````
 
 ### Booleans
-A {term}`Boolean <Boolean data type>`, or bool, represents truth values and can be one of two values: `True` or `False` ([](#example_bool_truth_values)). They are often the result for when evalutating an expression ([](#boolean_operators)). 
+A {term}`Boolean <Boolean data type>`, or bool, represents truth values and can be one of two values: `True` or `False` ([](#example_bool_truth_values)). They are often the result for when evalutating an expression ([](#boolean_operators_section)). 
 
 (example_bool_truth_values)=
 ``````{prf:example} Booleans can be either True or False
@@ -397,14 +403,108 @@ Will give the output:
 ``````
 
 ## Operators
+Operators can be used to perform operations on values (and [variables](#variables_section)) [@w3schools_pythonoperators_nodate]. *Each [data type](#data_types_section) has their own respective operators. #!edit*
 
-### Numeric operators
+### Numerical Operators
+Numerical operators are used with numeric values to perform common mathematical operations. In this way, Python can be used as a calculator. The various numerical operators are presented in [](#numerical_operators_table). 
 
-### String operators
+:::{table} Numerical operators
+:label: numerical_operators_table
 
-(boolean_operators)=
-### Boolean operators
+| Numerical operator | Operation | Note |
+| :---: | :--- | :--- |
+| `+` | Addition | Also used as prefix operator (unary operator) representing a positive number |
+| `-` | Subtraction | Also used as prefix operator (unary operator) representing a negative number |
+| `*` | Multiplication | So no '`X`' or other similar symbol |
+| `/` | Division | Always gives float result |
+| `//` | Floor division | Always gives int result, rounds the number down |
+| `%` | Modulo | Remainder of integer division |
+| `**` | Exponentiation | Can't write superscripts in code |
+:::
 
+
+*#! if time left: add examples, esp. modulo example*
+
+(string_operators_example)=
+### String Operators
+String operators work on, you guessed it, {term}`strings <string>`. They are listed in [](#string_operators_table)
+
+:::{table} String operators
+:label: string_operators_table
+
+| String operator | Operation | Note |
+| :---: | :--- | :--- |
+| `+` | Concatenation | To combine strings, either side of the operator must be a string |
+| `*` | Multiplication | Repetition, one side of the operator must be int the other must be str|
+| `%` | Formatting | Format a string according to `format % values` |
+:::
+
+*#! add example*
+
+Other data types can only be combined with {term}`strings <string>` if we use string formatting. An older style of string formatting uses the `%` symbol. The left hand must be a {term}`string` containing the `%` placeholder(s) for other data types. The right hand must contain as many values as placeholders ([](#example_string_formatting_old)).
+
+(example_string_formatting_old)=
+``````{prf:example} Old-style string formatting
+Let's format a {term}`string` using an int `4`, a {term}`string` `"abc"`, and a {term}`float` `1.234` all separated by an `@`:
+```{code-block} python
+"%d@%s@%.2f" % (4, "abc", 1.234)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'4@abc@1.23'
+```
+Formatting explained:
+- the {term}`integer` is formatted with the placeholder `%d`
+- the {term}`string` is formatted with the placeholder `%s`
+- the {term}`float` is formatted with the placeholder `%.2f`, the `.2` means rounding to two decimal points
+``````
+
+### Comparison Operators
+Comparison operators are used to compare two values. There are presented in [](#comparison_operators_table)
+
+:::{table} Comparison operators
+:label: comparison_operators_table
+
+| Comparison operator | Operation | Data types |
+| :---: | :--- | :--- |
+| `==` | Equal to | Any data type, test for equality |
+| `!=` | Differs from | Any data type, test for inequality |
+| `>` | Greather than | At least for numeric and string types |
+| `<` | Less than | At least for numeric and string types |
+| `>=` | Greather than or equal to | At least for numeric and string types |
+| `<=` | Less than or equal to | At least for numeric and string types |
+:::
+
+*#! add example*
+
+(boolean_operators_section)=
+### Boolean Operators
+Boolean or logical operators are used to combine multiple Boolean expressions or objects. 
+
+:::{table} Boolean operators
+:label: boolean_operators_table
+
+| Boolean operator | Operation | Data types |
+| :---: | :--- | :--- |
+| `and` | Conjunction | If both conditions are True, the expression returns True |
+| `or` | Disjunction | If one of the conditions is True, the expression returns True  |
+| `not` | Negation | If both conditions are False, the expression returns True |
+:::
+
+*#! continue here*
+
+```{caution} Logical operators vs bit-wise operators
+The book also mentions that you can use the `&`, `|`, and `!` operators instead of the `and`, `or`, and `not` operators, respectively but we advise against that.
+
+Here are the reasons (you don't need to remember these):
+- In Python, `!` is not an operator.
+- The `&` and `|` operators are bit-wise operators, meaning they compare at the binary representation of integers and perform math at the bit-level, wheras `and` and `or` are logical operators, meaning they assess the truthness of the entire Boolean expression.
+- Logical operators are lazy (they short-circuit), whereas bit-wise operators do not.
+- Logical operators have very low priority in Python's order of operation, whereas bit-wise operators have very high priority, meaning your logic can break if you do not account for this.
+```
+
+(variables_section)=
 ## Variables and Variable Assignment
 
 ## Built-in Functions
