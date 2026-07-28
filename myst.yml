@@ -11,7 +11,6 @@ project:
   toc:
     - file: index.md
     - file: linux/linux_intro.md
-    - title: Linux
       children:
         - file: linux/intro_to_computing.md
         - file: linux/basic_linux_commands.md
@@ -19,6 +18,16 @@ project:
         - file: linux/advanced_linux_commands_and_pipes.md
         - file: linux/shell_scripting.md
     - file: python/python_intro.md
+      children:
+        - file: python/getting_started_with_python.md
+        - file: python/flow_of_a_program_1.md
+        - file: python/data_structures.md
+        - file: python/flow_of_a_program_2.md
+        - file: python/writing_functions.md
+        - file: python/working_with_files.md
+        - file: python/modules_and_libraries.md
+        - file: python/python_from_cmdline.md
+        - file: python/errors_debugging_testing.md
     - file: data_analysis/data_analysis_intro.md
     - file: glossary.md
 
