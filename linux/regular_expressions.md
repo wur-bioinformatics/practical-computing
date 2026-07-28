@@ -56,6 +56,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.4.1 Literal Characters
 ```
 
+(character_classes_section)=
 ### Character classes
 {term}`Character classes <character class>` are {term}`metacharacters <metacharacter>` that represent a group of characters such as word characters ([](#word-char-example)) or digits. 
 
@@ -68,7 +69,7 @@ The {term}`character class` `\w` matches any 'word' character:
 - `\w` matches '5'
 ```
 
-The character classes and what they match are presented in [](#character_class_table).
+The {term}`character classes <character class>` and what they match are presented in [](#character_class_table).
 
 ```{list-table} Character classes
 :header-rows: 1
@@ -274,6 +275,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.4.3 Sets
 ```
 
+(anchors_section)=
 ### Anchors
 If we want to match a pattern to the beginning or end of a {term}`string`, we can use an {term}`anchor`. The start of a line is represented by a hat (`^`), whereas the end of a line is represented by a dollar sign (`$`). This also means that if we want to match a line with a pattern at the beginning of the line, it should start with `^` ([](#anchor_start_example)), and when matching something at the end, the pattern ends with `$` ([](#anchor_end_example)).
 
@@ -526,7 +528,7 @@ When that works, use the {term}`Regular Expression` in the whole file to find th
 **How many protein sequences in the file do not have an M as the first amino acid?**
 
 ```{tip}
-Check the two functions of the `^` character in {term}`Regular Expression` ([](#anchors))
+Check the two functions of the `^` character in {term}`Regular Expression` ([](#anchors_section))
 ```
 ``````
 
@@ -546,7 +548,7 @@ Using only the {term}`metacharacters <metacharacter>` covered today, make a {ter
 Download the complete text of ["The Origin of Species by Means of Natural Selection by Charles Darwin" in utf-8]( https://www.bioinformatics.nl/courses/BIF-50806/pg2009.txt).
 
 ``````{exercise} Find the longest word(s)
-Find the longest word(s) in the text, for instance using `\w` ([](#character-classes))
+Find the longest word(s) in the text, for instance using `\w` ([](#character_classes_section))
 ``````
 
 ``````{exercise} Find repeated words
