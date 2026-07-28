@@ -26,7 +26,7 @@ After completing this section you should be able to:
 ### Jupyter Notebook
 
 ## Data Types
-Python contains different data types to store values: {term}`integers <integer>`, {term}`floats<float>` (real numbers), {term}`Booleans <Boolean data type>` (True, False), and strings. These data types are automatically detected by the Python interpreter [@noauthor_python_nodate;@pythonsoftwarefoundation_built-types_2026;w3schools_pythonbooleans_nodate]. To find out the data type of a value, you can use function `type()` ([](#example_type_function)).
+Python contains different data types to store values: {term}`integers <integer>`, {term}`floats<float>` (real numbers), {term}`Booleans <Boolean data type>` (True, False), and strings. These data types are automatically detected by the Python interpreter [@w3schools_pythonnumbers_nodate;@w3schools_pythonbooleans_nodate;@w3schools_pythonstrings_nodate;@pythonsoftwarefoundation_built-types_2026]. To find out the data type of a value, you can use function `type()` ([](#example_type_function)).
 
 (example_type_function)=
 ``````{prf:example} Find out the data type of value 1.5
