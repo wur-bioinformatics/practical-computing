@@ -13,8 +13,42 @@ After completing this section you should be able to:
 ```
 ## Introduction
 
-## Section_header 1
+## Why Python?
 
-### Subsection header 1.1
+## Writing and Running Python
+
+### Interactive Python Shell
+
+### Text Editor for Creating a Program
+
+### Using an IDE
+
+### Jupyter Notebook
+
+## Data Types
+
+## Operators
+
+### Numeric operators
+
+### String operators
+
+### Boolean operators
+
+## Variables and Variable Assignment
+
+## Built-in Functions
+
+### pow() ???
+
+### `len()`
+
+### `help()`
+
+### `print()`
+
+### `input()`
+
+## Comments in Code
 
 ## Exercises
