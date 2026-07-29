@@ -219,9 +219,19 @@ Will give the output:
 
 The advantage of a `for` loop is that you do not have to do your own bookkeeping.
 
-
-
 ## Indentation
+As you may have noticed, when using control flow structures, the code that is executed is written after an indentation in the line. This indentation defines the structure for the program ([](#example_indentation)). Indentation is Python-specific: in almost all other programming languages special symbols are used to define structure. 
+
+(example_indentation)=
+``````{prf:example} Indentation determines what code is executed when
+```{code-block} bash
+if <condition C1>:
+    while <condition C2>:
+        <part of while loop>
+    <no longer part of while loop, but still inside if>
+<outside if>
+```
+``````
 
 ## Flow Charts
 
