@@ -621,6 +621,23 @@ Will give the output:
 *#! add examples*
 
 ### `len()`
+With function `len(a)` you can return the **len**gth of the variable `a`. For a {term}`string`, the length is the number of characters ([](#example_length_string)).
+
+(example_length_string)=
+``````{prf:example} Returning the length of a string
+```{code-block} python
+greeting = "Hello World"
+```
+```{code-block} python
+len(greeting)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+11
+```
+``````
+
 
 ### `help()`
 
