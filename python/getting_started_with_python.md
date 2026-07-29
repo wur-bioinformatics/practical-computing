@@ -690,6 +690,7 @@ Formatting explained:
 - the {term}`float` is formatted with the placeholder `%.2f`, the `.2` means rounding to two decimal points
 ``````
 
+(comparison_operators_section)=
 ### Comparison Operators
 Comparison operators are used to compare two values. There are presented in [](#comparison_operators_table).
 
