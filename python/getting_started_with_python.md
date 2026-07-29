@@ -270,7 +270,7 @@ Will give the output:
 
 
 #### String Methods
-Since, Python is object-oriented, all variables are objects. Objects contain both the data (value(s)) and methods that can be used on the data. A method can be seen as a function specifically designed for that object. To see all methods associated with a Python variable or value you can use function `dir()`. 
+Since Python is object-oriented, all variables are objects. Objects contain both the data (value(s)) and methods that can be used on the data. A method can be seen as a function specifically designed for that object. To see all methods associated with a Python variable or value you can use function `dir()`. 
 
 Methods are called in the format:
 ```{code-block} python
@@ -412,6 +412,12 @@ Will give the output:
 'ATGTGACT'
 ```
 ``````
+
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.3.6 Strings
+```
 
 
 ### Conversions
