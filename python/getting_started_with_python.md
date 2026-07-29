@@ -577,7 +577,6 @@ Will give the output:
 :class: no-copybutton
 5
 ```
-
 ``````
 
 ```{seealso} Further Reading
@@ -586,8 +585,40 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Built-in Functions
+Python contains many useful functions that we can use to manipulate and query our variables. They are called as the function name, then the {term}`arguments<argument>` in parentheses separated by commas:
+```{code-block} python
+:class: no-copybutton
+function_name(argument1, [argument2])
+```
+Functions often take at least one {term}`argument`.
 
-### pow() ???
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.3.5 Built-In Functions
+```
+
+### Numerical Functions
+There are many numerical functions available in Python. Some you can use straight away, such as: `pow(a,b)` for returning `a` to the power of `b` ([](#example_pow_function)), `abs(a)` for getting the absolute value of `a`, and `round(a, d)` for rounding `a` to `d` amount of decimal digits. For others you first need to import the `math` module by running: 
+```{code-block} python
+import math
+```
+Then, you can use for example `math.sin(a)` for returning the sine of `a`, and `math.floor(a)` to round `a` down to the nearest {term}`integer`.
+
+(example_pow_function)=
+``````{prf:example} Using pow(a,b) to return a to the power of b
+```{code-block} python
+pow(3,2)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+9
+```
+`pow(a,b)` is the same as `a**b`
+``````
+
+*#! add examples*
 
 ### `len()`
 
