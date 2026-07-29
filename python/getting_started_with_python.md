@@ -848,3 +848,93 @@ In PyCharm to comment/uncomment a line or multiple lines of code use: \
 
 
 ## Exercises
+### Installing Python and PyCharm
+``````{exercise} Install Python (conda/anaconda) and PyCharm on your machine
+Follow the guide on Brightspace "Installing Conda and Pycharm".
+``````
+
+
+### Experiment with Python
+For these exercises we use a Jupyter notebook. First you need to obtain the notebook file from Brightspace; it is contained in the data ZIP-file (Week 2, Data).
+
+``````{exercise} Start W2D1 Jupyter Notebook
+To start the notebook, first start a terminal by typing in your search bar "Anaconda Prompt" (Windows) or "terminal" (Mac/Linux). 
+
+In the terminal, navigate to the directory where you saved the notebook.
+
+```{tip}
+Use [](#cd_section).
+
+On Windows the directory path contains backward slashes (`\`) instead of forward slashes (`\`).
+```
+
+Start the notebook server by typing `jupyter notebook` at the command prompt. 
+
+In the terminal, you will see some messages about starting the program. Then your browser will open and it shows a list of files at the current location. Jupyter Notebooks have file type `.ipynb` (probably there is just one notebook in the list right now). 
+
+Double-click on the notebook that you have downloaded to open it.
+``````
+
+The W2D1 Jupyter Notebook contains all instructions for the exercises. They are repeated here for overview.
+
+``````{exercise} Printing and asking input
+
+- Write a Python command that prints your own name.
+- Write a fragment of Python code that prints your own name 5 times below one another. Put each command on a line of its own.
+- Write a fragment of Python code that assigns your first name to one variable, your second name to a second variable, and then concatenates them and stores the result in a third variable. Then print the third variable.
+- Write Python code that prints your own name 100 times (tedious without loops?).
+- Write Python code that asks the user’s name and prints it (once).
+- Include a ‘prompt’ in the command that asks the name.
+- Write Python code that asks the user’s name and prints it 100 times.
+- Write Python code that asks the user’s name, then asks a number, and then prints the name that many times.
+- Turn the last fragment of code into a Python script and run it outside this notebook.
+
+``````
+
+``````{exercise} Working with numbers
+- Try to find out the following aspects of numbers in Python.
+- Comments on “What is the largest int number in Python?”
+- Find the largest float number in Python, up to a factor 2.
+- Find a limit to the number of significant digits of a float number in Python.
+- Find the smallest positive float number in Python, up to a factor 2.
+``````
+
+``````{exercise} Counting DNA nucleotides
+- Find the appriopriate method for counting letters, and apply it for finding the counts for each of the nucleotides.
+- Now write Python code that prints these counts together on one line, separated by spaces.
+- Find out what type of value is contained in each of the variables introduced in this section.
+``````
+
+``````{exercise} Computing the GC-content of a DNA sequence
+- Determine the number of nucleotides in the given DNA sequence.
+- Now compute and print the GC-content of the given DNA sequence.
+- Write the answer as something like: `The GC-content is 23.456` (the exact number will differ)
+- Finally, put the pieces of code together into a script. Then you can apply it to find the GC-content of the human IGF1 gene sequence.
+``````
+
+``````{exercise} Strings as objects
+- Find a method in the DNA string that converts it from uppercase to lowercase letters.
+- Check whether it really converted the variable to lowercase.
+- Replace a variable by the same string in lowercase.
+``````
+
+``````{exercise} Other features of strings in Python
+- Execute given lines of code for accessing individual characters in a string (indexing).
+- Try some more values for the index.
+- What happens if the index is negative?
+- What happens if the index is too large?
+- Execute given lines of code for obtaining a substring for a string (slicing).
+- Do you see a pattern for the length of the slice?
+- What is the meaning of the index value before the colon?
+- What is the meaning of the index value after the colon?
+- Try some more.
+- Can we use negative index values?
+- What happens if you leave out one or both ends?
+- What happens if values are reversed?
+- What happens if the ending index is too large?
+- For the (lowercase) DNA string defined previously in the Jupyter notebook, we want to capture bases 8 (second c) through 16 (fourth c). Note that in DNA
+sequences the convention is to count from 1, so the first base is called base 1
+- Write Python code to capture bases 8 through 16 and assign the result to a variable.
+- Now convert the selected substring to uppercase, and re-insert it into the DNA string, at its original position.
+``````
+
