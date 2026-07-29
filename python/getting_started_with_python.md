@@ -725,11 +725,24 @@ class int(object)
  |  >>> int('0b100', base=0)
  |  4
 ```
-
 ``````
 
 
 ### `print()`
+To print output to screen, we can use function `print()`. It can take multiple arguments, each separated by a comma and they can be of different data types ([](#example_print)).
+
+(example_print)=
+``````{prf:example} Print multiple values to screen
+```{code-block} python
+print(3, '*', 4, '=', 3*4)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+3 * 4 = 12
+```
+``````
+
 
 ### `input()`
 
