@@ -640,6 +640,94 @@ Will give the output:
 
 
 ### `help()`
+When using `help(a)` on the Python prompt, it will print information about argument `a`. The argument `a` can be a module ([](#example_help_module)), a function ([](#example_help_function)), a class, a variable or a value ([](#example_help_value)).
+
+(example_help_module)=
+``````{prf:example} Asking for help on a module
+```{code-block} python
+import math
+```
+```{code-block} python
+help(math)
+```
+Will give the output (the first couple of lines):
+```{code-block} python
+:class: no-copybutton
+Help on built-in module math:
+
+NAME
+    math
+
+DESCRIPTION
+    This module provides access to the mathematical functions
+    defined by the C standard.
+
+FUNCTIONS
+    acos(x, /)
+        Return the arc cosine (measured in radians) of x.
+
+        The result is between 0 and pi.
+
+    acosh(x, /)
+        Return the inverse hyperbolic cosine of x.
+
+    asin(x, /)
+        Return the arc sine (measured in radians) of x.
+
+        The result is between -pi/2 and pi/2.
+
+    asinh(x, /)
+        Return the inverse hyperbolic sine of x.
+```
+``````
+
+(example_help_function)=
+``````{prf:example} 
+```{code-block} python
+help(len)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+Help on built-in function len in module builtins:
+
+len(obj, /)
+    Return the number of items in a container.
+```
+```{note} Note how you ask for help on a function
+When asking to print the documentation of a function using `help()`, you do not call the function (by using `len()`), you only name the function (by using `len`).
+```
+``````
+
+(example_help_value)=
+``````{prf:example} 
+```{code-block} python
+help(1)
+```
+Will give the output (the first couple of lines):
+```{code-block} python
+:class: no-copybutton
+Help on int object:
+
+class int(object)
+ |  int([x]) -> integer
+ |  int(x, base=10) -> integer
+ |
+ |  Convert a number or string to an integer, or return 0 if no arguments
+ |  are given.  If x is a number, return x.__int__().  For floating-point
+ |  numbers, this truncates towards zero.
+ |
+ |  If x is not a number or if base is given, then x must be a string,
+ |  bytes, or bytearray instance representing an integer literal in the
+ |  given base.  The literal can be preceded by '+' or '-' and be surrounded
+ |  by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+ |  Base 0 means to interpret the base from the string as an integer literal.
+ |  >>> int('0b100', base=0)
+ |  4
+```
+
+``````
+
 
 ### `print()`
 
