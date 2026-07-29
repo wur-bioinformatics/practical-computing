@@ -405,6 +405,11 @@ Will give the output:
 ## Operators
 Operators can be used to perform operations on values (and [variables](#variables_section)) [@w3schools_pythonoperators_nodate]. *Each [data type](#data_types_section) has their own respective operators. #!edit*
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.3.3 Simple Calculations with Basic Data Types
+```
+
 ### Numerical Operators
 Numerical operators are used with numeric values to perform common mathematical operations. In this way, Python can be used as a calculator. The various numerical operators are presented in [](#numerical_operators_table). 
 
@@ -480,7 +485,7 @@ Comparison operators are used to compare two values. There are presented in [](#
 
 (boolean_operators_section)=
 ### Boolean Operators
-Boolean or logical operators are used to combine multiple Boolean expressions or objects. 
+Boolean or logical operators are used to combine multiple Boolean expressions or objects. They are listed in [](#boolean_operators_table). Boolean operators are lazy (also called they short-circuit), meaning that they stop evaluating the expressions if a decision is met. For example, if we have two conditions and they both need to be true (`and`), the interpreter will not assess the second condition if the first one is `False`. Additionally, when either side is not a Bool, the meaning of the operation may not be intuitive. 
 
 :::{table} Boolean operators
 :label: boolean_operators_table
@@ -492,16 +497,18 @@ Boolean or logical operators are used to combine multiple Boolean expressions or
 | `not` | Negation | If both conditions are False, the expression returns True |
 :::
 
-*#! continue here*
 
 ```{caution} Logical operators vs bit-wise operators
-The book also mentions that you can use the `&`, `|`, and `!` operators instead of the `and`, `or`, and `not` operators, respectively but we advise against that.
+The book also mentions that you can use the `&`, `|`, and `!` bit-wise operators instead of the `and`, `or`, and `not` logical operators, respectively, but we advise against that because they have different meaning in standard Python.
+```
 
+```{margin}
 Here are the reasons (you don't need to remember these):
 - In Python, `!` is not an operator.
-- The `&` and `|` operators are bit-wise operators, meaning they compare at the binary representation of integers and perform math at the bit-level, wheras `and` and `or` are logical operators, meaning they assess the truthness of the entire Boolean expression.
+- The `&` and `|` operators are bit-wise operators, meaning they compare at the binary representation of integers and perform math at the bit-level, whereas `and` and `or` are logical operators, meaning they assess the truthiness of the entire Boolean expression.
 - Logical operators are lazy (they short-circuit), whereas bit-wise operators do not.
 - Logical operators have very low priority in Python's order of operation, whereas bit-wise operators have very high priority, meaning your logic can break if you do not account for this.
+
 ```
 
 (variables_section)=
