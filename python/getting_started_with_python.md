@@ -823,5 +823,28 @@ zzzz
 
 
 ## Comments in Code
+You can write comments in code by using the `#`. Anything after will be seen as a comment and not executed. Comments can be helpful to be more explicit in your code ([](#example_comment_explaining)), but don't overdo it ([](#example_comment_overdoing)).
+
+(example_comment_explaining)=
+``````{prf:example} Use comments to explain your code
+```{code-block} python
+# now x must be positive
+```
+``````
+
+(example_comment_overdoing)=
+``````{prf:example} Don't use comments to write what can easily be deduced from your code
+```{code-block} python
+x = 0 # initialize x to 0
+```
+``````
+
+You can also use comments to temporarily switch off some code. Many editors have keybord short cuts for this.
+```{tip}
+In PyCharm to comment/uncomment a line or multiple lines of code use: \
+{kbd}`Ctrl` + {kbd}`/` (Windows) or {kbd}`⌘Cmd` + {kbd}`/` (macOS) while standing with your cursor on the line or selecting the line(s) [@jetbrains_pycharmkeyboard_13072026].
+```
+
+
 
 ## Exercises
