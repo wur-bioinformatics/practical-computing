@@ -745,6 +745,82 @@ Will give the output:
 
 
 ### `input()`
+To take input from the console, we can use the `input()` function ([](#example_input_string)). It converts what you type to a {term}`string`. If you want to store the input as a different data type, you need to convert it ([](#example_input_int)).
+
+
+(example_input_string)=
+``````{prf:example} Take a name as input from the console
+```{code-block} python
+name  = input('What is your name?')
+```
+In the console, it will state:
+```{code-block} python
+:class: no-copybutton
+What is your name?
+```
+We can type directly after the question our name:
+```{code-block} python
+:class: no-copybutton
+What is your name?User
+```
+Then if we print the variable `name`:
+```{code-block} python
+print(name)
+```
+It will give the output:
+```{code-block} python
+:class: no-copybutton
+User
+```
+``````
+
+(example_input_int)=
+``````{prf:example} Take a number n as input from the console to print a string n amount of times
+Take the input for `n` as:
+```{code-block} bash
+n = input('How many times?')
+```
+In the console, it will state:
+```{code-block} python
+:class: no-copybutton
+How many times?
+```
+We can type directly after the question our number
+```{code-block} python
+:class: no-copybutton
+How many times?4
+```
+Then if we print the variable `n`:
+```{code-block} python
+print(n)
+```
+It will give the output:
+```{code-block} python
+:class: no-copybutton
+4
+```
+
+Print the string `'z'` `n` amount of times:
+```{code-block} bash
+print('z' * n)
+```
+Will give an error! 
+
+We need to convert `n` to an {term}`integer`:
+```{code-block} python
+n = int(n)
+```
+If we try again:
+```{code-block} bash
+print('z' * n)
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+zzzz
+```
+``````
+
 
 ## Comments in Code
 
