@@ -691,7 +691,7 @@ Formatting explained:
 ``````
 
 ### Comparison Operators
-Comparison operators are used to compare two values. There are presented in [](#comparison_operators_table)
+Comparison operators are used to compare two values. There are presented in [](#comparison_operators_table).
 
 :::{table} Comparison operators
 :label: comparison_operators_table
