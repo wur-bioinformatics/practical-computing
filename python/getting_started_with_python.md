@@ -4,7 +4,7 @@ label: getting_started_with_python
 abbreviations:
     
 bibliography:
-    .bib
+    getting_started_with_python.bib
 ---
 ```{important} Learning outcomes
 After completing this section you should be able to:
@@ -190,6 +190,150 @@ Will give the output:
 ```{code-block} python
 :class: no-copybutton
 <class 'str'>
+```
+``````
+
+#### String Methods
+Since, Python is object-oriented, all variables are objects. Objects contain both the data (value(s)) and methods that can be used on the data. A method can be seen as a function specifically designed for that object. To see all methods associated with a Python variable or value you can use function `dir()`. 
+
+Methods are called in the format:
+```{code-block} python
+:class: no-copybutton
+object.method()
+```
+Where `object` can be a variable or value, and `method` is the relevant method for that object. 
+
+There exist many useful {term}`string` methods, we will discuss the following here: `.replace()` ([](#example_str_method_replace)), `.find()` ([](#example_str_method_find)), `.count()` ([](#example_str_method_count)), `.split()` ([](#example_str_method_split)), `.strip()` ([](#example_str_method_strip)), `.lower()` ([](#example_str_method_lower)), and `.upper()` ([](#example_str_method_upper)). 
+
+(example_str_method_replace)=
+``````{prf:example} Replace a character in a string with another character
+Let's define a string with a DNA sequence:
+```{code-block} python
+dna = "ATGTGACT"
+```
+Let's turn it into RNA by using the `.replace()` string method:
+```{code-block} python
+dna.replace("T", "U")
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'AUGUGACU'
+```
+``````
+
+(example_str_method_find)=
+``````{prf:example} Find the first occurence of a substring in a string
+Let's define a string with:
+```{code-block} python
+dna = "ATGTGACT"
+```
+Let's find the first occurence of `"C"` using the `.find()` string method:
+```{code-block} python
+dna.find("C")
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+6
+```
+
+Let's find the first occurence of `"ATG"` using the `.find()` string method:
+```{code-block} python
+dna.find("ATG")
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+0
+```
+```{note} Python uses 0-based counting
+Python starts counting from 0, so the first character has count `0`, the second `1`, the third `2`, etc.
+```
+``````
+
+(example_str_method_count)=
+``````{prf:example} Count occurrence of a substring in a string
+Let's define a string with:
+```{code-block} python
+dna = "ATGTGACT"
+```
+Let's count the first occurences of `"G"` using the `.count()` string method:
+```{code-block} python
+dna.count("G")
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+2
+```
+``````
+
+(example_str_method_split)=
+``````{prf:example} Split a string
+Let's define a string with:
+```{code-block} python
+plant = "Arabidopsis thaliana"
+```
+Let's split the string using the `.split()` string method:
+```{code-block} python
+plant.split()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+['Arabidopsis', 'thaliana']
+```
+:::{note} `.split()` splits on whitespace by default
+You can split on other characters (for example commas in a CSV file) by supplying the character you want to split on as argument.
+:::
+``````
+
+(example_str_method_strip)=
+``````{prf:example} Strip a string of a substring
+Let's define a string with leading and trailing whitespaces:
+```{code-block} python
+plant = " Arabidopsis thaliana "
+```
+Let's strip the string of leading and trailing whitespaces using the `.strip()` string method:
+```{code-block} python
+plant.strip()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'Arabidopsis thaliana'
+```
+
+:::{note} `.strip()` strips whitespace by default
+You can strip other characters by supplying the character you want to strip as argument.
+:::
+
+``````
+
+(example_str_method_lower)=
+``````{prf:example} Make a string lower case
+Let's make a string lower case using the `.lower()` string method:
+```{code-block} python
+"ATGTGACT".lower()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'atgtgact'
+```
+``````
+
+(example_str_method_upper)=
+``````{prf:example} Make a string upper case
+Let's make a string upper case using the `.upper()` string method:
+```{code-block} python
+'atgtgact'.upper()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'ATGTGACT'
 ```
 ``````
 
