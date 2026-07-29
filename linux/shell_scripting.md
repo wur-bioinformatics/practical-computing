@@ -282,6 +282,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.8 Simple `for` loops
 ```
 
+(conditional_statements_section)=
 ### Conditional Statements
 *#! if statements*
 
