@@ -193,25 +193,34 @@ Will give the output:
 ```
 ``````
 
-### String Indexing
+#### String Indexing and Slicing
 Since {term}`strings<string>` are a sequence of characters, we can obtain individual characters by indexing:
 ```{code-block} python
 :class: no-copybutton
 my_string[index]
 ```
-where `my_string` is a {term}`string` and `index` is the position in the {term}`string` we want to access ([](#)).
+where `my_string` is a {term}`string` and `index` is the position in the {term}`string` we want to access ([](#example_str_indexing)).
 
-(example_label)=
-``````{prf:example} 
+(example_str_indexing)=
+``````{prf:example} Obtain the third character of a string via indexing
+Let's define a {term}`string` with a DNA sequence:
 ```{code-block} python
-
+dna = "ATGTGACT"
+```
+Let's take the third character of `dna`:
+```{code-block} python
+dna[3]
 ```
 Will give the output:
 ```{code-block} python
 :class: no-copybutton
-
+'T'
 ```
+If you expected it to be `'G'`:
 
+```{note} Python uses 0-based counting
+Python starts counting from 0, so the first character has count `0`, the second `1`, the third `2`, etc.
+```
 ``````
 
 We can also access a substring of a {term}`string`, by so-called slicing:
@@ -219,21 +228,44 @@ We can also access a substring of a {term}`string`, by so-called slicing:
 :class: no-copybutton
 my_string[start:end]
 ```
-where `my_string` is a {term}`string`, `start` is the start of the slice, and `end` is the end ([](#))
+where `my_string` is a {term}`string`, `start` is the start index of the slice (inclusive), and `end` is the end index of the slice (exclusive) ([](#example_str_slicing)). 
 
-([](#))
 
-(example_label)=
-``````{prf:example} 
+(example_str_slicing)=
+``````{prf:example} Slice the first three characters of a string
+Let's define a {term}`string` with a DNA sequence:
 ```{code-block} python
-
+dna = "ATGTGACT"
+```
+Let's slice out the first three characters of `dna`:
+```{code-block} python
+dna[0:3]
 ```
 Will give the output:
 ```{code-block} python
 :class: no-copybutton
-
+'ATG'
 ```
+``````
 
+You can also use negative indexing in indexing and slicing. That way you can access elements from the end of the {term}`string`. The last characters has index `-1`, the second to last `-2` etc. ([](#example_str_negative_indexing)).
+
+
+(example_str_negative_indexing)=
+``````{prf:example} Use negative indexing to obtain the last character of a string
+Let's define a {term}`string` with a DNA sequence:
+```{code-block} python
+dna = "ATGTGACT"
+```
+Let's slice out the last characters of `dna`:
+```{code-block} python
+dna[-1]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'T'
+```
 ``````
 
 
