@@ -146,7 +146,7 @@ Will give the output:
 
 
 ### Strings
-{term}`Strings <string>` are how Python handles textual data. A {term}`string`, or str, is a sequences of characters ([](#example_str_basic)). They are written by surrounding text by either single (`'`) or double (`"`) quotes, so that if you want to include on or the other in your {term}`string`, you can ([](#example_str_quotes)). {term}`Strings <string>` can contain any type of character (defined in for example [](wiki:ASCII) or [](wiki:UTF-8) by [](wiki:Unicode)), such as, but not limited to: letters, numbers, and punctuation characters ([](#example_str_complex)).
+{term}`Strings <string>` are how Python handles textual data. A {term}`string`, or str, is a sequences of characters ([](#example_str_basic)). They are written by surrounding text by either single (`'`) or double (`"`) quotes, so that if you want to include on or the other in your {term}`string`, you can ([](#example_str_quotes)). {term}`Strings <string>` can contain any type of character (defined in for example [](wiki:ASCII) or [](wiki:UTF-8) by [](wiki:Unicode)), such as, but not limited to: letters, numbers, and punctuation characters ([](#example_str_complex)). {term}`Strings <string>` are immutable, meaning that they cannot be changed. You can assign a new value to a variable that holds a {term}`string`, but you cannot in-place alter the value of a {term}`string` variable (for example by changing a character to another character in a {term}`string`). 
 
 (example_str_basic)=
 ``````{prf:example} Strings are a sequence of text 
@@ -193,6 +193,50 @@ Will give the output:
 ```
 ``````
 
+### String Indexing
+Since {term}`strings<string>` are a sequence of characters, we can obtain individual characters by indexing:
+```{code-block} python
+:class: no-copybutton
+my_string[index]
+```
+where `my_string` is a {term}`string` and `index` is the position in the {term}`string` we want to access ([](#)).
+
+(example_label)=
+``````{prf:example} 
+```{code-block} python
+
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+
+```
+
+``````
+
+We can also access a substring of a {term}`string`, by so-called slicing:
+```{code-block} python
+:class: no-copybutton
+my_string[start:end]
+```
+where `my_string` is a {term}`string`, `start` is the start of the slice, and `end` is the end ([](#))
+
+([](#))
+
+(example_label)=
+``````{prf:example} 
+```{code-block} python
+
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+
+```
+
+``````
+
+
 #### String Methods
 Since, Python is object-oriented, all variables are objects. Objects contain both the data (value(s)) and methods that can be used on the data. A method can be seen as a function specifically designed for that object. To see all methods associated with a Python variable or value you can use function `dir()`. 
 
@@ -203,11 +247,11 @@ object.method()
 ```
 Where `object` can be a variable or value, and `method` is the relevant method for that object. 
 
-There exist many useful {term}`string` methods, we will discuss the following here: `.replace()` ([](#example_str_method_replace)), `.find()` ([](#example_str_method_find)), `.count()` ([](#example_str_method_count)), `.split()` ([](#example_str_method_split)), `.strip()` ([](#example_str_method_strip)), `.lower()` ([](#example_str_method_lower)), and `.upper()` ([](#example_str_method_upper)). 
+There exist many useful string methods, we will discuss the following here: `.replace()` ([](#example_str_method_replace)), `.find()` ([](#example_str_method_find)), `.count()` ([](#example_str_method_count)), `.split()` ([](#example_str_method_split)), `.strip()` ([](#example_str_method_strip)), `.lower()` ([](#example_str_method_lower)), and `.upper()` ([](#example_str_method_upper)). 
 
 (example_str_method_replace)=
 ``````{prf:example} Replace a character in a string with another character
-Let's define a string with a DNA sequence:
+Let's define a {term}`string` with a DNA sequence:
 ```{code-block} python
 dna = "ATGTGACT"
 ```
@@ -224,7 +268,7 @@ Will give the output:
 
 (example_str_method_find)=
 ``````{prf:example} Find the first occurence of a substring in a string
-Let's define a string with:
+Let's define a {term}`string` with:
 ```{code-block} python
 dna = "ATGTGACT"
 ```
@@ -254,7 +298,7 @@ Python starts counting from 0, so the first character has count `0`, the second 
 
 (example_str_method_count)=
 ``````{prf:example} Count occurrence of a substring in a string
-Let's define a string with:
+Let's define a {term}`string` with:
 ```{code-block} python
 dna = "ATGTGACT"
 ```
@@ -271,11 +315,11 @@ Will give the output:
 
 (example_str_method_split)=
 ``````{prf:example} Split a string
-Let's define a string with:
+Let's define a {term}`string` with:
 ```{code-block} python
 plant = "Arabidopsis thaliana"
 ```
-Let's split the string using the `.split()` string method:
+Let's split the {term}`string` using the `.split()` string method:
 ```{code-block} python
 plant.split()
 ```
@@ -291,11 +335,11 @@ You can split on other characters (for example commas in a CSV file) by supplyin
 
 (example_str_method_strip)=
 ``````{prf:example} Strip a string of a substring
-Let's define a string with leading and trailing whitespaces:
+Let's define a {term}`string` with leading and trailing whitespaces:
 ```{code-block} python
 plant = " Arabidopsis thaliana "
 ```
-Let's strip the string of leading and trailing whitespaces using the `.strip()` string method:
+Let's strip the {term}`string` of leading and trailing whitespaces using the `.strip()` string method:
 ```{code-block} python
 plant.strip()
 ```
@@ -313,7 +357,7 @@ You can strip other characters by supplying the character you want to strip as a
 
 (example_str_method_lower)=
 ``````{prf:example} Make a string lower case
-Let's make a string lower case using the `.lower()` string method:
+Let's make a {term}`string` lower case using the `.lower()` string method:
 ```{code-block} python
 "ATGTGACT".lower()
 ```
@@ -326,7 +370,7 @@ Will give the output:
 
 (example_str_method_upper)=
 ``````{prf:example} Make a string upper case
-Let's make a string upper case using the `.upper()` string method:
+Let's make a {term}`string` upper case using the `.upper()` string method:
 ```{code-block} python
 'atgtgact'.upper()
 ```
