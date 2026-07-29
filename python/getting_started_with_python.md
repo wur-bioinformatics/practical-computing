@@ -427,7 +427,6 @@ Numerical operators are used with numeric values to perform common mathematical 
 | `**` | Exponentiation | Can't write superscripts in code |
 :::
 
-
 *#! if time left: add examples, esp. modulo example*
 
 (string_operators_example)=
@@ -497,6 +496,7 @@ Boolean or logical operators are used to combine multiple Boolean expressions or
 | `not` | Negation | If both conditions are False, the expression returns True |
 :::
 
+*#! add example*
 
 ```{caution} Logical operators vs bit-wise operators
 The book also mentions that you can use the `&`, `|`, and `!` bit-wise operators instead of the `and`, `or`, and `not` logical operators, respectively, but we advise against that because they have different meaning in standard Python.
@@ -508,11 +508,82 @@ Here are the reasons (you don't need to remember these):
 - The `&` and `|` operators are bit-wise operators, meaning they compare at the binary representation of integers and perform math at the bit-level, whereas `and` and `or` are logical operators, meaning they assess the truthiness of the entire Boolean expression.
 - Logical operators are lazy (they short-circuit), whereas bit-wise operators do not.
 - Logical operators have very low priority in Python's order of operation, whereas bit-wise operators have very high priority, meaning your logic can break if you do not account for this.
-
 ```
 
 (variables_section)=
 ## Variables and Variable Assignment
+A variable is a named place to store a value. Often, we do not only use a value once. If we assign it to a variable, we can use it later on in our program and manipulate it. To create a variable, you simple assign it a value by using the `=` ([](#example_variable_assignment_simple)). On the left-hand of the `=` is the variable name, on the right-hand the value. 
+
+(example_variable_assignment_simple)=
+``````{prf:example} Assign a value to a variable
+```{code-block} python
+x_1 = 3
+```
+```{code-block} python
+x_1
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+3
+```
+``````
+
+The following rules apply for naming a variable:
+- The name has to start with a letter, then the remaining characters can be letters, digits, and underscores.
+- Names are case-sensitive, so `x_1` and `X_1` are two different variables.
+- Keywords (such as 'if', 'else', 'and', etc.) by itself cannot be used as variable names. 
+
+Variables can be used instead of literals in formulas ([](#example_variable_assignment_formula)) and operations ([](#example_variable_assignment_operation)). Variables can be assigned new values, as many times as you want ([](#example_variable_assignment_new_value)).
+
+(example_variable_assignment_formula)=
+``````{prf:example} Variables can be used in formulas
+```{code-block} python
+y = x_1 * x_1 // 2
+```
+```{code-block} python
+y
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+4
+```
+``````
+
+(example_variable_assignment_operation)=
+``````{prf:example} Variables can be used in operations
+```{code-block} python
+x_1 > y
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+False
+```
+``````
+
+
+(example_variable_assignment_new_value)=
+``````{prf:example} Variables can be assigned new values
+```{code-block} python
+x_1 = y + 1
+```
+```{code-block} python
+x_1
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+5
+```
+
+``````
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.3.4 Variable Assignment
+```
 
 ## Built-in Functions
 
