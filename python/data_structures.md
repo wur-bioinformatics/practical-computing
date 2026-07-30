@@ -392,6 +392,29 @@ Will give the output:
 
 
 #### Selecting from a Dictionary
+Selecting from a dictionary is technically also called indexing. Here, we also use the square brackets (`[]`) ([](#example_dict_indexing)). If the key does not exist, you will get a `KeyError`.
+
+
+(example_dict_indexing)= 
+``````{prf:example} Get the associated value of a key in a dictionary using indexing
+Given the dictionary: 
+```{code-block} python
+transcription_dict = {'A' : 'U', 
+                      'C' : 'G', 
+                      'G' : 'C', 
+                      'T' : 'A'}
+```
+Get the associated value for the `'A'` key:
+```{code-block} python
+transcription_dict['A']
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'U'
+```
+``````
+
 
 ### Tuples
 
