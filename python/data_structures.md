@@ -207,6 +207,11 @@ Will give the output:
 ```
 ``````
 
+```{note} Square brackets are used in list display and when indexing or slicing
+When creating a list using list display, you use the square brackets (`[]`). 
+
+When indexing or slicing from a list you also use square brackets (`[]`).
+```
 
 #### List Versus String
 Both lists and {term}`strings<string>` support indexing and slicing. It is important to remember that {term}`strings<string>` are immutable while lists are mutable. Consequently, you cannot alter the elements and slices of a {term}`string`, but you can for a list. Since both are iterables they can be converted from and to another ([](#example_list_list_function),[](#example_string_convert_list),[](#example_string_join_list)).
@@ -270,9 +275,120 @@ Will give the output:
 
 
 ### Dictionaries
-A dictionary is a mutable collection of data. They are also calles "lookup table" or "associative array". Entries in a dictionary are stored as a key-value pair. Each key in a dictionary is unique and unmutable, it can be seen as the "index" of the entry. The value associated with a key is mutable and can be any data type (even a dictionary). You cannot slice into a dictionary or add entries via concatenation. The advantage of a dictionary is that it is very effient in lookup. Namely, lookup is almost independent of the number of entries in the dictionary, and checking if a key is present takses the same time as lookup. If the order of your entries does not really matter, and you want to quickly access entries, the dictionary is the way to go for storing your data. 
+A dictionary (in short, dict) is a mutable collection of data. They are also calles "lookup table" or "associative array". Entries in a dictionary are stored as a key-value pair. Each key in a dictionary is unique and unmutable, it can be seen as the "index" of the entry. The value associated with a key is mutable and can be any data type (even a dictionary). 
+
+You cannot slice into a dictionary or add entries via concatenation. 
+
+The advantage of a dictionary is that it is very effient in lookup. Namely, lookup is almost independent of the number of entries in the dictionary, and checking if a key is present takses the same time as lookup. If the order of your entries does not really matter, and you want to quickly access entries, the dictionary is the way to go for storing your data. 
 
 #### Creating a Dictionary
+A dictionary can be created in two manners: by "dictionary display" ([](#example_dict_dictionary_display_multiple), [](#example_dict_dictionary_display_single)) or by using the `dict()` function ([](#example_dict_dict_function_multiple)). When using `dict()`, specify the key-value pairs with `key = value` as arguments, separated by a comma. The key should not be quoted if it's a string. 
+
+
+(example_dict_dictionary_display_multiple)=
+``````{prf:example} Create a dictionary with multiple entries using dictionary display
+While creating a dictionary, you can put each key-value pair on a new line to make it clearer:
+```{code-block} python
+transcription_dict = {'A' : 'U', 
+                      'C' : 'G', 
+                      'G' : 'C', 
+                      'T' : 'A'}
+```
+```{code-block} python
+transcription_dict
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'A': 'U', 'C': 'G', 'G': 'C', 'T': 'A'}
+```
+``````
+
+(example_dict_dictionary_display_single)=
+``````{prf:example} Create a dictionary with one entry using dictionary display
+```{code-block} python
+int2str_dict = {37 : '37'}
+```
+```{code-block} python
+int2str_dict
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{37 : '37'}
+```
+``````
+
+(example_dict_dict_function_multiple)=
+``````{prf:example} Create a dictionary with multiple entries using dict()
+When using `dict()`, specify the key-value pairs with `key = value` for the arguments, separated by a comma:
+```{code-block} python
+transcription_dict = dict(A = 'U', C = 'G', G = 'C', T = 'A')
+```
+```{code-block} python
+transcription_dict
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'A': 'U', 'C': 'G', 'G': 'C', 'T': 'A'}
+```
+``````
+
+You can also create an empty dictionary using both methods ([](#example_dict_create_empty)). After you have initialized an empty dictionary, you can fill it with entries by adding key-value pairs one by one ([](#example_dict_fill_onebyone)). If you assign a value to an existing key, you will override the associated value. If you assign a new key, you add an entry into the dictionary.
+
+
+(example_dict_create_empty)=
+``````{prf:example} Create an empty dictionary
+You can create an empty dictionary by using either dictionary display:
+```{code-block} python
+translation_dict = {}
+```
+or by using `dict()`:
+```{code-block} python
+translation_dict = dict()
+```
+```{code-block} python
+translation_dict
+```
+Will give the output for both cases as:
+```{code-block} python
+:class: no-copybutton
+{}
+```
+``````
+
+(example_dict_fill_onebyone)=
+``````{prf:example} Fill an empty dictionary by adding key-value pairs one by one
+Starting with an empty dictionary:
+```{code-block} python
+translation_dict = {}
+```
+We can add entries as follows:
+```{code-block} python
+translation_dict['A'] = 'U'
+```
+```{code-block} python
+translation_dict['C'] = 'G'
+```
+```{code-block} python
+translation_dict['G'] = 'C'
+```
+```{code-block} python
+translation_dict['T'] = 'A'
+```
+The dictionary is now filled:
+```{code-block} python
+translation_dict
+```
+
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'A': 'U', 'C': 'G', 'G': 'C', 'T': 'A'}
+```
+``````
+
 
 #### Selecting from a Dictionary
 
