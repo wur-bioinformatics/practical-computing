@@ -205,6 +205,65 @@ Will give the output:
 
 
 #### List Versus String
+Both lists and {term}`strings<string>` support indexing and slicing. It is important to remember that {term}`strings<string>` are immutable while lists are mutable. Consequently, you cannot alter the elements and slices of a {term}`string`, but you can for a list. Since both are iterables they can be converted from and to another ([](#example_list_list_function),[](#example_string_convert_list),[](#example_string_join_list)).
+
+(example_string_convert_list)=
+``````{prf:example} Convert a string to a list and the list to a string
+Convert a {term}`string` to a list using `list()`:
+```{code-block} python
+my_string = 'abcdefg'
+```
+```{code-block} python
+my_list =  list(my_string)
+```
+```{code-block} python
+my_list
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+['a', 'b', 'c', 'd', 'e', 'f', 'g']
+```
+Convert a list to a {term}`string` using `str()`:
+```{code-block} python
+my_string_2 = str(mylist)
+```
+```{code-block} python
+my_string_2
+```
+
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+"['a', 'b', 'c', 'd', 'e', 'f', 'g']"
+```
+``````
+
+(example_string_join_list)=
+``````{prf:example} Create a string by joining the elements of a list
+With the string method `.join()` you can join elements of an iterable with the string the method is used on. 
+
+When you want to concatenate the elements of a list together into a string, use an empty string: 
+```{code-block} python
+''.join(my_list)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'abcdefg'
+```
+
+When you want to join the elements by anything else (like spaces), use that as the string:
+```{code-block} python
+' '.join(my_list)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'a b c d e f g'
+```
+``````
+
 
 ### Dictionaries
 
