@@ -531,7 +531,116 @@ The result of a slice is a tuple.
 ``````
 
 ### Sets
+Sets are unordered collections of immutable elements containing no duplicates. Because they are unordered, elements do not have an index and sets cannot be indexed or sliced. As no duplicates are allowed, if you create a set with duplicate elements, the resulting set will contain only one of them. Sets can consists of multiple data types, but only immutable data types.
+
 #### Creating a Set
+You can create a set using "set display" ([](#example_set_display_multiple_elements), [](#example_set_display_single_element)). They are created by using curly braces (`{}`). By not using a colon (`:`), the set is distinguished from a dictionary.
+
+(example_set_display_multiple_elements)=
+``````{prf:example} Create a set of multiple elements using set display
+```{code-block} python
+h = {1, 2, 3, 4, 5}
+```
+```{code-block} python
+h
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{1, 2, 3, 4, 5}
+```
+``````
+
+(example_set_display_single_element)=
+``````{prf:example} Create a set of a single element using set display
+```{code-block} python
+i = {1}
+```
+```{code-block} python
+i
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{1}
+```
+``````
+
+You can also create a set by converting a list with the `set()` function ([](#example_set_function_list)). When there are duplicates in the list, they will be removed by creating a set from the list ([](#example_set_function_list_duplicates)).
+
+(example_set_function_list)=
+::::::{prf:example} Create a set of a list using `set()`
+First, create a list:
+```{code-block} python
+j = [1, 2, 3, 4, 5]
+```
+Create a set from the list using `set()`:
+```{code-block} python
+k = set(j)
+```
+```{code-block} python
+k
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{1, 2, 3, 4, 5}
+```
+::::::
+
+(example_set_function_list_duplicates)=
+::::::{prf:example} Create a set of a list with duplicates using `set()`
+Let's create a list with duplicates (for example from [](#example_list_same_values)):
+```{code-block} python
+b = ["ATG", "TATA", "ATG"]
+```
+Create a set from the list using `set()`:
+```{code-block} python
+l = set(b)
+```
+```{code-block} python
+l
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'TATA', 'ATG'}
+```
+::::::
+
+Sets come with methods for adding and removing elements. You can add an element with the `.add()` method ([](#example_sets_add_element)). If you supply it with a duplicate entry as argument, nothing will change. You can remove an item with either the `.remove()` method ([](#example_sets_remove_element)) or the `.discard()` method. The only difference is that the `.discard()` method does not give an error when the item does not exist in the set.
+
+(example_sets_add_element)=
+::::::{prf:example} Add an element to a set using `add()`
+Let's add a DNA string to the `l` set of [](#example_set_function_list_duplicates):
+```{code-block} python
+l.add("ATA")
+```
+```{code-block} python
+l
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'TATA', 'ATA', 'ATG'}
+```
+::::::
+
+(example_sets_remove_element)=
+::::::{prf:example} Remove an element to a set using `remove()`
+Let's remove the `"ATA"` DNA string to the `l` set of [](#example_sets_add_element):
+```{code-block} python
+l.remove("ATA")
+```
+```{code-block} python
+l
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'TATA', 'ATG'}
+```
+::::::
 
 #### Set operations
 
