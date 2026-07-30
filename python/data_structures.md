@@ -52,6 +52,10 @@ Will give the output:
 ```
 ``````
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.4.1 Lists
+```
 
 #### Creating a List
 There are several ways to create a list. First, a list can be created by so-called "list display". This means that you create the list as it would appear as it would be for example printed. We already used list-display in [](#example_list_different_data_types) and [](#example_list_same_values). We can also create a list of only one item ([](#example_list_one_item)), or an empty list ([](#example_list_empty)). Creating an empty list can be used before for example a loop in which the list will be filled with items.
