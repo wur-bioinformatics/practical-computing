@@ -643,6 +643,74 @@ Will give the output:
 ::::::
 
 #### Set operations
+Sets have methods for checking the intersection ([](#example_set_intersection)), union ([](#example_set_union)), and difference ([](#example_set_difference)) of two sets. 
+
+(example_set_intersection)=
+::::::{prf:example} Check the intersection of two sets using `.intersection()`
+First, define two sets:
+```{code-block} python
+s1 = {1, 2, 3, 4}
+```
+```{code-block} python
+s2 = {3, 4, 5, 6}
+```
+Check for intersection (or overlap):
+```{code-block} python
+s1.intersection(s2)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{3, 4}
+```
+::::::
+
+(example_set_union)=
+::::::{prf:example} Check the union of two sets using `.union()`
+First, define two sets:
+```{code-block} python
+s1 = {1, 2, 3, 4}
+```
+```{code-block} python
+s2 = {3, 4, 5, 6}
+```
+Check for union (or combined elements):
+```{code-block} python
+s1.union(s2)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{1, 2, 3, 4, 5, 6}
+```
+::::::
+
+
+(example_set_difference)=
+::::::{prf:example} Check the difference between one set and another using `.difference()`
+First, define two sets:
+```{code-block} python
+s1 = {1, 2, 3, 4}
+```
+```{code-block} python
+s2 = {3, 4, 5, 6}
+```
+Check for difference:
+```{code-block} python
+s1.difference(s2)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{1, 2}
+```
+:::{note} `.difference()` returns a set containing items that exist only in the first set, and not in both sets.
+Using `.difference()` only returns the elements of `s1` that differ from `s2`.
+
+If you want to obtain the elements that differ in both sets use `.symmetric_difference()`
+:::
+::::::
+
 
 
 ## Exercises
