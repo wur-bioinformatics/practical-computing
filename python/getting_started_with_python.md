@@ -1084,6 +1084,7 @@ Follow the guide on Brightspace "Installing Conda and Pycharm".
 ### Experiment with Python
 For these exercises we use a Jupyter notebook. First you need to obtain the notebook file from Brightspace; it is contained in the data ZIP-file (Week 2, Data).
 
+(exc_start_w2d1_notebook)=
 ``````{exercise} Start W2D1 Jupyter Notebook
 To start the notebook, first start a terminal by typing in your search bar "Anaconda Prompt" (Windows) or "terminal" (Mac/Linux). 
 
