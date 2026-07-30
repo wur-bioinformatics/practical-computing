@@ -499,7 +499,7 @@ Will give the output:
 ```
 ``````
 
-#### Tuple Indexing
+#### Tuple Indexing and Slicing
 Tuples are indexed and sliced exactly as [lists](#section_list_indexing_and_slicing) ([](#example_tuple_indexing_slicing)). The one difference is that, since tuples are immutable, you cannot change values within tuples by assigning new values to an index or slice of a tuple. 
 
 (example_tuple_indexing_slicing)=
