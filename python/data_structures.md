@@ -444,7 +444,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 #### Creating a Tuple
-Tuples can be created by "tuple display" ([](#example_tuple_display)). To create a single-element tuple, you need to include a comma after the element ([](#example_tuple_single_element)).
+Tuples can be created by "tuple display" ([](#example_tuple_display)). To create a single-element tuple, you need to include a comma after the element ([](#example_tuple_single_element)), otherwise it will not be stored as a tuple ([](#example_tuple_single_element_incorrect)).
 
 (example_tuple_display)=
 ``````{prf:example} Create a tuple using tuple display
@@ -462,17 +462,40 @@ Will give the output:
 ``````
 
 (example_tuple_single_element)=
-``````{prf:example} Create a tuple using tuple display
+``````{prf:example} Create a single-element tuple using tuple display
 ```{code-block} python
-taxonomy = ("Eukaryota", "Plantae", "Tracheophyta", "Magnoliopsida", "Brassicales", "Brassicaceae", "Arabidopsis", "Arabidopsis thaliana")
+year = (2026,)
 ```
 ```{code-block} python
-taxonomy 
+year 
 ```
 Will give the output:
 ```{code-block} python
 :class: no-copybutton
-('Eukaryota', 'Plantae', 'Tracheophyta', 'Magnoliopsida', 'Brassicales', 'Brassicaceae', 'Arabidopsis', 'Arabidopsis thaliana')
+(2026,)
+```
+``````
+
+(example_tuple_single_element_incorrect)=
+``````{prf:example} Create a single-element tuple - incorrect (without comma)
+```{code-block} python
+year = (2026)
+```
+```{code-block} python
+year 
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+2026
+```
+```{code-block} python
+type(year)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+<class 'int'>
 ```
 ``````
 
