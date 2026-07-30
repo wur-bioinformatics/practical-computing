@@ -82,7 +82,7 @@ We can modify the flow of a program (i.e. make it non-linear) by using control f
 
 
 ### Conditional Branching
-Conditional branching can be used when only part of the program will be executed if a condition is met. In the pancake recipe analogy that would be step 5 ([](#example_pancake_recipe_conditional_branching)). There, we will only add more milk if the batter is too thick.
+Conditional branching can be used when only part of the program should be executed if a condition is met. In the pancake recipe analogy that would be step 5 ([](#example_pancake_recipe_conditional_branching)). There, we will only add more milk if the batter is too thick.
 
 (example_pancake_recipe_conditional_branching)=
 ::::{prf:example} Pancake recipe — Instructions with conditional branching
@@ -124,7 +124,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 #### `while` loop
-In the pancake recipe analogy, we see some instructions should be repeated until a condition is met ([example_pancake_recipe_while](#)). These are typical instructions for which a `while` loop would be useful. 
+In the pancake recipe analogy, we see some instructions should be repeated until a condition is met ([](#example_pancake_recipe_while)). These are typical instructions for which a `while` loop would be useful. 
 
 (example_pancake_recipe_while)=
 ::::{prf:example} Pancake recipe — Instructions with while-loop behaviour
@@ -147,7 +147,7 @@ while <condition>:
 ```
 The `while` loop is controlled by a condition. This can be a Boolean formula, often including a comparison ([](#comparison_operators_section)). 
 
-In a `while` loop, you need to define your own variables and bookkeeping. Something needs to change each iteration, otherwise the condition will never change from True to False. It is important to keep this in mind, because you want to prevent the case of infinite looping. You can use a counter for bookkeeping by initializing the counter before the loop and incrementing the counter inside the loop (usually at the end of the body) ([](#))
+In a `while` loop, you need to define your own variables and bookkeeping. Something needs to change each iteration, otherwise the condition will never change from `True` to `False`. It is important to keep this in mind, because you want to prevent the case of infinite looping. You can use a counter for bookkeeping by initializing the counter before the loop and incrementing the counter inside the loop (usually at the end of the body) ([](#example_while_loop_counter))
 
 (example_while_loop_counter)=
 ``````{prf:example} while loop with self-made counter for bookkeeping
@@ -175,7 +175,7 @@ Will give the output:
 
 
 #### `for` loop
-If we have a known number of repetitions (at the start of the loop), we can use a `for` loop. In the pancaka anlogy, this would be step 10 ([](#example_pancake_recipe_for)).
+If we have a known number of repetitions (at the start of the loop), we can use a `for` loop. In the pancake analogy, this would be step 10 ([](#example_pancake_recipe_for)).
 
 (example_pancake_recipe_for)=
 ::::{prf:example} Pancake recipe — Instructions with for-loop behaviour
