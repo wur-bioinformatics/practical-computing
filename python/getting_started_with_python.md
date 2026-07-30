@@ -1092,7 +1092,7 @@ In the terminal, navigate to the directory where you saved the notebook.
 ```{tip}
 Use [](#cd_section).
 
-On Windows the directory path contains backward slashes (`\`) instead of forward slashes (`\`).
+On Windows the directory path contains backward slashes (`\`) instead of forward slashes (`/`).
 ```
 
 Start the notebook server by typing `jupyter notebook` at the command prompt. 
