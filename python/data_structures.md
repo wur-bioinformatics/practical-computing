@@ -642,7 +642,7 @@ Will give the output:
 ```
 ::::::
 
-#### Set operations
+#### Set Operations
 Sets have methods for checking the intersection ([](#example_set_intersection)), union ([](#example_set_union)), and difference ([](#example_set_difference)) of two sets. 
 
 (example_set_intersection)=
@@ -714,3 +714,10 @@ If you want to obtain the elements that differ in both sets use `.symmetric_diff
 
 
 ## Exercises
+### Types of Data
+
+### List Exercises
+
+### Dictionary Exercises
+
+### 
