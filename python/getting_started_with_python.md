@@ -193,6 +193,7 @@ Will give the output:
 ```
 ``````
 
+(section_str_indexing_and_slicing)=
 #### String Indexing and Slicing
 Since {term}`strings<string>` are a sequence of characters, we can obtain individual characters by indexing:
 ```{code-block} python
