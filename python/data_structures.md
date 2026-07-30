@@ -139,6 +139,70 @@ Will give the output:
 
 
 #### List Indexing and Slicing
+Similar to [](#section_str_indexing_and_slicing), we can also access elements in lists using indexing (example_list_indexing) and obtain a part of a list using slicing ([](#)). Again, negative indices mean counting from the end, with `[-1]` taking the last element. 
+
+(example_list_indexing)=
+``````{prf:example} Access an element in a list using indexing
+Given list `b` created in [](#example_list_same_values), we can access the second element using:
+```{code-block} python
+b[1]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'TATA'
+```
+The result of indexing is the value of the indexed item, with as data type the data type of the value.
+``````
+
+(example_list_slicing)=
+``````{prf:example} Access part of a list using slicing
+Given list `g` created in [](#example_list_list_function), we can access slice going from the second to the fourth element by:
+```{code-block} python
+g[1:4]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+['2', '3', '4']
+```
+The result of slicing is a copy of the elements in the list.
+``````
+
+Since lists are mutable, you can replace values of items using indexing for replacing a single item ([](#example_list_indexing_replacing_value)) and slicing for replacing multiple items ([](#example_list_slicing_replacing_values)). When replacing a slice, you must supply the replacement with an iterable. You can replace the slice with a smaller or larger sized iterable than the original slice, thereby adding or removing items. 
+
+(example_list_indexing_replacing_value)=
+``````{prf:example} Replace a value of an item in a list using indexing
+Given list `g` created in [](#example_list_list_function), we can replace the first item in the list (with value `'1'`) by:
+```{code-block} python
+g[0] = '0'
+```
+```{code-block} python
+g
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+['0', '2', '3', '4', '5']
+```
+``````
+
+(example_list_slicing_replacing_values)=
+``````{prf:example} Replace values of items in a list using slicing
+Given list `g` created in [](#example_list_list_function), we can replace the second and third item in the list by:
+```{code-block} python
+g[1:3] = [2,3]
+```
+```{code-block} python
+g
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+['1', 2, 3, '4', '5']
+```
+``````
+
 
 #### List Versus String
 
