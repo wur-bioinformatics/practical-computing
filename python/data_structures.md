@@ -390,6 +390,10 @@ Will give the output:
 ```
 ``````
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.4.2 Dictionaries
+```
 
 #### Selecting from a Dictionary
 Selecting from a dictionary is technically also called indexing. Here, we also use the square brackets (`[]`) ([](#example_dict_indexing)). If the key does not exist, you will get a `KeyError`.
