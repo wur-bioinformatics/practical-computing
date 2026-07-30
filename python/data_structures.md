@@ -270,6 +270,7 @@ Will give the output:
 
 
 ### Dictionaries
+A dictionary is a mutable collection of data. They are also calles "lookup table" or "associative array". Entries in a dictionary are stored as a key-value pair. Each key in a dictionary is unique and unmutable, it can be seen as the "index" of the entry. The value associated with a key is mutable and can be any data type (even a dictionary). You cannot slice into a dictionary or add entries via concatenation. The advantage of a dictionary is that it is very effient in lookup. Namely, lookup is almost independent of the number of entries in the dictionary, and checking if a key is present takses the same time as lookup. If the order of your entries does not really matter, and you want to quickly access entries, the dictionary is the way to go for storing your data. 
 
 #### Creating a Dictionary
 
