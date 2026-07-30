@@ -275,7 +275,7 @@ Will give the output:
 
 
 ### Dictionaries
-A dictionary (in short, dict) is a mutable collection of data. They are also calles "lookup table" or "associative array". Entries in a dictionary are stored as a key-value pair. Each key in a dictionary is unique and unmutable, it can be seen as the "index" of the entry. The value associated with a key is mutable and can be any data type (even a dictionary). 
+A dictionary (in short, dict) is a mutable collection of data. They are also calles "lookup table" or "associative array". Entries in a dictionary are stored as a key-value pair. Each key in a dictionary is unique and immutable, it can be seen as the "index" of the entry. The value associated with a key is mutable and can be any data type (even a dictionary). 
 
 You cannot slice into a dictionary or add entries via concatenation. 
 
@@ -421,8 +421,60 @@ Will give the output:
 
 
 ### Tuples
+Tuples are immutable ordered collections of elements. They are very similar to lists, but unlike lists, tuples cannot be changed (hence, immutable). Consequently, they can be used as keys for a dictionary ([](#example_tuple_as_dict_key)).
+
+(example_tuple_as_dict_key)=
+``````{prf:example} Tuples can be keys of a dictionary
+```{code-block} python
+plant_dict = {("Arabidopsis", "thaliana") : "thale cress"}
+```
+```{code-block} python
+plant_dict
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{("Arabidopsis", "thaliana") : "thale cress"}
+```
+``````
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.4.3 Tuples
+```
 
 #### Creating a Tuple
+Tuples can be created by "tuple display" ([](#example_tuple_display)). To create a single-element tuple, you need to include a comma after the element ([](#example_tuple_single_element)).
+
+(example_tuple_display)=
+``````{prf:example} Create a tuple using tuple display
+```{code-block} python
+taxonomy = ("Eukaryota", "Plantae", "Tracheophyta", "Magnoliopsida", "Brassicales", "Brassicaceae", "Arabidopsis", "Arabidopsis thaliana")
+```
+```{code-block} python
+taxonomy 
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+('Eukaryota', 'Plantae', 'Tracheophyta', 'Magnoliopsida', 'Brassicales', 'Brassicaceae', 'Arabidopsis', 'Arabidopsis thaliana')
+```
+``````
+
+(example_tuple_single_element)=
+``````{prf:example} Create a tuple using tuple display
+```{code-block} python
+taxonomy = ("Eukaryota", "Plantae", "Tracheophyta", "Magnoliopsida", "Brassicales", "Brassicaceae", "Arabidopsis", "Arabidopsis thaliana")
+```
+```{code-block} python
+taxonomy 
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+('Eukaryota', 'Plantae', 'Tracheophyta', 'Magnoliopsida', 'Brassicales', 'Brassicaceae', 'Arabidopsis', 'Arabidopsis thaliana')
+```
+``````
 
 #### Tuple Indexing
 
