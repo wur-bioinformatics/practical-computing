@@ -141,7 +141,7 @@ Will give the output:
 ```
 ``````
 
-
+(section_list_indexing_and_slicing)=
 #### List Indexing and Slicing
 Similar to [](#section_str_indexing_and_slicing), we can also access elements in lists using indexing (example_list_indexing) and obtain a part of a list using slicing ([](#)). Again, negative indices mean counting from the end, with `[-1]` taking the last element. 
 
@@ -500,8 +500,35 @@ Will give the output:
 ``````
 
 #### Tuple Indexing
+Tuples are indexed and sliced exactly as [lists](#section_list_indexing_and_slicing) ([](#example_tuple_indexing_slicing)). The one difference is that, since tuples are immutable, you cannot change values within tuples by assigning new values to an index or slice of a tuple. 
 
+(example_tuple_indexing_slicing)=
+``````{prf:example} Tuple indexing and slicing
+Given the following tuple:
+```{code-block} python
+taxonomy = ("Eukaryota", "Plantae", "Tracheophyta", "Magnoliopsida", "Brassicales", "Brassicaceae", "Arabidopsis", "Arabidopsis thaliana")
+```
+Getting the second to last element using indexing:
+```{code-block} python
+taxonomy[-2]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'Arabidopsis'
+```
 
+Getting the first three elements using slicing:
+```{code-block} python
+taxonomy[:3]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+('Eukaryota', 'Plantae', 'Tracheophyta')
+```
+The result of a slice is a tuple.
+``````
 
 ### Sets
 #### Creating a Set
