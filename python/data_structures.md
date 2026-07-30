@@ -15,8 +15,34 @@ After completing this section you should be able to:
 
 ## Introduction
 
-## Section_header 1
+## Data Structures
 
-### Subsection header 1.1
+### Lists
+
+#### Creating a List
+
+#### List Indexing and Slicing
+
+#### List Versus String
+
+### Dictionaries
+
+#### Creating a Dictionary
+
+#### Selecting from a Dictionary
+
+### Tuples
+
+#### Creating a Tuple
+
+#### Tuple Indexing
+
+
+
+### Sets
+#### Creating a Set
+
+#### Set operations
+
 
 ## Exercises
