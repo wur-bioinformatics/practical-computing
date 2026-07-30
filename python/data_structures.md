@@ -281,6 +281,7 @@ You cannot slice into a dictionary or add entries via concatenation.
 
 The advantage of a dictionary is that it is very effient in lookup. Namely, lookup is almost independent of the number of entries in the dictionary, and checking if a key is present takses the same time as lookup. If the order of your entries does not really matter, and you want to quickly access entries, the dictionary is the way to go for storing your data. 
 
+
 #### Creating a Dictionary
 A dictionary can be created in two manners: by "dictionary display" ([](#example_dict_dictionary_display_multiple), [](#example_dict_dictionary_display_single)) or by using the `dict()` function ([](#example_dict_dict_function_multiple)). When using `dict()`, specify the key-value pairs with `key = value` as arguments, separated by a comma. The key should not be quoted if it's a string. 
 
@@ -342,14 +343,14 @@ You can also create an empty dictionary using both methods ([](#example_dict_cre
 ``````{prf:example} Create an empty dictionary
 You can create an empty dictionary by using either dictionary display:
 ```{code-block} python
-translation_dict = {}
+transcription_dict = {}
 ```
 or by using `dict()`:
 ```{code-block} python
-translation_dict = dict()
+transcription_dict = dict()
 ```
 ```{code-block} python
-translation_dict
+transcription_dict
 ```
 Will give the output for both cases as:
 ```{code-block} python
@@ -362,24 +363,24 @@ Will give the output for both cases as:
 ``````{prf:example} Fill an empty dictionary by adding key-value pairs one by one
 Starting with an empty dictionary:
 ```{code-block} python
-translation_dict = {}
+transcription_dict = {}
 ```
 We can add entries as follows:
 ```{code-block} python
-translation_dict['A'] = 'U'
+transcription_dict['A'] = 'U'
 ```
 ```{code-block} python
-translation_dict['C'] = 'G'
+transcription_dict['C'] = 'G'
 ```
 ```{code-block} python
-translation_dict['G'] = 'C'
+transcription_dict['G'] = 'C'
 ```
 ```{code-block} python
-translation_dict['T'] = 'A'
+transcription_dict['T'] = 'A'
 ```
 The dictionary is now filled:
 ```{code-block} python
-translation_dict
+transcription_dict
 ```
 
 Will give the output:
