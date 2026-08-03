@@ -113,8 +113,9 @@ Computing Skills for Biologists - a Tool box
 - Chapter 3.6.1 Conditional Branching
 ```
 
+(section_foap1_looping)=
 ### Looping
-Another flow structure are loops. These are used when part of the program needs to be repeated. There are tow variants: the `for` loop and the `while` loop. 
+Another flow structure are loops. These are used when part of the program needs to be repeated. There are two variants: the `for` loop and the `while` loop. 
 
 
 
