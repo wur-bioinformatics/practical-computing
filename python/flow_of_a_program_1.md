@@ -268,6 +268,8 @@ Download the W2D2 Jupyter Notebook from Brightspace.
 Just like yesterday ([](#exc_start_w2d1_notebook)), run the notebook with `jupyter notebook` in the terminal.
 ``````
 
+### (RNA) Transcribing DNA into RNA
+
 ``````{exercise} (RNA) Transcribing DNA into RNA
 Given a DNA string, write the transcribed RNA string. 
 
@@ -286,6 +288,7 @@ Sample output:
 GAUGGAACUUGACUACGUAAAUU
 ```
 ``````
+### (REVC) Complementing a Strand of DNA
 
 ``````{exercise} (REVC) Complementing a Strand of DNA
 Given a DNA string, write the reverse complement of that string. The reverse complement of a DNA string is formed by reversing the symbols (A, C, G, T) and then taking the complement of each symbol. Complements of A, C, G, T are T, G, C, A, respectively.
@@ -302,6 +305,8 @@ ACCGGGTTTT
 ```
 ``````
 
+### (SUBS) Finding a Motif in DNA
+
 ``````{exercise} (SUBS) Finding a Motif in DNA
 Given two DNA strings s and t (one line at a time), write all locations in s where t occurs as substring in t, counting from 1.
 
@@ -317,6 +322,8 @@ Sample output:
 2 4 10
 ```
 ``````
+
+### (FIB) Fibonacci Numbers
 
 ``````{exercise} Introductory: Fibonacci Numbers
 Leonardo of Pisa, later known as Fibonacci, introduced the problem of finding the number of rabbits (or rather pairs of rabbits) after $n$ months, if we start with one pair. 
