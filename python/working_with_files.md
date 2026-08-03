@@ -54,7 +54,7 @@ When there is a header line present, it is best to first read it, so it will not
 ``````{prf:example} Read a text file into a dictionary
 Given  `WoF.txt` in [](#example_text_file_csv), read the contents into a dictionary.
 
-First, initialy an empty dictionary so we can fill it later:
+First, initialize an empty dictionary so we can fill it later:
 ```{code-block} python
 table = {}
 ```
