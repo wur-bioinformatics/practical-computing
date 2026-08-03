@@ -693,12 +693,81 @@ Will give the output:
 
 
 ## Exercises
+Today, we will do some more [Rosalind](https://rosalind.info/problems/locations/) exercises: PROT and SUBS. 
+
+``````{exercise} Start the W2D4 Jupyter Notebook
+Download the W2D4 Jupyter Notebook from Brightspace.
+
+Just like previous days, run the notebook with `jupyter notebook` in the terminal.
+
+The Jupyter Notebook contains all the instructions.
+``````
+
 
 ### (PROT) Translating RNA to Protein
+``````{exercise} (PROT) Translating RNA to Protein
+Given an RNA string (corresponding to a strand of mRNA), write the protein string encoded by the RNA string. 
 
-### Rosalind’s SUBS using Lists
+A codon table dictates the details regarding the encoding of specific codons into amino acids. Amino acids are represented by 20 different letters (all letters except B, J, O, U, X, and Z).
+
+Sample input:
+```{code-block} bash
+:class: no-copybutton
+AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA
+```
+Sample output:
+```{code-block} bash
+:class: no-copybutton
+MAMAPRTEINSTRING
+```
+``````
+
+### (SUBS) Finding a Motif in DNA - using Lists
+``````{exercise} (SUBS) Finding a Motif in DNA - using Lists
+The assignment is to change the code for "(SUBS) Finding a Motif in DNA" ([](#exc_foap1_subs)) to work with lists instead of strings.
+
+The (two) inputs of the program are still strings, but now we convert them to lists immediately. 
+
+Interestingly, we do not have to change any other code for finding the positions of substrings – sublists now.
+
+As an additional exercise in working with lists, we do not print positions when we find them, but gather all found positions in a list. Only after we have found all positions, we will print the result.
+``````
+
 
 ### Binomial Distribution
-– basis
-– generalized
-– on dictionaries
+In a number of biological processes (e.g. male/female offspring, polygenic inheritance) probabilities are distributed according to the so-called binomial distribution. The binomial distribution defines chances for a series of discrete values, usually represented as whole numbers 0 to n (inclusive).
+
+For example, if a couple gets three children and chances for a boy or girl are equal, the chances for three girls or three boys are $1/8$ each, and the chances for two boys and one girl or two girls and one boy are $3/8$ each. We can list this result (for $n=3$) as the chances for k girls with k=0,1,2,3.
+
+This will be 0: 1/8; 1: 3/8; 2: 3/8; 3: 1/8, or in Python `[0.125, 0.375, 0.375, 0.125]` (index values are implicit).
+
+There is an exact formula for a binomial distribution. However, in this exercise, we will make a table for a given $n$ by drawing random numbers repeatedly and keeping tallies.
+
+The assignment is to write a script that asks the user for a number $n$ and then prints an approximate table of the binomial distribution for that $n$. The number of times to draw random numbers can be a fixed number in your program, or the program can ask it from the user as well.
+
+The output for $n=3$ (as above) could look like this:
+```{code-block} bash
+:class: no-copybutton
+number chance
+0 0.125019
+1 0.375334
+2 0.374542
+3 0.125105
+```
+
+``````{exercise} Generalized Bionomial Distribution
+The generalized binomial distribution makes $n$ yes/no choices (or girl/boy, etc.) where each choice has a probability $p$ for answer yes (or girl in the example above). The probability for outcome $k$ ($k=0..n$) is the probability that exactly $k$ of
+those $n$ choices give answer yes.
+
+Again, there is an exact formula for a binomial distribution for any $p$ and $n$. But, again, we will make an approximation by repeatedly drawing numbers.
+
+Copy your previous script and extend it to asks the user for a probablity $p$ as well as a number $n$, and then prints an approximate table of the generalized binomial distribution for that $p$ and $n$.
+``````
+
+``````{exercise} [optional] Generalized Bionomial Distribution using Dictionary 
+For values of $p$ near to $1$ and relatively large $n$, the list of tallies will start with many zeros.
+
+In a list, we cannot get rid of those zeros, because index values are absolute. We could do some bookkeeping to offset all index values. However, that would be very tricky. Instead, we can use a dictionary with the 'index' as key. Then we only have to fill cells for non-zero tallies.
+
+The assignment is to replace the list of tallies by a corresponding dictionary. 
+``````
