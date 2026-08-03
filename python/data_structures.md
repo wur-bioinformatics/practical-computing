@@ -714,10 +714,80 @@ If you want to obtain the elements that differ in both sets use `.symmetric_diff
 
 
 ## Exercises
-### Types of Data
+### Conceptual: Types of Data
+``````{exercise} Types of Data 1 - Together
+We look at the date contained in the file of Crane data. For this exercise we need just a part of the data: `first_and_last_100_lines_crane_data.csv`.
 
-### List Exercises
+**For each column, what is a suitable type (Integer, Float, String, etc.)?**
+``````
 
-### Dictionary Exercises
+``````{exercise} Types of Data 2 - Alone
+Take another data file that you have been using before (for example, you could use file `SRR1740460_example.fq` from week 1 day...).
 
-### 
+**Find out which kinds of data are present**; usually not more than 10 or 20.
+
+**For each kind of data you found, determine a suitable type (e.g. Integer, Float, String).**
+
+**Do you need more types than listed in the book?** No problem, that happens in practice. Then describe those types.
+
+Probably the same groups of (kinds of) data occur over and over again. **Find a suitable structured type for representing the repeated groups.**
+``````
+
+
+
+
+### Data Structures
+``````{exercise} Start W2D3 Jupyter Notebook
+Download the W2D3 Jupyter Notebook from Brightspace.
+
+Just like previous days, run the notebook with `jupyter notebook` in the terminal.
+
+The Jupyter Notebook contains all the instructions.
+``````
+
+
+
+``````{exercise} List indexing
+Create fixed lists and obtain elements from them.
+``````
+
+``````{exercise} List slicing
+Obtain sub-lists from other lists.
+``````
+
+``````{exercise} Assigning to (parts of) a list
+Replace elements of lists, or even replace sub-lists.
+``````
+
+
+``````{exercise} 
+Create fixed dictionaries and retrieve data from them.
+``````
+
+``````{exercise} 
+Start with a small distionary and add data to it.
+
+``````
+
+
+
+
+
+### Conceptual: Data Structure for Storing a Data Set 
+
+``````{exercise} Data structure for storing a data set (in memory)
+Retrieve file `plantsvshuman_outmft6.csv` from Brightspace and open the file. [Which program do you use?] 
+
+This file is a slightly edited output file from Blast, comparing plant proteins to human proteins. 
+
+Explanation of columns can be found [here](http://www.drive5.com/usearch/manual/blast6out.html).
+
+When we want to further process this kind of data, we have to read the file (or a part of it) into memory. The data structure in memory will consists of lists or dictionaries, with constituent parts that might be lists or dictionaries again. Ultimately, the basic elements of the data structure will be strings, numbers, and possibly other elementary data.
+
+The data structure in memory might closely resemble the structure of the file, or the data structure in memory can be entirely different from the structure of the file.
+
+**First, define a data structure that closely resembles the structure of the file.**
+[Even then, there are multiple solutions...]
+
+**Next, define a alternate data structure that uses a different organization of the data.**
+``````
