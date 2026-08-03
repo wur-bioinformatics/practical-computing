@@ -1134,7 +1134,8 @@ The W2D1 Jupyter Notebook contains all instructions for the exercises. They are 
 - Find out what type of value is contained in each of the variables introduced in this section.
 ``````
 
-``````{exercise} Computing the GC-content of a DNA sequence
+(exc_gswp_gc_content)=
+``````{exercise} (GC) GC content - Computing the GC-content of a DNA sequence
 - Determine the number of nucleotides in the given DNA sequence.
 - Now compute and print the GC-content of the given DNA sequence.
 - Write the answer as something like: `The GC-content is 23.456` (the exact number will differ)
