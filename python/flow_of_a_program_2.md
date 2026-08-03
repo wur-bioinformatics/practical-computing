@@ -334,6 +334,101 @@ found? True
 
 
 ### Looping over a Dictionary
+There are several ways to loop over a dictionary. We can loop over the complete data structure ([](#example_loop_dict_complete)), or the keys ([](#example_loop_dict_keys)), the values ([](#example_loop_dict_values)), or the items ([](#example_loop_dict_items)) of a dictionary.
+
+(example_loop_dict_complete)=
+``````{prf:example} Looping over a dictionary object
+Given the following dictionary:
+```{code-block} python
+transcription_dict = {'A' : 'U', 
+                      'C' : 'G', 
+                      'G' : 'C', 
+                      'T' : 'A'}
+```
+```{code-block} python
+for key in transcription_dict:
+    print(key, ':', transcription_dict[key])
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+A : U
+C : G
+G : C
+T : A
+```
+``````
+
+(example_loop_dict_keys)=
+``````{prf:example} Looping over the keys of a dictionary
+Given the following dictionary:
+```{code-block} python
+transcription_dict = {'A' : 'U', 
+                      'C' : 'G', 
+                      'G' : 'C', 
+                      'T' : 'A'}
+```
+```{code-block} python
+for key in transcription_dict.keys():
+    print(key, ':', transcription_dict[key])
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+A : U
+C : G
+G : C
+T : A
+```
+``````
+
+(example_loop_dict_values)=
+``````{prf:example} Looping over the values of a dictionary
+Given the following dictionary:
+```{code-block} python
+transcription_dict = {'A' : 'U', 
+                      'C' : 'G', 
+                      'G' : 'C', 
+                      'T' : 'A'}
+```
+```{code-block} python
+for value in transcription_dict.values():
+    print(value)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+U
+G
+C
+A
+```
+By looping over the values, we cannot access the keys.
+``````
+
+(example_loop_dict_items)=
+``````{prf:example} Looping over the items of a dictionary
+Given the following dictionary:
+```{code-block} python
+transcription_dict = {'A' : 'U', 
+                      'C' : 'G', 
+                      'G' : 'C', 
+                      'T' : 'A'}
+```
+```{code-block} python
+for key, value in transcription_dict.items():
+    print(key, ':', value)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+A : U
+C : G
+G : C
+T : A
+```
+The `.items()` method creates an iterable with tuples of `(key, value)` pairs.
+``````
 
 
 ### Looping over a Tuple or Set
