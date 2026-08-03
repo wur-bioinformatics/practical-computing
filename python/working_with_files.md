@@ -15,6 +15,9 @@ After completing this section you should be able to:
 ## Introduction
 
 ## Text Files vs. Binary Files
+A text file is organized in lines. There are newline ('\n') characters at the end of each line. Moreover, lines may have further internal structure, e.g. CSV files where fields/columns are separated by a comma. Program files (e.g. Python) are also text files. When reading from/writing to text files, the values are strings.
+
+A binary file is a (long) sequence of bytes, which are not human readable, e.g. XLSX files. Any structure within a binary file is defined by the application that reads/writes it. They are typically used by a software library for reading/writing. They can contain floats, dates, and other types in machine format. 
 
 ## Structure of (Text) Files
 
