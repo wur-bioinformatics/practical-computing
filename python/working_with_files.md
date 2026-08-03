@@ -40,12 +40,46 @@ Nobody Special,15.77
 Robin Hood,53.06
 Winny the Pooh,25.73
 ```
-
 ``````
 
 ## Processing Text Files
 
 ### Reading a File
+When reading a file, the program usually follows the structure of the input file. While the file is being read, the data is either stored in a data structure in memory or written into an output file per record. 
+
+When there is a header line present, it is best to first read it, so it will not be stored as a record. Then, you can loop over the remaining lines of the file. Within the loop, you process the text by splitting the line, interpreting the text, and when necessary by converting from string to other data types.
+
+
+(example_text_file_reading)=
+``````{prf:example} Read a text file into a dictionary
+Given  `WoF.txt` in [](#example_text_file_csv), read the contents into a dictionary.
+
+First, initialy an empty dictionary so we can fill it later:
+```{code-block} python
+table = {}
+```
+Then, open the file:
+```{code-block} python
+infile = open('WoF.txt')
+```
+Read the first line, so we ignore the header line when storing the records:
+```{code-block} python
+header = infile.readline() # ignore
+```
+Then, loop over the remaining lines, storing each record as a separate entry in the dictionary:
+```{code-block} python
+for line in infile:
+    cells = line.strip().split(',')
+    assert len(cells) == 2 # explicitly assume
+    name = cells[0]
+    chance = float(cells[1])
+    table[name] = chance
+```
+Last, explicitly close the file: 
+```{code-block} python
+infile.close()
+```
+``````
 
 ### Writing a File
 
