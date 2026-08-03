@@ -307,6 +307,7 @@ ACCGGGTTTT
 
 ### (SUBS) Finding a Motif in DNA
 
+(exc_foap1_subs)=
 ``````{exercise} (SUBS) Finding a Motif in DNA
 Given two DNA strings s and t (one line at a time), write all locations in s where t occurs as substring in t, counting from 1.
 
