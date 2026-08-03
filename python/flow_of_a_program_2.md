@@ -168,6 +168,11 @@ Will give the output:
 ## Looping - Expanded
 [Previously](#section_foap1_looping), we have seen that looping can be used to alter the flow of a program and that there are two flavors: the `for` loop and the `while` loop. We saw that the loops can be controlled by a specified number of iterations (`for` loop) or by a given condition (`while` loop). Instead of using a number determining the number of iterations, we can also use data structures, such as a list, string or more general: an iterable. 
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.6.2 Looping
+```
+
 (section_looping_over_a_list)=
 ### Looping over a List
 When looping over a list using a `for` loop, we can either loop over the content ([](#example_for_loop_list_content)) or over the index ([](#example_for_loop_list_indexes)). When looping over the index, we can use both the value of the element in the list as the index ([](#example_for_loop_list_sub_indexes)). We can also add conditional branching to only print certain elements in a list ([](#example_for_loop_list_if)).
