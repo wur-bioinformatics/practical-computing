@@ -4,7 +4,7 @@ label: writing_fuctions
 abbreviations:
     
 bibliography:
-    .bib
+    writing_functions.bib
 ---
 
 ```{important} Learning outcomes
@@ -186,8 +186,103 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Modules, Libraries, and Importing
+A module is a Python source file (meaning it is executable) containing definitions and statements. It is used to define functions (e.g. `re.search()`), classes (e.g. `re.Match`), and variables (e.g. `math.pi`) [@geeksforgeeks_pythonmodules_2026]. In Python: module ≈ library. Some "libraries" consist of multiple modules. 
+
+There are multiple ways to import a module, some are:
+```{code-block} python
+:class: no-copybutton
+import module_name
+```
+```{code-block} python
+:class: no-copybutton
+from module_name import feature
+```
+
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 4.2.2 Importing Packages and Modules
+```
 
 ### Making Your Own Modules
+You can create your own module by creating a Python source file ([](#example_define_module_subs)). Inside the module, only include definitions for functions, classes, and variables. Do not write code outside these definitions and do not include a 'main' program, this will be executed when importing which is undesirable. 
+
+Creating your own modules can help organize your code and make it reusable.
+
+You can use your created module similarly to standard and third-party modules by importing it ([](#example_import_module_subs_1), [](#example_import_module_subs_2)). 
+
+If your module is called `my_utils.py`, use it by:
+```{code-block} python
+:class: no-copybutton
+import my_utils
+```
+
+:::{note} When importing a module, do not include the `.py` extension.
+:::
+
+:::{note} When importing a module, write the path to the Python source file when it is not in the same directory as the script you are importing it into.
+:::
+
+(example_define_module_subs)=
+``````{prf:example} Define a module for SUBS
+Let's turn the `solve_subs()` function from [](#example_defining_a_function_subs) into a module:
+
+```{code-block} python
+:filename: rosalind_subs_solver.py
+def solve_subs(s, t):
+    n = len(t)
+    locs = []
+    for i in range(len(s)-n+1):
+        if s[i:i+n] == t:
+            locs += [i+1]
+    return locs
+```
+``````
+
+(example_import_module_subs_1)=
+``````{prf:example} Import a module for SUBS 1
+To use the SUBS module ([](#example_define_module_subs)), we can import it as a whole:
+```{code-block} python
+import rosalind_subs_solver
+```
+Ask the user for input:
+```{code-block} python
+dna = input('dna = ')
+motif = input('motif = ')
+```
+Then, we can call `solve_subs()` by first specifing the module and then a dot (`.`) and the function name:
+```{code-block} python
+locs = rosalind_subs_solver.solve_subs(dna, motif)
+```
+Last, we print the output:
+```{code-block} python
+str_locs = [str(loc) for loc in locs]
+print(' '.join(str_locs))
+```
+``````
+
+
+(example_import_module_subs_2)=
+``````{prf:example} Import a module for SUBS 2
+To use the `solve_subs()` function from the SUBS module ([](#example_define_module_subs)), we can import it directly:
+```{code-block} python
+from rosalind_subs_solver import solve_subs
+```
+Ask the user for input:
+```{code-block} python
+dna = input('dna = ')
+motif = input('motif = ')
+```
+Then, we can call `solve_subs()` as is:
+```{code-block} python
+locs = solve_subs(dna, motif)
+```
+Last, we print the output:
+```{code-block} python
+str_locs = [str(loc) for loc in locs]
+print(' '.join(str_locs))
+``````
+
 
 ## Standard Libraries
 
