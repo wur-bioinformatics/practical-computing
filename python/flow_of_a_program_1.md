@@ -173,7 +173,7 @@ Will give the output:
 4: The value of `counter` is incremented by `1` at the end of the loop body.
 ``````
 
-
+(section_foap1_for_loop)=
 #### `for` loop
 If we have a known number of repetitions (at the start of the loop), we can use a `for` loop. In the pancake analogy, this would be step 10 ([](#example_pancake_recipe_for)).
 
