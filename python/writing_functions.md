@@ -285,13 +285,122 @@ print(' '.join(str_locs))
 
 
 ## Standard Libraries
+Python contains many useful standard libraries. They can be found [here](https://docs.python.org/3/library/index.html).
+
+We have already used some of them:
+- `math` for mathematical functions
+- `random` to generate pseudo-random numbers
 
 ## Exercises
+Like before, we use a Jupyter Notebook for these exercises. Here, we define the assignments. The Jupyter Notebook contains additional steps and hints. For some steps, you'll have to create code outside the Jupyter Notebook.
+
+``````{exercise} Start the W2D4 Jupyter Notebook
+Download the W2D4 Jupyter Notebook from Brightspace.
+
+Just like previous days, run the notebook with `jupyter notebook` in the terminal.
+
+The Jupyter Notebook contains all the instructions.
+``````
+
+In these exercises, we will use Python’s `import` statement for importing code from own scripts. If we make changes to the imported code, the Python
+environment has to forget the previous version. 
+
+In Jupyter notebooks, the easiest way to do that is restarting the underlying system (the Kernel): Kernel > Restart (in order to avoid confusion, better use:
+Kernel > Restart & Clear Output). After restarting the notebook, we can execute the `import` statement again. If you forget to restart, the notebook will still use
+the old version of the imported code.
 
 ### Defining a Function
+``````{exercise} (GC) GC Content - Defining a function
+Create a Python function `gc_content` that takes a DNA sequence as its only argument and produces the GC content (as a percentage).
 
+The code inside this function is essentially identical to the code written in the first session on Python ([](#exc_gswp_gc_content)). Only, the function does not do `input` and `print`. Instead, the function receives the DNA sequence in its parameter, and returns the result by a `return` statement.
+
+After the function definition, the Python script can use `input` and `print` for communication with the user. That Python script will call function `gc_content` to
+perform the computation.
+``````
+
+(exc_wf_gc_content)=
 ### Turning a Script into a Module
+``````{exercise} (GC) GC Content - Turning a script into a module
+In theory, once we made function `gc_content`, it can be re-used in other Python scripts. If we want to avoid copying the code into each Python script where we
+need it, we can put the function in a re-usable program unit, or module.
+
+A module is a Python file that contains function definitions, class definitions (not in this course), and potentially names for constant values (like `math.pi`). The
+name of the file before `.py` should be valid as an identifier in Python; that name occurs in the `import` statement for using the module.
+
+For this exercise, create a module `gc_computation` that contains just function `gc_content` and nothing more. 
+
+Create another script that imports this function, uses `input` and `print` for communication with the user, and calls the imported function for computing GC content.
+``````
 
 ### Generating Random DNA Sequences
+``````{exercise} Generating random DNA sequences
+Using Python's module `random` and your own module `gc_computation`, generate random DNA sequences of a given length and count how many of them have a
+GC content above a given threshold. Put the code for generating one random DNA sequence in a function.
+``````
+
+``````{exercise} Optional: Generating random DNA sequences using base-specific frequencies
+In real life, DNA sequences do not have equal amounts of As, Cs, Gs, and Ts. Often, you'll find a skew towards higher AT content in genomes, at least in plants and animals. 
+
+Modify your function for generating a random sequence so that it produces a DNA sequence with 60% chance for As and Ts and 40% chance for Cs and Gs.
+``````
+
 
 ### Modules as Building Blocks
+Here, we will do the (ORF) Open Reading Frames assignment from [Rosalind](https://rosalind.info/problems/locations/). There, the assignment is described as:
+
+:::{card}
+:header: (ORF) Open Reading Frames
+Given a DNA string, write every distinct candidate protein string that can be translated from ORFs (open reading frames) of that DNA string. Outputs can be written in any order.
+
+A DNA string has six reading frames, three resulting from the string itself and three resulting from its reverse complement.
+
+An open reading frame (ORF) is a substring that starts with a start codon (AUG) and ends by a stop codon (one of UAA, UAG, UGA). Thus, a candidate protein string is derived by translating an open reading frame into amino acids until a stop codon is reached.
+
+Sample input (simplified relative to Rosalind):
+```{code-block} python
+AGCCATGTAGCTAACTCAGGTTACATGGGGATGACCCCGCGACTTGGATTAGAGTCTCTTTTGGAATAAGCCTGAATGATCCGAGTAGCATCTCAG
+```
+
+Sample output:
+```{code-block} python
+:class: no-copybutton
+MLLGSFRLIPKETLIQVAGSSPCNLS
+M
+MGMTPRLGLESLLE
+MTPRLGLESLLE
+```
+:::
+
+In previous assignments, we have created programs for REVC (Complementing a Strand of DNA), RNA (Transcribing DNA to RNA), PROT (Translating RNA to Protein), and SUBS (Finding a Motif in DNA). These pieces of code form the major building blocks for ORF (Open Reading Frames). With the use of functions, we can turn the programs for the sub-problems into modules, and write the program for ORF in terms of those modules.
+
+(exc_wf_create_functions)=
+``````{exercise} Create functions for REVC, RNA, PROT, and SUBS
+Turn the fragments of code for REVC, RNA, PROT, and SUBS into functions.
+``````
+
+(exc_wf_create_modules)=
+``````{exercise} Create modules for REVC, RNA, PROT, and SUBS
+Define the functions for REVC, RNA, PROT, and SUBS each in their own module file.
+
+Test the modules separately with scripts like in [](#exc_wf_gc_content).
+``````
+
+``````{exercise} (ORF) Open Reading Frames
+After doing [](#exc_wf_create_functions) and [](#exc_wf_create_modules), we now have the building blocks to solve ORF.
+
+The main script should do the following:
+- call the function for REVC; then we have two strands
+- call the function for RNA on these two strands
+- call the function for SUBS to find start codons in RNA strands
+- call the function for PROT on each substring that starts at a start codon
+- for each protein string thus obtained, cut it at the first stop sign (* in the translated string); 
+    - alternatively, find the stop codons in the RNA strand as well before calling the function for PROT
+    - another alternative is changing the function for PROT to stop at a stop codon, but that would mean changing the PROT problem
+
+This gives all candidate proteins. 
+
+As a first approach, the script can print each candidate protein immediately when finding it. 
+
+For the real ORF problem on Rosalind, we have to remove duplicates, so then we have to store all candidate proteins in a set (or list or dictionary).
+``````
