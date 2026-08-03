@@ -168,7 +168,7 @@ Will give the output:
 ## Looping - Expanded
 [Previously](#section_foap1_looping), we have seen that looping can be used to alter the flow of a program and that there are two flavors: the `for` loop and the `while` loop. We saw that the loops can be controlled by a specified number of iterations (`for` loop) or by a given condition (`while` loop). Instead of using a number determining the number of iterations, we can also use data structures, such as a list, string or more general: an iterable. 
 
-
+(section_looping_over_a_list)=
 ### Looping over a List
 When looping over a list using a `for` loop, we can either loop over the content ([](#example_for_loop_list_content)) or over the index ([](#example_for_loop_list_indexes)). When looping over the index, we can use both the value of the element in the list as the index ([](#example_for_loop_list_sub_indexes)). We can also add conditional branching to only print certain elements in a list ([](#example_for_loop_list_if)).
 
@@ -432,6 +432,144 @@ The `.items()` method creates an iterable with tuples of `(key, value)` pairs.
 
 
 ### Looping over a Tuple or Set
+Looping over a tuple is similar to [looping over a list](#section_looping_over_a_list): we can retrieve both the content ([](#example_looping_tuple_content)) and the indexes ([](#example_looping_tuple_index)). For sets, however, we can only retrieve the content ([](#example_looping_set)). Since sets are unordered, their elements do not have an index.
+
+(example_looping_tuple_content)=
+``````{prf:example} Looping over the content of a tuple
+Create a tuple from a string:
+```{code-block} python
+amino_acids = tuple('ACDEFGHIKLMNPQRSTVWY')
+```
+```{code-block} python
+amino_acids
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+('A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y')
+```
+Looping over the content:
+```{code-block} python
+for aa in amino_acids: 
+    print(aa)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+A
+C
+D
+E
+F
+G
+H
+I
+K
+L
+M
+N
+P
+Q
+R
+S
+T
+V
+W
+Y
+```
+``````
+
+(example_looping_tuple_index)=
+``````{prf:example} Looping over the index of a tuple
+Create a tuple from a string:
+```{code-block} python
+amino_acids = tuple('ACDEFGHIKLMNPQRSTVWY')
+```
+```{code-block} python
+amino_acids
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+('A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y')
+```
+Looping over the index:
+```{code-block} python
+for i in range(len(amino_acids)): 
+    print(i, amino_acids[i])
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+0 A
+1 C
+2 D
+3 E
+4 F
+5 G
+6 H
+7 I
+8 K
+9 L
+10 M
+11 N
+12 P
+13 Q
+14 R
+15 S
+16 T
+17 V
+18 W
+19 Y
+```
+``````
+
+
+(example_looping_set)=
+``````{prf:example} 
+Create a set from a string:
+```{code-block} python
+unique_chars = set("While and for are different looping structures to alter the flow of a program")
+```
+```{code-block} python
+unique_chars 
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'c', 'i', 'p', ' ', 'r', 'u', 'a', 'd', 's', 'w', 'l', 'g', 't', 'm', 'e', 'W', 'n', 'o', 'f', 'h'}
+```
+Looping over the content:
+```{code-block} python
+for c in unique_chars:
+    print(c)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+c
+i
+p
+
+r
+u
+a
+d
+s
+w
+l
+g
+t
+m
+e
+W
+n
+o
+f
+h
+```
+``````
+
 
 ## Data Representations
 
