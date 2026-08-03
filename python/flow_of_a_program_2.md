@@ -110,6 +110,8 @@ range(start, stop, step)
 ```
 where `start` is the number from which the range starts (defaults to 0, included), `stop` is the number until the range ends (excluded), and `step` is the steps it takes to build the range: the increment when positive, and decrement when negative. Only `stop` is required.
 
+`range()` can be combined with `len()` to create an iterable from a list ([](#example_range_from_list)). When providing the `start` and `stop` arguments, you can specify the exact range you want to build ([](#example_range_start_end)). The `step` argument can be useful when you want to skip certain elements in a list ([](#example_range_start_end_step)).
+
 
 (example_range_from_list)=
 ``````{prf:example} Create a range from a list
@@ -134,7 +136,7 @@ Will give the output:
 
 (example_range_start_end)=
 ``````{prf:example} Create a range from start until end (excluded)
-Get a range of sun-indexes and turn it into a list to see what is inside:
+Get a range of sub-indexes and turn it into a list to see what is inside:
 ```{code-block} python
 sub_indexes = list(range(1, 3))
 ```
