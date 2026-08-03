@@ -572,6 +572,61 @@ h
 
 
 ## Data Representations
+There are many ways to represent data in (a combination of) data structures. Here, we will show ways to show information about some of the moons of Jupiter in parallel lists ([](#example_data_representations_parallel_lists)), a list of tuples ([](#example_data_representations_list_of_tuples)), a dictionary ([](#example_data_representations_dict)), a dictionary of dictionaries ([](#example_data_representations_dict_of_dicts)), and a list of dictionaries ([](#example_data_representations_dict_of_lists)).
+
+(example_data_representations_parallel_lists)=
+``````{prf:example} Information on some moons of Jupiter stored in parallel lists
+```{code-block} python
+names = ['Io', 'Europa', 'Ganymede', ]
+masses = [8.9319e+22, 4.8000e+22, 1.4819e+23, ]
+distances = [0.421700, 0.671034, 1.070412, ]
+```
+``````
+
+(example_data_representations_list_of_tuples)=
+``````{prf:example} Information on some moons of Jupiter stored in a list of tuples
+```{code-block} python
+moons = [
+    ('Io', 8.9319e+22, 0.421700),
+    ('Europa', 4.8000e+22, 0.671034),
+    ('Ganymede', 1.4819e+23, 1.070412),
+]
+```
+``````
+
+(example_data_representations_dict)=
+``````{prf:example} Information on some moons of Jupiter stored in a dictionary
+```{code-block} python
+moons = {
+    'Io', : (8.9319e+22, 0.421700),
+    'Europa', : (4.8000e+22, 0.671034),
+    'Ganymede', : (1.4819e+23, 1.070412),
+}
+```
+``````
+
+(example_data_representations_dict_of_dicts)=
+``````{prf:example} Information on some moons of Jupiter stored in a dictionary of dictionaries
+```{code-block} python
+moons = {
+    'Io', : {'mass' : 8.9319e+22, 'weight' : 0.421700},
+    'Europa', : {'mass' : 4.8000e+22, 'weight' : 0.671034},
+    'Ganymede', : {'mass' : 1.4819e+23, 'weight' : 1.070412},
+}
+```
+``````
+
+(example_data_representations_dict_of_lists)=
+``````{prf:example} Information on some moons of Jupiter stored in a list of dictionaries
+```{code-block} python
+moons = [
+    {'name' : 'Io', 'mass' : 8.9319e+22, 'weight' : 0.421700},
+    {'name' : 'Europa', 'mass' : 4.8000e+22, 'weight' : 0.671034},
+    {'name' : 'Ganymede', 'mass' : 1.4819e+23, 'weight' : 1.070412},
+]
+```
+``````
+
 
 ## Data Structure Conversions
 
