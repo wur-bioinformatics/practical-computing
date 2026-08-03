@@ -693,7 +693,7 @@ Will give the output:
 
 
 ## Exercises
-Today, we will do some more [Rosalind](https://rosalind.info/problems/locations/) exercises: PROT and SUBS. 
+Today, we will do some more [Rosalind](https://rosalind.info/problems/locations/) exercises: PROT and SUBS. Additionally, we will explore the binomial distribution. *#! wiki link?* 
 
 ``````{exercise} Start the W2D4 Jupyter Notebook
 Download the W2D4 Jupyter Notebook from Brightspace.
