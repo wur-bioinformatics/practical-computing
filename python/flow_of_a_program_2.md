@@ -572,10 +572,10 @@ h
 
 
 ## Data Representations
-There are many ways to represent data in (a combination of) data structures. Here, we will show ways to show information about some of the moons of Jupiter in parallel lists ([](#example_data_representations_parallel_lists)), a list of tuples ([](#example_data_representations_list_of_tuples)), a dictionary ([](#example_data_representations_dict)), a dictionary of dictionaries ([](#example_data_representations_dict_of_dicts)), and a list of dictionaries ([](#example_data_representations_dict_of_lists)).
+There are many ways to represent data in (a combination of) data structures. Here, we will show ways to store information about some of the moons of Jupiter in parallel lists ([](#example_data_representations_parallel_lists)), a list of tuples ([](#example_data_representations_list_of_tuples)), a dictionary ([](#example_data_representations_dict)), a dictionary of dictionaries ([](#example_data_representations_dict_of_dicts)), and a list of dictionaries ([](#example_data_representations_dict_of_lists)).
 
 (example_data_representations_parallel_lists)=
-``````{prf:example} Information on some moons of Jupiter stored in parallel lists
+``````{prf:example} Store data in parallel lists
 ```{code-block} python
 names = ['Io', 'Europa', 'Ganymede', ]
 masses = [8.9319e+22, 4.8000e+22, 1.4819e+23, ]
@@ -584,7 +584,7 @@ distances = [0.421700, 0.671034, 1.070412, ]
 ``````
 
 (example_data_representations_list_of_tuples)=
-``````{prf:example} Information on some moons of Jupiter stored in a list of tuples
+``````{prf:example} Store data in a list of tuples
 ```{code-block} python
 moons = [
     ('Io', 8.9319e+22, 0.421700),
@@ -595,7 +595,7 @@ moons = [
 ``````
 
 (example_data_representations_dict)=
-``````{prf:example} Information on some moons of Jupiter stored in a dictionary
+``````{prf:example} Store data in a dictionary
 ```{code-block} python
 moons = {
     'Io', : (8.9319e+22, 0.421700),
@@ -606,7 +606,7 @@ moons = {
 ``````
 
 (example_data_representations_dict_of_dicts)=
-``````{prf:example} Information on some moons of Jupiter stored in a dictionary of dictionaries
+``````{prf:example} Store data in a dictionary of dictionaries
 ```{code-block} python
 moons = {
     'Io', : {'mass' : 8.9319e+22, 'weight' : 0.421700},
@@ -617,7 +617,7 @@ moons = {
 ``````
 
 (example_data_representations_dict_of_lists)=
-``````{prf:example} Information on some moons of Jupiter stored in a list of dictionaries
+``````{prf:example} Store data in a list of dictionaries
 ```{code-block} python
 moons = [
     {'name' : 'Io', 'mass' : 8.9319e+22, 'weight' : 0.421700},
@@ -629,6 +629,68 @@ moons = [
 
 
 ## Data Structure Conversions
+Using loops, we can also convert one data structure to another. We can convert the parallel lists in [](#example_data_representations_parallel_lists) to a list of tuples in [](#example_data_representations_list_of_tuples) ([](#example_convert_parallel_lists_2_list_of_tuples)). Additionally, we can convert the list of tuples in [](#example_data_representations_list_of_tuples) to a dictionary of dictionaries in [](#example_data_representations_dict_of_dicts) ([](#example_convert_list_of_tuples_2_dict_of_dicts)).
+
+
+(example_convert_parallel_lists_2_list_of_tuples)=
+``````{prf:example} Convert parallel lists to a list of tuples
+Given:
+```{code-block} python
+names = ['Io', 'Europa', 'Ganymede', ]
+masses = [8.9319e+22, 4.8000e+22, 1.4819e+23, ]
+distances = [0.421700, 0.671034, 1.070412, ]
+```
+Convert to a list of tuples:
+```{code-block} python
+moons = []
+for i in range(len(names)):
+    d = (
+        names[i],
+        masses[i],
+        distances[i]
+    )
+    moons += [d] # or: result.append(d)
+```
+```{code-block} python
+moons
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+[('Io', 8.9319e+22, 0.4217), ('Europa', 4.8e+22, 0.671034), ('Ganymede', 1.4819e+23, 1.070412)]
+```
+``````
+
+(example_convert_list_of_tuples_2_dict_of_dicts)=
+``````{prf:example} Convert a list of tuples to a dictionary of dictionaries
+Given:
+```{code-block} python
+moons = [
+    ('Io', 8.9319e+22, 0.421700),
+    ('Europa', 4.8000e+22, 0.671034),
+    ('Ganymede', 1.4819e+23, 1.070412),
+]
+```
+Convert to a dictionary of dictionaries:
+```{code-block} python
+dict_of_dicts = {}
+for d in moons:
+    name, mass, distance = d
+    tmp = {} # or {'name' : name}
+    tmp['mass'] = mass
+    tmp['distance'] = distance
+    dict_of_dicts[name] = tmp
+```
+```{code-block} python
+dict_of_dicts
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'Io': {'mass': 8.9319e+22, 'distance': 0.4217}, 'Europa': {'mass': 4.8e+22, 'distance': 0.671034}, 'Ganymede': {'mass': 1.4819e+23, 'distance': 1.070412}}
+```
+``````
+
 
 ## Exercises
 
