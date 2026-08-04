@@ -166,7 +166,7 @@ The `re` module contains several functions for pattern matching. The most basic 
 :class: no-copybutton
 m = re.search(pattern, string)
 ```
-where `pattern` is the pattern you want to match, and `string` is the target string that you want to search. The result of a search is an `re.Match` object of the first match found ([](#example_re_search_match)) or `None` when no match is found ([](#example_re_search_nomatch)).
+where `pattern` is the pattern you want to match, and `string` is the target string that you want to **search**. The result of a search is an `re.Match` object of the first match found ([](#example_re_search_match)) or `None` when no match is found ([](#example_re_search_nomatch)).
 
 (example_re_search_match)=
 ::::{prf:example} `re.search()` returns a `re.Match` object when a match is found
@@ -248,7 +248,7 @@ Will give the output:
 ::::
 
 #### `re.match()`
-To only search for a match at the beginning of a string, we can use `re.match()`:
+To only search for a **match** at the beginning of a string, we can use `re.match()`:
 ```{code-block} python
 :class: no-copybutton
 m = re.match(pattern, string)
@@ -301,8 +301,7 @@ None
 ::::
 
 #### `.start()`, `.end()`, and `.span()`
-
-We can check the start, end, or span of a match using the `re.Match` object methods `.start()`, `.end()`, and `.span()` ([](#example_re_span)), respectively.
+We can check the **start**, **end**, or **span** of a match using the `re.Match` object methods `.start()`, `.end()`, and `.span()` ([](#example_re_span)), respectively.
 
 (example_re_span)=
 ::::{prf:example} Check the span of a match with `.span()` method
@@ -327,7 +326,7 @@ Will give the output:
 ::::
 
 #### `re.findall()`
-We can find **find all** matches in a string using `re.findall()`:
+We can **find all** matches in a string using `re.findall()`:
 ```{code-block} python
 :class: no-copybutton
 m = re.findall(pattern, string)
@@ -360,12 +359,12 @@ Will give the output:
 ::::
 
 #### `re.finditer()`
-To get more information on all matches it is better to use `re.finditer()`:
+To get more information on all matches we **find**, it is better to use `re.finditer()`:
 ```{code-block} python
 :class: no-copybutton
 m = re.finditer(pattern, string)
 ```
-It returns an iterator object containing each `re.Match` object of all matches. The information of the matches can then be retrieved via a `for` loop ([](#example_re_finditer)).
+It returns an **iter**ator object containing each `re.Match` object of all matches. The information of the matches can then be retrieved via a `for` loop ([](#example_re_finditer)).
 
 (example_re_finditer)=
 ::::{prf:example} Retrieve information of all matches with `re.finditer()`
@@ -404,14 +403,100 @@ Will give the output:
 ::::
 
 
-#### `re.compile()`
-
-
-
 #### `re.split()`
+To **split** a string based on a character or pattern, we can use `re.split()`:
+```{code-block} python
+:class: no-copybutton
+re.split(pattern, string)
+```
+Returns a list of the remaining characters ([](#example_re_split))
+
+(example_re_split)=
+::::{prf:example} Split a string on a character or pattern using `re.split()`
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow, oranges are orange'
+```
+Define the pattern:
+```{code-block} python
+p = r'\W+'
+```
+Split on the matches:
+```{code-block} python
+re.split(p, s)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+['Bananas', 'are', 'yellow', 'oranges', 'are', 'orange']
+```
+::::
 
 
 #### `re.sub()`
+To **sub**stitute all occurrences of a character or pattern with a replacement string, we can use `re.sub()`:
+```{code-block} python
+:class: no-copybutton
+re.sub(pattern, replacement, string)
+```
+where `replacement` is the string to replace the matches with. It returns the processed string ([](#example_re_sub)).
+
+
+(example_re_sub)=
+::::{prf:example} Substitute a character or pattern using `re.sub()`
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow'
+```
+Define the pattern:
+```{code-block} python
+p = r'Bananas'
+```
+Define the replacement:
+```{code-block} python
+r = r'Lemons'
+```
+Substitute the matches:
+```{code-block} python
+re.sub(p, r, s)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'Lemons are yellow'
+```
+::::
+
+
+#### `re.compile()`
+We can **compile** a {term}`regular expression` using `re.compile()`:
+```{code-block} python
+:class: no-copybutton
+matcher = re.compile(pattern)
+```
+Then, the `pattern` is stored for repeated use into a pattern object. We can then use the `re` functions as methods on the pattern object ([](#example_re_compile)).
+
+(example_re_compile)=
+::::{prf:example} Compile a pattern in to a pattern object with `re.compile()`
+Compile the pattern:
+```{code-block} python
+matcher = re.compile(r'Bananas')
+```
+Search for a match:
+```{code-block} python
+m = matcher.search('Bananas are yellow when ripe. Bananas are green when unripe')
+```
+```{code-block} python
+print(m)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+<re.Match object; span=(0, 7), match='Bananas'>
+```
+::::
+
+
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
