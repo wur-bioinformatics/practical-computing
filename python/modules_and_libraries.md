@@ -85,15 +85,40 @@ But, obviously, sometimes we need a bigger toolbox. And Python does provide that
 
 A list of modules that are present in any Python installation by default can be found [here](https://docs.python.org/3/library/index.html).
 
-Among these modules are tools to interact with the operating system, with files and filesystems, do mathematical operations, regular expressions, random number generation, and many, many more tools that may not be relevant right now, but could become indispensible tools for you at some later stage.
+Among these modules are tools to interact with the {term}`operating system`, with files and {term}`file systems <file system>`, do mathematical operations, {term}`regular expressions<regular expression>`, random number generation, and many, many more tools that may not be relevant right now, but could become indispensible tools for you at some later stage. Some of them are listed in [](#table_standard_libraries).
 
-We have already used some of them:
-- `math` for mathematical functions
-- `random` to generate pseudo-random numbers
+(table_standard_libraries)=
+:::{list-table}
+* - Standard library
+  - Description
+* - `math`
+  - Mathematical functions
+* - `random` 
+  - Generating pseudo-random numbers
+* - `re`
+  - Regular expression operations
+* - `sys`
+  - System-specific parameters and functions
+* - `os`
+  - Miscellaneous operating system interfaces
+* - `urllib`
+  - Open arbitrary resources by URL
+* - `time`
+  - Time access and conversions
+* - `datetime`
+  - Basic date and time types
+* - `csv`
+  - CSV file Reading and Writing
+* - `argparse`
+  - Parsing Command Line Options and Arguments
+* - `json`
+  - JSON encoder and decoder
+:::
 
-Still, many more modules are included in the Anaconda distribution that we use in this course. Next week, we will be using modules (e.g. `numpy` and `pandas`) that are not strictly 'standard' but they are so commonly that Anaconda provides them without further preparations.
 
 ### Third-Party Libraries
+Still, many more modules are included in the Anaconda distribution that we use in this course. Next week, we will be using modules (e.g. `numpy` and `pandas`) that are not strictly 'standard' but they are so commonly that Anaconda provides them without further preparations.
+
 
 ## Module `re`
 
