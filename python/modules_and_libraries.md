@@ -87,8 +87,9 @@ A list of modules that are present in any Python installation by default can be 
 
 Among these modules are tools to interact with the {term}`operating system`, with files and {term}`file systems <file system>`, do mathematical operations, {term}`regular expressions<regular expression>`, random number generation, and many, many more tools that may not be relevant right now, but could become indispensible tools for you at some later stage. Some of them are listed in [](#table_standard_libraries).
 
+
 (table_standard_libraries)=
-:::{list-table}
+:::{list-table} Some useful Python standard libraries
 * - Standard library
   - Description
 * - `math`
@@ -117,7 +118,29 @@ Among these modules are tools to interact with the {term}`operating system`, wit
 
 
 ### Third-Party Libraries
-Still, many more modules are included in the Anaconda distribution that we use in this course. Next week, we will be using modules (e.g. `numpy` and `pandas`) that are not strictly 'standard' but they are so commonly that Anaconda provides them without further preparations.
+There are many more modules and libraries available that are not included by default. They are external or third-party libraries and sometimes need to be installed separately by an installation manager (e.g. conda or pip). 
+
+In this course, we use an Anaconda distribution that already provides some third-party libraries (e.g. `NumPy` and `Pandas`) because they are so commonly used. Some of the third-party libraries that we will use later in this course are listed in [](#table_third_party_libraries).
+
+(table_third_party_libraries)=
+:::{list-table} Some useful third-party libraries
+* - Third-party library
+  - Description
+* - `NumPy`
+  - Numerical and scientific computing (short for **Num**erical **Py**thon)
+* - `Pandas` 
+  - Data analysis and manipulation, built on top of NumPy, features data structures to handle spreadsheet-like data
+* - `matplotlib`
+  - Data visualization 
+* - `Seaborn`
+  - Data visualization 
+* - `SciPy`
+  - Extension of NumPy to perform advanced mathematical, scientific and engineering computing (short for **Sci**entific **Py**thon)
+* - `BioPython`
+  - Working with sequences, interfacing to standard bioinformatics tools
+* - `MySQLdb`
+  - Interfacing to relational databases
+:::
 
 
 ## Module `re`
