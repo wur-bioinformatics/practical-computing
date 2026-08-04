@@ -548,14 +548,88 @@ Computing Skills for Biologists - a Tool box
 ``` 
 
 ## Exercises
+``````{exercise} Start the W3D2 Jupyter Notebook
+Download the W3D2 Jupyter Notebook from Brightspace.
+
+Just like previous days, run the notebook with `jupyter notebook` in the terminal.
+``````
+
+Here, we define the assignments. The Jupyter notebook contains additional steps and hints.
+
 
 ### Introduction to Module `re`
+``````{exercise} Cutting sites of the enzyme *Ava*II
+Experiment with the `re` module by searching for the cutting sites of a specific enzyme: *Ava*II. 
+
+Import module `re`.
+
+Define the regular expression for the cutting site; include the representation of W in parentheses (a group); for a technicality, also define the whole regular expression as a group (so start with `(` and end with `)`).
+
+Define some example DNA to cut.
+
+We will look at a number of functions of module `re`: `findall`, `split`, `sub`, `search`, `finditer`, and `match`.
+``````
+
+
 
 ### Pattern Matching
-refining ORF
+In the [previous ORF exercise](#exc_wd_orf), we had to find start codons and stop codons (or stop signs in the translation). This is typically a task that we can do with `regular expressions <regular expression>`.
+
+``````{exercise} Refining ORF
+First define a regular expression that matches an open reading frame, i.e it starts with a start codon (AUG) and ends at the first following stop codon (UAA, UAG, or UGA). 
+
+The length of the result should be a multiple of 3.
+
+Then use Python's module `re` for finding all open reading frames in a strand of RNA. Incorporate this into your ORF program.
+``````
 
 ### Reading FASTA files - Revisited
+In the [previous exercise on FASTA files](#exc_wwf_reading_fasta), we processed data immediately after reading it from file. For large files, this is often really necessary, because otherwise the data would not fit in memory.
+
+The drawback of processing data immediately is that we often have to duplicate code or make complex control structures for processing data. Therefore, we look at an alternative now.
+
+
+``````{exercise}  Reading FASTA files - Revisited
+While reading the file, the program should create a dictionary with identifications as keys and sequences as associated values. So instead of printing or writing the counts immediately, the program stores the identification and sequence in a dictionary.
+
+Then after reading the input file, and closing it, the program can process the data from the dictionary. Thus, reading and further processing become
+independent parts of the program, making it easier to chance details of the processing part.
+
+In particular, we postpone any writing to an output file until after the whole input file has been processed (and closed).
+
+As an intermediate step in creating this program, after reading all indentifcations and sequences, you might print the identifications and sequences from the dictionary.
+
+The process step for the previous version of this exercise consisted of computing nucleotide counts and writing these with the identification to an output file. For [Rosalind](https://rosalind.info/problems/locations/)'s problem GC, the program has to compute GC content for each sequence (and has keep track of the largest GC content as well, but we leave that out for now).
+
+As an additional exercise in dictionaries, create a new dictionary with identifications as keys again and now GC content as associated values. This part
+of the program should go after closing the input file.
+
+Finish this program to produce an output file consisting of identifications and corresponding GC contents.
+``````
 
 ### Combining FASTA and ORF
+``````{exercise} ORF from a FASTA file
+Doing the ORF exercise from FASTA files is now rather straightforward. 
+
+We already have code for finding proteins from one DNA sequence (even in multiple variants). 
+
+If we plug in that code – using functions – instead of computing GC content, we can leave the rest of the code as it is
+``````
+
 
 ### Parsing Command Line Options and Arguments
+As noted during one of the lectures, many programmers use their own conventions for command line arguments and especially command line options.
+There is a standard for the format of command line options. However, it is hard to keep to that a standard like that, if you have to write new code for parsing options in every new program. (Remember that parsing is the process of recognizing structure and extracting meaningful elements from textual data.)
+
+Fortunately, many programming languages and programming environments come with tools that can be reused for defining and parsing command line
+options and command line arguments.
+
+Python has a standard module `argparse` for defining which options and arguments a program accepts. That module then also takes care of parsing of
+options and arguments, and even creates appropriate error messages when things go wrong.
+
+The documentation of many modules is quite technical and hard to understand until you know how to use the module. Often, you have to see examples and
+explanations before you can really start. Module `argparse` is no exception. 
+
+::::{exercise} Walk through the `argparse` tutorial
+Walk through a part of the [`argparse` tutorial](https://docs.python.org/3/howto/argparse.html) and try the examples!
+::::
