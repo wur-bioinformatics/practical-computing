@@ -88,8 +88,8 @@ Will give the output:
 :class: no-copybutton
 {'Alice in Wonderland': 47.77, 'Favorite Student': 92.02, 'James Brown': 29.23, 'Jane Doe': 67.98, 'John Doe': 45.5, 'Moby Dick': 56.54, 'Monty Python': 87.33, 'Nobody Special': 15.77, 'Robin Hood': 53.06, 'Winny the Pooh': 25.73}
 ```
-
 ``````
+
 
 ### Writing a File
 When writing to a file, the program follows the structure of the data as it is stored in memory (or of the input file when writing to the output file while processing the input file). We create the structure of the output file by writing to it. If applicable, first, write a header line. Then, loop over the data structure (or input file). This is often done using a `for` loop, but it depends on the data structure. Inside the loop, any data type needs to be converted to a string. Additionally, newlines (`\n`) need to be written explicitly. 
@@ -143,20 +143,64 @@ relative chance,name
 
 
 ## Python Utilities for Text Files
+Python contains many utilities for processing (text) files in its standard library. Some useful methods for file objects and string objects will be shortly discussed here.
 
 ### File Methods
+Python has a dedicated type for files called a file object (or file handle) which connects Python to a file on the disk. The data remains on the disk, meaning it is not read into the Python session when creating a file object. The file object only contains administrative data and a "buffer". To create a file object, we need the file name or path of a file on disk as a string. This file object data type has many useful methods for processing the file.
 
-#### `.open()`
+#### `open()` and `.close()`
+To create the file object, we use function `open()`:
+```{code-block} python
+:class: no-copybutton
+open(file_name, access_mode)
+```
+where `file_name` is the name (or path) of the file we want to open and the `access_mode` is the mode in which the file will be opened. The default mode (without specifying it) is `'r'` for **r**ead. If we want to **w**rite to a file, we use `'w'`. 
 
-#### `.close()`
+After we are done processing the file, we need to explicitly close is using the file object method `.close()`. This ensures Python disconnects from the file on disk (and the write "buffer"). 
+
+```{code-block} python
+:class: no-copybutton
+file_name.close()
+```
+
+```{caution} You should always close your files
+It is best practice to close your files. If you do not, you might not be able to see the changes made to the file because of buffering. Additionally, sometimes other programs cannot access the file while it is still open.
+```
+
+To implicitly close the file after being done processing, we can use the `with` statement:
+```{code-block} python
+:class: no-copybutton
+with open(file_name) as my_file:
+    ...
+```
+In the `with` statement, we write the program for processing the file. This adds a level of indentation, but guarantees closing the file.
+
 
 #### `.write()`
+To write a string to a file, we can use the file object method `.write()`:
+```{code-block} python
+:class: no-copybutton
+file_name.write(text)
+```
+where `text` is a string to write to the file. If we want to write multiple lines (for example, one record per line), we need to write the newline character explicitly.
+
 
 #### `.readline()`
+To read one line from a file, we can use file object method `.readline()`:
+```{code-block} python
+:class: no-copybutton
+file_name.readline()
+```
+This method should **not** be inside a loop that goes over each line of the file. Instead, we can use it to skip a line such as a header line ([](#example_text_file_reading)).
 
-#### `.readlines()`
 
-#### `.read()`
+#### `.readlines()` and `.read()`
+To read the whole file into memory, we can use either `.readlines()` or `.read()`. However, if you are reading in huge files, this can be problematic.
+
+The `.readlines()` method returns a list with each line as an element of the list. If you want to process the file contents, you still need to loop over the list. Therefore, it is better practice to loop over the lines of a file, process each line, and only store what you need.
+
+The `.read()` method returns the specified number of bytes from the file as a string, defaulting to `-1` which means the whole file. Again, to process the file contents, you will need to go over this string and take out the relevant bits. If you read in a huge file, this can be extremely tedious.
+
 
 ### Looping over Files
 
