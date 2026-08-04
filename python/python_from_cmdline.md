@@ -45,7 +45,7 @@ We can import `sys` as seen [before](#section_mal_importing):
 import sys
 ```
 
-### Command Line Arguments
+### `sys.argv`
 To access command line arguments supplied with a script, we can use `sys.argv`.
 
 Imagine we use our script on the command line as follows:
@@ -102,7 +102,19 @@ ATG
 ```
 ::::
 
-### Error Output
+### `sys.stdin`, `sys.stdout`, and `sys.stderr`
+In [](#section_alcap_stdin_stdout_stderr), we saw that on the command line we have three data streams. This is similar when running a Python script from the command line. We can access {term}`stdin`, {term}`stdout`, and {term}`stderr` with `sys.stdin`, `sys.stdout`, and `sys.stderr`, respectively. They are file-like objects, and we can use [](section_wwf_file_methods) on them.
+
+We can write strings to `sys.stderr` using `sys.stderr.write(...)`. Similar to text files, we need to include newline characters explicitly. Whatever is written to `sys.stderr` goes to the console, i.e. it is written to screen/shown to the user. It is **not** sent to the next step in the pipeline.
+
+When using `print()` in a script ran from the commandline, this output is stored in `sys.stdout`. If it is a stand-alone script, we can write straight to the console using `print()`. As we have seen before, print can take any data type and prints its arguments separated by spaces. When using multiple print statetments, these are separated by newline characters. However, when we use a script in a pipeline, the output of `print()` **is** redirected to the next step or to a file. Alternatively, we can specify that we want to print to `sys.stderr`:
+```{code-block} python
+:class: no-copybutton
+print('Hello', 'World', file=sys.stderr)
+```
+
+When using `input()`, the result (what is typed by the user) is actually stored in `sys.stdin`.
+
 
 ## Usage String
 
