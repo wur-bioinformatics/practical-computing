@@ -79,9 +79,68 @@ Last, explicitly close the file:
 ```{code-block} python
 infile.close()
 ```
+Let's see what is in the dictionary:
+```{code-block} python
+table
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+{'Alice in Wonderland': 47.77, 'Favorite Student': 92.02, 'James Brown': 29.23, 'Jane Doe': 67.98, 'John Doe': 45.5, 'Moby Dick': 56.54, 'Monty Python': 87.33, 'Nobody Special': 15.77, 'Robin Hood': 53.06, 'Winny the Pooh': 25.73}
+```
+
 ``````
 
 ### Writing a File
+When writing to a file, the program follows the structure of the data as it is stored in memory (or of the input file when writing to the output file while processing the input file). We create the structure of the output file by writing to it. If applicable, first, write a header line. Then, loop over the data structure (or input file). This is often done using a `for` loop, but it depends on the data structure. Inside the loop, any data type needs to be converted to a string. Additionally, newlines (`\n`) need to be written explicitly. 
+
+(example_text_file_writing)=
+``````{prf:example} Write a table to a text file from a dictionary
+Given the dictionary in [](#example_text_file_reading), write the table to a text file.
+
+First, open the file:
+```{code-block} python
+outfile = open('WoF_out.txt', 'w')
+```
+Write the header line:
+```{code-block} python
+outfile.write('relative chance,name\n')
+```
+Loop over the dictionary and write each line:
+```{code-block} python
+for name in table:
+    chance = table[name]
+    outfile.write(str(chance))
+    outfile.write(',')
+    outfile.write(name)
+    outfile.write('\n')
+```
+Last, explicitly close the file:
+```{code-block} python
+outfile.close()
+```
+
+Now, if we print the contents of the file to the screen:
+```{code-block} bash
+cat WoF_out.txt
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+relative chance,name
+47.77,Alice in Wonderland
+92.02,Favorite Student
+29.23,James Brown
+67.98,Jane Doe
+45.5,John Doe
+56.54,Moby Dick
+87.33,Monty Python
+15.77,Nobody Special
+53.06,Robin Hood
+25.73,Winny the Pooh
+```
+``````
+
 
 ## Python Utilities for Text Files
 
