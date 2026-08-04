@@ -356,6 +356,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 5.4.6 Alternations
 ```
 
+(section_re_capturing_and_replacing)=
 ## Capturing (and Replacing)
 Until now, we have only illustrated what text matches a {term}`Regex <Regular Expression>` pattern. But what makes {term}`Regex <Regular Expression>` so useful is that we can capture part of the match for further processing or that we can replace parth of the match with something else. 
 
