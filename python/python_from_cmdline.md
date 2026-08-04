@@ -117,6 +117,19 @@ When using `input()`, the result (what is typed by the user) is actually stored 
 
 
 ## Usage String
+When writing a script that takes command line arguments, it is best practice to include a usage string. This makes it clear to the user what is expected for each argument. 
+
+For the usage string, we can use triple quotes to ensure the string can span multiple lines:
+```{code-block} python
+:filename: my_script.py
+usage = """
+Usage: my_script.py [options] <filename>
+   or: my_script.py --help
+   or: my_script.py ...
+"""
+```
+
+It is possible to integrate this that when retrieving the command line arguments goes wrong, the usage string is written to {term}`stderr`. 
 
 ## Testing 'name is main'
 
