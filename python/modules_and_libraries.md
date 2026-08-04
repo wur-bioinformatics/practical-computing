@@ -497,12 +497,21 @@ Will give the output:
 ::::
 
 
-
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 5.3 Regular Expressions in Python
 - Chapter 5.5 Functions of the `re` Module
 ```
+
+### Groups
+As explained [before](#section_re_capturing_and_replacing), {term}`groups <group (regex)>` can help structure the {term}`regular expression` or return part of the matched string.
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 5.6 Groups in Regular Expressions
+``` 
+
+*#! example?*
 
 
 ## Exercises
