@@ -23,8 +23,58 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Modules, Libraries, Importing
+In [](#section_wf_modules), we have already seen what modules and libraries are in Python. Here, we will expand on that with more ways of importing, and elaborating on Python Standard Libraries and third-party libraries.
+
 
 ### Importing
+To be able to use the functionalities of modules and libraries, we first need to import them. For completeness, we have added the ones already discussed in [](#section_wf_importing_a_module):
+
+```{code-block} python
+:class: no-copybutton
+import module_name
+```
+```{code-block} python
+:class: no-copybutton
+from module_name import feature
+```
+
+While importing, we can change the name of the module:
+```{code-block} python
+:class: no-copybutton
+import module_name as my_name
+```
+There are many standard abbreviations. For example: `import numpy as np`.
+
+
+We can also rename features while importing:
+```{code-block} python
+:class: no-copybutton
+from module_name import feature as ftr
+```
+This is sometimes useful for redefining.
+
+
+We can import a limited number of features:
+```{code-block} python
+:class: no-copybutton
+from module_name import f1, f2, f3, f4
+```
+
+We can import all names from a module in the current name space:
+```{code-block} python
+:class: no-copybutton
+from module_name import *
+```
+:::{caution} Do not import all names in the current name space
+In general, it is advised against importing all names from a module in the current name space. If you have names already defined in your name space that are the same as some from the module, you will overwrite them.
+:::
+
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 4.2.2 Importing Packages and Modules
+```
+
 
 ### Python Standard Libraries
 In the design philosophy of Python, it was decided to keep the core of the language simple and lean. There are many advantages to this, which include transparency, ease of maintaining the language, and ease of learning the language.  
