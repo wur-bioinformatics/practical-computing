@@ -378,6 +378,7 @@ Define the functions for REVC, RNA, PROT, and SUBS each in their own module file
 Test the modules separately with scripts like in [](#exc_wf_gc_content).
 ``````
 
+(exc_wd_orf)=
 ``````{exercise} (ORF) Open Reading Frames
 After doing [](#exc_wf_create_functions) and [](#exc_wf_create_modules), we now have the building blocks to solve ORF.
 
