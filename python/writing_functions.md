@@ -1,5 +1,5 @@
 ---
-title: Writing Functions
+title: Writing Functions and Modules
 label: writing_fuctions
 abbreviations:
     
