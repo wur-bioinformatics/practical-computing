@@ -185,7 +185,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 4.2.1 Writing Functions
 ```
 
-
+(section_wf_modules)=
 ## Modules
 A module is a Python source file (meaning it is executable) containing definitions and statements. It is used to define functions (e.g. `re.search()`), classes (e.g. `re.Match`), and variables (e.g. `math.pi`) [@geeksforgeeks_pythonmodules_2026]. In Python: module ≈ library. Some "libraries" consist of multiple modules. 
 
