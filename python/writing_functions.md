@@ -185,9 +185,11 @@ Computing Skills for Biologists - a Tool box
 - Chapter 4.2.1 Writing Functions
 ```
 
-## Modules, Libraries, and Importing
+
+## Modules
 A module is a Python source file (meaning it is executable) containing definitions and statements. It is used to define functions (e.g. `re.search()`), classes (e.g. `re.Match`), and variables (e.g. `math.pi`) [@geeksforgeeks_pythonmodules_2026]. In Python: module ≈ library. Some "libraries" consist of multiple modules. 
 
+### Importing a Module
 There are multiple ways to import a module, some are:
 ```{code-block} python
 :class: no-copybutton
@@ -204,24 +206,8 @@ Computing Skills for Biologists - a Tool box
 - Chapter 4.2.2 Importing Packages and Modules
 ```
 
-### Making Your Own Modules
+### Writing a Module
 You can create your own module by creating a Python source file ([](#example_define_module_subs)). Inside the module, only include definitions for functions, classes, and variables. Do not write code outside these definitions and do not include a 'main' program, this will be executed when importing which is undesirable. 
-
-Creating your own modules can help organize your code and make it reusable.
-
-You can use your created module similarly to standard and third-party modules by importing it ([](#example_import_module_subs_1), [](#example_import_module_subs_2)). 
-
-If your module is called `my_utils.py`, use it by:
-```{code-block} python
-:class: no-copybutton
-import my_utils
-```
-
-:::{note} When importing a module, do not include the `.py` extension.
-:::
-
-:::{note} When importing a module, write the path to the Python source file when it is not in the same directory as the script you are importing it into.
-:::
 
 (example_define_module_subs)=
 ``````{prf:example} Define a module for SUBS
@@ -238,6 +224,14 @@ def solve_subs(s, t):
     return locs
 ```
 ``````
+
+Creating your own modules can help organize your code and make it reusable. You can use your created module by importing it ([](#example_import_module_subs_1), [](#example_import_module_subs_2)). 
+
+:::{note} Keep in mind when importing your own module:
+- Do not include the `.py` extension.
+- Write the path to the Python source file (instead of the filename) when it is not in the same directory as the script you are importing it into.
+:::
+
 
 (example_import_module_subs_1)=
 ``````{prf:example} Import a module for SUBS 1
@@ -316,7 +310,7 @@ In these exercises, we will use Python’s `import` statement for importing code
 environment has to forget the previous version. 
 
 In Jupyter Notebooks, the easiest way to do that is restarting the underlying system (the Kernel): \
-{kbd}`Kernel` > {kbd}`Restart` 
+{kbd}`Kernel` > {kbd}`Restart` \
 In order to avoid confusion, better use:\
 {kbd}`Kernel` > {kbd}`Restart & Clear Output`. 
 
