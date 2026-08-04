@@ -148,6 +148,28 @@ Python contains many utilities for processing (text) files in its standard libra
 ### File Methods
 Python has a dedicated type for files called a file object (or file handle) which connects Python to a file on the disk. The data remains on the disk, meaning it is not read into the Python session when creating a file object. The file object only contains administrative data and a "buffer". To create a file object, we need the file name or path of a file on disk as a string. This file object data type has many useful methods for processing the file.
 
+Here, we will discuss some file object methods that can be used to open, close, and read files. Some are illustrated in [](#example_file_processing_file_methods).
+
+(example_file_processing_file_methods)=
+``````{prf:example} Read WoF.txt into a dictionary using file methods
+Read the `WoF.txt` from [](#example_text_file_csv) into a dictionary:
+```{code-block} python
+:linenos:
+:emphasize-lines: 2,3
+table = {}
+with open('WoF.txt') as infile:
+    header = infile.readline() # ignore
+    for line in infile:
+        cells = line.strip().split(',')
+        assert len(cells) == 2 # ...
+        name, chance = cells # unpack at once
+        chance = float(chance)
+        table[name] = chance
+```
+In line 2, we use `open()` to create a file object.\
+In line 3, we use `.readline()` to read the first line (the header line).
+``````
+
 #### `open()` and `.close()`
 To create the file object, we use function `open()`:
 ```{code-block} python
