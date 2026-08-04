@@ -252,7 +252,7 @@ with open(file_name) as my_file:
     for line in my_file:
         # do something
 ```
-`line` is then one complete line (including a newline character).
+`line` is then one complete line (including a newline character) with string as the data type.
 
 ### String Methods
 Because lines in a file are essentially strings, we can use string methods on them for processing. Some relevant ones are summarized in [](#table_str_methods_file_processing) and illustrated in [](#example_file_processing_str_methods).
@@ -302,7 +302,9 @@ In line **5**, we use `.strip()` to first strip off both leading and trailing wh
 
 
 ## Processing Multiple Files
+It is possible to process multiple files either at the same time in one loop, or consecutively in multiple loops. When processing at the same time, we use limited amount of memory. When processing consecutively, we must store (almost) all data in memory, which makes it infeasible for large file. 
 
+We can process multiple files consecutively using nested loops or a sequence of loops. We would then store the data while reading and write later separately. We can store the data in a list when the order is important. However, if the order is different in the multiple files, this is inefficient. Then, it might be better to use a dictionary, where the order is the insertion order. When writing the output file, we would then loop over the created data structure(s).
 
 ## Exercises
 
