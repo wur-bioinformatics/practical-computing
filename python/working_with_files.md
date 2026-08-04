@@ -148,9 +148,9 @@ Python contains many utilities for processing (text) files in its standard libra
 ### File Methods
 Python has a dedicated type for files called a file object (or file handle) which connects Python to a file on the disk. The data remains on the disk, meaning it is not read into the Python session when creating a file object. The file object only contains administrative data and a "buffer". To create a file object, we need the file name or path of a file on disk as a string. This file object data type has many useful methods for processing the file.
 
-Here, we will discuss some file object methods that can be used to open, close, and read files. Some are illustrated in [](#example_file_processing_file_methods).
+Here, we will discuss some file object methods that can be used to open, close, and read files. Some are illustrated in [](#example_file_reading_file_methods) and [](#example_file_writing_file_methods).
 
-(example_file_processing_file_methods)=
+(example_file_reading_file_methods)=
 ``````{prf:example} Read WoF.txt into a dictionary using file methods
 Read the `WoF.txt` from [](#example_text_file_csv) into a dictionary:
 ```{code-block} python
@@ -161,13 +161,31 @@ with open('WoF.txt') as infile:
     header = infile.readline() # ignore
     for line in infile:
         cells = line.strip().split(',')
-        assert len(cells) == 2 # ...
+        assert len(cells) == 2 # explicitly assume
         name, chance = cells # unpack at once
         chance = float(chance)
         table[name] = chance
 ```
-In line 2, we use `open()` to create a file object.\
-In line 3, we use `.readline()` to read the first line (the header line).
+In line **2**, we use `open()` to create a file object.\
+In line **3**, we use `.readline()` to read the first line (the header line).
+``````
+
+(example_file_writing_file_methods)=
+``````{prf:example} Writing the table to WoF_out.txt using file methods
+Given the dictionary in [](#example_file_reading_file_methods), write the table to a text file:
+```{code-block} python
+:linenos:
+:emphasize-lines: 1,2,6
+with open('WoF_out.txt', 'w') as outfile:
+    outfile.write('relative chance,name\n')
+    for name in table:
+        chance = table[name]
+        line = str(chance) + ',' + name + '\n'
+        outfile.write(line)
+```
+In line **1**, we use `open()` to create a file object and specify the mode as writing.\
+In line **2**, we use `.write()` to write the header line.\
+In line **5**, we use `.write()` to write the `line` which contains each element in the table formatted as a CSV file. Note that the newline character is explicitly added.
 ``````
 
 #### `open()` and `.close()`
@@ -237,6 +255,51 @@ with open(file_name) as my_file:
 `line` is then one complete line (including a newline character).
 
 ### String Methods
+Because lines in a file are essentially strings, we can use string methods on them for processing. Some relevant ones are summarized in [](#table_str_methods_file_processing) and illustrated in [](#example_file_processing_str_methods).
+
+(table_str_methods_file_processing)=
+:::{list-table}
+* - String method
+  - Parameter(s)
+  - Usage
+  - Description
+* - `.strip(c)`
+  - `c`: string, character(s) to remove, by default any whitespace (spaces, tabs, newlines)
+  - `line.strip()`
+  - Removes any leading and trailing (both ends) `c` from the string
+* - `.lstrip(c)`
+  - `c`: string, character(s) to remove, by default any whitespace (spaces, tabs, newlines)
+  - `line.lstrip()`
+  - Removes any leading (**l**eft hand end) `c` from the string
+* - `.rstrip(c)`
+  - `c`: string, character(s) to remove, by default any whitespace (spaces, tabs, newlines)
+  - `line.rstrip()`
+  - Removes any trailing (**r**ight hand end) `c` from the string
+* - `.split(c)`
+  - `c`: string, character(s) to split on, by default any whitespace (spaces, tabs, newlines)
+  - `line.split(',')`
+  - Splits a string on a character into a list of strings. Note: any trailing '\n' goes into the last element of the resulting list
+:::
+
+(example_file_processing_str_methods)=
+``````{prf:example} Read WoF.txt into a dictionary using string methods
+Read the `WoF.txt` from [](#example_text_file_csv) into a dictionary:
+```{code-block} python
+:linenos:
+:emphasize-lines: 5
+table = {}
+with open('WoF.txt') as infile:
+    header = infile.readline() # ignore
+    for line in infile:
+        cells = line.strip().split(',')
+        assert len(cells) == 2 # explicitly assume
+        name, chance = cells # unpack at once
+        chance = float(chance)
+        table[name] = chance
+```
+In line **5**, we use `.strip()` to first strip off both leading and trailing whitespace, and then use `.split(',')` to split the line on commas into a list. 
+``````
+
 
 ## Processing Multiple Files
 
