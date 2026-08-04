@@ -203,6 +203,16 @@ The `.read()` method returns the specified number of bytes from the file as a st
 
 
 ### Looping over Files
+When processing an input file, it is best to loop over the file content line by line:
+```{code-block} python
+:class: no-copybutton
+:linenos:
+:emphasize-lines: 2
+with open(file_name) as my_file:
+    for line in my_file:
+        # do something
+```
+`line` is then one complete line (including a newline character).
 
 ### String Methods
 
