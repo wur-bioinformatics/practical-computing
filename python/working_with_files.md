@@ -254,6 +254,11 @@ with open(file_name) as my_file:
 ```
 `line` is then one complete line (including a newline character) with string as the data type.
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.7.1 Text Files
+```
+
 ### String Methods
 Because lines in a file are essentially strings, we can use string methods on them for processing. Some relevant ones are summarized in [](#table_str_methods_file_processing) and illustrated in [](#example_file_processing_str_methods).
 
