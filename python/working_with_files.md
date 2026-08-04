@@ -352,6 +352,7 @@ See file `plantsvshuman_selected_expected.csv` for the expected output.
 
 
 ### Reading FASTA Files
+(exc_wwf_reading_fasta)=
 ``````{exercise} (DNA) Counting DNA Nucleotides
 In the first set of Python exercises (*#! cross ref?*), we have done the essential part of [Rosalind](https://rosalind.info/problems/locations/)'s problem "(DNA) Counting DNA Nucleotides". 
 
