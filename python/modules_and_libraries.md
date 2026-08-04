@@ -15,12 +15,6 @@ After completing this section you should be able to:
 
 ## Introduction
 
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 4.2.2 Importing Packages and Modules
-- Chapter 5.3 Regular Expressions in Python
-- Chapter 5.5 Functions of the `re` Module
-```
 
 ## Modules, Libraries, Importing
 In [](#section_wf_modules), we have already seen what modules and libraries are in Python. Here, we will expand on that with more ways of importing, and elaborating on Python Standard Libraries and third-party libraries.
@@ -148,7 +142,7 @@ In [week 1](#regular_expressions), we have seen {term}`regular expressions<regul
 
 The {term}`regular expression<regular expression>` syntax is the same as for the Linux tools. If you need a refresh head to: [](#regular_expressions). 
 
-The {term}`regular expression<regular expression>` when using the `re` module can be written in a Python string. Here, we also need to {term}`escape` special characters. In the Python string, the back slashes (and quotes) need to be escaped ([](#example_re_python_string)). Instead, we can also use "**r**aw" strings, denoted as `r''` ([]#).
+The {term}`regular expression<regular expression>` when using the `re` module can be written in a Python string. In a Python string, we need to {term}`escape` characters such as dot (`.`), square brackets (`[]`), and parentheses (`()`). In addition, the back slashes (and quotes) need to be {term}`escaped<escape>` ([](#example_re_python_string)). Because we need to {term}`escape` so many characters, the pattern can become quite cluttered. Instead, we can use "**r**aw" strings, denoted as `r''` ([](#example_re_raw_string)).
 
 (example_re_python_string)=
 ``````{prf:example} Regular expression written in a Python string
@@ -165,10 +159,265 @@ pattern = r'\(\w*\[\d+\]\)'
 ``````
 
 
-### Functions
+### Functions and Classes
+#### `re.search()` and `re.Match`
+The `re` module contains several functions for pattern matching. The most basic one is `re.search()`:
+```{code-block} python
+:class: no-copybutton
+m = re.search(pattern, string)
+```
+where `pattern` is the pattern you want to match, and `string` is the target string that you want to search. The result of a search is an `re.Match` object of the first match found ([](#example_re_search_match)) or `None` when no match is found ([](#example_re_search_nomatch)).
 
-### Classes
+(example_re_search_match)=
+::::{prf:example} `re.search()` returns a `re.Match` object when a match is found
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow'
+```
+Define the pattern:
+```{code-block} python
+p = r'yellow'
+```
+Search for a match:
+```{code-block} python
+m = re.search(p, s)
+```
+See what is in `m`:
+```{code-block} python
+print(m)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+<re.Match object; span=(12, 18), match='yellow'>
+```
+::::
 
+(example_re_search_nomatch)=
+::::{prf:example} `re.search()` returns `None` when no match is found
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow'
+```
+Define the pattern:
+```{code-block} python
+p = r'green'
+```
+Search for a match:
+```{code-block} python
+m = re.search(p, s)
+```
+See what is in `m`:
+```{code-block} python
+print(m)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+None
+```
+::::
+
+
+#### `.group()`
+As can be seen in ([](#example_re_search_match)), printing the `re.Match` object gives us information about the location of the match in the target string (`span=(12, 18)`) and the identified match (`match='yellow'`). Instead of printing the `re.Match` object, we can retrieve the identified match using the `.group()` method on the `re.Match` object ([](#example_re_group)).
+
+(example_re_group)=
+::::{prf:example} `.group()` method returns the identified match stored in an `re.Match` object
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow'
+```
+Define the pattern:
+```{code-block} python
+p = r'yellow'
+```
+Search for a match:
+```{code-block} python
+m = re.search(p, s)
+```
+Retrieve the match in `m`:
+```{code-block} python
+m.group()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'yellow'
+```
+::::
+
+#### `re.match()`
+To only search for a match at the beginning of a string, we can use `re.match()`:
+```{code-block} python
+:class: no-copybutton
+m = re.match(pattern, string)
+```
+It returns an `re.Match` object if zero or more characters at the beginning of the `string` match the `pattern` and `None` when the `string`  does not match the `pattern` ([](#example_re_match)).
+
+(example_re_match)=
+::::{prf:example} `re.match()` function returns the identified match when it is at the beginning of a string
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow when ripe. Bananas are green when unripe'
+```
+Define the pattern:
+```{code-block} python
+p = r'Bananas'
+```
+Search for a match only at the beginning of the string:
+```{code-block} python
+m = re.match(p, s)
+```
+Retrieve the match in `m`:
+```{code-block} python
+m.group()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'Bananas'
+```
+
+Suppose the following string (using the same pattern):
+```{code-block} python
+s = 'Ripe bananas are yellow. Bananas are green when unripe'
+```
+```{code-block} python
+p = r'Bananas'
+```
+Search for a match only at the beginning of the string:
+```{code-block} python
+m = re.match(p, s)
+```
+```{code-block} python
+print(m)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+None
+```
+::::
+
+#### `.start()`, `.end()`, and `.span()`
+
+We can check the start, end, or span of a match using the `re.Match` object methods `.start()`, `.end()`, and `.span()` ([](#example_re_span)), respectively.
+
+(example_re_span)=
+::::{prf:example} Check the span of a match with `.span()` method
+Given the match from [](#example_re_match):
+```{code-block} python
+m.group()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'Bananas'
+```
+Obtain the span of the match:
+```{code-block} python
+m.span()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+(0, 7)
+```
+::::
+
+#### `re.findall()`
+We can find **find all** matches in a string using `re.findall()`:
+```{code-block} python
+:class: no-copybutton
+m = re.findall(pattern, string)
+```
+Returns a list of all the matches for which the `pattern` matches the `string` ([](#example_re_findall)).
+
+(example_re_findall)=
+::::{prf:example} Find all matches with `re.findall()`
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow when ripe. Bananas are green when unripe'
+```
+Define the pattern:
+```{code-block} python
+p = r'Bananas'
+```
+Search for a match only at the beginning of the string:
+```{code-block} python
+m = re.findall(p, s)
+```
+Print the matches in `m`:
+```{code-block} python
+print(m)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+['Bananas', 'Bananas']
+```
+::::
+
+#### `re.finditer()`
+To get more information on all matches it is better to use `re.finditer()`:
+```{code-block} python
+:class: no-copybutton
+m = re.finditer(pattern, string)
+```
+It returns an iterator object containing each `re.Match` object of all matches. The information of the matches can then be retrieved via a `for` loop ([](#example_re_finditer)).
+
+(example_re_finditer)=
+::::{prf:example} Retrieve information of all matches with `re.finditer()`
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow when ripe. Bananas are green when unripe'
+```
+Define the pattern:
+```{code-block} python
+p = r'Bananas'
+```
+Search for all matches, obtaining all information:
+```{code-block} python
+m = re.finditer(p, s)
+```
+Print `m`:
+```{code-block} python
+print(m)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+<callable_iterator object at 0x76da1bf029e0>
+```
+Retrieve the matches in `m`:
+```{code-block} python
+for matches in m:
+    matches.group()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'Bananas'
+'Bananas'
+```
+::::
+
+
+#### `re.compile()`
+
+
+
+#### `re.split()`
+
+
+#### `re.sub()`
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 5.3 Regular Expressions in Python
+- Chapter 5.5 Functions of the `re` Module
+```
 
 
 ## Exercises
