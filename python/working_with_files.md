@@ -307,9 +307,95 @@ It is possible to process multiple files either at the same time in one loop, or
 We can process multiple files consecutively using nested loops or a sequence of loops. We would then store the data while reading and write later separately. We can store the data in a list when the order is important. However, if the order is different in the multiple files, this is inefficient. Then, it might be better to use a dictionary, where the order is the insertion order. When writing the output file, we would then loop over the created data structure(s).
 
 ## Exercises
+All exercises of today essentially handle one record at a time. So, reading and writing have to be interleaved, keeping very little information in memory at the same time.
+- In the first exercise, the program must copy complete lines from input to output, but only those lines that meet some criteria.
+- The second exercise deals with multi-line inputs from FASTA files. We use [Rosalind](https://rosalind.info/problems/locations/) problem "(DNA) Counting DNA Nucleotides" as an example application.
+- The last exercise creates multiple output lines per input line.
+
+``````{exercise} Start the W3D1 Jupyter Notebook
+Download the W3D1 Jupyter Notebook from Brightspace.
+
+Just like previous days, run the notebook with `jupyter notebook` in the terminal.
+``````
+
+Here, we define the assignments. The Jupyter notebook contains additional steps and hints.
+
+
+:::{note} Using a Jupyter Notebook for reading files
+Please note, that experimenting in a Jupyter notebook for reading files can be awkward. 
+
+Repeating a cell that reads from a file will often not give the same result again. It will only do so if code for opening and closing the file is included in the same cell. 
+
+Instead, we will mostly experiment with fixed values for lines as if read from file.
+:::
+
 
 ### Selecting Lines from a Text File
+``````{exercise} Selecting lines from a text file
+Find and copy those lines from file `plantsvshuman_outmft6.csv` for which query and target have the same length (i.e. where `EndQ‒StartQ` is equal to `EndT‒StartT`). Note: This is not the same as `#gaps-open=0`
+
+The first line of the input file is a header line that can be copied directly to output file. 
+
+For all other lines, we have to break the line up into constituent parts and interpret those parts. This is called parsing. When the line passes the test (query and target have the same length), the complete line is written to the output file.
+
+The program has to write output lines to the output file while reading the input file; so don't keep more than one line in memory at the same time.
+
+Let the program write to file `plantsvshuman_selected.csv`.
+
+See file `plantsvshuman_selected_expected.csv` for the expected output.
+``````
+
 
 ### Reading FASTA Files
+``````{exercise} (DNA) Counting DNA Nucleotides
+In the first set of Python exercises (*#! cross ref?*), we have done the essential part of [Rosalind](https://rosalind.info/problems/locations/)'s problem "(DNA) Counting DNA Nucleotides". 
+
+*#! this bit is confusing, what are we trying to say?*\
+For some other problems on Rosalind (e.g. GC), we have to be able to read a file in FASTA format. 
+
+For Rosalind's "(ORF) Open Reading Frames" problem, we have done all other steps last week; for completely finishing that problem, the program should read a FASTA file again. *#! until here*
+
+Now, we will apply Rosalind's DNA to FASTA files.
+
+
+A FASTA file can contain multiple sequences, were one sequence usually spans multiple lines. At the start of each sequence, one line that starts with a right-pointed bracket (or larger sign, `>`) gives meta-information on that sequence.
+
+For example, a sample input file from Rosalind is:
+```{code-block} bash
+>Rosalind_6404
+CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCC
+TCCCACTAATAATTCTGAGG
+>Rosalind_5959
+CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCT
+ATATCCATTTGTCAGCAGACACGC
+>Rosalind_0808
+CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
+TGGGAACCTGCGGGCAGTAGGTGGAAT
+```
+Such input is hard to process by `input()`. But once we know files *#! what?*, we can let Python assemble the lines that belong together.
+
+The assignment is to make a Python program that reads a file in FASTA format, and for each sequence write the identification and counts of nucleotides to another text file.
+
+The program does not have to remember any sequences after their nucleotide counts were computed.
+
+The output file corresponding to the sample input file above looks like this:
+```{code-block} bash
+:class: no-copybutton
+Rosalind_6404 A: 18 C: 25 G: 18 T: 19
+Rosalind_5959 A: 19 C: 28 G: 17 T: 20
+Rosalind_0808 A: 20 C: 24 G: 29 T: 14
+```
+``````
+
 
 ### Flattening Matrix Data
+``````{exercise} Flattening matrix data
+Write a program that "flattens" file `GeneDistanceMatrix.csv` to a file `GeneDistanceTable.csv`.
+
+The result file should have three columns:\
+from: ID taken from the first column in the matrix\
+to: ID taken from the first row in the matrix\
+distance: float value from the cell in the corresponding row and column of the matrix\
+
+The program has to keep all column IDs (first row of the matrix) and the current row ID in memory; all float values can be written immediately.
+``````
