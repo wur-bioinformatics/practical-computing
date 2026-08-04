@@ -504,15 +504,48 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Groups
-As explained [before](#section_re_capturing_and_replacing), {term}`groups <group (regex)>` can help structure the {term}`regular expression` or return part of the matched string.
+As explained [before](#section_re_capturing_and_replacing), {term}`groups <group (regex)>` can help structure the {term}`regular expression` or return part of the matched string ([](#example_re_groups)).
+
+
+(example_re_groups)=
+::::{prf:example} Group a part of the match to retrieve
+Define a string:
+```{code-block} python
+s = 'Bananas are yellow, oranges are orange'
+```
+Define the pattern:
+```{code-block} python
+p = r'(\w+)\s\w+\syellow.+'
+```
+Search for the match:
+```{code-block} python
+m = re.search(p, s)
+```
+Print the whole match:
+```{code-block} python
+m.group(0)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'Bananas are yellow, oranges are orange'
+```
+Print the group:
+```{code-block} python
+m.group(1)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'Bananas'
+```
+::::
+
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 5.6 Groups in Regular Expressions
 ``` 
-
-*#! example?*
-
 
 ## Exercises
 
