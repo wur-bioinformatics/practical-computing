@@ -144,6 +144,26 @@ In this course, we use an Anaconda distribution that already provides some third
 
 
 ## Module `re`
+In [week 1](#regular_expressions), we have seen {term}`regular expressions<regular expression>` on the command line. The tools that can use {term}`regular expressions<regular expression>` are very powerful and efficient. However, when we want to do pattern matching in the middle of a Python program, calling these tools is not easily done. Instead, we can use {term}`**r**egular **e**xpressions<regular expression>` in Python with the standard module `re`. The `re` module offers functions and methods for performing pattern mathcing within the context of a Python program. 
+
+The {term}`regular expression<regular expression>` syntax is the same as for the Linux tools. If you need a refresh head to: [](#regular_expressions). 
+
+The {term}`regular expression<regular expression>` when using the `re` module can be written in a Python string. Here, we also need to {term}`escape` special characters. In the Python string, the back slashes (and quotes) need to be escaped ([](#example_re_python_string)). Instead, we can also use "**r**aw" strings, denoted as `r''` ([]#).
+
+(example_re_python_string)=
+``````{prf:example} Regular expression written in a Python string
+```{code-block} python
+pattern = '\\(\\w*\\[\\d+\\]\\)'
+```
+
+``````
+(example_re_raw_string)=
+``````{prf:example} Regular expression written in a raw string
+```{code-block} python
+pattern = r'\(\w*\[\d+\]\)'
+```
+``````
+
 
 ### Functions
 
