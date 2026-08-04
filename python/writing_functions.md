@@ -284,7 +284,7 @@ print(' '.join(str_locs))
 ``````
 
 
-## Standard Libraries
+### Standard Libraries
 In the design philosophy of Python, it was decided to keep the core of the language simple and lean. There are many advantages to this, which include transparency, ease of maintaining the language, and ease of learning the language.  
 
 The list of built-in functions in Python is very limited, and the remainder of the functionality of the core language is built into its objects, by means of methods of strings, lists, dictionaries, and some more primary data structures.
@@ -315,8 +315,12 @@ The Jupyter Notebook contains all the instructions.
 In these exercises, we will use Python’s `import` statement for importing code from own scripts. If we make changes to the imported code, the Python
 environment has to forget the previous version. 
 
-In Jupyter notebooks, the easiest way to do that is restarting the underlying system (the Kernel): Kernel > Restart (in order to avoid confusion, better use:
-Kernel > Restart & Clear Output). After restarting the notebook, we can execute the `import` statement again. If you forget to restart, the notebook will still use
+In Jupyter Notebooks, the easiest way to do that is restarting the underlying system (the Kernel): \
+{kbd}`Kernel` > {kbd}`Restart` 
+In order to avoid confusion, better use:\
+{kbd}`Kernel` > {kbd}`Restart & Clear Output`. 
+
+After restarting the notebook, we can execute the `import` statement again. If you forget to restart, the notebook will still use
 the old version of the imported code.
 
 ### Defining a Function
