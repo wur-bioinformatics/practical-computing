@@ -91,7 +91,7 @@ Will give the output:
 ```
 ``````
 
-Second, we can create a list by repeating a single-element list ([](#), [](#)). This can be useful when you already know how long your final list will be, and you want to initialize it before altering the values of each item (with for example a loop). 
+Second, we can create a list by repeating a single-element list ([](#example_list_intialise_repeating_zeros), [](#example_list_intialise_repeating_None)). This can be useful when you already know how long your final list will be, and you want to initialize it before altering the values of each item (with for example a loop). 
 
 (example_list_intialise_repeating_zeros)=
 ``````{prf:example} Create a list of zeros by repeating a single-element list
@@ -124,7 +124,7 @@ Will give the output:
 `None` type can be used to create a list of "empty" cells.
 ``````
 
-Last, a list can be created using the `list()` function ([](#)). The {term}`argument` supplied to `list()` should be an iterable.
+Last, a list can be created using the `list()` function ([](#example_list_list_function)). The {term}`argument` supplied to `list()` should be an iterable.
 
 (example_list_list_function)=
 ``````{prf:example} Create a list by using the list() function
@@ -143,7 +143,7 @@ Will give the output:
 
 (section_list_indexing_and_slicing)=
 #### List Indexing and Slicing
-Similar to [](#section_str_indexing_and_slicing), we can also access elements in lists using indexing (example_list_indexing) and obtain a part of a list using slicing ([](#)). Again, negative indices mean counting from the end, with `[-1]` taking the last element. 
+Similar to [](#section_str_indexing_and_slicing), we can also access elements in lists using indexing (example_list_indexing) and obtain a part of a list using slicing ([](#example_list_slicing)). Again, negative indices mean counting from the end, with `[-1]` taking the last element. 
 
 (example_list_indexing)=
 ``````{prf:example} Access an element in a list using indexing
