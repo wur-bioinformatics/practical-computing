@@ -145,6 +145,14 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Efficiency
+Apart from writing correct code, it is also worth mentioning to write efficient code. To improve efficiency, we first need to ding out where time is spent by for examing using a profiler *#! explain what that is?*. 
+
+Some general tips to improve efficiency:
+- avoid re-opening files
+- use dictionaries instead of lists (esp. Python)
+- buy a faster computer (no joke)
+
+However, never compromise correctness: a wrong answer fast is worse than the correct answer later. Additionally, be very very careful when condensing code, make sure it still operates as you want it to operate.
 
 ## Exercises
 ### Finding Known Errors (together)
