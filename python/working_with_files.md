@@ -145,6 +145,7 @@ relative chance,name
 ## Python Utilities for Text Files
 Python contains many utilities for processing (text) files in its standard library. Some useful methods for file objects and string objects will be shortly discussed here.
 
+(section_wwf_file_methods)=
 ### File Methods
 Python has a dedicated type for files called a file object (or file handle) which connects Python to a file on the disk. The data remains on the disk, meaning it is not read into the Python session when creating a file object. The file object only contains administrative data and a "buffer". To create a file object, we need the file name or path of a file on disk as a string. This file object data type has many useful methods for processing the file.
 
