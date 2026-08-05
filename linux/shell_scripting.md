@@ -16,7 +16,7 @@ After completing this section you should be able to:
 Data analysis usually involves many steps, from cleaning and preparing files to running analyses and summarizing the results. These steps can be performed manually, but doing so is time-consuming and makes it difficult to reproduce the analysis later. A shell script records the commands in a file that can be executed whenever needed. In this section, you will learn how to turn a sequence of commands into a script, add variables and basic logic, and create workflows that are easier to repeat, inspect, and share.
 
 ## Shell Scripting
-Now that you have got more experience with {ref}`Advanced_Linux_Commands` and {ref}`Pipelines`, it is fairly easy to turn them into a script. Scripts can be written in different programming and scripting languages, such as Python, Bash, and R. Each language has its own syntax, rules, and vocabulary.
+Now that you have got more experience with {ref}`Advanced_Linux_Commands` and [](#section_alcap_pipelines), it is fairly easy to turn them into a script. Scripts can be written in different programming and scripting languages, such as Python, Bash, and R. Each language has its own syntax, rules, and vocabulary.
 
 File extensions are commonly used to indicate the language in which a script is written. For example, Python scripts usually have the `.py` extension, while R scripts usually have the `.R` extension and bash shell scripts often have the `.sh` extension.
 

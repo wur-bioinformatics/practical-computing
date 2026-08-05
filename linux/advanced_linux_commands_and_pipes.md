@@ -325,7 +325,7 @@ hello world
 ``````
 
 ```{note}
-Because `tr` only takes input from {term}`standard input <stdin>`, we used `echo` to direct the strings in [](#tr_dna_example) and [](#tr_case_example) to {term}`stdin` and the pipe (`|`) to redirect {term}`stdin` to `tr`. This will be explained more extensively in {numref}`Pipelines`.
+Because `tr` only takes input from {term}`standard input <stdin>`, we used `echo` to direct the strings in [](#tr_dna_example) and [](#tr_case_example) to {term}`stdin` and the pipe (`|`) to redirect {term}`stdin` to `tr`. This will be explained more extensively in [](#section_alcap_pipelines).
 ```
 
 ```{seealso} Further Reading
@@ -483,7 +483,7 @@ tar [OPTION] [FILE]
 where `FILE` is either the archive from which the files are to be extracted (using {term}`option` `-xf`), or the files to put into an archive (using {term}`option` `-cf`).
 
 
-(pipelines)=
+(section_alcap_pipelines)=
 ## Pipelines
 Now that we have seen some more advanced Linux commands, let's explore how we can combine them by using pipelines. A pipeline is a string of commands for which the {term}`stdout` of the previous command is redirected towards the {term}`stdin` of the following command ({ref}`input-outputstreams`). This is done with the pipe symbol (`|`). 
 
@@ -602,7 +602,7 @@ In the following exercises, you will:
 - build up complex pipelines from small, less complex 'Lego' blocks;
 - make bigger 'Lego' blocks and extend on those. 
 
-For each of the exercises you will get commands which serve as building blocks of the pipeline. Connect them in the right order using the pipe (`|`) symbol as discussed in [](#pipelines). 
+For each of the exercises you will get commands which serve as building blocks of the pipeline. Connect them in the right order using the pipe (`|`) symbol as discussed in [](#section_alcap_pipelines). 
 
 
 ``````{tip}
