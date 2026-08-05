@@ -234,6 +234,7 @@ if <condition C1>:
 ```
 ``````
 
+(section_foap1_flow_charts)=
 ## Flow Charts
 To make the structure of a program clearer, you can turn it into a flowchart ([](#flow_charts_img)).
 
