@@ -236,15 +236,38 @@ try:
     <statements causing the problem>
 except:
     <alternative action; e.g. print usage>
-
 ```
-
-
 ``````
 
 
 ### File-based Version of Rosalind's RNA
+[Rosalind](https://rosalind.info/problems/locations/) supplies its data as a text file that you have to download.
 
-Rosalind's RNA with Command Line Arguments
+For results it has two options: typing/copying the answer into a text box or uploading a text file again.
 
-Rosalind’s RNA with advanced Command Line Arguments
+Now that we know [how to process text files](#working_with_files), we can write our programs for solving Rosalind problems to read directly from the downloaded file and write its answer to an uploadable file.
+
+``````{exercise} (RNA) Transcribing DNA to RNA - Python script
+Take a solution for problem RNA (Transcribing DNA to RNA) and turn it into a file-based version. You can use your own solution or our file `rosalind_rna.py`.
+
+The program should ask the user for the names of input file and output file (include suitable prompts). Then, the program reads the DNA string from the
+input file specified, and it writes the corresponding RNA to the output file specified.
+``````
+
+``````{exercise} (RNA) Transcribing DNA to RNA - Python script using command line arguments
+*[extension of previous exercise]*\
+Let the program take names of input file and output file from two command line arguments. If the number of command line arguments is not two, give a usage
+message instead.
+``````
+
+
+``````{exercise} [optional] (RNA) Transcribing DNA to RNA - Python script using advanced command line arguments
+*[extension of previous exercise]*\
+Further extend the script:
+- If there are no command line arguments, the program reads from {term}`standard input <stdin>` and writes to {term}`standard output <stdout>`.
+- If the first command line argument is `-f` (actually an {term}`option`), the program reads from file and writes to file;
+  - If the user supplied the `-f` option but no filenames, the input filename should be `rosalind_rna.txt` and the output filename should be `rosalind_rna_out.txt`.
+  - If there is a command line argument after `-f`, it is the name of the input file. The output filename should be derived from the input file name by appending `_out` to the main part of the file name, i.e. before any file extension.
+  - If there is another command line argument after `-f` and the input filename, it is the name of the output file;
+- In all other cases, the program should give a usage message.
+``````
