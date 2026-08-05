@@ -2,7 +2,7 @@
 title: Errors, Debugging, and Testing
 label: errors_debugging_testing
 abbreviations:
-    
+    IDE: Integrated Development Environment
 bibliography:
     .bib
 ---
@@ -80,6 +80,7 @@ Other examples of code that will not necessarily raise an error, but are still w
   :::
 
 
+(section_edb_preventing_errors)=
 ### Preventing Errors
 It is often better to prevent errors than needing to debug large amounts of code. Here, we will discuss some strategies that you can apply to prevent a part of the errors you will inevitably make. 
 
@@ -91,20 +92,57 @@ Split your program up into parts. Use for each task a function and work on each 
 
 You can also let someone else read your code.
 
-When there are certain problems you expect, you can use [`try`-`except`](https://docs.python.org/3/tutorial/errors.html#handling-exceptions) statements. However, it is less efficient than `if`-`else`. When possible, it is better to use `if`-`else`. Though, `try`-`except` can be useful for user input and file operations. When you use `try`-`except`, always use an exception type that is as as specific as possible to your case. Do not use `except` without a type, because it may hide other problems. 
+When there are certain problems you expect, you can use [`try`-`except`](https://docs.python.org/3/tutorial/errors.html#handling-exceptions) statements. However, it is less efficient than `if`-`else`. When possible, it is better to use `if`-`else`. Though, `try`-`except` can be useful for user input and file operations. When you use `try`-`except`, always use an exception type that is as specific as possible to your case. Do not use `except` without a type, because it may hide other problems. 
 
 Before writing to files, it is better to first simulate the operation. For example by first only writing the filename to the console to ensure you are going to write to the correct file. 
 
-While you are developing your program, run it on a copy of the data to ensure the original data remains uncompromised or on a smaller subset of the data if you are working with large data files.
+While you are developing your program, run it on a copy of the data to ensure the original data remains uncompromised or on a smaller subset of the data if you are working with large data files. When you use a subset, make sure it is representative of the complete data set.
 
 Test independent parts of your program separately to ensure the parts work as expected.
 
 Keep previous versions of your program. Or better: use a version management system such as [Git](https://git-scm.com/). 
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 4.5 Errors and Exceptions
+```
 
 ## Debugging
+Debugging is the process of finding and removing the causes of your errors. It is best to isolate the problem by using small functions and testing them separately, then you can uncover which function is causing the problem. You can comment out code to see where your program still produces the expected result and where it goes wrong. Additionally, you can use `print()` statements to for example see what is stored in variables or whether your program actually enters conditional branches. However, this can be tricky if you are not explicit in what you are printing (printing `"here"` three times and only seeing it twice in the console does not hep you in finding out what goes wrong). You can also write to a log-file instead of printing. 
+
+You can also debug using a debugger. A debugger is a tool that executes your program in an environment that allows for inspection and control. Debuggers are always part of IDEs. 
+
+Main functionalities of debuggers are:
+- Setting breakpoints: Pausing the program on a specific line
+- Inspecting variables: Checking the content of variables in memory while the program runs
+- Step-by-step execution: Run the code of the program line-by-line.
+- Changing variables (not in all environments): Changing the content of variables in memory while the program runs
+
+*#! command line debugger obsolete? add that or not?*
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 4.6 Debugging
+```
 
 ## Testing
+As mentioned [before](#section_edb_preventing_errors), one way to prevent errors is by performing tests. To do so, use small examples for which you can predict the output and the properties of the output (e.g. amount of lines) before running. Preferably, do this for each small part of your program, or function. Make sure to also include special cases, the so-called edge cases. These are cases that fall out of normal use, but can still happen, and should be accounted for. 
+
+Too often, people say "Testing shows that the program works fine." But:
+
+:::{blockquote}
+Program testing can be used to show the presence of bugs, but never to show their absence!
+
+-- Edsger Dijkstra, 1970
+:::
+
+There are also ways to automate tests. The simplest way is using `assert` statements in your Python code. Alternatively, `doctest` as described in the book, or use packages as `PyUnit` or `unittest` for more advanced unit testing. 
+
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 4.7 Unit Testing
+```
 
 ## Efficiency
 
