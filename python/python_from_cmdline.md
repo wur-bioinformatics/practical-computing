@@ -4,7 +4,7 @@ label: python_from_cmdline
 abbreviations:
     
 bibliography:
-    .bib
+    python_from_cmdline.bib
 ---
 
 ```{important} Learning outcomes
