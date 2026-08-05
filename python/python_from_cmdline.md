@@ -54,14 +54,14 @@ python3 my_script.py arg1 arg2 arg3
 ```
 Where `arg1`, `arg2`, and `arg3` are command line arguments that will be used in our script.
 
-`sys.argv` returns a list of strings. It contains the whole command that comes after `python3` ([](#example_sys_argv_whole)).
+`sys.argv` returns a list of strings. It contains the whole command that comes after `python3`, including the name of the script ([](#example_sys_argv_whole)).
 
 (example_sys_argv_whole)=
 ``````{prf:example} Retrieve the whole command
 In our script:
 ```{code-block} python
 :filename: my_script.py
-import argv
+import sys
 arguments = sys.argv
 print(arguments)
 ```
@@ -83,7 +83,7 @@ We can also index `sys.argv`, with `sys.argv[0]` being the name of the script an
 In our script:
 ```{code-block} python
 :filename: my_script.py
-import argv
+import sys
 n = sys.argv[1]
 codon = sys.argv[2]
 
@@ -103,17 +103,22 @@ ATG
 ::::
 
 ### `sys.stdin`, `sys.stdout`, and `sys.stderr`
-In [](#section_alcap_stdin_stdout_stderr), we saw that on the command line we have three data streams. This is similar when running a Python script from the command line. We can access {term}`stdin`, {term}`stdout`, and {term}`stderr` with `sys.stdin`, `sys.stdout`, and `sys.stderr`, respectively. They are file-like objects, and we can use [](section_wwf_file_methods) on them.
+In [](#section_alcap_stdin_stdout_stderr), we saw that on the command line we have three data streams. This is similar when running a Python script from the command line. We can access {term}`stdin`, {term}`stdout`, and {term}`stderr` in our Python script with `sys.stdin`, `sys.stdout`, and `sys.stderr`, respectively [@geeksforgeeks_pythonsysmodule_2025]. They are file-like objects, and we can use [](section_wwf_file_methods) on them.
 
-We can write strings to `sys.stderr` using `sys.stderr.write(...)`. Similar to text files, we need to include newline characters explicitly. Whatever is written to `sys.stderr` goes to the console, i.e. it is written to screen/shown to the user. It is **not** sent to the next step in the pipeline.
+`sys.stdin` reads input from the {term}`stdin` data stream. When using `input()`, the result (what is typed by the user) is actually stored in `sys.stdin`.
 
-When using `print()` in a script ran from the commandline, this output is stored in `sys.stdout`. If it is a stand-alone script, we can write straight to the console using `print()`. As we have seen before, print can take any data type and prints its arguments separated by spaces. When using multiple print statetments, these are separated by newline characters. However, when we use a script in a pipeline, the output of `print()` **is** redirected to the next step or to a file. Alternatively, we can specify that we want to print to `sys.stderr`:
+`sys.stdout` writes output to the {term}`stdout` data stream. We can do so by using `sys.stdout.write()` which works as if writing to a file. Namely, we can only write strings and we need to include newline characters explicitly. Additionally, we can write to the {term}`stdout` data stream by using `print()`. The advantages of [`print()`](#section_gswp_print) are that it can take any data type, it prints arguments separated by spaces by default, and, when using multiple `print()` statements, the output is separated by newline characters. 
+
+If the goal is to print something to screen, we must note that using `sys.stdout` only works when the Python script is singly run and not part of a pipeline. Namely, when we use a Python script in a pipeline, the output of `print()` **is** redirected to the next step or to a file. 
+
+
+Alternatively, we can use `print()` and specify the file as `sys.stderr` to utilise that data stream:
 ```{code-block} python
 :class: no-copybutton
 print('Hello', 'World', file=sys.stderr)
 ```
+`sys.stderr` writes to the {term}`stderr` data stream, thereby separating (error) messages from regular output. We can write to {term}`stderr` using `sys.stderr.write()`, which has similar constraints as `sys.stdout.write()` mentioned before. Whatever is written to `sys.stderr` goes to the console, i.e. it is written to screen/shown to the user. It is **not** sent to the next step in the pipeline.
 
-When using `input()`, the result (what is typed by the user) is actually stored in `sys.stdin`.
 
 
 ## Usage String
