@@ -18,6 +18,8 @@ Most Linux commands are designed to perform one specific task, such as displayin
 
 (input-outputstreams)=
 ## Input/Output streams
+
+(section_alcap_stdin_stdout_stderr)=
 ### Standard input, standard output, standard error
 When running a program on the Linux command-line, you will always deal with the Input/Output streams: standard input ({term}`stdin`), standard output ({term}`stdout`), and standard error ({term}`stderr`) ({numref}`io_streams`). 
 
