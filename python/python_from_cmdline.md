@@ -15,10 +15,7 @@ After completing this section you should be able to:
 
 ## Introduction
 
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 4.4 Python from the Command Line
-```
+
 
 :::{caution} Do not export the Jupyter Notebook as Python
 The book advises to "export" the Jupyter notebook "as Python" (p135). However, this is a bad idea: a Jupyter Notebook contains more than just code (e.g. markdown and output cells). 
@@ -28,13 +25,20 @@ It is better to copy the whole program/script into a cell, then copy the content
 
 
 ## Python Script as Part of a Pipeline
-We can run a Python script on the commandline as:
+[Previously](#section_alcap_pipelines), we have seen that we can build pipelines using command line tools. We can also use a Python script within a Bash pipeline:
+
 ```{code-block} bash
 :class: no-copybutton
-python3 script.py
+tool1 | python3 script.py | tool2
 ```
-
-
+```{code-block} bash
+:class: no-copybutton
+cat in.txt | python3 script.py > out.txt
+```
+```{code-block} bash
+:class: no-copybutton
+python3 script.py < in.txt > out.txt
+```
 
 
 ## Module `sys`
@@ -103,7 +107,7 @@ ATG
 ::::
 
 ### `sys.stdin`, `sys.stdout`, and `sys.stderr`
-In [](#section_alcap_stdin_stdout_stderr), we saw that on the command line we have three data streams. This is similar when running a Python script from the command line. We can access {term}`stdin`, {term}`stdout`, and {term}`stderr` in our Python script with `sys.stdin`, `sys.stdout`, and `sys.stderr`, respectively [@geeksforgeeks_pythonsysmodule_2025]. They are file-like objects, and we can use [](section_wwf_file_methods) on them.
+In [](#section_alcap_stdin_stdout_stderr), we saw that on the command line we have three data streams. This is similar when running a Python script from the command line. We can access {term}`stdin`, {term}`stdout`, and {term}`stderr` in our Python script with `sys.stdin`, `sys.stdout`, and `sys.stderr`, respectively [@geeksforgeeks_pythonsysmodule_2025]. They are file-like objects, and we can use [](#section_wwf_file_methods) on them.
 
 `sys.stdin` reads input from the {term}`stdin` data stream. When using `input()`, the result (what is typed by the user) is actually stored in `sys.stdin`.
 
@@ -146,6 +150,10 @@ if __name__ == '__main__':
 ```
 This construction can be used to include code in the program that lives outside the function, class, and variable definitions. This code is then not executed when importing the module (because then the `__name__` variable does not equal `'__main__'`). It can also be used to run tests on the module. 
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 4.4 Python from the Command Line
+```
 
 ## Exercises
 
