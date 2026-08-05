@@ -156,9 +156,92 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Exercises
+The first exercise of today focuses on preparing a Python program to be part of a shell pipeline. This means that some outputs must go to {term}`standard output <stdout>` (function `print()`) for the next step in the pipeline, while other (typically diagnostic) outputs must still go to console. It also means that some inputs cannot be supplied by {term}`standard input <stdin>` (function `input()`). We will need command line arguments for that purpose.
+
+In the second exercise, we make a program more flexible by replacing hard-coded filenames by names asked from the user. The actual input and output are
+read from one file and written to another file.
+
+The further assignments combine the aspects of the first two assignments. The last assignment is open-ended by design.
+
+This time, we do not supply a Jupyter Notebook. For really working with files a notebook has its shortcomings, as you might have noticed with the first exercises on files. Working with command line arguments from a notebook is not possible at all (well, not reasonably).
+
+::::{tip} For trying code fragments, you can create your own notebook
+For testing command line arguments, `sys.argv` will only give the command line arguments of the Python system running in the notebook; not very usefull. For experimenting, you can create a variable `sys_argv`, like we did for line yesterday. Note that command line arguments are passed as a list of strings, and that the name of the script is in position 0 of the list.
+
+::::
+
+For testing the new aspects of today, you will have to write scripts in their own files, and execute those from the terminal window. Although it is possible to run programs with command line arguments inside PyCharm, it is far easier using the terminal when experimenting with command line arguments.
 
 
 ### Multiplication on the Console
+``````{exercise} Multiplication on the console
+**Write program `multiply.py` that takes one or more numbers as command line arguments, multiply all those numbers, and print the answer to console.** If the user does not supply any arguments, the program prints a usage message.
+
+The program that you have to write for this exercise must take its inputs from the command line and print its output to the console. 
+
+:::{tip}
+Import `sys` and use `sys.argv` for accepting inputs. Remember that command line arguments are always supplied as strings.
+:::
+
+:::{tip}
+For the multiplication, use a result variable that the program initializes to `1` – not `0` – before processing the numbers.
+:::
+
+:::{tip}
+Output of `print()` goes to {term}`standard output <stdout>`. That is not what we want in this case. Instead, the output should go to `sys.stderr`.
+:::
+
+Some examples of how the program should run with its expected outputs:
+```{code-block} bash
+:class: no-copybutton
+python3 multiply.py 2 3 4
+24.0
+```
+```{code-block} bash
+:class: no-copybutton
+python3 multiply.py 4
+4.0
+```
+The program should print the usage if no numbers are supplied as arguments:
+```{code-block} bash
+:class: no-copybutton
+python3 multiply.py
+usage: (<your text>)
+```
+Output should still go to the console if {term}`standard output <stdout>` is redirected (`>` or `>>`) or sent to another program by a pipe (`|`):
+```{code-block} bash
+:class: no-copybutton
+python3 multiply.py 2 3 4 > data.out
+24.0
+```
+```{code-block} bash
+:class: no-copybutton
+python3 multiply.py 4 5 < data.out
+20.0
+```
+*nothing should be written in `data.out`*
+
+
+What happens as a result of the following call depends on how intelligent you make your program. For a first version it is acceptable if the program just crashes.
+```{code-block} bash
+:class: no-copybutton
+python3 multiply.py a b c
+```
+
+Optional: What happens if the user types non-numbers at the command-line? \
+If you want the program to behave nicely in that case, put the part of the program that causes an error into a `try`-`except` block:
+```{code-block} python
+:filename: multiply.py
+try:
+    <statements causing the problem>
+except:
+    <alternative action; e.g. print usage>
+
+```
+
+
+``````
+
 
 ### File-based Version of Rosalind's RNA
 
