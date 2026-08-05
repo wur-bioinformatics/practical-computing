@@ -136,7 +136,7 @@ Usage: my_script.py [options] <filename>
 It is possible to integrate this in such a way, that when retrieving the command line arguments goes wrong, the usage string is written to {term}`stderr`. 
 
 ## Special Variable `__name__`
-A Python source file (script) has a special variable called `__name__` (with double underscores) which is assigned the name of the Python module by the interpreter. If the source file is executed as the main program, i.e. it is run from the command line, the `__name__` variable will have the value `'__main__'`. If the file is being imported in another module, the `__name__` variable will have the name of the module as value.
+A Python source file (script) has a special variable called `__name__` (with double underscores) which is assigned the name of the Python module by the interpreter [@geeksforgeeks___name___2022]. If the source file is executed as the main program, i.e. it is run from the command line, the `__name__` variable will have the value `'__main__'`. If the file is being imported in another module, the `__name__` variable will have the name of the module as value.
 
 Because the `__name__` variable is a built-in variable, we can use it check whether the current script is being run on its own:
 ```{code-block} python
