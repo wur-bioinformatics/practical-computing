@@ -107,9 +107,9 @@ In [](#section_alcap_stdin_stdout_stderr), we saw that on the command line we ha
 
 `sys.stdin` reads input from the {term}`stdin` data stream. When using `input()`, the result (what is typed by the user) is actually stored in `sys.stdin`.
 
-`sys.stdout` writes output to the {term}`stdout` data stream. We can do so by using `sys.stdout.write()` which works as if writing to a file. Namely, we can only write strings and we need to include newline characters explicitly. Additionally, we can write to the {term}`stdout` data stream by using `print()`. The advantages of [`print()`](#section_gswp_print) are that it can take any data type, it prints arguments separated by spaces by default, and, when using multiple `print()` statements, the output is separated by newline characters. 
+`sys.stdout` writes output to the {term}`stdout` data stream. We can do so by using `sys.stdout.write()` which works as if writing to a file. Namely, we can only write strings and we need to include newline characters explicitly. Additionally, we can write to the {term}`stdout` data stream by using [`print()`](#section_gswp_print). The advantages of `print()` are that it can take any data type, it prints arguments separated by spaces by default, and, when using multiple `print()` statements, the output is separated by newline characters. 
 
-If the goal is to print something to screen, we must note that using `sys.stdout` only works when the Python script is singly run and not part of a pipeline. Namely, when we use a Python script in a pipeline, the output of `print()` **is** redirected to the next step or to a file. 
+If the goal is to print something to screen, we must note that using `sys.stdout` only works when the Python script is singly run and not part of a pipeline. Namely, when we use a Python script in a pipeline, the output of `print()` is redirected to the next step or to a file. 
 
 
 Alternatively, we can use `print()` and specify the file as `sys.stderr` to utilise that data stream:
@@ -120,11 +120,10 @@ print('Hello', 'World', file=sys.stderr)
 `sys.stderr` writes to the {term}`stderr` data stream, thereby separating (error) messages from regular output. We can write to {term}`stderr` using `sys.stderr.write()`, which has similar constraints as `sys.stdout.write()` mentioned before. Whatever is written to `sys.stderr` goes to the console, i.e. it is written to screen/shown to the user. It is **not** sent to the next step in the pipeline.
 
 
-
 ## Usage String
 When writing a script that takes command line arguments, it is best practice to include a usage string. This makes it clear to the user what is expected for each argument. 
 
-For the usage string, we can use triple quotes to ensure the string can span multiple lines:
+For the usage string, we can use triple quotes (`"""`) to ensure the string can span multiple lines:
 ```{code-block} python
 :filename: my_script.py
 usage = """
@@ -134,9 +133,19 @@ Usage: my_script.py [options] <filename>
 """
 ```
 
-It is possible to integrate this that when retrieving the command line arguments goes wrong, the usage string is written to {term}`stderr`. 
+It is possible to integrate this in such a way, that when retrieving the command line arguments goes wrong, the usage string is written to {term}`stderr`. 
 
-## Testing 'name is main'
+## Special Variable `__name__`
+A Python source file (script) has a special variable called `__name__` (with double underscores) which is assigned the name of the Python module by the interpreter. If the source file is executed as the main program, i.e. it is run from the command line, the `__name__` variable will have the value `'__main__'`. If the file is being imported in another module, the `__name__` variable will have the name of the module as value.
+
+Because the `__name__` variable is a built-in variable, we can use it check whether the current script is being run on its own:
+```{code-block} python
+:filename: my_script.py
+if __name__ == '__main__':
+    # main code
+```
+This construction can be used to include code in the program that lives outside the function, class, and variable definitions. This code is then not executed when importing the module (because then the `__name__` variable does not equal `'__main__'`). It can also be used to run tests on the module. 
+
 
 ## Exercises
 
