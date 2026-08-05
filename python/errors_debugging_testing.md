@@ -81,6 +81,26 @@ Other examples of code that will not necessarily raise an error, but are still w
 
 
 ### Preventing Errors
+It is often better to prevent errors than needing to debug large amounts of code. Here, we will discuss some strategies that you can apply to prevent a part of the errors you will inevitably make. 
+
+Before starting to code, write down what a piece of code is going to do, including assumptions. Even before starting writing a program you can make a [flow chart](#section_foap1_flow_charts) to help define the logic of your program. 
+
+Use descriptive variable and function names. So not `variable1` and `variabe2`, but rather `dna_str` and `rna_str`.
+
+Split your program up into parts. Use for each task a function and work on each function so it produces the desirable result of that task.
+
+You can also let someone else read your code.
+
+When there are certain problems you expect, you can use [`try`-`except`](https://docs.python.org/3/tutorial/errors.html#handling-exceptions) statements. However, it is less efficient than `if`-`else`. When possible, it is better to use `if`-`else`. Though, `try`-`except` can be useful for user input and file operations. When you use `try`-`except`, always use an exception type that is as as specific as possible to your case. Do not use `except` without a type, because it may hide other problems. 
+
+Before writing to files, it is better to first simulate the operation. For example by first only writing the filename to the console to ensure you are going to write to the correct file. 
+
+While you are developing your program, run it on a copy of the data to ensure the original data remains uncompromised or on a smaller subset of the data if you are working with large data files.
+
+Test independent parts of your program separately to ensure the parts work as expected.
+
+Keep previous versions of your program. Or better: use a version management system such as [Git](https://git-scm.com/). 
+
 
 ## Debugging
 
