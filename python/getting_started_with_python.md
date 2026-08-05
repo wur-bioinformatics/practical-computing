@@ -955,7 +955,7 @@ class int(object)
 ```
 ``````
 
-
+(section_gswp_print)=
 ### `print()`
 To print output to screen, we can use function `print()`. It can take multiple arguments, each separated by a comma and they can be of different data types ([](#example_print)).
 
