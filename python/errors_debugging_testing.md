@@ -155,11 +155,53 @@ Some general tips to improve efficiency:
 However, never compromise correctness: a wrong answer fast is worse than the correct answer later. Additionally, be very very careful when condensing code, make sure it still operates as you want it to operate.
 
 ## Exercises
+First, we will do two exercises together, then you can use the Jupyter Notebook for the remaining two exercises.
+
+``````{exercise} Start the W3D4 Jupyter Notebook
+Download the W3D4 Jupyter Notebook from Brightspace.
+
+Just like previous days, run the notebook with `jupyter notebook` in the terminal.
+``````
+
+
 ### Finding Known Errors (together)
+case: brought to PC-labs
+
 
 ### Finding Unknown Errors (together)
+case: `flawed_selecting_lines.py` (in the second data ZIP-file)
+
 
 ### Finding a Subtle Error in SUBS
+``````{exercise} (SUBS) Debugging and testing
+The Jupyter notebook contains some versions of a function solve_subs together with some tests. 
+
+After walking through the code, find an additional test that reveals a subtle error in a version of the function that passed all previous tests.
+``````
+
 
 ### Finding Errors by Tracing Previous Versions
-version management and checking differences
+When you will do more program development, you will want to use a version management system like GIT. In this course, we don't have time to learn GIT as
+well. 
+
+
+``````{exercise} Version management and checking differences
+In a version management system, the programmer stores subsequent versions of code (and sometimes small samples of data, as well). With each version
+stored on the version management system, the programmer can – and should – supply a brief description of what was changed for which reason.
+
+We simulate that in the Jupyter notebook. The Jupyter notebook contains a series of versions of a script, together with descriptions of the changes.
+
+At the end of the series, we discover a bug that has 'crept into the system' at some stage. 
+
+Use the descriptions to find when the error was introduced. 
+
+Can you also solve the problem?
+
+:::{note} Additional notes
+On a real version management system, we could repair the bug in a "branch" of the project and then "merge" the correction back into the main
+"trunk" of the project. In open source projects, contributors can usually create such branches, also for adding new features. For consolidating such changes – after testing! – owners of the project can merge the changes into the trunk to become part of the main product.
+:::
+
+
+``````
+
