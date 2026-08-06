@@ -26,9 +26,14 @@ After completing this section you should be able to:
 :::
 
 ## NumPy
-[Previously](#section_ds_lists), we have seen that Python has a list object, that serves the function of an array in other programming lanugages. However, lists are relatively slow to process. NumPy introduced a data oject called an `ndarray` (**n**-**d**imensional **array**) that is fast and efficient to process and it included tools to manipulate and use mathematical operations on said arrays. 
+[Previously](#section_ds_lists), we have seen that Python has a list object, that serves the function of an array in other programming lanugages. However, lists are relatively slow to process. [NumPy](https://numpy.org/) introduced a data oject called an `ndarray` (**n**-**d**imensional **array**) that is fast and efficient to process and it included tools to manipulate and use mathematical operations on said arrays. 
 
 NumPy is the foundation for many scientific Python libraries.
+
+We can import NumPy as follows:
+```{code-block} python
+import numpy as np
+```
 
 ### Lists vs. Arrays
 A list in Python is an ordered collection of elements. Lists can contain different data types. On the other hand, NumPy arrays only contain numerical data. Just like lists, arrays can be multi-dimensional. We can create an array from a list ([](#example_array_from_list)).
@@ -50,11 +55,6 @@ Will give the output:
 ```
 
 We can turn the list into an array:
-First, import NumPy:
-```{code-block} python
-import numpy as np
-```
-
 ```{code-block} python
 lengths = np.array([5.1,4.9,4.7,4.6])
 ```
@@ -119,7 +119,7 @@ Arrays have dimensions and can be multi-dimensional ([](#figure_nd_arrays)).
 n-dimensional arrays and their real-world applications
 :::
 
-
+*#! example?*
 
 ### Basic NumPy Operations
 NumPy can perform operations on entire arrays. No loops are needed, making it very fast. We can perform element-wise operations on arrays such as multiplying the elements in an array with a number ([](#example_numpy_array_multiplication)) or adding a number to each element in the array ([](#example_numpy_array_addition)). Additionally, NumPy contains built-in functions for performing mathematical operations on arrays, such as taking the mean ([](#example_numpy_array_mean)), sum ([](#example_numpy_array_sum)) or max ([](#example_numpy_array_max)).
@@ -222,12 +222,60 @@ As you might noticed in [](#example_numpy_array_mean), [](#example_numpy_array_s
 
 
 ## Pandas
+NumPy is great for numerical data. Eventhough you can represent strings in a NumPy array, you cannot represent tables containing different data types. Biological data do not often contain only one data type, they are messy.
 
-### Pandas Dataframe
+This is were the [pandas](https://pandas.pydata.org/) library comes in: it is a powerful data manipulation tool that introduces a data structure called a DataFrame that can handle tabular data with multiple data types.
+
+We can import pandas as follows:
+```{code-block} python
+import pandas as pd
+```
+
+
+### Pandas DataFrame
+A pandas DataFrame is a two-dimensional data structure that has labeled axes (rows and columns). You can think of it as a table that you would use in for example Excel.
+
+We will illustrate pandas' functionalities using the [Iris dataset](wiki:iris_flower_data_set). It contains information on the sepal and petal length and width (in cm) of three Iris species (*Iris setosa*, *Iris versicolor*, and *Iris virginica*). In [](#figure_pandas_df_iris), the dataset is loaded into a DataFrame. We can see that columns have a name and rows have an index, though they can also be named. Each row is an observation, whereas each column is a property of the obersvation. Values of different columns can have different data types, but all values in one column must be of the same data type. 
+
+(figure_pandas_df_iris)=
+:::{figure} img/df_iris
+The Iris dataset as a pandas DataFrame
+:::
+
 
 ### Pandas Operations 
+Apart from representing data in a DataFrame, we can perform operations on it to preprocess, clean and transform the data.
 
 #### Loading Data
+First, we need to load the data into a DataFrame. Pandas contains useful functions, such as `read_csv()` to read in tables from a URL([](#example_pandas_read_csv_url)). With `read_csv()` you can also read in tables stored on your machine. It also supports reading in tab-delimited files, then you will have to add `sep='\t'` (by default it is a comma). It has even more parameters that can be useful, the full documentation can be found [here](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html).
+
+(example_pandas_read_csv_url)=
+``````{prf:example} Read in a table into a DataFrame
+We can read in a table from a repository by storing the URL in a string:
+```{code-block} python
+url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
+```
+Using `read_csv()` with the url as argument, we can read it into a DataFrame:
+```{code-block} python
+iris = pd.read_csv(url)
+```
+```{code-block} python
+type(iris)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+<class 'pandas.DataFrame'>
+```
+``````
+
+Alternatively, we can create DataFrames from other data structures as:
+```{code-block} python
+:class: no-copybutton
+df = pd.DataFrame(data_structure)
+```
+where `data_structure` can be a list, Numpy arrays, or a dictionary of lists/arrays.
+
 
 #### Exploring a Dataframe
 
