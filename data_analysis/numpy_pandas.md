@@ -21,6 +21,9 @@ After completing this section you should be able to:
 
 ## Introduction
 
+(figure_python_data_science_ecosystem)=
+:::{figure} img/python_data_science_ecosystem
+:::
 
 ## NumPy
 [Previously](#section_ds_lists), we have seen that Python has a list object, that serves the function of an array in other programming lanugages. However, lists are relatively slow to process. NumPy introduced a data oject called an `ndarray` (**n**-**d**imensional **array**) that is fast and efficient to process and it included tools to manipulate and use mathematical operations on said arrays. 
