@@ -29,6 +29,14 @@ project:
         - file: python/python_from_cmdline.md
         - file: python/errors_debugging_testing.md
     - file: data_analysis/data_analysis_intro.md
+      children:
+       - file: data_analysis/numpy_pandas.md
+       - file: data_analysis/plotting_in_python.md
+       - file: data_analysis/biopython.md
+       - file: data_analysis/relational_databases.md
+       - file: data_analysis/building_an_interactive_website.md
+       - file: data_analysis/remote_computing.md
+       - file: data_analysis/genai_for_coding.md
     - file: glossary.md
 
 site:
