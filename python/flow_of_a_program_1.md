@@ -238,7 +238,7 @@ if <condition C1>:
 ## Flow Charts
 To make the structure of a program clearer, you can turn it into a flowchart ([](#flow_charts_img)).
 
-:::{figure} img/flow_charts_programming.png
+:::{figure} python/img/flow_charts_programming.png
 :label: flow_charts_img
 
 Example structures of flow charts

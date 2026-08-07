@@ -110,7 +110,7 @@ We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the
 *#! update fun fact for relevant server*
 :::
 
-```{figure} img/working_on_remote_server.png
+```{figure} linux/img/working_on_remote_server.png
 :label: working_on_remote_server_img
 
 Working on WUR Bioinformatics servers
