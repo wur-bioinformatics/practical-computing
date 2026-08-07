@@ -283,7 +283,7 @@ Now that we have read in the table into a DataFrame, let's do some basic explora
 
 (example_df_head)=
 ``````{prf:example} Show the first 5 lines of a DataFrame
-Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the first 5 lines of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the first 5 lines of a DataFrame with:
 ```{code-block} python
 iris.head()
 ```
@@ -301,7 +301,7 @@ Will give the output:
 
 (example_df_tail)=
 ``````{prf:example} Show the last 5 lines of a DataFrame
-Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the last 5 lines of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the last 5 lines of a DataFrame with:
 ```{code-block} python
 iris.tail()
 ```
@@ -322,7 +322,7 @@ We can also view properties of the Dataframe. To show the number of rows and col
 
 (example_df_shape)=
 ``````{prf:example} Show the number of rows and columns of a DataFrame
-Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the number of rows and columns of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the number of rows and columns of a DataFrame with:
 ```{code-block} python
 iris.shape
 ```
@@ -354,7 +354,7 @@ To produce a summary of the DataFrame, we can use the method `.info()` ([](#exam
 
 (example_df_info)=
 ``````{prf:example} Show the summary of a DataFrame
-Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary of a DataFrame with:
 ```{code-block} python
 iris.info()
 ```
@@ -378,7 +378,7 @@ memory usage: 6.0 KB
 
 (example_df_describe)=
 ``````{prf:example} Show the summary statistics of a DataFrame
-Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary statistics of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary statistics of a DataFrame with:
 ```{code-block} python
 iris.describe()
 ```
@@ -399,6 +399,97 @@ max        7.900000     4.400000      6.900000     2.500000
 
 
 #### Selecting Data from a Dataframe
+We can select data from a DataFrame by indexing it with the column name of one column ([](#example_df_index_one_col)) or a list of column names for multiple columns ([](#example_df_index_multiple_col)).
+
+(example_df_index_one_col)=
+``````{prf:example} Select one column of a DataFrame
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select a column of a DataFrame with:
+```{code-block} python
+iris["species"]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+0         setosa
+1         setosa
+2         setosa
+3         setosa
+4         setosa
+         ...
+145    virginica
+146    virginica
+147    virginica
+148    virginica
+149    virginica
+Name: species, Length: 150, dtype: str
+```
+``````
+
+(example_df_index_multiple_col)=
+``````{prf:example} Select multiple columns of a DataFrame
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select multiple columns of a DataFrame with:
+```{code-block} python
+iris[["species", "petal_length"]]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+       species  petal_length
+0       setosa           1.4
+1       setosa           1.4
+2       setosa           1.3
+3       setosa           1.5
+4       setosa           1.4
+..         ...           ...
+145  virginica           5.2
+146  virginica           5.0
+147  virginica           5.2
+148  virginica           5.4
+149  virginica           5.1
+
+[150 rows x 2 columns]
+```
+``````
+
+To select the rows of a DataFrame, we can use the `.iloc` property. It allows us to use integers to index the DataFrame, similar to how we would [index or slice a list](#section_list_indexing_and_slicing). Instead of elements in lists, we select rows in an a DataFrame. To only select one row, we can index this property with the DataFrame index ([](#example_df_index_one_row)). To select multiple rows, we can provide it with a slice ([](#example_df_index_multiple_rows)).
+
+(example_df_index_one_row)=
+``````{prf:example} Select one row of a DataFrame
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select a row of a DataFrame with:
+```{code-block} python
+iris.iloc[0]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+sepal_length       5.1
+sepal_width        3.5
+petal_length       1.4
+petal_width        0.2
+species         setosa
+Name: 0, dtype: object
+```
+This is the first row of the DataFrame, as we used `0` for the index
+``````
+
+(example_df_index_multiple_rows)=
+``````{prf:example} Select multiple rows of a DataFrame (slicing)
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select multiple rows of a DataFrame with:
+```{code-block} python
+iris.iloc[0:5]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+   sepal_length  sepal_width  petal_length  petal_width species
+0           5.1          3.5           1.4          0.2  setosa
+1           4.9          3.0           1.4          0.2  setosa
+2           4.7          3.2           1.3          0.2  setosa
+3           4.6          3.1           1.5          0.2  setosa
+4           5.0          3.6           1.4          0.2  setosa
+```
+These are the first five rows of the DataFrame.
+``````
 
 #### Filtering Data from a Dataframe
 
