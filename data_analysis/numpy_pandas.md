@@ -22,7 +22,7 @@ After completing this section you should be able to:
 ## Introduction
 
 (figure_python_data_science_ecosystem)=
-:::{figure} img/python_data_science_ecosystem
+:::{figure} img/python_data_science_ecosystem.png
 :::
 
 ## NumPy
@@ -238,7 +238,7 @@ A pandas DataFrame is a two-dimensional data structure that has labeled axes (ro
 We will illustrate pandas' functionalities using the [Iris dataset](wiki:iris_flower_data_set). It contains information on the sepal and petal length and width (in cm) of three Iris species (*Iris setosa*, *Iris versicolor*, and *Iris virginica*). In [](#figure_pandas_df_iris), the dataset is loaded into a DataFrame. We can see that columns have a name and rows have an index, though they can also be named. Each row is an observation, whereas each column is a property of the obersvation. Values of different columns can have different data types, but all values in one column must be of the same data type. 
 
 (figure_pandas_df_iris)=
-:::{figure} img/df_iris
+:::{figure} img/df_iris.png
 The Iris dataset as a pandas DataFrame
 :::
 
@@ -674,6 +674,29 @@ We do not have to specify `numeric_only=True`, because we are calculating the me
 ``````
 
 #### Creating New Columns
+Since DataFrames are mutable, we can create columns. This is especially useful if we want to perform calculations using existing columns ([](#)). Then we can calculate new biological variables. We can simply add a column by indexing the DataFrame with a new
+
+(example_df_new_col)=
+``````{prf:example} Create a new column in a DataFrame by performing a calculation on existing columns
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can create a new column using a calculation with:
+```{code-block} python
+iris["petal_ratio"] = (iris["petal_length"] / iris["petal_width"])
+```
+```{code-block} python
+iris.head()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+   sepal_length  sepal_width  petal_length  petal_width species  petal_ratio
+0           5.1          3.5           1.4          0.2  setosa          7.0
+1           4.9          3.0           1.4          0.2  setosa          7.0
+2           4.7          3.2           1.3          0.2  setosa          6.5
+3           4.6          3.1           1.5          0.2  setosa          7.5
+4           5.0          3.6           1.4          0.2  setosa          7.0
+```
+``````
+
 
 #### Missing Values
 
