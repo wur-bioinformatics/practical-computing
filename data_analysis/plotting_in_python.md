@@ -19,6 +19,7 @@ After completing this section you should be able to:
 ## Introduction
 
 ## What Makes a Good Plot?
+Figures in science serve the purpose of visually supporting text or showing results. A good figure should communicate your results in a few seconds. It  should answer a question and should be easy to read. It is best to keep your plots simple and to label everything, so the reader knows what they are looking at. 
 
 ## Matplotlib vs. Seaborn
 
