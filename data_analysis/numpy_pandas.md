@@ -699,9 +699,26 @@ Will give the output:
 
 
 #### Missing Values
+Sometimes we are presented with missing values in our data. These can cause problems in downstream analyses so it is best to account for them. To check how many missing values there are, we can use `.isna().sum()` ([](#example_df_isna_sum)). If there were any missing values we can either remove rows (or columns) containing missing values with `.dropna()` or replace them with `.fillna()`. Which one you choose depends on your specific case. 
 
-
-
-### Subsection header 1.1
+(example_df_isna_sum)=
+``````{prf:example} Count the amount of missing values in a DataFrame
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can count the amount of missing values in the dataframe with:
+```{code-block} python
+iris.isna().sum()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+sepal_length    0
+sepal_width     0
+petal_length    0
+petal_width     0
+species         0
+petal_ratio     0
+dtype: int64
+```
+There are no missing values!
+``````
 
 ## Exercises
