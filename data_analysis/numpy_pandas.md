@@ -231,7 +231,7 @@ We can import pandas as follows:
 import pandas as pd
 ```
 
-
+(section_pandas_dataframe)=
 ### Pandas DataFrame
 A pandas DataFrame is a two-dimensional data structure that has labeled axes (rows and columns). You can think of it as a table that you would use in for example Excel.
 
