@@ -283,7 +283,7 @@ Now that we have read in the table into a DataFrame, let's do some basic explora
 
 (example_df_head)=
 ``````{prf:example} Show the first 5 lines of a DataFrame
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the first 5 lines of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the first 5 lines of the DataFrame with:
 ```{code-block} python
 iris.head()
 ```
@@ -301,7 +301,7 @@ Will give the output:
 
 (example_df_tail)=
 ``````{prf:example} Show the last 5 lines of a DataFrame
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the last 5 lines of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the last 5 lines of the DataFrame with:
 ```{code-block} python
 iris.tail()
 ```
@@ -322,7 +322,7 @@ We can also view properties of the Dataframe. To show the number of rows and col
 
 (example_df_shape)=
 ``````{prf:example} Show the number of rows and columns of a DataFrame
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the number of rows and columns of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the number of rows and columns of the DataFrame with:
 ```{code-block} python
 iris.shape
 ```
@@ -336,7 +336,7 @@ The first element of the tuple are the rows and the second are the columns.
 
 (example_df_columns)=
 ``````{prf:example} List the column names of a DataFrame
-Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the column names of a DataFrame with:
+Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the column names of the DataFrame with:
 ```{code-block} python
 iris.columns
 ```
@@ -354,7 +354,7 @@ To produce a summary of the DataFrame, we can use the method `.info()` ([](#exam
 
 (example_df_info)=
 ``````{prf:example} Show the summary of a DataFrame
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary of the DataFrame with:
 ```{code-block} python
 iris.info()
 ```
@@ -378,7 +378,7 @@ memory usage: 6.0 KB
 
 (example_df_describe)=
 ``````{prf:example} Show the summary statistics of a DataFrame
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary statistics of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary statistics of the DataFrame with:
 ```{code-block} python
 iris.describe()
 ```
@@ -403,7 +403,7 @@ We can select data from a DataFrame by indexing it with the column name of one c
 
 (example_df_index_one_col)=
 ``````{prf:example} Select one column of a DataFrame
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select a column of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select a column of the DataFrame with:
 ```{code-block} python
 iris["species"]
 ```
@@ -427,7 +427,7 @@ Name: species, Length: 150, dtype: str
 
 (example_df_index_multiple_col)=
 ``````{prf:example} Select multiple columns of a DataFrame
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select multiple columns of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select multiple columns of the DataFrame with:
 ```{code-block} python
 iris[["species", "petal_length"]]
 ```
@@ -455,7 +455,7 @@ To select the rows of a DataFrame, we can use the `.iloc` property. It allows us
 
 (example_df_index_one_row)=
 ``````{prf:example} Select one row of a DataFrame
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select a row of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select a row of the DataFrame with:
 ```{code-block} python
 iris.iloc[0]
 ```
@@ -474,7 +474,7 @@ This is the first row of the DataFrame, as we used `0` for the index
 
 (example_df_index_multiple_rows)=
 ``````{prf:example} Select multiple rows of a DataFrame (slicing)
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select multiple rows of a DataFrame with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we select multiple rows of the DataFrame with:
 ```{code-block} python
 iris.iloc[0:5]
 ```
@@ -560,7 +560,7 @@ Will give the output:
 
 (example_df_filter_obsv_2)=
 ``````{prf:example} Filter observations based on numerical value
-Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we filter the DataFrame to only select observations with a petal lenght larger than 5 with:
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we filter the DataFrame to only select observations with a petal length larger than 5 with:
 ```{code-block} python
 iris[iris["petal_length"] > 5]
 ```
@@ -614,6 +614,64 @@ Will give the output:
 ``````
 
 #### Summary Statistics
+We saw [before](#example_df_describe) how to obtain the full summary statistics table from a DataFrame. To get individual summary statistics of a DataFrame such as the mean or standard deviation, we can call on those methods ([](#example_df_mean), [](#example_df_std)). 
+
+(example_df_mean)=
+``````{prf:example} Get the mean of the numeric columns in a DataFrame
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can get the mean of the numeric columns in the DataFrame with:
+```{code-block} python
+iris.mean(numeric_only=True)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+sepal_length    5.843333
+sepal_width     3.057333
+petal_length    3.758000
+petal_width     1.199333
+dtype: float64
+```
+``````
+
+(example_df_std)=
+``````{prf:example} Get the standard deviation of the numeric columns in a DataFrame
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can get the standard deviation of the numeric columns in the DataFrame with:
+```{code-block} python
+iris.std(numeric_only=True)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+   sepal_length  sepal_width  petal_length  petal_width species
+0           5.1          3.5           1.4          0.2  setosa
+1           4.9          3.0           1.4          0.2  setosa
+2           4.7          3.2           1.3          0.2  setosa
+3           4.6          3.1           1.5          0.2  setosa
+4           5.0          3.6           1.4          0.2  setosa
+```
+``````
+
+
+To obtain the individual summary statistics of each Iris species, we can use the method `.groupby()` ([](#example_df_groupby_mean)). Grouping allows us to split the data into categories, perform the same calculation for each category, and combine the results again. 
+
+
+(example_df_groupby_mean)=
+``````{prf:example} Get the mean of the numeric columns for each species in the Iris DataFrame
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can get the mean of the numeric columns for each species in the Iris DataFrame with:
+```{code-block} python
+iris.groupby("species").mean()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+            sepal_length  sepal_width  petal_length  petal_width
+species
+setosa             5.006        3.428         1.462        0.246
+versicolor         5.936        2.770         4.260        1.326
+virginica          6.588        2.974         5.552        2.026
+```
+We do not have to specify `numeric_only=True`, because we are calculating the mean on only numerical columns already. 
+``````
 
 #### Creating New Columns
 
