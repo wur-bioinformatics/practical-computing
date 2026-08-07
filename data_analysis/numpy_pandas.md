@@ -274,10 +274,129 @@ Alternatively, we can create DataFrames from other data structures as:
 :class: no-copybutton
 df = pd.DataFrame(data_structure)
 ```
-where `data_structure` can be a list, Numpy arrays, or a dictionary of lists/arrays.
+where `data_structure` can be a list, a NumPy array, or a dictionary of lists/NumPy arrays.
 
 
 #### Exploring a Dataframe
+Now that we have read in the table into a DataFrame, let's do some basic exploration of what is contained inside. The DataFrame is an object and on it we can call some explorative methods. We can use `.head()` and `.tail()` to show the first and last five (by default) rows, respectively ([](#example_df_head), [](#example_df_tail)). 
+
+
+(example_df_head)=
+``````{prf:example} Show the first 5 lines of a DataFrame
+Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the first 5 lines of a DataFrame with:
+```{code-block} python
+iris.head()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+   sepal_length  sepal_width  petal_length  petal_width species
+0           5.1          3.5           1.4          0.2  setosa
+1           4.9          3.0           1.4          0.2  setosa
+2           4.7          3.2           1.3          0.2  setosa
+3           4.6          3.1           1.5          0.2  setosa
+4           5.0          3.6           1.4          0.2  setosa
+```
+``````
+
+(example_df_tail)=
+``````{prf:example} Show the last 5 lines of a DataFrame
+Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the last 5 lines of a DataFrame with:
+```{code-block} python
+iris.tail()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+     sepal_length  sepal_width  petal_length  petal_width    species
+145           6.7          3.0           5.2          2.3  virginica
+146           6.3          2.5           5.0          1.9  virginica
+147           6.5          3.0           5.2          2.0  virginica
+148           6.2          3.4           5.4          2.3  virginica
+149           5.9          3.0           5.1          1.8  virginica
+```
+``````
+
+We can also view properties of the Dataframe. To show the number of rows and columns we can use `.shape` ([](#example_df_shape)) and to list all column names we can use `.columns` ([](#example_df_columns)).
+
+
+(example_df_shape)=
+``````{prf:example} Show the number of rows and columns of a DataFrame
+Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the number of rows and columns of a DataFrame with:
+```{code-block} python
+iris.shape
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+(150, 5)
+```
+The first element of the tuple are the rows and the second are the columns.
+``````
+
+(example_df_columns)=
+``````{prf:example} List the column names of a DataFrame
+Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the column names of a DataFrame with:
+```{code-block} python
+iris.columns
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width',
+       'species'],
+      dtype='str')
+```
+It shows the column names and what data type the column names are.
+``````
+
+To produce a summary of the DataFrame, we can use the method `.info()` ([](#example_df_info)). This gives information on the data types in the columns and whether there are missing values. To produce summary statistics of numerical columns, we can use the `.describe()` method ([](#example_df_describe)).
+
+(example_df_info)=
+``````{prf:example} Show the summary of a DataFrame
+Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary of a DataFrame with:
+```{code-block} python
+iris.info()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+<class 'pandas.DataFrame'>
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   sepal_length  150 non-null    float64
+ 1   sepal_width   150 non-null    float64
+ 2   petal_length  150 non-null    float64
+ 3   petal_width   150 non-null    float64
+ 4   species       150 non-null    str
+dtypes: float64(4), str(1)
+memory usage: 6.0 KB
+```
+``````
+
+(example_df_describe)=
+``````{prf:example} Show the summary statistics of a DataFrame
+Assuming you have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we can view the summary statistics of a DataFrame with:
+```{code-block} python
+iris.describe()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+       sepal_length  sepal_width  petal_length  petal_width
+count    150.000000   150.000000    150.000000   150.000000
+mean       5.843333     3.057333      3.758000     1.199333
+std        0.828066     0.435866      1.765298     0.762238
+min        4.300000     2.000000      1.000000     0.100000
+25%        5.100000     2.800000      1.600000     0.300000
+50%        5.800000     3.000000      4.350000     1.300000
+75%        6.400000     3.300000      5.100000     1.800000
+max        7.900000     4.400000      6.900000     2.500000
+```
+``````
+
 
 #### Selecting Data from a Dataframe
 
