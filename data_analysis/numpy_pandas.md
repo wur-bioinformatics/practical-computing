@@ -492,6 +492,126 @@ These are the first five rows of the DataFrame.
 ``````
 
 #### Filtering Data from a Dataframe
+We cannot only select data from a DataFrame, we can also filter the observations while selecting. We do so by using [comparison operators](#comparison_operators_section) and [Boolean operators](#boolean_operators_section) when indexing on the DataFrame and using the result of that as an index again. This is illustrated in [](#example_df_filter_obsv_1) and [](#example_df_filter_obsv_2). The result of the comparison is actually a pandas Series (1-column DataFrame) with Boolean values: `True` when the comparison for that cell is true and `False` when false. When we use the pandas Series to index the DataFrame, we will only maintain the rows for which the series holds `True`.
+
+
+(example_df_filter_obsv_1)=
+``````{prf:example} Filter observations based on species 
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we filter the DataFrame to only select observations from *setosa* with:
+```{code-block} python
+iris[iris["species"]=="setosa"]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+    sepal_length  sepal_width  petal_length  petal_width species
+0            5.1          3.5           1.4          0.2  setosa
+1            4.9          3.0           1.4          0.2  setosa
+2            4.7          3.2           1.3          0.2  setosa
+3            4.6          3.1           1.5          0.2  setosa
+4            5.0          3.6           1.4          0.2  setosa
+5            5.4          3.9           1.7          0.4  setosa
+6            4.6          3.4           1.4          0.3  setosa
+7            5.0          3.4           1.5          0.2  setosa
+8            4.4          2.9           1.4          0.2  setosa
+9            4.9          3.1           1.5          0.1  setosa
+10           5.4          3.7           1.5          0.2  setosa
+11           4.8          3.4           1.6          0.2  setosa
+12           4.8          3.0           1.4          0.1  setosa
+13           4.3          3.0           1.1          0.1  setosa
+14           5.8          4.0           1.2          0.2  setosa
+15           5.7          4.4           1.5          0.4  setosa
+16           5.4          3.9           1.3          0.4  setosa
+17           5.1          3.5           1.4          0.3  setosa
+18           5.7          3.8           1.7          0.3  setosa
+19           5.1          3.8           1.5          0.3  setosa
+20           5.4          3.4           1.7          0.2  setosa
+21           5.1          3.7           1.5          0.4  setosa
+22           4.6          3.6           1.0          0.2  setosa
+23           5.1          3.3           1.7          0.5  setosa
+24           4.8          3.4           1.9          0.2  setosa
+25           5.0          3.0           1.6          0.2  setosa
+26           5.0          3.4           1.6          0.4  setosa
+27           5.2          3.5           1.5          0.2  setosa
+28           5.2          3.4           1.4          0.2  setosa
+29           4.7          3.2           1.6          0.2  setosa
+30           4.8          3.1           1.6          0.2  setosa
+31           5.4          3.4           1.5          0.4  setosa
+32           5.2          4.1           1.5          0.1  setosa
+33           5.5          4.2           1.4          0.2  setosa
+34           4.9          3.1           1.5          0.2  setosa
+35           5.0          3.2           1.2          0.2  setosa
+36           5.5          3.5           1.3          0.2  setosa
+37           4.9          3.6           1.4          0.1  setosa
+38           4.4          3.0           1.3          0.2  setosa
+39           5.1          3.4           1.5          0.2  setosa
+40           5.0          3.5           1.3          0.3  setosa
+41           4.5          2.3           1.3          0.3  setosa
+42           4.4          3.2           1.3          0.2  setosa
+43           5.0          3.5           1.6          0.6  setosa
+44           5.1          3.8           1.9          0.4  setosa
+45           4.8          3.0           1.4          0.3  setosa
+46           5.1          3.8           1.6          0.2  setosa
+47           4.6          3.2           1.4          0.2  setosa
+48           5.3          3.7           1.5          0.2  setosa
+49           5.0          3.3           1.4          0.2  setosa
+```
+``````
+
+(example_df_filter_obsv_2)=
+``````{prf:example} Filter observations based on numerical value
+Assuming we have loaded in the Iris dataset into a DataFrame as in [](#example_pandas_read_csv_url), we filter the DataFrame to only select observations with a petal lenght larger than 5 with:
+```{code-block} python
+iris[iris["petal_length"] > 5]
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+    sepal_length  sepal_width  petal_length  petal_width     species
+83            6.0          2.7           5.1          1.6  versicolor
+100           6.3          3.3           6.0          2.5   virginica
+101           5.8          2.7           5.1          1.9   virginica
+102           7.1          3.0           5.9          2.1   virginica
+103           6.3          2.9           5.6          1.8   virginica
+104           6.5          3.0           5.8          2.2   virginica
+105           7.6          3.0           6.6          2.1   virginica
+107           7.3          2.9           6.3          1.8   virginica
+108           6.7          2.5           5.8          1.8   virginica
+109           7.2          3.6           6.1          2.5   virginica
+110           6.5          3.2           5.1          2.0   virginica
+111           6.4          2.7           5.3          1.9   virginica
+112           6.8          3.0           5.5          2.1   virginica
+114           5.8          2.8           5.1          2.4   virginica
+115           6.4          3.2           5.3          2.3   virginica
+116           6.5          3.0           5.5          1.8   virginica
+117           7.7          3.8           6.7          2.2   virginica
+118           7.7          2.6           6.9          2.3   virginica
+120           6.9          3.2           5.7          2.3   virginica
+122           7.7          2.8           6.7          2.0   virginica
+124           6.7          3.3           5.7          2.1   virginica
+125           7.2          3.2           6.0          1.8   virginica
+128           6.4          2.8           5.6          2.1   virginica
+129           7.2          3.0           5.8          1.6   virginica
+130           7.4          2.8           6.1          1.9   virginica
+131           7.9          3.8           6.4          2.0   virginica
+132           6.4          2.8           5.6          2.2   virginica
+133           6.3          2.8           5.1          1.5   virginica
+134           6.1          2.6           5.6          1.4   virginica
+135           7.7          3.0           6.1          2.3   virginica
+136           6.3          3.4           5.6          2.4   virginica
+137           6.4          3.1           5.5          1.8   virginica
+139           6.9          3.1           5.4          2.1   virginica
+140           6.7          3.1           5.6          2.4   virginica
+141           6.9          3.1           5.1          2.3   virginica
+142           5.8          2.7           5.1          1.9   virginica
+143           6.8          3.2           5.9          2.3   virginica
+144           6.7          3.3           5.7          2.5   virginica
+145           6.7          3.0           5.2          2.3   virginica
+147           6.5          3.0           5.2          2.0   virginica
+148           6.2          3.4           5.4          2.3   virginica
+149           5.9          3.0           5.1          1.8   virginica
+```
+``````
 
 #### Summary Statistics
 
