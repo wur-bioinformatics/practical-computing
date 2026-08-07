@@ -674,7 +674,7 @@ We do not have to specify `numeric_only=True`, because we are calculating the me
 ``````
 
 #### Creating New Columns
-Since DataFrames are mutable, we can create columns. This is especially useful if we want to perform calculations using existing columns ([](#)). Then we can calculate new biological variables. We can simply add a column by indexing the DataFrame with a new
+Since DataFrames are mutable, we can create columns. This is especially useful if we want to perform calculations using existing columns ([](#example_df_new_col)). Then we can calculate new biological variables. We can simply add a column by indexing the DataFrame with a new
 
 (example_df_new_col)=
 ``````{prf:example} Create a new column in a DataFrame by performing a calculation on existing columns
