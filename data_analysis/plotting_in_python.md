@@ -95,7 +95,21 @@ plt.show()
 ![Distribution of body mass of Palmer Penguins](image.png)
 ``````
 
-### Boxplots
+### Boxplot
+To compare groups, we can make a boxplot using the `boxplot()` function from `seaborn` ([](#example_plotting_boxplot)).
+
+(example_plotting_boxplot)=
+``````{prf:example} Are Gentoo penguins heavier than Adelie and Chinstrap penguins?
+Let's plot the body masses per penguin species in a boxplot:
+```{code-block} python
+sns.boxplot(data=penguins, x="species", y="body_mass_g")
+```
+To show the plot:
+```{code-block} python
+plt.show()
+```
+![Boxplot of body mass per Palmer Penguin species](image-1.png)
+``````
 
 
 ### Scatterplots
