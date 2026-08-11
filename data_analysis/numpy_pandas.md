@@ -771,6 +771,7 @@ Again, the instructions are in the Jupyter Notebook.
 - Calculate the Euclidean distance using built-in functions
 ``````
 
+(section_exc_pandas)=
 ### Pandas
 ``````{exercise} The Iris dataset as a DataFrame
 - Explore a DataFrame
