@@ -722,3 +722,51 @@ There are no missing values!
 ``````
 
 ## Exercises
+For these exercises, we will work with Jupyter Notebooks on a remote server.
+
+``````{exercise} Jupyter Notebooks on a remote server
+Follow the instructions on Brightspace "Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel"
+``````
+
+Again, the instructions are in the Jupyter Notebook.
+
+### NumPy
+``````{exercise} Explore basic properties of vectors and arrays
+- Make a NumPy array
+- Perform simple mathematical operations on arrays
+- Compare NumPy arrays with lists
+- Concatenating arrays
+- Array indexing
+- Perform simple mathematical operations on matrices
+- Change values in an array
+``````
+
+``````{exercise} Selecting elements from arrays based on logic values
+- Select an arbitrary selection of elements, based on supplying a vector (or array) of similar dimensions that contains Booleans `True` or `False` in the order of elements to be selected, or not selected.
+- Transform NumPy arrays to standard Python lists and vice versa
+- Use comparison operators to select values in a NumPy array
+- Use Boolean operators to combine comparison operators to select values in a NumPy array
+``````
+
+``````{exercise} Getting Familiar with NumPy
+- Create a NumPy array from a list
+- Multiply the array with a vector to create a matrix
+- Find out what methods you can apply to an array
+- Create a truth table (array with True and False)
+- Apply the truth table on the matrix to select values
+``````
+
+``````{exercise} The *Iris* dataset
+- Load in the dataset
+- Explore the dataset 
+- Subset a vector to extract species name
+- Explore the `iris.data` data structe
+- Find a method that gives the shape of the data matrix
+- Extraxt columns from the data matrix and find out their types
+- Create subsets of the data using Boolean vectors
+``````
+
+``````{exercise} Euclidean distance of *Iris* flowers
+- Calculate Euclidean distance between two *Iris* flowers by writing your own function
+- Calculate the Euclidean distance using built-in functions
+``````
