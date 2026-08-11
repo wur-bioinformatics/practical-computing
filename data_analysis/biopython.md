@@ -109,13 +109,46 @@ Seq('MAIV')
 
 
 ## Biopython Sequence Annotation Objects
+A bioinformatician spends a surprising amount of time reading files. Fortunately Biopython already understands most common formats ([](#table_biological_file_formats)). It can store the contents of biological records in a `SeqRecord` object. 
 
-
-## Biological File Formats
-
-## Biopython Utilities
+(table_biological_file_formats)=
+:::{list-table} Biological file formats
+:header-rows: 1
+* - Format
+  - Contents
+* - FASTA
+  - DNA or protein sequences
+* - FASTQ
+  - Sequence + sequencing quality
+* - GenBank
+  - Sequence + annotations
+* - EMBL
+  - Annotated sequences
+* - PDB
+  - Protein structures
+* - GFF/GTF
+  - Gene annotation
+:::
 
 ### Reading Biological Data
+To use the `SeqRecord` object, we can use the biopython `SeqIO` utilities to read in a file. First, import `SeqIO`:
+```{code-block} python
+from Bio. import SeqIO
+```
+Then read in a file:
+```{code-block} python
+:class: no-copybutton
+record = SeqIO.read(
+    "sequence.fasta",
+    "fasta"
+)
+```
+The `.read()` method opens the file, recognizes the format and immediately creates the `SeqRecord` object to store the records. In [](#figure_seqrecord), we can see a graphic representation of what is stored in a GenBank `SeqRecord`.
+
+(figure_seqrecord)=
+:::{figure} img/SeqRecord.png
+A biopython SeqRecord object of a GenBank file and its contents
+:::
 
 
 
