@@ -92,7 +92,9 @@ To show the plot:
 ```{code-block} python
 plt.show()
 ```
-![Distribution of body mass of Palmer Penguins](image.png)
+:::{figure} img/histogram.png
+
+:::
 ``````
 
 ### Boxplot
@@ -108,7 +110,9 @@ To show the plot:
 ```{code-block} python
 plt.show()
 ```
-![Boxplot of body mass per Palmer Penguin species](image-1.png)
+:::{figure} img/boxplot.png
+
+:::
 ``````
 
 
@@ -127,7 +131,9 @@ To show the plot:
 ```{code-block} python
 plt.show()
 ```
-![Scatterplot of bill length and bill depth of Palmer Penguins](image-2.png)
+:::{figure} img/scatterplot.png
+
+:::
 ``````
 
 ### Adding Aesthetics
@@ -146,7 +152,9 @@ To show the plot:
 ```{code-block} python
 plt.show()
 ```
-![Scatterplot of bill length and bill depth of Palmer Penguins coloured by species](image-3.png)
+:::{figure} img/scatterplot_hue.png
+
+:::
 ``````
 
 ### Pairplot
@@ -173,7 +181,9 @@ To show the plot:
 ```{code-block} python
 plt.show()
 ```
-![Pairplot of pairwise relationships between Palmer Penguins measurements](image-4.png)
+:::{figure} img/pairplot.png
+
+:::
 
 On the diagonal, we show the distribution of each variable with a histogram (`diag_kind="hist"`). 
 ``````
