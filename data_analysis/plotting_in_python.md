@@ -116,10 +116,10 @@ plt.show()
 To look at the relationship between variables, we can plot a scatterplot using the `scatterplot()` function from `seaborn` ([](#example_plotting_scatterplot)).
 
 (example_plotting_scatterplot)=
-``````{prf:example} Do penguins with longer bills also have deeper bills?
+``````{prf:example} Do Palmer penguins with longer bills also have deeper bills?
 Let's plot the bill length and bill depth in a scatterplot:
 ```{code-block} python
-sns.scatterplot( data=penguins, x="bill_length_mm", y="bill_depth_mm" )
+sns.scatterplot(data=penguins, x="bill_length_mm", y="bill_depth_mm")
 ```
 To show the plot:
 ```{code-block} python
@@ -129,6 +129,20 @@ plt.show()
 ``````
 
 ### Adding Aesthetics
+We have created some pretty basic plots in [](#example_plotting_histogram), [](#example_plotting_boxplot), and [](#example_plotting_scatterplot). Though, `seaborn` is known for its attractive graphics. In certain plots, we can specify the '`hue`' parameter, which maps a variable to a colour ([](#example_plotting_scatterplot_hue)). Additionally, we can specify the '`style`' parameter, which maps a variable to a marker shape or line style. Last, we can specify the '`size`' parameter, which maps a numerical variable to the size of the markers.
+
+(example_plotting_scatterplot_hue)=
+``````{prf:example} Do Palmer penguins with longer bills also have deeper bills?
+Let's plot the bill length and bill depth in a scatterplot and colour by species:
+```{code-block} python
+sns.scatterplot(data=penguins, x="bill_length_mm", y="bill_depth_mm", hue="species")
+```
+To show the plot:
+```{code-block} python
+plt.show()
+```
+![Scatterplot of bill length and bill depth of Palmer Penguins coloured by species](image-3.png)
+``````
 
 ### Pairplot
 
