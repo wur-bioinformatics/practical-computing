@@ -722,7 +722,7 @@ There are no missing values!
 ``````
 
 ## Exercises
-For these exercises, we will work with Jupyter Notebooks on a remote server.
+For these exercises, we will work with a Jupyter Notebook on a remote server.
 
 ``````{exercise} Jupyter Notebooks on a remote server
 Follow the instructions on Brightspace "Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel"
