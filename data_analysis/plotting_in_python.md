@@ -199,3 +199,58 @@ Now that we have shown the basics of how to create pretty plots using `searborn`
 - **Using too much text**: Only use text for what is necessary to understand the plot (labels!).
 
 ## Exercises
+For these exercises, we will work with a Jupyter Notebook on a remote server.
+
+``````{exercise} Start the Jupyter Notebook on the remote server
+We are using the same Jupyter Notebook as yesterday.
+
+Similar to yesterday, follow the instructions on Brightspace "Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel".
+``````
+
+Again, the instructions are in the Jupyter Notebook.
+
+### Matplotlib
+
+``````{exercise} matplotlib basics
+For this exercise, we continue with the DataFrame created [yesterday](#section_exc_pandas).
+
+- Make a scatterplot of the *Iris* dataset petal length and width
+- Make a histogram of the petal length
+- Change the amount of bins used in the histogram
+``````
+
+### Seaborn
+``````{exercise} Seaborn with Iris
+For this exercise, we continue with the DataFrame created [yesterday](#section_exc_pandas).
+
+- Make a scatterplot of the *Iris* dataset petal length and width and color by species
+- Make a boxplot comparing sepal with among species
+- Make a pairplot of all numerical values
+``````
+
+``````{exercise} Exploring a more realistic dataset: Palmer Penguins
+We now switch to the **Palmer Penguins** dataset. It contains measurements from Adelie, Chinstrap, and Gentoo penguins, as well as categorical variables and some missing observations.
+
+- Inspect the dataset
+- Make a histogram of the distribution of body masses
+- Color the histogram based on species
+- Make a boxplot of flipper length by species
+- Make a scatterplot of bill length and bill depth
+- Remove the colouring and inspect the difference
+- Make a scatter plot of flipper length and body mass
+- Use a pairplot to inspect several relationships at once
+
+``````
+
+### Choosing the right plot
+``````{exercise} Create a suitable Seaborn plot for each biological question
+Create a suitable Seaborn plot for each question below. Add informative axis labels and a short title, and write one sentence describing the main pattern.
+
+1. How is flipper length distributed?
+2. Does body mass differ between male and female penguins?
+3. Is body mass related to bill length, and does this differ among species?
+
+:::{note} Remember that the purpose of a figure is to answer a question clearly
+Adding more aesthetics does not automatically make a better plot.
+:::
+``````
