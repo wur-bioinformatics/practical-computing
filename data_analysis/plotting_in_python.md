@@ -119,7 +119,9 @@ To look at the relationship between variables, we can plot a scatterplot using t
 ``````{prf:example} Do Palmer penguins with longer bills also have deeper bills?
 Let's plot the bill length and bill depth in a scatterplot:
 ```{code-block} python
-sns.scatterplot(data=penguins, x="bill_length_mm", y="bill_depth_mm")
+sns.scatterplot(data=penguins, 
+                x="bill_length_mm", 
+                y="bill_depth_mm")
 ```
 To show the plot:
 ```{code-block} python
@@ -135,7 +137,10 @@ We have created some pretty basic plots in [](#example_plotting_histogram), [](#
 ``````{prf:example} Do Palmer penguins with longer bills also have deeper bills?
 Let's plot the bill length and bill depth in a scatterplot and colour by species:
 ```{code-block} python
-sns.scatterplot(data=penguins, x="bill_length_mm", y="bill_depth_mm", hue="species")
+sns.scatterplot(data=penguins, 
+                x="bill_length_mm", 
+                y="bill_depth_mm", 
+                hue="species")
 ```
 To show the plot:
 ```{code-block} python
@@ -145,6 +150,33 @@ plt.show()
 ``````
 
 ### Pairplot
+Instead of creating separate plots for each variable comparison, we can create a pairplot using the `pairplot()` function from `seaborn` that shows the pairwise relationships between all variables ([](#example_plotting_pairplot)).
+
+(example_plotting_pairplot)=
+``````{prf:example} Pairwise relationships between Palmer Penguin measurements
+Let's plot all pairwise relationships in a pairplot:
+```{code-block} python
+pair_plot = sns.pairplot(
+    data=penguins,
+    vars=[
+        "bill_length_mm",
+        "bill_depth_mm",
+        "flipper_length_mm",
+        "body_mass_g"
+    ],
+    hue="species",
+    corner=True,
+    diag_kind="hist"
+)
+```
+To show the plot:
+```{code-block} python
+plt.show()
+```
+![Pairplot of pairwise relationships between Palmer Penguins measurements](image-4.png)
+
+On the diagonal, we show the distribution of each variable with a histogram (`diag_kind="hist"`). 
+``````
 
 ## Common Mistakes
 
