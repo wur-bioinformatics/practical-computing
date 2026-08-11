@@ -106,10 +106,12 @@ Seq('MAIV')
 ```
 ``````
 
-
+```{seealso} Further Reading
+- Biopython tutorial on [Sequence objects](https://biopython.org/docs/latest/Tutorial/chapter_seq_objects.html)
+```
 
 ## Biopython Sequence Annotation Objects
-A bioinformatician spends a surprising amount of time reading files. Fortunately Biopython already understands most common formats ([](#table_biological_file_formats)). It can store the contents of biological records in a `SeqRecord` object. 
+A bioinformatician spends a surprising amount of time reading files. Fortunately, Biopython already understands most common formats ([](#table_biological_file_formats)). It can store the contents of biological records in a `SeqRecord` object. 
 
 (table_biological_file_formats)=
 :::{list-table} Biological file formats
@@ -151,6 +153,9 @@ A biopython SeqRecord object of a GenBank file and its contents
 :::
 
 
+```{seealso} Further Reading
+- Biopython tutorial on [Sequence annotation objects](https://biopython.org/docs/latest/Tutorial/chapter_seq_annot.html)
+```
 
 ## Exercises
 In today's exercises, you will create the first steps in an automated species identification pipeline.
