@@ -55,6 +55,31 @@ We will illustrate some of these plots here using the [Palmer Penguins dataset](
 
 
 ### Loading the Data
+First, we have to load the data. The Palmer Penguins dataset is already included in `seaborn`, so we can use the function `load_dataset()` to load it into a pandas DataFrame ([](#))
+
+(example_plotting_load_data)=
+``````{prf:example} Load the Palmer Penguins data
+```{code-block} python
+penguins = sns.load_dataset("penguins")
+```
+
+To get a quick overview what is inside, use .head():
+```{code-block} python
+penguins.head()
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+  species     island  bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g     sex
+0  Adelie  Torgersen            39.1           18.7              181.0       3750.0    Male
+1  Adelie  Torgersen            39.5           17.4              186.0       3800.0  Female
+2  Adelie  Torgersen            40.3           18.0              195.0       3250.0  Female
+3  Adelie  Torgersen             NaN            NaN                NaN          NaN     NaN
+4  Adelie  Torgersen            36.7           19.3              193.0       3450.0  Female
+```
+``````
+
+### Histogram
 
 ### Boxplots and Scatterplots
 
