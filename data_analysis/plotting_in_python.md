@@ -113,6 +113,20 @@ plt.show()
 
 
 ### Scatterplots
+To look at the relationship between variables, we can plot a scatterplot using the `scatterplot()` function from `seaborn` ([](#example_plotting_scatterplot)).
+
+(example_plotting_scatterplot)=
+``````{prf:example} Do penguins with longer bills also have deeper bills?
+Let's plot the bill length and bill depth in a scatterplot:
+```{code-block} python
+sns.scatterplot( data=penguins, x="bill_length_mm", y="bill_depth_mm" )
+```
+To show the plot:
+```{code-block} python
+plt.show()
+```
+![Scatterplot of bill length and bill depth of Palmer Penguins](image-2.png)
+``````
 
 ### Adding Aesthetics
 
