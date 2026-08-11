@@ -158,7 +158,7 @@ A biopython SeqRecord object of a GenBank file and its contents
 ```
 
 ## Exercises
-In today's exercises, you will create the first steps in an automated species identification pipeline. We will do so by combining Python code and command line tools in a Jupyter Notebook.
+In today's exercises, we will create the first steps in an automated species identification pipeline. We will do so by combining Python code and command line tools in a Jupyter Notebook.
 
 We aim to identify the three mosquitoes, X1, X2, and X3, from which a small part of the mitochondrial Cytochrome Oxidase I ([CO1](https://en.wikipedia.org/wiki/Cytochrome_c_oxidase_subunit_I)) gene has been sequenced. These can be used to identify the species by comparing to a global database of mosquito DNA 'barcodes', the [BOLD database](http://www.boldsystems.org/).
 
