@@ -55,7 +55,7 @@ We will illustrate some of these plots here using the [Palmer Penguins dataset](
 
 
 ### Loading the Data
-First, we have to load the data. The Palmer Penguins dataset is already included in `seaborn`, so we can use the function `load_dataset()` to load it into a pandas DataFrame ([](#))
+First, we have to load the data. The Palmer Penguins dataset is already included in `seaborn`, so we can use the function `load_dataset()` to load it into a pandas DataFrame ([](#example_plotting_load_data))
 
 (example_plotting_load_data)=
 ``````{prf:example} Load the Palmer Penguins data
@@ -80,8 +80,25 @@ Will give the output:
 ``````
 
 ### Histogram
+To look at the distribution of data, we can use the `histplot()` function from `seaborn` ([](#example_plotting_histogram)).
 
-### Boxplots and Scatterplots
+(example_plotting_histogram)=
+``````{prf:example} How are the body masses distributed?
+Let's plot the body masses of all penguins in a histogram:
+```{code-block} python
+sns.histplot(data=penguins, x="body_mass_g", bins=20)
+```
+To show the plot:
+```{code-block} python
+plt.show()
+```
+![Distribution of body mass of Palmer Penguins](image.png)
+``````
+
+### Boxplots
+
+
+### Scatterplots
 
 ### Adding Aesthetics
 
