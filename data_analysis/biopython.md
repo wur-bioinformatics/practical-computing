@@ -2,7 +2,7 @@
 title: Biopython
 label: biopython
 abbreviations:
-    
+    BOLD: Barcode Of Life Data
 bibliography:
     .bib
 ---
@@ -158,10 +158,42 @@ A biopython SeqRecord object of a GenBank file and its contents
 ```
 
 ## Exercises
-In today's exercises, you will create the first steps in an automated species identification pipeline.
+In today's exercises, you will create the first steps in an automated species identification pipeline. We will do so by combining Python code and command line tools in a Jupyter Notebook.
 
-• Three sequences (Cytochrome Oxidase subunit 1, mitochondrial DNA)
-• Three different species of mosquito – but which ones?
-• Compare with all CO-1 sequences from mosquitos in the BOLD database.
-• Set up as tutorial – make sure you understand every step. Experiment.
-• Several solutions need to be created by you.
+We aim to identify the three mosquitoes, X1, X2, and X3, from which a small part of the mitochondrial Cytochrome Oxidase I ([CO1](https://en.wikipedia.org/wiki/Cytochrome_c_oxidase_subunit_I)) gene has been sequenced. These can be used to identify the species by comparing to a global database of mosquito DNA 'barcodes', the [BOLD database](http://www.boldsystems.org/).
+
+
+For these exercises, we will work with a Jupyter Notebook on a remote server.
+
+``````{exercise} Start the Jupyter Notebook on the remote server
+We will use the Jupyter Notebook W4D4 that can be downloaded along with the data from Brightspace. 
+
+Similar to previous days, follow the instructions on Brightspace "Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel".
+``````
+
+Again, the instructions are in the Jupyter Notebook.
+
+``````{exercise} First explorations
+- Run Linux commands in a Jupyter Notebook by prepending them with an exclamation mark
+- Run Linux commands in a Jupyter Notebook by using the `check_output()` function from the `subprocess` module
+- Show the contents of a fasta file, using a Linux command, and two Python ways
+- Use `SeqIO` from Biopython to parse a fasta file into a `SeqIO` object, a `SeqRecord` object
+- Use `SeqRecord` methods and attributes to get familiar with the data structure
+- Get the reverse complement of a sequence using a `SeqRecord` method
+- Translate all open reading frames of a sequence using a `SeqRecord` methods
+- Use Linux tools to explore properties of the BOLD mosquito table
+``````
+
+``````{exercise} Converting from tabular to FASTA format
+Convert the tab-delimited file to fasta, so that we can convert it subsequently to a blastable database.
+- Open and close the tsv file
+- Explore the contents of the tsv file
+- Use Biopython utilities to create a FASTA file from a list of `SeqRecord` objects
+``````
+
+``````{exercise} Blasting the mystery mosquito data
+- Create a BLAST database from the database FASTA file
+- Blast the mystery mosquitos against the BLAST database using `check_output()`
+- Use `glob` module to create a list of files based on path and wildcards
+- Apply the `glob` syntax to blast all mystery moquitos in one script
+``````
