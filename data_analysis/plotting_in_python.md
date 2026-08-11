@@ -179,5 +179,13 @@ On the diagonal, we show the distribution of each variable with a histogram (`di
 ``````
 
 ## Common Mistakes
+Now that we have shown the basics of how to create pretty plots using `searborn`, here are some common mistakes to avoid:
+- **Using rainbow colors or too many colors**: Makes it hard to read, because it is not always clear if you use a lot of colors which data point belongs to which group and can result in a misleading emphasis.
+- **Using 3D effects for 2D data**: Plotting 2D data (two variables) with 3D effects is confusing because it distorts the perception.
+- **Missing labels**: Not using labels makes it unclear what is shown, think of axis labels or the legend when data is colored by a group.
+- **Using tiny font size**: Makes it difficult to read.
+- **Truncating axes**: Exaggerates differences that are not true or relatistic.
+- **Using too much decoration**: Distracting.
+- **Using too much text**: Only use text for what is necessary to understand the plot (labels!).
 
 ## Exercises
