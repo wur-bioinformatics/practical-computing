@@ -770,3 +770,13 @@ Again, the instructions are in the Jupyter Notebook.
 - Calculate Euclidean distance between two *Iris* flowers by writing your own function
 - Calculate the Euclidean distance using built-in functions
 ``````
+
+### Pandas
+``````{exercise} The Iris dataset as a DataFrame
+- Explore a DataFrame
+- Select data from a DataFrame
+- Filter observations using comparison operators
+- Summarize groups of observations by applying the same calculation to each group
+- Add new columns to a DataFrame
+- Check for missing values in a DataFrame
+``````
