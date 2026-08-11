@@ -153,3 +153,10 @@ A biopython SeqRecord object of a GenBank file and its contents
 
 
 ## Exercises
+In today's exercises, you will create the first steps in an automated species identification pipeline.
+
+• Three sequences (Cytochrome Oxidase subunit 1, mitochondrial DNA)
+• Three different species of mosquito – but which ones?
+• Compare with all CO-1 sequences from mosquitos in the BOLD database.
+• Set up as tutorial – make sure you understand every step. Experiment.
+• Several solutions need to be created by you.
