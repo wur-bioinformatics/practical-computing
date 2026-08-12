@@ -93,7 +93,7 @@ Make sure to create a new directory `~/exercises/blast_browser` and copy ((`cp`)
 
 The first contains `blastp` matching plant proteins with human proteins, the second contains plant protein sequences in FASTA format (you can also find these files in `/mnt/local_scratch/BIF21806`)
 ``````
-
+#### Creating an SQL Table
 ``````{exercise} Creating your first table
 We will start with creating a table called `blast_results` and load the contents of `plantsvshuman_outmft6.csv` into it.
 
@@ -132,7 +132,7 @@ Now you can import the file into a new SQLite table with:
 .import plantsvshuman_outmft6.csv blast_results
 ```
 
-This creates a table called blast_results and loads the contents of the file into it.
+This creates a table called `blast_results` and loads the contents of the file into it.
 
 Run the .tables command to check that it worked.
 ```{code-block} sql
@@ -366,8 +366,17 @@ Load the data into the right table using:
 **Check the result using a `SELECT` command on the table and check that you have the right number of rows/records.**
 ``````
 
+#### Joining Two SQL Tables
+``````{exercise} Joining tables
+Now we have two tables in the database, we can do a `SELECT` query that combines information from the two tables. For this we have to use the SQL
+statement `INNER JOIN` and specify which column in the first table corresponds to which table in the second table. In our case the `query` column of the `blast_results` table contains the plant protein identifiers and these correspond to the `ID` column in the `plant_proteins` table.
 
-
+Now you can add the description from the `plant_proteins` table to the matching `query` and `target` from the `blast_results` table:
 ```{code-block} sql
-
+SELECT query, target, evalue, description
+FROM blast_results
+INNER JOIN plant_proteins
+ON blast_results.query = plant_proteins.ID;
 ```
+``````
+
