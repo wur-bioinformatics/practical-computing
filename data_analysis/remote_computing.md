@@ -59,6 +59,28 @@ High Performance Computing (HPC) uses supercomputers and computer clusters worki
 :::
 
 ## Clusters and Servers
+Computer clusters consist of many computers, or compute nodes. They have a shared file system and one or several "head nodes" that mastermind the processes ([](#figure_computer_cluster)). The head nodes ensure resource allocation to tasks and distribute jobs to the compute nodes.
+
+(figure_computer_cluster)=
+:::{figure} img/computer_clusters.svg
+Diagram of a computer cluster containing one head node and three compute nodes
+:::
+
+
+Almost all computer clusters and many servers run Linux. Connections are made using ssh-based protocols ([](#table_connection_protocols)). In all cases, you will have at least a terminal and in most cases you will not have anything else.
+
+(table_connection_protocols)=
+:::{list-table} ssh-based protocols for connecting to computer clusters and servers
+:header-rows: 1
+* - Connection protocol
+  - Service
+* - ssh
+  - Secure shell
+* - scp
+  - Secure copy
+* - rsync
+  - Syncing file, can also be done over ssh
+:::
 
 ### Restrictions
 
