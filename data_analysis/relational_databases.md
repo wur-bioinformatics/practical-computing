@@ -82,8 +82,7 @@ Creating a table in SQL uses the command `CREATE TABLE`, which can be a bit comp
 ## Exercises
 In this exercise we will explore the use of a relational database, first through the SQLite command line (Today) and then from Python (Monday), and finally by building a website (Tuesday). 
 
-As data we will use the results of searching for the human homologs of the plant proteins in the SwissProt database (determined
-with BLAST) that we have looked at before. 
+As data we will use the results of searching for the human homologs of the plant proteins in the SwissProt database (determined with BLAST) that we have looked at before. *#! when?*
 
 We will work on the server.
 
@@ -368,8 +367,7 @@ Load the data into the right table using:
 
 #### Joining Two SQL Tables
 ``````{exercise} Joining tables
-Now we have two tables in the database, we can do a `SELECT` query that combines information from the two tables. For this we have to use the SQL
-statement `INNER JOIN` and specify which column in the first table corresponds to which table in the second table. In our case the `query` column of the `blast_results` table contains the plant protein identifiers and these correspond to the `ID` column in the `plant_proteins` table.
+Now we have two tables in the database, we can do a `SELECT` query that combines information from the two tables. For this we have to use the SQL statement `INNER JOIN` and specify which column in the first table corresponds to which table in the second table. In our case the `query` column of the `blast_results` table contains the plant protein identifiers and these correspond to the `ID` column in the `plant_proteins` table.
 
 Now you can add the description from the `plant_proteins` table to the matching `query` and `target` from the `blast_results` table:
 ```{code-block} sql
@@ -380,3 +378,72 @@ ON blast_results.query = plant_proteins.ID;
 ```
 ``````
 
+
+
+###  Accessing SQLite from Python
+Last Friday, you created the `plants_vs_humans` SQLite3 Database containing results of searching for the human homologs of the plant proteins in the SwissProt database (determined with BLAST).
+
+Here, we will create Python functions to query the `plants_vs_humans` SQLite3 database. This code will be used tomorrow to build a website via which a user can select a human protein ID and retrieve all BLAST matches for that protein with plant proteins.
+
+``````{exercise} Start the W5D1 on the remote server
+Copy this notebook in your `exercises/blast_browser` folder on [[SERVER_NAME]] and run it through an `ssh` tunnel like before ("Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel").
+``````
+
+Like before, the Jupyter Notebook contains all instructions.
+
+We will use the `sqlite3` module. Online documentation can be found [here](https://docs.python.org/3/library/sqlite3.html).
+
+#### Build a Module Containing Functions to Access an SQLite3 Database
+
+::::{exercise} Create a function that returns a list of all targets from the `blast_results` table
+Given the `get_targets()` function:
+- fix the SQL statement (test this with SQLite3)
+- change the code in the `for loop` to process the result of the query to fill the `targets` list
+::::
+
+
+
+::::{exercise} Create a function that takes a target as input and returns all matching rows from the `blast_results` table
+
+In addition to the `query` and `target` fields, we also want to return the `evalue` and the `description` for the `target`. That information can be retrieved by linking the `blast_results` table with the `plant_proteins` table, using `INNER JOIN` (see also Fridays exercise). 
+
+The function takes two arguments, the target identifier and an e_value threshold. For the latter we provide a default, so it can be left out when calling the function. 
+
+
+
+Given the `get_rows_for_target()` function:
+- Write the SQL statement. It is advised to first build the SQL statement using SQLite before testing it out in the Jupyter Notebook.
+- Write Python code to fill the `rows` list
+::::
+
+::::{exercise} Create a Python file called 'db_functions.py'
+- Add the shebang line and the import statement for the `sqlite3` module:
+  ```{code-block} python
+  :filename: db_functions.py
+  #!/usr/bin/env python3
+  import sqlite3
+  ```
+- Save the file in the same directory as the W5D1 Jupyter Notebook
+- Import the module and use its functions in the Jupyter Notebook
+::::
+
+#### Extensions
+If you have time left, you can extend the functions with more features using the challenges.
+
+::::{exercise} Challenge 1
+Modify the `get_rows_for_target()` function to also filter for the provided e-value threshold, so that only rows are returned where the evalue column is `<=` the provided threshold
+::::
+
+::::{exercise} Challenge 2
+Make the `get_rows_for_target()` function work for only the last part of the target ID, so instead of having to use the full `"sp|P62258|1433E_HUMAN"`, it should also work for `"1433E_HUMAN"` 
+
+:::{tip}
+Look at the SQL `LIKE` keyword
+:::
+::::
+
+::::{exercise} Challenge 3
+Complete the `get_queries_sequence_for_target_seq()` function to take a (human) target as input and create a FASTA file with the sequences for the matching plant proteins. 
+
+Additonal challenge: print only 60 nucleotides per line.
+::::
