@@ -83,6 +83,7 @@ Almost all computer clusters and many servers run Linux. Connections are made us
 :::
 
 ### Restrictions
+Apart from the fact that you often only have a terminal available to use a remote computer, there are other restrictions. Not everything is possible on a remote computer that you can do on your own desktop due to system permissions. This is to ensure stability and security of system. Therefore, you need to know how to deal with that by understanding the limitations and the work-arounds. Additionaly, you need to know how to properly schedule your compute jobs using job schedulers or resource allocation software.
 
 ### Resource Allocation
 
