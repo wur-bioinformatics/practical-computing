@@ -173,7 +173,221 @@ The Anunna cluster may be big, but it is finite in size. In addition, using reso
 
 
 ## Exercises
+In these exercises, we will work on the High Performance Computing Cluster from Wageningen University (called Anunna).
 
-### Command Line Strategies for Using Remote Computers
+``````{exercise} Connect to Anunna
+We will access the anunna server which is part of the HPC system here in Wageningen:
+```{code-block} bash
+ssh yourwurname@login.anunna.wur.nl
+```
+``````
 
-### Data Transfer – Data Integrity (checksums)
+### Looking Around an HPC System
+``````{exercise} Check the current node
+You might believe you now logged into a magical supercomputer and you can start doing the heaviest jobs. However, this is not completely true.
+
+**What computer are we logged into?** Use:
+```{code-block} bash
+hostname
+```
+**Do you think this is one of the "worker" nodes? Or the "headnode"?**
+``````
+
+``````{exercise} Check the specifications of the HPC system
+**How much RAM does the "anunna" node have?** Use
+```{code-block} bash
+free -h
+```
+**How large are the `/lustre` and `/archive` filesystems (ignore the tmpfs)?** Use:
+```{code-block} bash
+df -h
+```
+**How many processors does the node have? **Use:
+```{code-block} bash
+cat /proc/cpuinfo | grep processor
+```
+``````
+
+``````{exercise} Look around the file system
+**Where is your home directory located (relative to the root directory)?**
+
+**What does your home directory contain? **Include the 'hidden' directories! If a name of a file or directory starts with '`.`', it is hidden in your filebrowser, but also if you do [`ls`](#ls_section). 
+```{code-block} bash
+ls
+```
+Use the relevant {term}`option` for the [`ls`](#ls_section) command to make all files visible.
+``````
+
+``````{exercise} Check who is active on the HPC system
+**Anybody you know around?** See who else is logged into this machine:
+```{code-block} bash
+who
+```
+``````
+
+### Nodes on an HPC system
+``````{exercise} Amount of nodes on the HPC system
+How many nodes does the HPC system have? Use:
+```{code-block} bash
+sinfo -N
+```
+**What kind of distinct nodes do you recognize?**
+``````
+
+``````{exercise} Inspect a specific node on the HPC system
+We typically do not interact directly with the worker nodes but they will perform the tasks that are assigned to them by SLURM. All nodes are generally connected to a shared filesystem (e.g. the `/lustre` filesystem on the HPC sytem).
+
+Now let's explore one of the worker nodes:
+```{code-block} bash
+sinfo -n node200 -o "%n %c %m"
+```
+**What is the number of CPUs and memory available?**
+
+Do the same for one of the "fat" nodes. **What do you notice?**
+``````
+
+### Working with a Job Scheduler
+Here, we will build up to submit a job to slurm to perform a small task on the HPC system. For the task we will write a small script that calculates the GC content of chromosome 3 from yeast (*Saccharomyces cerevisiae*). We will just use one CPU on one node.
+
+``````{exercise} Download the FASTA file
+First download the fasta file using following command:
+```{code-block} bash
+wget http://ftp.ensembl.org/pub/release-104/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.III.fa.gz -O Sc_chr3.fa.gz
+```
+Decompress it using:
+```{code-block} bash
+gunzip Sc_chr3.fa.gz
+```
+``````
+
+``````{exercise} Create the job script
+Next, make a new file called `calc_gc.sh` using the `nano` editor:
+
+```{code-block} bash
+:filename: calc_gc.sh
+#!/bin/bash
+#SBATCH --job-name=calc_GC
+#SBATCH --time=0:30:0
+#SBATCH --ntasks=1
+#SBATCH --mem=2000
+#SBATCH --output=output_GC.txt
+#SBATCH --error=error_output_GC.txt
+
+time python calc_GC.py Sc_chr3.fa
+```
+``````
+
+``````{exercise} Create the Python script to calcualate the GC percentage
+Now we need to write a python script that takes the chr3 file as input and reports the GC percentage.
+```{code-block} bash
+nano calc_GC.py
+```
+
+Copy the Python script into the `calc_GC.py` file:
+```{code-block} python
+:filename: calc_GC.py
+import sys
+def gc_content(dna):
+    ...
+
+input_filename = sys.argv[1]
+input_file = open(input_filename, 'r') # open the file for reading
+line=input_file.readline()[1:-1] # read first header line
+sequence = '' ## Empty sequence string
+
+for line in input_file:
+    if line[0] != '>':
+        sequence += line[:-1]
+
+print(gc_content(sequence))
+```
+The python script read the `Sc_chr3.fa` file and calculates the GC percentage. 
+
+**Finish the `gc_content()` function in the python script.**
+
+:::{tip}
+To finish `gc_content()` function, look at the W2D4 Exercise [GC content](#exc_wf_gc_content_function)
+:::
+
+
+``````
+
+``````{exercise} Submit and monitor a job
+We can now submit the `calc_gc.sh` script to calculate the GC percentage using our own python script:
+```{code-block} bash
+sbatch calc_gc.sh
+```
+To monitor your job type:
+```{code-block} bash
+sacct
+```
+This will show if your job is pending, running, or has completed. To get a real time view of your job you can run `watch`:
+```{code-block} bash
+watch -n 15 squeue -u username
+```
+To cancel a job you can use `scancel` together with the job-id, the job-id is shown when you submit the job and also in the first column of the `squeue` output
+```{code-block} bash
+scancel <job-id>
+```
+
+Once your job is finished, **what is the GC content of chr3 of yeast (look in the `output_GC.txt` file)? **
+
+**How much time did it take to calculate this (look in the `error_output_GC.txt`)?**
+``````
+
+:::{note} Working responsibly on a shared cluster
+Note that working on a shared cluster also means you need to work responsibly, taking into account the other users' needs. Hence, if you need to perform a lot of heavy calculations you might want to divide that over a longer time or you should consult your fellow users of the HPC system.
+:::
+
+### Using Software via Modules
+``````{exercise} Check what software is available on the HPC system
+Many users use similar software to perform computations on their datasets. Therefore, a large collection of software is readily available on the HPC. Run the following command to get a list of the software that is available:
+```{code-block} bash
+module load 2023
+module avail
+```
+``````
+
+:::{note} Many of the standard bioinformatics utilities (i.e. calculating GC content of a fasta file) are also available in existing software utilities. 
+:::
+
+
+``````{exercise} Use an existing module 
+We will use one of the existing software packages to calculate the GC content of the `Sc_chr3.fa` file again. Load the module `seqtk`:
+```{code-block} bash
+module load seqtk
+```
+`seqtk` is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. If you want to check where a particular software is stored you can use the `which` command:
+```{code-block} bash
+which seqtk
+```
+Moreover, you can at the modules you have loaded with:
+```{code-block} bash
+module list
+```
+
+Now we can use the program `seqtk` to calculate the GC content of the same fasta file. 
+
+Modify the slurm script and use `seqtk` instead of your own python script to calculate GC:
+```{code-block} bash
+:filename: calc_gc.sh
+...
+time seqtk comp Sc_chr3.fa
+```
+You will notice that `seqtk` does not report a GC percentage directly. Instead, it counts the number of bases for every nucleotide (you will find the header when typing: `seqtk comp` without the fasta input).
+
+
+**Compare the runtime with the previous analysis, what do you notice?**
+``````
+
+### Transferring Files
+
+
+### Data Integrity : `checksums`
+
+``````{exercise} 
+```{code-block} bash
+
+```
+
+``````
