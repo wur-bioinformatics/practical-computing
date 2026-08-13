@@ -517,7 +517,7 @@ The `plants.fasta` file is sent to `grep`, which only sends lines containing **s
 
 The flow of {numref}`this <pipeline_example>` pipeline example is visualised in {numref}`fig_pipeline_example`.
 
-```{figure} img/pipeline_example.png
+```{figure} img/pipeline_example.svg
 :label: fig_pipeline_example
 
 Data stream of example pipeline with `cat`, `grep`, and `wc`.
