@@ -135,7 +135,7 @@ On a HPC cluster, it might be necessary to have dozens of different versions of 
 To ensure multiple modules and dependencies are correct for your specific task, it is best to use a package manager such as [conda](https://docs.conda.io/en/latest/) or [mamba](https://mamba.readthedocs.io/en/latest/). 
 
 ### Performance and Capacity
-
+The Anunna cluster may be big, but it is finite in size. In addition, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. Parallel computing is used to accelerate processing certain tasks. Next, it is important to be aware of file sizes and file system use. Preferably, we keep data in a compressed format, and read and write from and to compressed files. We should also aim to reduce redundancy by not having multiple copies of the same file stored on the system. Last, we should be aware that moving around data has a limit called the network bandwidth.
 
 
 ## Exercises
