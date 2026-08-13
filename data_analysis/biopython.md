@@ -107,7 +107,7 @@ Seq('MAIV')
 ``````
 
 ```{seealso} Further Reading
-- Biopython tutorial on [Sequence objects](https://biopython.org/docs/latest/Tutorial/chapter_seq_objects.html)
+Biopython tutorial on [Sequence objects](https://biopython.org/docs/latest/Tutorial/chapter_seq_objects.html)
 ```
 
 ## Biopython Sequence Annotation Objects
@@ -154,7 +154,10 @@ A biopython SeqRecord object of a GenBank file and its contents
 
 
 ```{seealso} Further Reading
-- Biopython tutorial on [Sequence annotation objects](https://biopython.org/docs/latest/Tutorial/chapter_seq_annot.html)
+Computing Skills for Biologists - a Tool box
+- Chapter 6.4 `Biopython`
+
+Biopython tutorial on [Sequence annotation objects](https://biopython.org/docs/latest/Tutorial/chapter_seq_annot.html)
 ```
 
 ## Exercises
