@@ -63,11 +63,11 @@ One attribute often is used to uniquely identify an item (row): the primary key.
 Primary keys are used to link different tables. In the "BLAST result" table, query and target are actually the IDs of an item in the protein table; query and target are so-called foreign keys ([](#figure_foreign_keys)).
 
 (figure_foreign_keys)=
-:::{figure} img/relational_databases_foreign_keys.svg
+:::{figure} img/foreign_keys.svg
 Query and target in the BLAST result table are foreign keys to items in the protein table
 :::
 
-This is the power of relational databases. Because items are identified using a key, we can combine information regarding the same item from different databases ([](#))
+This is the power of relational databases. Because items are identified using a key, we can combine information regarding the same item from different databases ().
 
 
 
