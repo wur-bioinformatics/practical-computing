@@ -302,6 +302,7 @@ After restarting the notebook, we can execute the `import` statement again. If y
 the old version of the imported code.
 
 ### Defining a Function
+(exc_wf_gc_content_function)=
 ``````{exercise} (GC) GC Content - Defining a function
 Create a Python function `gc_content` that takes a DNA sequence as its only argument and produces the GC content (as a percentage).
 
@@ -314,11 +315,9 @@ perform the computation.
 (exc_wf_gc_content)=
 ### Turning a Script into a Module
 ``````{exercise} (GC) GC Content - Turning a script into a module
-In theory, once we made function `gc_content`, it can be re-used in other Python scripts. If we want to avoid copying the code into each Python script where we
-need it, we can put the function in a re-usable program unit, or module.
+In theory, once we made function `gc_content`, it can be re-used in other Python scripts. If we want to avoid copying the code into each Python script where we need it, we can put the function in a re-usable program unit, or module.
 
-A module is a Python file that contains function definitions, class definitions (not in this course), and potentially names for constant values (like `math.pi`). The
-name of the file before `.py` should be valid as an identifier in Python; that name occurs in the `import` statement for using the module.
+A module is a Python file that contains function definitions, class definitions (not in this course), and potentially names for constant values (like `math.pi`). The name of the file before `.py` should be valid as an identifier in Python; that name occurs in the `import` statement for using the module.
 
 For this exercise, create a module `gc_computation` that contains just function `gc_content` and nothing more. 
 
