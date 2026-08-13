@@ -67,7 +67,7 @@ Primary keys are used to link different tables. In the "BLAST result" table, que
 Query and target in the BLAST result table are foreign keys to items in the protein table
 :::
 
-This is the power of relational databases. Because items are identified using a key, we can combine information regarding the same item from different databases ().
+This is the power of relational databases. Because items are identified using a key, we can combine information regarding the same item from different databases ([](#figure_relational_databases_example)).
 
 (figure_relational_databases_example)=
 :::{figure} img/relational_databases_example.svg
