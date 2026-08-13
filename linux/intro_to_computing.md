@@ -237,27 +237,9 @@ The {term}`file system` is the system that organizes how files are stored on a h
 
 Example of {term}`file systems <file system>` are: NTFS, FAT32, EXT4, and ZFS. The size of {term}`file systems <file system>` are nowadays in the terabyte range. {term}`File systems <file system>` are often organized in a directory or folder structure as illustrated in [](#file_system_structure).
 
-:::{figure}
+:::{figure} img/file_system.svg
 :label: file_system_structure
-```{mermaid}
-flowchart TD
-    %% Define the directories
-    Root["/root"]
-    Bin["bin"]
-    Usr["usr"]
-    Home["home"]
-    PC["BIF21806"]
 
-    %% Create the hierarchical connections
-    Root --> Bin
-    Root --> Usr
-    Root --> Home
-    Home --> PC
-
-    %% Optional: Add a simple style to make them look like folders
-    classDef folder fill:#3b90ca,stroke:#000,stroke-width:2px,color:white,rx:5,ry:5;
-    class Root,Bin,Usr,Home,PC folder;
-```
 Example hierarchical folder/directory structure of a {term}`file system`
 :::
 
