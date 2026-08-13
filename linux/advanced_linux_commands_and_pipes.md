@@ -23,7 +23,7 @@ Most Linux commands are designed to perform one specific task, such as displayin
 ### Standard input, standard output, standard error
 When running a program on the Linux command-line, you will always deal with the Input/Output streams: standard input ({term}`stdin`), standard output ({term}`stdout`), and standard error ({term}`stderr`) ({numref}`io_streams`). 
 
-```{figure} img/input-output_streams.png
+```{figure} img/data_streams.svg
 :label: io_streams
 
 Input/Output streams of Linux command-line
