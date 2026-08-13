@@ -125,8 +125,14 @@ To use the HPC, we would need to create a job script for slurm ([](#example_skel
 
 
 ### File systems
+All nodes on the HPC cluster have the same network file system mounted. A network file system (NFS) is one physical filesystem served by one machine to many others. It behaves a bit like the 'M:' drive in Windows. Alternatively, a HPC cluster can have a parallel filesystem, which has a much higher read/write speed than an NFS. Lustre on Anunna is a parallel filesystem.
+
+*#! is this correct?*
 
 ### Software
+On a HPC cluster, it might be necessary to have dozens of different versions of the same software to be available. Software may need to be compiled from source and doing that across a HPC cluster is a dependency nightmare. Thus, user do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the file system. 
+
+To ensure multiple modules and dependencies are correct for your specific task, it is best to use a package manager such as [conda](https://docs.conda.io/en/latest/) or [mamba](https://mamba.readthedocs.io/en/latest/). 
 
 ### Performance and Capacity
 
