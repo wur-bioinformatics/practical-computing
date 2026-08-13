@@ -86,6 +86,43 @@ Almost all computer clusters and many servers run Linux. Connections are made us
 Apart from the fact that you often only have a terminal available to use a remote computer, there are other restrictions. Not everything is possible on a remote computer that you can do on your own desktop due to system permissions. This is to ensure stability and security of system. Therefore, you need to know how to deal with that by understanding the limitations and the work-arounds. Additionaly, you need to know how to properly schedule your compute jobs using job schedulers or resource allocation software.
 
 ### Resource Allocation
+On computer clusters jobs need to be scheduled because there are often more jobs than space or capacity on the cluster. They are scheduled based on estimated memory and {term}`CPU` cores usage. Highly specialized software designed for this task are called job schedulers. Some common ones are [slurm](https://slurm.schedmd.com/overview.html) and Gridware Cluster Scheduler. 
+
+WUR has a HPC cluster called [Anunna](https://wiki.anunna.wur.nl/Main_Page) and it uses slurm as job scheduler *#! allowed to mention this?*
+It contains 100 "normal sized" compute nodes, six "fat" nodes (64 cores each with 4 TB of memory), six {term}`GPU` nodes, and a 3.0PB parallel file system ([Lustre](https://en.wikipedia.org/wiki/Lustre_(file_system))).
+
+To use the HPC, we would need to create a job script for slurm ([](#example_skeleton_slurm_job_script)).
+
+(example_skeleton_slurm_job_script)=
+``````{prf:example} Skeleton for a slurm job script
+```{code-block} bash
+:filename: skeleton.sh
+#!/bin/bash
+
+#-----------------------------Mail address-----------------------------
+#SBATCH --mail-user=
+#SBATCH --mail-type=ALL
+#-----------------------------Output files-----------------------------
+#SBATCH --output=output_%j.txt
+#SBATCH --error=error_output_%j.txt
+#-----------------------------Other information------------------------
+#SBATCH --comment=
+#SBATCH --qos=
+#-----------------------------Required resources-----------------------
+#SBATCH --time=0-0:0:0
+#SBATCH --ntasks=
+#SBATCH --cpus-per-task=
+#SBATCH --mem-per-cpu=
+
+#-----------------------------Environment, Operations and Job steps----
+# load modules
+
+# export variables
+
+# your job
+```
+``````
+
 
 ### File systems
 
