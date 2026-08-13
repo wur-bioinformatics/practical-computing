@@ -361,7 +361,7 @@ module load seqtk
 ```{code-block} bash
 which seqtk
 ```
-Moreover, you can at the modules you have loaded with:
+Moreover, you can list the modules you have loaded with:
 ```{code-block} bash
 module list
 ```
