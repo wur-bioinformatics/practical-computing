@@ -26,61 +26,9 @@ Biological data analysis can often be performed using ready-made {term}`software
 A computer system consists of {term}`hardware` and {term}`software`. {term}`Hardware <hardware>` are the physical components, whereas {term}`software` are the programs and applications that control the {term}`hardware`. An {term}`operating system` (OS) is the {term}`software` that manages computer {term}`hardware` and {term}`software` resources of computing devices and acts as an interface between the user and {term}`hardware` [@geeksforgeeks_introduction_operating]. More simply put, an {term}`operating system` acts as a bridge between you (the user) and your computer, illustrated in {numref}`operating_system`. 
 
 
-:::{figure}
+:::{figure} img/operating_system_vs_user.svg
 :label: operating_system
-
-```mermaid
-%%{init: {
-  "flowchart": {"defaultRenderer": "elk"},
-  "elk": {"spacing.nodeNodeBetweenLayers": "300"}
-} }%%
-flowchart TD
-    %% Main Hierarchy Stack
-    UserND(User)
-    AppsND(Applications)
-
-    %% Padded the OS text with non-breaking spaces to force a wider block
-    OSND("<span style='font-size: 36pt;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operating&nbsp;System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>")
-
-    %% Connections within the stack (User -> Apps -> OS)
-    UserND <==> AppsND
-    AppsND <==> OSND
-
-    %% Operating System's Connections to and Management of Hardware
-    subgraph Hardware [" "]
-        direction LR
-        ScreenND(Screen)
-        DiskND[("<span style='font-size: 36pt;'>&nbsp;Disk&nbsp;</span>")]
-        KeyboardND(Keyboard)
-        CPUND(CPU)
-        NetworkND(Network)
-        MemoryND(Memory)
-        
-        %% Dummy node for the custom label
-        LabelNode("<span style='font-size: 20pt;'><b>Hardware Components</b></span>")
-    end
-
-    %% Connections from OS to the subgraph
-    OSND ==> ScreenND
-    OSND <==> DiskND
-    OSND <==> KeyboardND
-    OSND <==> CPUND
-    OSND <==> NetworkND
-    OSND <==> MemoryND
-
-    %% Large White Text and Colored Background Styling to match image_1.png
-    classDef green fill:#1a8e2e,stroke:#000,stroke-width:2px,color:white,font-size:36pt,rx:15,ry:15;
-    classDef blue fill:#3b90ca,stroke:#000,stroke-width:2px,color:white,font-size:36pt,rx:15,ry:15;
-    classDef red fill:#fb0c0c,stroke:#000,stroke-width:2px,color:white,font-size:36pt,rx:15,ry:15;
-    classDef cylinder fill:#3b90ca,stroke:#000,stroke-width:2px,color:white,font-size:36pt; 
-
-    %% Applying styles to nodes
-    class UserND green;
-    class AppsND,ScreenND,KeyboardND,CPUND,NetworkND,MemoryND blue;
-    class OSND red;
-    class DiskND cylinder;
-```
-Role of {term}`operating system` in connecting the user with the {term}`hardware` and {term}`software` of a computer
+Role of operating system in connecting the user with the hardware and software of a computer
 :::
 
 An {term}`operating system` contains two basic components: 
