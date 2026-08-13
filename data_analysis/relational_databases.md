@@ -69,7 +69,10 @@ Query and target in the BLAST result table are foreign keys to items in the prot
 
 This is the power of relational databases. Because items are identified using a key, we can combine information regarding the same item from different databases ().
 
-
+(figure_relational_databases_example)=
+:::{figure} img/relational_databases_example.svg
+Data regarding the same protein can be stored across multiple databases (colors) and connected by a key
+:::
 
 ## SQL and SQLite
 SQLite has two types of commands:
