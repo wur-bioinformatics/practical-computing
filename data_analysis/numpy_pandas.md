@@ -26,7 +26,7 @@ After completing this section you should be able to:
 :::
 
 ## NumPy
-[Previously](#section_ds_lists), we have seen that Python has a list object, that serves the function of an array in other programming lanugages. However, lists are relatively slow to process. [NumPy](https://numpy.org/) introduced a data oject called an `ndarray` (**n**-**d**imensional **array**) that is fast and efficient to process and it included tools to manipulate and use mathematical operations on said arrays. 
+[Previously](#section_ds_lists), we have seen that Python has a list object, that serves the function of an array in other programming languages. However, lists are relatively slow to process. [NumPy](https://numpy.org/) introduced a data oject called an `ndarray` (**n**-**d**imensional **array**) that is fast and efficient to process and it included tools to manipulate and use mathematical operations on said arrays. 
 
 NumPy is the foundation for many scientific Python libraries.
 
@@ -220,6 +220,10 @@ np.int64(4)
 As you might noticed in [](#example_numpy_array_mean), [](#example_numpy_array_sum), and [](#example_numpy_array_max), NumPy has its own data types (`np.float64`, `np.int64`). You don't need to know the difference between NumPy data types and standard Python data types and on the surface they behave similarly. If you are interested you can read about it [here](https://numpy.org/doc/stable/user/basics.types.html).
 :::
 
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 6.2.1 `NumPy` arrays
+```
 
 ## Pandas
 NumPy is great for numerical data. Eventhough you can represent strings in a NumPy array, you cannot represent tables containing different data types. Biological data do not often contain only one data type, they are messy.
@@ -720,6 +724,11 @@ dtype: int64
 ```
 There are no missing values!
 ``````
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 6.3 Working with `pandas`
+```
 
 ## Exercises
 For these exercises, we will work with a Jupyter Notebook on a remote server.
