@@ -35,7 +35,7 @@ An {term}`operating system` contains two basic components:
 - The {term}`kernel` is the core component of the {term}`operating system`. It contains the {term}`software` libraries that are required to interact with the {term}`hardware` and is therefore the primary interface between the {term}`operating system` and the {term}`hardware`
 - The {term}`shell` is the outermost layer of the {term}`operating system`. It acts as an intermediate between the user and the {term}`operating system`. It interprets {term}`input` for the {term}`operating system` and handles the {term}`output` from the {term}`operating system`.
 
-Some {term}`operating system`s you might be familiar with:
+Some {term}`operating systems<operating system>` you might be familiar with:
 - Windows
 - OSX
 - Linux
@@ -58,7 +58,7 @@ We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the
 *#! update fun fact for relevant server*
 :::
 
-```{figure} img/working_on_remote_server.png
+```{figure} img/working_on_remote_server.svg
 :label: working_on_remote_server_img
 
 Working on WUR Bioinformatics servers
