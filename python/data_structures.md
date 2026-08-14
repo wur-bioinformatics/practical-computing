@@ -21,7 +21,7 @@ Apart from the simple data types discussed in [](#data_types_section), Python ha
 
 (section_ds_lists)=
 ### Lists
-Lists are ordered collections of items. The items within a list can be of different data types ([](#example_list_different_data_types)), and the same value can occur multiple times ([](#example_list_same_values)). Each item in a list has an index, starting at `0`. The last item in the list has the index `-1`. In other programming languages, lists are often called "arrays". Though, Python lists are more flexible than standard arrays. Lists can grow and shrink: they are mutable. Most often, elements are added to the end of the list, but it also possible to add or remove internal elements. Additionally, we can concatenate lists (similar as for {term}`strings<string>` *#! or section ref?*).
+Lists are ordered collections of items. The items within a list can be of different data types ([](#example_list_different_data_types)), and the same value can occur multiple times ([](#example_list_same_values)). Each item in a list has an index, starting at `0`. The last item in the list has the index `-1`. In other programming languages, lists are often called "arrays". Though, Python lists are more flexible than standard arrays. Lists can grow and shrink: they are mutable. Most often, elements are added to the end of the list, but it also possible to add or remove internal elements. Additionally, we can concatenate lists (similar as for {term}`strings<string>`.
 
 (example_list_different_data_types)=
 ``````{prf:example} Items in lists can have different data types
