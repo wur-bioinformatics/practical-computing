@@ -63,7 +63,7 @@ When navigating and managing the {term}`file system`, you will use either {term}
 *#! maybe fig with directory tree that I am using in the next examples?*
 
 (pwd_section)=
-### pwd
+### `pwd`
 You are always somewhere in the {term}`file system`. To **p**rint the path to your current **w**orking **d**irectory you can use `pwd` ([](#example_pwd)).
 
 (example_pwd)=
@@ -84,7 +84,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (cd_section)=
-### cd
+### `cd`
 You can also move around within the {term}`file system`. To **c**hange **d**irectory, you can use `cd`:
 ```{code-block} bash
 :class: no-copybutton
@@ -157,7 +157,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (ls_section)=
-### ls
+### `ls`
 Without GUI to see what files and subdirectories are present in your current directory or a directory of interest, you can use `ls`. It **l**i**s**ts all the files and subdirectories.
 ```{code-block} bash
 :class: no-copybutton
@@ -212,7 +212,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (cp_section)=
-### cp
+### `cp`
 With `cp` you can **c**o**p**y a file or directory. It requires two arguments:
 ```{code-block} bash
 :class: no-copybutton
@@ -283,7 +283,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (mv_section)=
-### mv
+### `mv`
 With `mv`, you can **m**o**v**e a file or directory. Similarly to [`cp`](#cp_section), you need the `SOURCE` and `DESTINATION` to supply of the file/directory you want to move as arguments:
 ```{code-block} bash
 :class: no-copybutton
@@ -365,7 +365,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (rm_section)=
-### rm
+### `rm`
 To **r**e**m**ove a file or directory we can use `rm`. The usage can be written as:
 ```{code-block} bash
 :class: no-copybutton
@@ -447,7 +447,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (mkdir_section)=
-### mkdir
+### `mkdir`
 If we want to **m**a**k**e a new **dir**ectory we can use `mkdir`:
 ```{code-block} bash
 :class: no-copybutton
@@ -528,7 +528,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (file_section)=
-### file
+### `file`
 You can determine the type of a **file** using `file`:
 ```{code-block} bash
 :class: no-copybutton
@@ -554,7 +554,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (less_section)=
-### less
+### `less`
 With `less` you can progressively look at a file, meaning it does not open the whole file in a text editer, but loads only the bits that are displayed on screen. This makes it especially useful when you want to inspect large files. 
 
 To navigate the `less` environment:
@@ -569,7 +569,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (cat_section)=
-### cat
+### `cat`
 With `cat` you can con**cat**enate and print files to screen (standard output):
 ```{code-block} bash
 :class: no-copybutton
@@ -608,7 +608,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (wc_section)=
-### wc
+### `wc`
 To see the line, **w**ord, and byte (**c**haracter) count of a file, we can use `wc`:
 ```{code-block} bash
 :class: no-copybutton
@@ -648,7 +648,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (head_section)=
-### head
+### `head`
 To inspect the **head** of a file, or the first couple of lines, you can use `head`:
 ```{code-block} bash
 :class: no-copybutton
@@ -676,7 +676,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (tail_section)=
-### tail
+### `tail`
 You can print the **tail**, or last couple of lines, of a file using `tail`:
 ```{code-block} bash
 :class: no-copybutton
