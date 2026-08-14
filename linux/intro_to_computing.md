@@ -315,6 +315,7 @@ Follow the "Connecting to [[SERVER_NAME]] from ..." description on BrightSpace t
 If everything worked out well and you logged in to [[SERVER_NAME]], you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` [@techtarget_command_prompt]. It looks something like this:
 
 ```{code-block} bash
+:class: no-copybutton
 user001@server:~$
 ```
 
