@@ -96,7 +96,7 @@ Note that here we do not use the `input()` and `print()` functions.
 
 
 ### Applying Functions
-Applying, or calling, a self-defined function is exactly as for standard functions. The whole call is a (sub-)formula: we can assign the result to a variable, or use it in a larger formula. The previously defined `sum_of_two_numbers` can be called as follows:
+Applying, or calling, a self-defined function is exactly as for standard functions. The whole call is a (sub-)formula: we can assign the result to a variable, or use it in a larger formula. The previously defined `sum_of_two_numbers()` can be called as follows:
 
 ```{code-block} python
 :class: no-copybutton
