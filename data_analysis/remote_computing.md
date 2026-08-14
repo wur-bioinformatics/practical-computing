@@ -385,6 +385,56 @@ You will notice that `seqtk` does not report a GC percentage directly. Instead, 
 ``````
 
 ### Transferring Files
+Make sure that during these exercises you keep (at least) one terminal open in Anunna (your home dir), and one in your server (in the W5D3 working dir).
+
+``````{exercise} Download data onto [[SERVER_NAME]]
+First download the data for this day from Brightspace. 
+
+Unzip the archive to [[SERVER_NAME]], and make the directory '`W5D3`' in your working directory. 
+
+Make sure you understand which files and folders it contains, notably what is in the '`dna_files`' directory.
+``````
+
+``````{exercise} Use secure copy to copy the data to a HPC system
+Secure copy `scp` works similarly to the [`cp`](#cp_section) command you encountered in the first week of the course, on the first day we started working on the command line. 
+
+:::{caution} In the next line of code the `:` is important to include.
+This means that you are copying this to your home directory. What happens when you forget this (you can try it, if you do check the home directory on Anunna *#! missing in the exc pdf assuming anunna*)?
+:::
+
+```{code-block} bash
+scp -r dna_files yourname@login.anunna.wur.nl:
+```
+**What does the `-r` flag mean?** Remember that the behavior is very similar to [`cp`](#cp_section), with the difference that `scp` uses the SSH protocol and can copy "remotely".
+
+Observe the change in your home directory in Anunna.
+
+In Annuna, remove the fasta files using:
+```{code-block} bash
+rm -rf dna_files
+```
+``````
+
+``````{exercise} Use rsync to copy the data do a HPC system
+Now we will copy the `dna_file` folder and contents again, but this time using the `rsync` command:
+
+```{code-block} bash
+rsync -av dna_files yourname@login.anunna.wur.nl:
+```
+
+**What do the `-a` and `-v` flag mean?** (use `man rsync`, for instance in a third open terminal, to find out). 
+```{code-block} bash
+man rsync
+```
+
+Observe the changes in Anunna.
+
+Change one of the fasta files (say `dna99.fa`) on your own machine, for instance by changing one base. 
+
+Then use the exact same `rsync` command again (just use the {kbd}`↑` key!). 
+
+**What happens?**
+``````
 
 
 ### Data Integrity : `checksums`
