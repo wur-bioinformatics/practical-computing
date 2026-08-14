@@ -173,7 +173,7 @@ On a HPC cluster, it might be necessary to have dozens of different versions of 
 To ensure multiple modules and dependencies are correct for your specific task, it is best to use a package manager such as [conda](https://docs.conda.io/en/latest/) or [mamba](https://mamba.readthedocs.io/en/latest/). 
 
 ### Performance and Capacity
-The Anunna cluster may be big, but it is finite in size. The following points in terms of performance and capacity should be considered when using a HPC system.
+The Anunna cluster may be big, but it is finite in size. The following considerations should be taken into account when using a HPC system.
 
 First, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. A strategy used to accelerate processing certain tasks is parallel computing, where a big task is divided in many smaller tasks that can be run simultaneously. 
 
@@ -446,10 +446,27 @@ Then use the exact same `rsync` command again (just use the {kbd}`↑` key!).
 
 
 ### Data Integrity: checksums
+In the following exercises, we will use [`md5sum`](https://en.wikipedia.org/wiki/Md5sum).
 
-``````{exercise} 
-```{code-block} bash
 
-```
+``````{exercise} Check the checksum of one file on the HPC system
+Use `md5sum` to check the checksum of `dna00.fa` on the HPC system
+``````
 
+``````{exercise} Check the checksum of all the FASTA files in dna_files on the HPC system
+Use `md5sum` to create the md5sum of all the fasta files in one command and capture them in a file `fasta_files_checksums.txt`
+
+:::{tip}
+Use wildcarding, for instance `*.fa`
+:::
+``````
+
+``````{exercise} Compare the checksum of an altered file with the original on the HPC system
+Alter one of the fasta files in the `dna_files` directory. 
+
+Use again `md5sum` to calculate the md5sum for each file and capture the result in a file `fasta_files_checksums_v2.txt`. 
+
+Now compare the content of the two files using the `diff` function. 
+
+**What do you notice?**
 ``````
