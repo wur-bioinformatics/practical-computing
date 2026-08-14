@@ -17,9 +17,10 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
+Data visualization is an essential part of data analysis because plots allow us to quickly explore patterns, relationships, differences between groups, and unusual observations in our data. Python provides several libraries for creating figures. In this section, you will first learn the basic principles of Matplotlib, the underlying plotting library used by many Python tools, before moving to Seaborn, which provides a convenient way to create informative plots directly from Pandas DataFrames. You will learn how to create and interpret common plots such as histograms, boxplots, and scatter plots, and how to use visual properties such as colour to represent additional information. The aim is not only to create plots, but also to learn how to choose a visualization that clearly communicates the biological question you want to answer
 
 ## What Makes a Good Plot?
-Figures in science serve the purpose of visually supporting text or showing results. A good figure should communicate your results in a few seconds. It  should answer a question and it should be easy to read. It is best to keep your plots simple and to label everything, so the reader knows what they are looking at. 
+Figures in science serve the purpose of visually supporting text or showing results. A good figure should communicate your results in a few seconds. It should answer a question and it should be easy to read. It is best to keep your plots simple and to label everything, so the reader knows what they are looking at. 
 
 ## Matplotlib vs. Seaborn
 In Python, there are two main plotting libraries: [`matplotlib`](https://matplotlib.org/) and [`seaborn`](https://seaborn.pydata.org/#). `matplotlib` is the underlying plotting library. However, its syntax is not always straight forward. `seaborn` is built on top of `matplotlib`, with a simpler syntax and better organization. Consequently, `seaborn` can quickly generate plots from [pandas DataFrames](#section_pandas_dataframe).
