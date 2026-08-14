@@ -119,6 +119,7 @@ In this course, we use an Anaconda distribution that already provides some third
 
 (table_third_party_libraries)=
 :::{list-table} Some useful third-party libraries
+:header-rows: 1
 * - Third-party library
   - Description
 * - `NumPy`
