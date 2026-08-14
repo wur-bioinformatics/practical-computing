@@ -71,7 +71,7 @@ man <tool>
 ``````
 
 (wget_section)=
-### wget
+### `wget`
 `wget` is a tool that can retrieve files from a URL:
 ```{code-block} bash
 :class: no-copybutton
@@ -92,7 +92,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (grep_section)=
-### grep
+### `grep`
 `grep` is a tool that filters text for a given term. It searches for a pattern in a file or {term}`standard input <stdin>`: 
 ```{code-block} bash
 :class: no-copybutton
@@ -197,7 +197,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (cut_section)=
-### cut
+### `cut`
 With `cut` you can extract parts of lines in a file:
 ```{code-block} bash
 :class: no-copybutton
@@ -248,7 +248,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (sort_section)=
-### sort
+### `sort`
 With `sort` you can write the sorted content of a `FILE` (or {term}`standard input <stdin>`) to {term}`standard output <stdout>`:
 ```{code-block} bash
 :class: no-copybutton
@@ -292,7 +292,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (tr_section)=
-### tr
+### `tr`
 With `tr`, you can translate characters from {term}`standard input <stdin>` and write to {term}`standard output <stdout>`:
 ```{code-block} bash
 :class: no-copybutton
@@ -334,7 +334,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (awk_section)=
-### awk
+### `awk`
 `awk` is a text processor or manipulator [@turner_intro_2021]. It works by executing a "program" on a `FILE`, often by searching for strings and then performing an action when it finds those strings:
 ```{code-block} bash
 :class: no-copybutton
@@ -419,7 +419,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (sed_section)=
-### sed
+### `sed`
 `sed` is short for **s**tream **ed**itor. It is used for filtering and transforming text. It takes text from either a file or {term}`standard input <stdin>` and returns the processed text to {term}`standard output <stdout>`:
 ```{code-block} bash
 :class: no-copybutton
@@ -463,7 +463,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 (uniq_section)=
-### uniq
+### `uniq`
 With `uniq` you can filter adjacent matching lines from `INPUT` (or {term}`standard input<stdin>`), writing to `OUTPUT` (or {term}`standard output <stdout>`):
 ```{code-block} bash
 :class: no-copybutton
@@ -474,7 +474,7 @@ It can be especially useful when using {term}`option` `-c` to **c**ount the matc
 
 
 (tar_section)=
-### tar
+### `tar`
 With `tar` you can save multiple files together in a single archive, and you can restore individual files from the archive:
 ```{code-block} bash
 :class: no-copybutton
