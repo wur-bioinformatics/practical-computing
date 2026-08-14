@@ -140,7 +140,7 @@ In this course, we use an Anaconda distribution that already provides some third
 
 
 ## Module `re`
-In [week 1](#regular_expressions), we have seen {term}`regular expressions<regular expression>` on the command line. The tools that can use {term}`regular expressions<regular expression>` are very powerful and efficient. However, when we want to do pattern matching in the middle of a Python program, calling these tools is not easily done. Instead, we can use {term}`**r**egular **e**xpressions<regular expression>` in Python with the standard module `re`. The `re` module offers functions and methods for performing pattern mathcing within the context of a Python program. 
+In [week 1](#regular_expressions), we have seen {term}`regular expressions<regular expression>` on the command line. The tools that can use {term}`regular expressions<regular expression>` are very powerful and efficient. However, when we want to do pattern matching in the middle of a Python program, calling these tools is not easily done. Instead, we can use **r**egular **e**xpressions in Python with the standard module `re`. The `re` module offers functions and methods for performing pattern mathcing within the context of a Python program. 
 
 The {term}`regular expression<regular expression>` syntax is the same as for the Linux tools. If you need a refresh head to: [](#regular_expressions). 
 
