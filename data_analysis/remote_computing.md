@@ -173,7 +173,15 @@ On a HPC cluster, it might be necessary to have dozens of different versions of 
 To ensure multiple modules and dependencies are correct for your specific task, it is best to use a package manager such as [conda](https://docs.conda.io/en/latest/) or [mamba](https://mamba.readthedocs.io/en/latest/). 
 
 ### Performance and Capacity
-The Anunna cluster may be big, but it is finite in size. In addition, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. Parallel computing is used to accelerate processing certain tasks. Next, it is important to be aware of file sizes and file system use. Preferably, we keep data in a compressed format, and read and write from and to compressed files. We should also aim to reduce redundancy by not having multiple copies of the same file stored on the system. Last, we should be aware that moving around data has a limit called the network bandwidth.
+The Anunna cluster may be big, but it is finite in size. The following points in terms of performance and capacity should be considered when using a HPC system.
+
+First, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. A strategy used to accelerate processing certain tasks is parallel computing, where a big task is divided in many smaller tasks that can be run simultaneously. 
+
+Next, it is important to be aware of file sizes and file system use. Preferably, we keep data in a compressed format, and read and write from and to compressed files. 
+
+Next, we should aim to reduce redundancy and to retain data integrity by not having multiple copies of the same file stored on the system. Copying files to different locations results in multiple instances of the original data. This raises a few concerns. One concern is the small, but non-zero, probability that errors were made in the process of copying. For instance, if the copying process was interrupted, the copy might not contain all the information of the original. Another concern is that the dataset can loose aspects of its integrity due to the existence of a copy. This can happen by altering even trivial attributes (e.g. filename) or the content of the file. When the copy becomes the working version in your data analysis, the loss of data integrity can become a problem. Therefore, it is good practice to always check the integrity of the copy against the original. A common method to check the integrity of a copy against an original is to use a checksum. The checksum is usually applied on a file or contents of a file by an algorithm that converts the byte-content of the information into a so called checksum. The checksum can be seen as a "fingerprint" of the original file. If the byte-content changes even ever-so slightly, the checksum will be different.
+
+Last, we should be aware that moving around data has a limit called the network bandwidth.
 
 
 ## Exercises
@@ -437,7 +445,7 @@ Then use the exact same `rsync` command again (just use the {kbd}`↑` key!).
 ``````
 
 
-### Data Integrity : `checksums`
+### Data Integrity: checksums
 
 ``````{exercise} 
 ```{code-block} bash
