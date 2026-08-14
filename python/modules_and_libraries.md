@@ -84,6 +84,7 @@ Among these modules are tools to interact with the {term}`operating system`, wit
 
 (table_standard_libraries)=
 :::{list-table} Some useful Python standard libraries
+:header-rows: 1
 * - Standard library
   - Description
 * - `math`
