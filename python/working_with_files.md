@@ -268,7 +268,7 @@ Because lines in a file are essentially strings, we can use string methods on th
 :header-rows: 1
 * - String method
   - Parameter(s)
-  - Example Usage
+  - Example usage
   - Description
 * - `.strip(c)`
   - `c`: string, character(s) to remove, by default any whitespace (spaces, tabs, newlines)
