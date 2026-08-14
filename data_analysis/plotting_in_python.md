@@ -1,6 +1,6 @@
 ---
-title: Plotting in Python
-label: plotting_in_python
+title: Visualization in Python
+label: visualization_in_python
 abbreviations:
     
 bibliography:
