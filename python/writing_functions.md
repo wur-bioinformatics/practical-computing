@@ -30,7 +30,7 @@ First, let's write the function header:
 def sum_of_two_numbers(number1, number2):
     ...
 ```
-The function header in line 1 contains:
+The function header in line **1** contains:
 - the keyword `def` to indicate something is being **def**ined
 - the `sum_of_two_numbers` which is the name of the function, this is what we use when we call the function
 - parentheses `()` that enclose the function parameters (here: `number1` and `number2`), these are the input
@@ -47,10 +47,10 @@ def function_name(number1, number2):
     return sum12
 ```
 The function body contains:
-- in line 2:
+- in line **2**:
   - statements, indented relative to function header
   - parameters for values into function
-- in line 3:
+- in line **3**:
   - a `return` statement that specifies what the output the function **return**s
 
 The function body is self-contained, meaning the code will only be executed if the function is called.
