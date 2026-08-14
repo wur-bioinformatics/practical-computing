@@ -34,6 +34,7 @@ Some common syntax and run-time errors are listed in [](#table_common_python_err
 
 (table_common_python_errors)=
 :::{list-table} Common Python Errors
+:header-rows: 1
 * - Error type
   - Raised when
   - Usual culprit
