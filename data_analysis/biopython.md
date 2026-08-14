@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- understand what Biopython is and how it can support common bioinformatics tasks
+- work with biological sequences using Biopython's Seq objects and perform basic sequence operations such as complementing, reverse complementing, and translating DNA sequences
+- understand how Biopython can be used to access and process biological sequence information programmatically
 ```
 
 ## Introduction
