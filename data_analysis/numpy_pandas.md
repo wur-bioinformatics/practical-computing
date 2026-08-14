@@ -20,6 +20,7 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
+Life scientists increasingly work with large and complex datasets, ranging from measurements of individual organisms to gene expression and genomic data. NumPy and Pandas are two of the most widely used Python libraries for working with such data. NumPy provides efficient tools for storing and analysing numerical data in arrays, while Pandas introduces the DataFrame, a table-like structure that makes it easy to organize, inspect, filter, and summarize datasets containing different types of information. In this section, you will learn the basic principles of both libraries and use them to explore a biological dataset. These skills form the basis for many data analysis workflows in Python and prepare you for visualizing and analysing larger datasets.
 
 (figure_python_data_science_ecosystem)=
 :::{figure} img/python_data_science_ecosystem.png
