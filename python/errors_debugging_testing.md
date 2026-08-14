@@ -146,7 +146,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Efficiency
-Apart from writing correct code, it is also worth mentioning to write efficient code. To improve efficiency, we first need to ding out where time is spent by for examing using a profiler *#! explain what that is?*. 
+Apart from writing correct code, it is also worth mentioning to write efficient code. To improve efficiency, we first need to find out where time is spent by for examing using a profiler *#! explain what that is?*. 
 
 Some general tips to improve efficiency:
 - avoid re-opening files
