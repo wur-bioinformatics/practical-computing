@@ -265,9 +265,10 @@ Because lines in a file are essentially strings, we can use string methods on th
 
 (table_str_methods_file_processing)=
 :::{list-table}
+:header-rows: 1
 * - String method
   - Parameter(s)
-  - Usage
+  - Example Usage
   - Description
 * - `.strip(c)`
   - `c`: string, character(s) to remove, by default any whitespace (spaces, tabs, newlines)
