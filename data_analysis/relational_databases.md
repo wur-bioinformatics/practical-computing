@@ -419,7 +419,7 @@ Given the `get_rows_for_target()` function:
 - Write Python code to fill the `rows` list
 ::::
 
-::::{exercise} Create a Python file called 'db_functions.py'
+::::{exercise} Create a Python file called `db_functions.py`
 - Add the shebang line and the import statement for the `sqlite3` module:
   ```{code-block} python
   :filename: db_functions.py
