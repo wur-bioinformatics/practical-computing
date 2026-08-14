@@ -73,7 +73,10 @@ Anunna contains 100 "normal sized" compute nodes, six "fat" nodes (64 cores each
 
 
 ## Using a HPC system
-Almost all computer clusters and many servers run Linux. Connections are made using ssh-based protocols ([](#table_connection_protocols)). In all cases, you will have at least a terminal and in most cases you will not have anything else.
+Almost all computer clusters and many servers run Linux. Copying the files that are required for your analyses (data, scripts, and anything else) from one machine to the machine you will use to perform the analysis is an important step. Connections are made using ssh-based protocols ([](#table_connection_protocols)). SSH is a general communication protocol between Linux and Unix (e.g. Mac) machines that is always available. Sometimes when a remote machine refuses a connection, it is possible that it is not properly configured to be a ssh-server. But your local machine will usually have the 'client' ssh software to connect to any remote machine.
+
+Two methods that are often used to copy files over the ssh-protocol to a remote (Linux/Unix) machine, are: secure copy (`scp`) and `rsync`. The difference between them (in behavior) is that `scp` will just copy everything, and `rsync` will only copy the things that are not yet present. If no files were previously copied, `rsync` will just behave as `scp`. For copying files to other computers, `rsync` is generally the preferred option.
+
 
 (table_connection_protocols)=
 :::{list-table} ssh-based protocols for connecting to computer clusters and servers
@@ -88,7 +91,8 @@ Almost all computer clusters and many servers run Linux. Connections are made us
   - Syncing file, can also be done over ssh
 :::
 
-Apart from the fact that you often only have a terminal available to use a remote computer, there are other restrictions. Not everything is possible on a remote computer that you can do on your own desktop due to system permissions. This is to ensure stability and security of system. Therefore, you need to know how to deal with that by understanding the limitations and the work-arounds. 
+When using a remote computer, you will have at least a terminal and in most cases you will not have anything else. Apart from that, there are other restrictions. Not everything is possible on a remote computer that you can do on your own desktop due to system permissions. This is to ensure stability and security of system. Therefore, you need to know how to deal with that by understanding the limitations and the work-arounds. 
+
 
 ### Resource Allocation
 On computer clusters, jobs need to be scheduled because there are often more jobs than space or capacity on the cluster. If everybody just starts their jobs at random nodes it will soon get quite messy and the system might be overloaded with tasks. Hence, HPC systems work with a workload manager or job scheduler. The jobs are are scheduled based on estimated memory and {term}`CPU` cores usage. 
