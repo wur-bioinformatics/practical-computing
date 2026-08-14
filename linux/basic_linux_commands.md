@@ -821,7 +821,7 @@ directory:
 ```{code-block} bash
 cd /home
 ```
-**#! change to your username?**
+Change `user001` to your username:
 ```{code-block} bash
 cd ./user001 
 ```
