@@ -91,7 +91,7 @@ We will work on the server.
 
 ### SQLite
 ``````{exercise} Preparation
-Make sure to create a new directory `~/exercises/blast_browser` and copy ((`cp`)[#cp_section]) or link (`ln -s`) the `plantsvshuman_outmft6.csv` and the `plants.fasta` files in that directory. 
+Make sure to create a new directory `~/exercises/blast_browser` and copy ([`cp`](#cp_section)) or link (`ln -s`) the `plantsvshuman_outmft6.csv` and the `plants.fasta` files in that directory. 
 
 The first contains `blastp` matching plant proteins with human proteins, the second contains plant protein sequences in FASTA format (you can also find these files in `/mnt/local_scratch/BIF21806`)
 ``````
