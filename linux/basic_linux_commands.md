@@ -832,7 +832,7 @@ cd ../../usr/bin
 ``````
 
 ``````{exercise} Go back to home
-Go back to your home directory using `cd` without any {term}`option`s or attributes (your home directory is the default): *#! explain attribute?*
+Go back to your home directory using `cd` without any {term}`options<option>` or attributes (your home directory is the default): *#! explain attribute?*
 ```{code-block} bash
 cd
 ```
