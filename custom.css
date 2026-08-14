@@ -5,14 +5,14 @@
 
 /* Change the appearance of hover links (like glossary terms) */
 a.hover-link[href*="#term-"] {
-    color: #3f8148 !important; 
+    color: rgb(118 22 163) !important; 
     text-decoration: none !important; 
     text-decoration-line: none !important;
 }
 
 /* Slight color change on hover */
 a.hover-link:hover[href*="#term-"] {
-    color: #3d5840 !important; 
+    color: rgb(203, 130, 236) !important; 
 }
 
 /* Style custom wiki hyperlinks (using *= to catch expanded URLs) */
