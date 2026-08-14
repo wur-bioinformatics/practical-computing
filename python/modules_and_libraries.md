@@ -140,7 +140,7 @@ In this course, we use an Anaconda distribution that already provides some third
 
 
 ## Module `re`
-In [week 1](#regular_expressions), we have seen {term}`regular expressions<regular expression>` on the command line. The tools that can use {term}`regular expressions<regular expression>` are very powerful and efficient. However, when we want to do pattern matching in the middle of a Python program, calling these tools is not easily done. Instead, we can use **r**egular **e**xpressions in Python with the standard module `re`. The `re` module offers functions and methods for performing pattern mathcing within the context of a Python program. 
+In [week 1](#regular_expressions), we have seen {term}`regular expressions<regular expression>` on the command line. The tools that can use {term}`regular expressions<regular expression>` are very powerful and efficient. However, when we want to do pattern matching in the middle of a Python program, calling these tools is not easily done. Instead, we can use **r**egular **e**xpressions in Python with the standard module `re`. The `re` module offers functions and methods for performing pattern matching within the context of a Python program. 
 
 The {term}`regular expression<regular expression>` syntax is the same as for the Linux tools. If you need a refresh head to: [](#regular_expressions). 
 
@@ -575,7 +575,7 @@ We will look at a number of functions of module `re`: `findall`, `split`, `sub`,
 
 
 ### Pattern Matching
-In the [previous ORF exercise](#exc_wd_orf), we had to find start codons and stop codons (or stop signs in the translation). This is typically a task that we can do with `regular expressions <regular expression>`.
+In the [previous ORF exercise](#exc_wd_orf), we had to find start codons and stop codons (or stop signs in the translation). This is typically a task that we can do with {term}`regular expressions <regular expression>`.
 
 ``````{exercise} Refining ORF
 First define a regular expression that matches an open reading frame, i.e it starts with a start codon (AUG) and ends at the first following stop codon (UAA, UAG, or UGA). 
