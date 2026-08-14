@@ -422,7 +422,7 @@ Computing Skills for Biologists - a Tool box
 
 
 ### Conversions
-Some values of data types can be converted between each other. This is especially useful when handling user input data or files. *#!cross reference?* 
+Some values of data types can be converted between each other. This is especially useful when handling user input data or files. 
 
 If values are {term}`integer`-like but are currently stored in a different data type, they can be converted to an {term}`integer` using built-in function `int()` ([](#example_int_convert_str)). 
 
@@ -630,7 +630,7 @@ Will give the output:
 ``````
 
 ## Operators
-Operators can be used to perform operations on values (and [variables](#variables_section)) [@w3schools_pythonoperators_nodate]. *Each [data type](#data_types_section) has their own respective operators. #!edit*
+Operators can be used to perform operations on values (and [variables](#variables_section)) [@w3schools_pythonoperators_nodate]. Operators have different functionalities when used on different [data types](#data_types_section).
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
