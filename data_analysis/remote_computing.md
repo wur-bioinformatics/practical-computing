@@ -2,7 +2,7 @@
 title: Remote Computing
 label: remote_computing
 abbreviations:
-    HPC: High Performance Computing
+    HPC: High-Performance Computing
     CPU: Central Processing Unit
     FLOPS: Floating point operations per second
 bibliography:
@@ -18,11 +18,11 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-As biological datasets continue to expand, your local desktop quickly hits its limits. Analyzing massive datasets requires scaling up to High-Performance Computing (HPC) and supercomputer clusters. This section introduces Remote Computing, teaching you how to step out of your local machine and navigate shared, Linux-based server environments. You will learn how to operate securely inside a text-only terminal, install software without root privileges, and work alongside job schedulers. Mastering these remote command-line strategies is a vital milestone for running large-scale, computationally heavy biological analyses smoothly and efficiently.
+As biological datasets continue to expand, your local desktop quickly hits its limits. Analyzing massive datasets requires scaling up to {term}`High-Performance Computing` (HPC) and {term}`supercomputer` {term}`clusters<cluster>`. This section introduces Remote Computing, teaching you how to step out of your local machine and navigate shared, Linux-based server environments. You will learn how to operate securely inside a text-only terminal, install software without root privileges, and work alongside job schedulers. Mastering these remote command-line strategies is a vital milestone for running large-scale, computationally heavy biological analyses smoothly and efficiently.
 
 
-## High Performance Computing
-High Performance Computing (HPC) uses supercomputers and computer clusters working in parallel to process huge data sets and solve complex problems. In advance of HPC, the first computer that could successfully use multiple CPUs was the [Cray 2](wiki:Cray-2). If we compare the specifications of the Cray 2 to a modern smartphone ([](#table_supercomputers_specs)), one could see that we are currently carrying devices 2000 times faster than the first supercomputer in our pockets, running on just a few watts. Though, the current champion of modern supercomputers far exceeds both: the [LineShine](https://en.wikipedia.org/wiki/LineShine) (China) reached 2.198 ExaFLOPS performance and operates exclusively on 13.79 million CPU cores [@top500_june_2026].
+## High-Performance Computing
+{term}`High-Performance Computing` uses {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>` working in parallel to process huge data sets and solve complex problems. In advance of {term}`HPC<High-Performance Computing>`, the first computer that could successfully use multiple CPUs was the [Cray 2](wiki:Cray-2). If we compare the specifications of the Cray 2 to a modern smartphone ([](#table_supercomputers_specs)), one could see that we are currently carrying devices 2000 times faster than the first {term}`supercomputer` in our pockets, running on just a few watts. Though, the current champion of modern {term}`supercomputers<supercomputer>` far exceeds both: the [LineShine](https://en.wikipedia.org/wiki/LineShine) (China) reached 2.198 ExaFLOPS performance and operates exclusively on 13.79 million {term}`CPU` {term}`cores<core>` [@top500_june_2026].
 
 (table_supercomputers_specs)=
 :::{list-table} Old supercomputer vs. modern smartphone
@@ -51,7 +51,7 @@ High Performance Computing (HPC) uses supercomputers and computer clusters worki
 :::
 
 ## Clusters and Servers
-Computer clusters consist of many computers, or compute nodes. Compute nodes are the workhorses of a cluster. Many HPC clusters have several nodes optimized for particular jobs. Some nodes may have larger amounts of memory, or specialized resources such as Graphical Processing Units (GPUs). Clusters also have a shared file system and one or several "head nodes" that mastermind the processes ([](#figure_computer_cluster)). The head nodes ensure resource allocation to tasks and distribute jobs to the compute nodes.
+Computer {term}`clusters<cluster>` consist of many computers, or compute {term}`nodes<node>`. Compute {term}`nodes<node>` are the workhorses of a {term}`cluster`. Many {term}`HPC<High-Performance Computing>` {term}`clusters<cluster>` have several {term}`nodes<node>` optimized for particular jobs. Some {term}`nodes<node>` may have larger amounts of memory, or specialized resources such as Graphical Processing Units (GPUs). Clusters also have a shared file system and one or several "head {term}`nodes<node>`" that mastermind the processes ([](#figure_computer_cluster)). The head {term}`nodes<node>` ensure resource allocation to tasks and distribute jobs to the compute {term}`nodes<node>`.
 
 (figure_computer_cluster)=
 :::{figure} img/computer_clusters.svg
@@ -59,13 +59,13 @@ Diagram of a computer cluster containing one head node and three compute nodes
 :::
 
 
-WUR has a HPC system called [Anunna](https://wiki.anunna.wur.nl/Main_Page). An HPC system is comprised of a multitude of integrated processing and storage elements, designed to handle high volumes of data and/or large numbers of floating-point operations (FLOPS) with the highest possible performance. Be aware that the HPC systems are among the most powerful computers in the world. Most machines on the Top-500 list are HPC systems. The HPC systems are often maintained in centers specifically designed to support heavy computing and with large bandwidths (i.e. the maximum rate of data transfer).
+WUR has a {term}`HPC<High-Performance Computing>` system called [Anunna](https://wiki.anunna.wur.nl/Main_Page). An {term}`HPC<High-Performance Computing>` system is comprised of a multitude of integrated processing and storage elements, designed to handle high volumes of data and/or large numbers of floating-point operations (FLOPS) with the highest possible performance. Be aware that the {term}`HPC<High-Performance Computing>` systems are among the most powerful computers in the world. Most machines on the Top-500 list are {term}`HPC<High-Performance Computing>` systems. The {term}`HPC<High-Performance Computing>` systems are often maintained in centers specifically designed to support heavy computing and with large bandwidths (i.e. the maximum rate of data transfer).
 
-Anunna contains 100 "normal sized" compute nodes, six "fat" nodes (64 cores each with 4 TB of memory), six {term}`GPU` nodes, and a 3.0PB parallel file system ([Lustre](https://en.wikipedia.org/wiki/Lustre_(file_system))).
+Anunna contains 100 "normal sized" compute {term}`nodes<node>`, six "fat" {term}`nodes<node>` (64 {term}`cores<core>` each with 4 TB of memory), six {term}`GPU` {term}`nodes<node>`, and a 3.0PB parallel file system ([Lustre](https://en.wikipedia.org/wiki/Lustre_(file_system))).
 
 
 ## Using a HPC system
-Almost all computer clusters and many servers run Linux. Copying the files that are required for your analyses (data, scripts, and anything else) from one machine to the machine you will use to perform the analysis is an important step. Connections are made using ssh-based protocols ([](#table_connection_protocols)). SSH is a general communication protocol between Linux and Unix (e.g. Mac) machines that is always available. Sometimes when a remote machine refuses a connection, it is possible that it is not properly configured to be a ssh-server. But your local machine will usually have the 'client' ssh software to connect to any remote machine.
+Almost all computer {term}`clusters<cluster>` and many servers run Linux. Copying the files that are required for your analyses (data, scripts, and anything else) from one machine to the machine you will use to perform the analysis is an important step. Connections are made using ssh-based protocols ([](#table_connection_protocols)). SSH is a general communication protocol between Linux and Unix (e.g. Mac) machines that is always available. Sometimes when a remote machine refuses a connection, it is possible that it is not properly configured to be a ssh-server. But your local machine will usually have the 'client' ssh software to connect to any remote machine.
 
 Two methods that are often used to copy files over the ssh-protocol to a remote (Linux/Unix) machine, are: secure copy (`scp`) and `rsync`. The difference between them (in behavior) is that `scp` will just copy everything, and `rsync` will only copy the things that are not yet present. If no files were previously copied, `rsync` will just behave as `scp`. For copying files to other computers, `rsync` is generally the preferred option.
 
@@ -87,15 +87,14 @@ When using a remote computer, you will have at least a terminal and in most case
 
 
 ### Resource Allocation
-On computer clusters, jobs need to be scheduled because there are often more jobs than space or capacity on the cluster. If everybody just starts their jobs at random nodes it will soon get quite messy and the system might be overloaded with tasks. Hence, HPC systems work with a workload manager or job scheduler. The jobs are are scheduled based on estimated memory and {term}`CPU` cores usage. 
+On computer {term}`clusters<cluster>`, jobs need to be scheduled because there are often more jobs than space or capacity on the {term}`cluster`. If everybody just starts their jobs at random {term}`nodes<node>` it will soon get quite messy and the system might be overloaded with tasks. Hence, {term}`HPC<High-Performance Computing>` systems work with a workload manager or job scheduler. The jobs are are scheduled based on estimated memory and {term}`CPU` {term}`core` usage. 
 
-Anunna uses [slurm](https://slurm.schedmd.com/overview.html) as job scheduler. slurm is a free and open-source job scheduler for Linux and Unix-like kernels, used by many of the world's supercomputers and computer clusters. SLURM is therefore the "manager" between the headnode
-and the compute nodes.
+Anunna uses [slurm](https://slurm.schedmd.com/overview.html) as job scheduler. {term}`slurm` is a free and open-source job scheduler for Linux and Unix-like kernels, used by many of the world's {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>`. {term}`slurm` is therefore the "manager" between the head {term}`node` and the compute {term}`nodes<node>`.
 
 
-To perform tasks on the HPC cluster you need to write a "batch" script that you can submit to the job scheduler ([](#example_skeleton_slurm_job_script)). SLURM will take care of the job and will assign it to a free node.
+To perform tasks on the {term}`HPC<High-Performance Computing>` {term}`cluster` you need to write a "batch" script that you can submit to the job scheduler ([](#example_skeleton_slurm_job_script)). SLURM will take care of the job and will assign it to a free {term}`node`.
 
-When running jobs on a HPC system you need to specify the resources required for the job up front. This means that you need to think about the number of CPUs and amount of memory your job requires. These requirements help the scheduler to find the right time and place to execute the job. Some important requirements are listed in [](#table_job_script_directives)
+When running jobs on a {term}`HPC<High-Performance Computing>` system you need to specify the resources required for the job up front. This means that you need to think about the number of CPUs and amount of memory your job requires. These requirements help the scheduler to find the right time and place to execute the job. Some important requirements are listed in [](#table_job_script_directives)
 
 (table_job_script_directives)=
 :::{list-table} Some directives to include in a job script
@@ -155,19 +154,19 @@ When running jobs on a HPC system you need to specify the resources required for
 
 
 ### File systems
-All nodes on the HPC cluster have the same network file system mounted. A network file system (NFS) is one physical filesystem served by one machine to many others. It behaves a bit like the 'M:' drive in Windows. Alternatively, a HPC cluster can have a parallel filesystem, which has a much higher read/write speed than an NFS. Lustre on Anunna is a parallel filesystem.
+All {term}`nodes<node>` on the {term}`HPC<High-Performance Computing>` {term}`cluster` have the same network file system mounted. A network file system (NFS) is one physical filesystem served by one machine to many others. It behaves a bit like the 'M:' drive in Windows. Alternatively, a {term}`HPC<High-Performance Computing>` {term}`cluster` can have a parallel filesystem, which has a much higher read/write speed than an NFS. Lustre on Anunna is a parallel filesystem.
 
 *#! is this correct?*
 
 ### Software
-On a HPC cluster, it might be necessary to have dozens of different versions of the same software to be available. Software may need to be compiled from source and doing that across a HPC cluster is a dependency nightmare. Thus, user do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the file system. 
+On a {term}`HPC<High-Performance Computing>` {term}`cluster`, it might be necessary to have dozens of different versions of the same software to be available. Software may need to be compiled from source and doing that across a {term}`HPC<High-Performance Computing>` {term}`cluster` is a dependency nightmare. Thus, user do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the file system. 
 
 To ensure multiple modules and dependencies are correct for your specific task, it is best to use a package manager such as [conda](https://docs.conda.io/en/latest/) or [mamba](https://mamba.readthedocs.io/en/latest/). 
 
 ### Performance and Capacity
-The Anunna cluster may be big, but it is finite in size. The following considerations should be taken into account when using a HPC system.
+The Anunna {term}`cluster` may be big, but it is finite in size. The following considerations should be taken into account when using a {term}`HPC<High-Performance Computing>` system.
 
-First, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. A strategy used to accelerate processing certain tasks is parallel computing, where a big task is divided in many smaller tasks that can be run simultaneously. 
+First, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. A strategy used to accelerate processing certain tasks is {term}`parallel computing`, where a big task is divided in many smaller tasks that can be run simultaneously. 
 
 Next, it is important to be aware of file sizes and file system use. Preferably, we keep data in a compressed format, and read and write from and to compressed files. 
 
@@ -177,10 +176,10 @@ Last, we should be aware that moving around data has a limit called the network 
 
 
 ## Exercises
-In these exercises, we will work on the High Performance Computing Cluster from Wageningen University (called Anunna).
+In these exercises, we will work on the {term}`High-Performance Computing` Cluster from Wageningen University (called Anunna).
 
 ``````{exercise} Connect to Anunna
-We will access the anunna server which is part of the HPC system here in Wageningen:
+We will access the anunna server which is part of the {term}`HPC<High-Performance Computing>` system here in Wageningen:
 ```{code-block} bash
 ssh yourwurname@login.anunna.wur.nl
 ```
@@ -188,17 +187,17 @@ ssh yourwurname@login.anunna.wur.nl
 
 ### Looking Around an HPC System
 ``````{exercise} Check the current node
-You might believe you now logged into a magical supercomputer and you can start doing the heaviest jobs. However, this is not completely true.
+You might believe you now logged into a magical {term}`supercomputer` and you can start doing the heaviest jobs. However, this is not completely true.
 
 **What computer are we logged into?** Use:
 ```{code-block} bash
 hostname
 ```
-**Do you think this is one of the "worker" nodes? Or the "headnode"?**
+**Do you think this is one of the "worker" {term}`nodes<node>`? Or the "head {term}`node`"?**
 ``````
 
 ``````{exercise} Check the specifications of the HPC system
-**How much RAM does the "anunna" node have?** Use
+**How much RAM does the "anunna" {term}`node` have?** Use
 ```{code-block} bash
 free -h
 ```
@@ -206,7 +205,7 @@ free -h
 ```{code-block} bash
 df -h
 ```
-**How many processors does the node have? **Use:
+**How many processors does the {term}`node` have? **Use:
 ```{code-block} bash
 cat /proc/cpuinfo | grep processor
 ```
@@ -231,27 +230,27 @@ who
 
 ### Nodes on an HPC system
 ``````{exercise} Amount of nodes on the HPC system
-How many nodes does the HPC system have? Use:
+How many {term}`nodes<node>` does the {term}`HPC<High-Performance Computing>` system have? Use:
 ```{code-block} bash
 sinfo -N
 ```
-**What kind of distinct nodes do you recognize?**
+**What kind of distinct {term}`nodes<node>` do you recognize?**
 ``````
 
 ``````{exercise} Inspect a specific node on the HPC system
-We typically do not interact directly with the worker nodes but they will perform the tasks that are assigned to them by SLURM. All nodes are generally connected to a shared filesystem (e.g. the `/lustre` filesystem on the HPC sytem).
+We typically do not interact directly with the worker {term}`nodes<node>` but they will perform the tasks that are assigned to them by SLURM. All {term}`nodes<node>` are generally connected to a shared filesystem (e.g. the `/lustre` filesystem on the {term}`HPC<High-Performance Computing>` sytem).
 
-Now let's explore one of the worker nodes:
+Now let's explore one of the worker {term}`nodes<node>`:
 ```{code-block} bash
 sinfo -n node200 -o "%n %c %m"
 ```
 **What is the number of CPUs and memory available?**
 
-Do the same for one of the "fat" nodes. **What do you notice?**
+Do the same for one of the "fat" {term}`nodes<node>`. **What do you notice?**
 ``````
 
 ### Working with a Job Scheduler
-Here, we will build up to submit a job to slurm to perform a small task on the HPC system. For the task we will write a small script that calculates the GC content of chromosome 3 from yeast (*Saccharomyces cerevisiae*). We will just use one CPU on one node.
+Here, we will build up to submit a job to {term}`slurm` to perform a small task on the {term}`HPC<High-Performance Computing>` system. For the task we will write a small script that calculates the GC content of chromosome 3 from yeast (*Saccharomyces cerevisiae*). We will just use one CPU on one {term}`node`.
 
 ``````{exercise} Download the FASTA file
 First download the fasta file using following command:
@@ -340,12 +339,12 @@ Once your job is finished, **what is the GC content of chr3 of yeast (look in th
 ``````
 
 :::{note} Working responsibly on a shared cluster
-Note that working on a shared cluster also means you need to work responsibly, taking into account the other users' needs. Hence, if you need to perform a lot of heavy calculations you might want to divide that over a longer time or you should consult your fellow users of the HPC system.
+Note that working on a shared {term}`cluster` also means you need to work responsibly, taking into account the other users' needs. Hence, if you need to perform a lot of heavy calculations you might want to divide that over a longer time or you should consult your fellow users of the {term}`HPC<High-Performance Computing>` system.
 :::
 
 ### Using Software via Modules
 ``````{exercise} Check what software is available on the HPC system
-Many users use similar software to perform computations on their datasets. Therefore, a large collection of software is readily available on the HPC. Run the following command to get a list of the software that is available:
+Many users use similar software to perform computations on their datasets. Therefore, a large collection of software is readily available on the {term}`HPC<High-Performance Computing>`. Run the following command to get a list of the software that is available:
 ```{code-block} bash
 module load 2023
 module avail
@@ -372,7 +371,7 @@ module list
 
 Now we can use the program `seqtk` to calculate the GC content of the same fasta file. 
 
-Modify the slurm script and use `seqtk` instead of your own python script to calculate GC:
+Modify the {term}`slurm` script and use `seqtk` instead of your own python script to calculate GC:
 ```{code-block} bash
 :filename: calc_gc.sh
 ...
@@ -442,7 +441,7 @@ In the following exercises, we will use [`md5sum`](https://en.wikipedia.org/wiki
 
 
 ``````{exercise} Check the checksum of one file on the HPC system
-Use `md5sum` to check the checksum of `dna00.fa` on the HPC system
+Use `md5sum` to check the checksum of `dna00.fa` on the {term}`HPC<High-Performance Computing>` system
 ``````
 
 ``````{exercise} Check the checksum of all the FASTA files in dna_files on the HPC system
