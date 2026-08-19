@@ -737,9 +737,9 @@ man ls
 ```
 ``````
 
-```{tip}
+:::{tip} Tip
 Use the {kbd}`↑` (up-arrow) to scroll through your command-line history.
-```
+:::
 
 You can think of the directory structure in Linux as a tree with a root and a lot of branches extending from this root ({numref}`file_system_structure`). 
 
