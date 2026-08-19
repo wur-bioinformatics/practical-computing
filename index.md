@@ -29,19 +29,23 @@ Computing Skills for Biologists – A Toolbox, Stefano Allesina & Madlen Wilmes.
 https://computingskillsforbiologists.com/
 
 ### Reading Guide
-The text in this reader is decorated with different colors and colored boxes to represent specific material. Here, we will clarify the meaning of these text styles. 
+The text in this reader is decorated with different colors and colored boxes to represent specific material. Here, we will clarify the meaning of these styles. 
 
-Any link or cross-reference is colored blue: like the [](#glossary_md) page. Terms in the glossary are colored purple, like: {term}`hardware`. Hovering over the term will give the definition and clicking on the term will send you to the glossary. Abbreviations have a grey underline like: DNA. Hovering over the abbreviation will give you the full word or phrase. In-text code is depicted as pink in monospaced font like: `"Hello"`. Additionally, code is depicted in code blocks, which can be copied:
+Any link or cross-reference is colored blue: like the [](#glossary_md) page. Terms in the glossary are colored purple, like: {term}`hardware`. Hovering over the term will give the definition and clicking on the term will send you to the glossary. Abbreviations have a grey underline like: DNA. Hovering over the abbreviation will give you the full word or phrase. In-text code is depicted as pink in monospaced font like: `"Hello"`. 
+
+Additionally, code is depicted in code blocks, which can be copied:
 
 ```{code-block} bash
 echo "Hello World"
 ```
-Or not copied:
+Or cannot be copied:
 ```{code-block} bash
 :class: no-copybutton
 Hello World
 ```
-The latter is used to depict output from and usage of tools, programs, scripts, and functions for which it does not make sense to be used by you. If we write code in a file, it will be depicted with the filename on top of the code block as follows:
+The latter is used to depict output from and usage of tools, programs, scripts, and functions for which it does not make sense to be used by you. 
+
+If we write code in a file, it will be depicted with the filename on top of the code block as follows:
 
 ```{code-block} python
 :filename: helloworld.py
@@ -49,7 +53,7 @@ The latter is used to depict output from and usage of tools, programs, scripts, 
 print("Hello World")
 ```
 
-
+The colored boxes and their function will be explain within each box:
 
 
 :::{margin}
