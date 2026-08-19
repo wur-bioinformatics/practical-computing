@@ -64,7 +64,7 @@ In this blue box with the lightning bolt icon, you will find the learning outcom
 In the purple box with the right arrow icon, you will find related chapters to the book, and sometimes additional links.
 :::
 
-:::{caution} !
+:::{caution} Important
 In the orange box with the exclamation mark icon, you will find important information that you should not skip. Information in this box usually tells you something that can have undesirable consequences when ignored or misused.
 :::
 
