@@ -398,7 +398,8 @@ Make sure you understand which files and folders it contains, notably what is in
 ``````{exercise} Use secure copy to copy the data to an HPC system
 Secure copy `scp` works similarly to the [`cp`](#cp_section) command you encountered in the first week of the course, on the first day we started working on the command-line. 
 
-:::{caution} In the next line of code the `:` is important to include.
+:::{caution} Important
+In the next line of code the `:` is important to include.
 This means that you are copying this to your home directory. What happens when you forget this (you can try it, if you do check the home directory on Anunna *#! missing in the exc pdf assuming anunna*)?
 :::
 

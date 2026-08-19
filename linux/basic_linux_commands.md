@@ -373,11 +373,11 @@ rm [OPTION] FILE
 ```
 Where `FILE` is a file or directory. With the `-r` {term}`option` (for **r**ecursive), you can delete a directory with its contents ([](#example_rm)). 
 
-```{caution} Removing a file is irreversible
+:::{caution} Important
 **Removing a file on a Linux {term}`file system` is irreversible, without an undo option.** There is no trash bin!
 
 To ensure that the path to the file or directory you want to remove is correct, you can first specify it with `ls`. Then, you can see if you are only hitting your suspected target for removal, before accidentally removing unwanted files/directories. If the path is correct, you can change the `ls` to `rm` for files and `rm -r` for directories and execute. 
-```
+:::
 
 (example_rm)=
 ``````{prf:example} Clean up our home directory
@@ -963,9 +963,9 @@ Now we are finished with the chromosome 22 file, you can [remove](#rm_section) i
 ```{code-block} bash
 rm Homo_sapiens.GRCh38.dna.chromosome.22.fa
 ```
-```{caution} Removing a file is irreversible
+:::{caution} Important
 **Removing a file on a Linux {term}`file system` is irreversible, without an undo option.** There is no trash bin!
-```
+:::
 ``````
 
 ### Using BLAST from the command line

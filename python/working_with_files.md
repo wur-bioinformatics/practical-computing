@@ -204,9 +204,9 @@ After we are done processing the file, we need to explicitly close is using the 
 file_name.close()
 ```
 
-```{caution} You should always close your files
+:::{caution} Important
 It is best practice to close your files. If you do not, you might not be able to see the changes made to the file because of buffering. Additionally, sometimes other programs cannot access the file while it is still open.
-```
+:::
 
 To implicitly close the file after being done processing, we can use the `with` statement:
 ```{code-block} python

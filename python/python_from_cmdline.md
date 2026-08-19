@@ -17,7 +17,7 @@ After completing this section you should be able to:
 
 
 
-:::{caution} Do not export the Jupyter Notebook as Python
+:::{caution} Important
 The book advises to "export" the Jupyter notebook "as Python" (p135). However, this is a bad idea: a Jupyter Notebook contains more than just code (e.g. markdown and output cells). 
 
 It is better to copy the whole program/script into a cell, then copy the content of that cell into a Python file (`.py`).

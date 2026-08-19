@@ -59,7 +59,7 @@ We can import all names from a module in the current name space:
 :class: no-copybutton
 from module_name import *
 ```
-:::{caution} Do not import all names in the current name space
+:::{caution} Important
 In general, it is advised against importing all names from a module in the current name space. If you have names already defined in your name space that are the same as some from the module, you will overwrite them.
 :::
 

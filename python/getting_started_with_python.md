@@ -726,9 +726,9 @@ Boolean or logical operators are used to combine multiple Boolean expressions or
 
 *#! add example*
 
-```{caution} Logical operators vs bit-wise operators
+:::{caution} Important
 The book also mentions that you can use the `&`, `|`, and `!` bit-wise operators instead of the `and`, `or`, and `not` logical operators, respectively, but we advise against that because they have different meaning in standard Python.
-```
+:::
 
 ```{margin}
 Here are the reasons (you don't need to remember these):

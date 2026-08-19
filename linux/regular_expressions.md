@@ -238,8 +238,8 @@ The <span class="regex-match">bear</span> likes blue<span class="regex-match">be
 
 It might not seem worth it to use a {term}`quantifier` when we try to match only two characters. However, if you want match longer words or patterns, not having to repeat the {term}`metacharacters <metacharacter>` or literal characters makes the pattern clearer and less prone to errors.
 
-(greediness_caution)=
-```{caution} Greediness
+(greediness_note)=
+:::{note} Note
 In [](#quantifier_example_1), we used the specific {term}`quantifier` `{2}`. This is because {term}`Regular Expressions <Regular Expression>` are, by default, {term}`greedy`. {term}`Greedy <greedy>` means that the pattern will search for the longest match. If, instead, we would have used the `+` {term}`quantifier`, the following would have matched:
 
 For the text:\
@@ -247,7 +247,7 @@ The bear likes blueberries
 
 The pattern `b\w+r` finds the following matches:\
 The <span class="regex-match">bear</span> likes <span class="regex-match">blueberr</span>ies 
-```
+:::
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -316,12 +316,14 @@ pear\
 <span class="regex-match">guave</span>
 ```
 
-```{caution} The hat symbol (^) has different meaning depending on how it is used
+:::{caution} Important
+The hat symbol (^) has different meaning depending on how it is used.
+
 The hat symbol means beginning of line when it is used plainly: \
 `^a` means the pattern matches a line starting with an 'a' ([](#anchor_start_example)).
 
 However, when the hat symbol is used in a {term}`set`, such as `[^a]`, it represents the negation of that set of characters. So, in this case, in that position in the pattern there would **not** be an 'a'.
-```
+:::
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -346,9 +348,9 @@ While studying archeology, she was majoring in anthropology.\
 <span class="regex-match">While studying archeology, she was majoring in biology.</span>
 ```
 
-```{caution} The pipe symbol occurs in some file formats
+:::{caution} Important
 Because the pipe symbol (`|`) occurs in some file formats, such as the [FASTA format](wiki:fasta_format), remember to {term}`escape` it when you want to search for it literally!
-```
+:::
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -465,7 +467,7 @@ Now try to match a complete open reading frame (ORF), starting with a start codo
 
 For an ORF, combine in order:
 1. a start codon (ATG)
-2. zero or more codons that are not stop codons (start codons are allowed, they just code for methionine). Watch out for [greediness](#greediness_caution)...!
+2. zero or more codons that are not stop codons (start codons are allowed, they just code for methionine). Watch out for [greediness](#greediness_note)...!
 3. a stop codon (TAG, TGA or TAA)
 ```
 
