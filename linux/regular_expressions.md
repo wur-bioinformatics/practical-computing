@@ -116,11 +116,6 @@ The pattern `\sb\w\wr\s` finds the following match:\
 The<span class="regex-match">{sub}`_`bear{sub}`_`</span>likes blueberries
 ```
 
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 5.4.2 Metacharacters
-```
-
 ### Wildcard
 There is one {term}`metacharacter` that matches any character: the {term}`wildcard` `.` (dot) ([](#pattern_matching_example_2)). 
 
@@ -179,7 +174,6 @@ Or by using square brackets:\
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
-- Chapter 5.4.2 Metacharacters
 - Chapter 5.4.7 Raw String Notation and Escaping Metacharacters
 ```
 
