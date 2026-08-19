@@ -18,7 +18,8 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-Biologists often work with large amounts of text-based data, including DNA and protein sequences, gene identifiers, sample names, annotation files, and experimental metadata. {term}`Regular Expressions <Regular Expression>` provide a powerful way to describe and search for patterns in such data. They can be used, for example, to find dates, extract gene identifiers, validate sequence formats, or identify motifs in strings of text. In this section, you will learn how to recognize and construct regular-expression patterns and apply them to biological data.
+Biologists often work with large amounts of text-based data, including DNA and protein sequences, gene identifiers, sample names, annotation files, and experimental metadata. Finding, cleaning, and formatting this information manually is virtually impossible. {term}`Regular Expressions <Regular Expression>` provide a powerful way to describe and search for patterns in such data. By learning how to construct precise textual search patterns, you will unlock a fundamental skill needed to efficiently parse, clean, and manipulate complex data. For example, {term}`Regular Expressions <Regular Expression>` can be used, to find dates, extract gene identifiers, validate sequence formats, or identify motifs in strings of text. In this section, you will learn how to recognize and construct regular-expression patterns and apply them to biological data.
+
 
 Many programming language can use {term}`Regular Expressions <Regular Expression>` and there can be slight differences in {term}`syntax`. Here, we mainly use the Bash {term}`syntax` (for [`grep`](#grep_section), [`awk`](#awk_section), and [`sed`](#sed_section)) and the Python {term}`syntax` (*#! forward ref to python part*). 
 
