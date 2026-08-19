@@ -219,9 +219,9 @@ Will give the output:
 ```
 If you expected it to be `'G'`:
 
-```{note} Python uses 0-based counting
-Python starts counting from 0, so the first character has count `0`, the second `1`, the third `2`, etc.
-```
+:::{note} Note
+Python uses 0-based counting: Python starts counting from 0, so the first character has count `0`, the second `1`, the third `2`, etc.
+:::
 ``````
 
 We can also access a substring of a {term}`string`, by so-called slicing:
@@ -324,9 +324,9 @@ Will give the output:
 :class: no-copybutton
 0
 ```
-```{note} Python uses 0-based counting
-Python starts counting from 0, so the first character has count `0`, the second `1`, the third `2`, etc.
-```
+:::{note} Note
+Python uses 0-based counting: Python starts counting from 0, so the first character has count `0`, the second `1`, the third `2`, etc.
+:::
 ``````
 
 (example_str_method_count)=
@@ -361,8 +361,8 @@ Will give the output:
 :class: no-copybutton
 ['Arabidopsis', 'thaliana']
 ```
-:::{note} `.split()` splits on whitespace by default
-You can split on other characters (for example commas in a CSV file) by supplying the character you want to split on as argument.
+:::{note} Note
+`.split()` splits on whitespace by default. You can split on other characters (for example commas in a CSV file) by supplying the character you want to split on as argument.
 :::
 ``````
 
@@ -382,8 +382,8 @@ Will give the output:
 'Arabidopsis thaliana'
 ```
 
-:::{note} `.strip()` strips whitespace by default
-You can strip other characters by supplying the character you want to strip as argument.
+:::{note} Note
+`.strip()` strips whitespace by default. You can strip other characters by supplying the character you want to strip as argument.
 :::
 
 ``````
@@ -922,9 +922,9 @@ Help on built-in function len in module builtins:
 len(obj, /)
     Return the number of items in a container.
 ```
-```{note} Note how you ask for help on a function
-When asking to print the documentation of a function using `help()`, you do not call the function (by using `len()`), you only name the function (by using `len`).
-```
+:::{note} Note
+When asking to print the documentation of a function using `help()`, you do not call the function (by using `len()`), you only use the function name (by using `len`).
+:::
 ``````
 
 (example_help_value)=

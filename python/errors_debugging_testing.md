@@ -198,9 +198,8 @@ Use the descriptions to find when the error was introduced.
 
 Can you also solve the problem?
 
-:::{note} Additional notes
-On a real version management system, we could repair the bug in a "branch" of the project and then "merge" the correction back into the main
-"trunk" of the project. In open source projects, contributors can usually create such branches, also for adding new features. For consolidating such changes – after testing! – owners of the project can merge the changes into the trunk to become part of the main product.
+:::{note} Note
+On a real version management system, we could repair the bug in a "branch" of the project and then "merge" the correction back into the main "trunk" of the project. In open source projects, contributors can usually create such branches, also for adding new features. For consolidating such changes – after testing! – owners of the project can merge the changes into the trunk to become part of the main product.
 :::
 
 

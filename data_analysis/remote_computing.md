@@ -338,8 +338,8 @@ Once your job is finished, **what is the GC content of chr3 of yeast (look in th
 **How much time did it take to calculate this (look in the `error_output_GC.txt`)?**
 ``````
 
-:::{note} Working responsibly on a shared cluster
-Note that working on a shared {term}`cluster` also means you need to work responsibly, taking into account the other users' needs. Hence, if you need to perform a lot of heavy calculations you might want to divide that over a longer time or you should consult your fellow users of the {term}`HPC<High-Performance Computing>` system.
+:::{note} Note
+Working on a shared {term}`cluster` also means you need to work responsibly, taking into account the other users' needs. Hence, if you need to perform a lot of heavy calculations you might want to divide that over a longer time or you should consult your fellow users of the {term}`HPC<High-Performance Computing>` system.
 :::
 
 ### Using Software via Modules
@@ -351,7 +351,8 @@ module avail
 ```
 ``````
 
-:::{note} Many of the standard bioinformatics utilities (i.e. calculating GC content of a fasta file) are also available in existing {term}`software` utilities. 
+:::{note} Note
+Many of the standard bioinformatics utilities (i.e. calculating GC content of a fasta file) are also available in existing {term}`software` utilities. 
 :::
 
 

@@ -328,7 +328,7 @@ Just like previous days, run the notebook with `jupyter notebook` in the termina
 Here, we define the assignments. The Jupyter notebook contains additional steps and hints.
 
 
-:::{note} Using a Jupyter Notebook for reading files
+:::{note} Note
 Please note, that experimenting in a Jupyter notebook for reading files can be awkward. 
 
 Repeating a cell that reads from a file will often not give the same result again. It will only do so if code for opening and closing the file is included in the same cell. 

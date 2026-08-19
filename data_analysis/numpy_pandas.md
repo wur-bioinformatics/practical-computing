@@ -217,7 +217,7 @@ np.int64(4)
 ```
 ``````
 
-:::{note} NumPy has its own data types
+:::{note} Note
 As you might noticed in [](#example_numpy_array_mean), [](#example_numpy_array_sum), and [](#example_numpy_array_max), NumPy has its own data types (`np.float64`, `np.int64`). You don't need to know the difference between NumPy data types and standard Python data types and on the surface they behave similarly. If you are interested you can read about it [here](https://numpy.org/doc/stable/user/basics.types.html).
 :::
 

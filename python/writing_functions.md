@@ -228,7 +228,8 @@ def solve_subs(s, t):
 
 Creating your own modules can help organize your code and make it reusable. You can use your created module by importing it ([](#example_import_module_subs_1), [](#example_import_module_subs_2)). 
 
-:::{note} Keep in mind when importing your own module:
+:::{note} Note
+Keep in mind when importing your own module:
 - Do not include the `.py` extension.
 - Write the path to the Python source file (instead of the filename) when it is not in the same directory as the script you are importing it into.
 :::

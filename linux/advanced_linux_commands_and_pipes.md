@@ -324,9 +324,9 @@ hello world
 ```
 ``````
 
-```{note}
+:::{note} Note
 Because `tr` only takes input from {term}`standard input <stdin>`, we used `echo` to direct the strings in [](#tr_dna_example) and [](#tr_case_example) to {term}`stdin` and the pipe (`|`) to redirect {term}`stdin` to `tr`. This will be explained more extensively in [](#section_alcap_pipelines).
-```
+:::
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -614,9 +614,9 @@ To not "flood" your screen by intermediary output, you can always add a temporar
 ```
 ``````
 
-```{note} 
+:::{note} Note
 The exact syntax of [`awk`](#awk_section) is not that important, but try to see what it does. 
-```
+:::
 
 
 ### Working with Column-Separated Data

@@ -208,11 +208,11 @@ Will give the output:
 ```
 ``````
 
-```{note} Square brackets are used in list display and when indexing or slicing
-When creating a list using list display, you use the square brackets (`[]`). 
-
-When indexing or slicing from a list you also use square brackets (`[]`).
-```
+:::{note} Note
+Square brackets (`[]`) are used: 
+- when creating a list using list display
+- when indexing or slicing from a list
+:::
 
 #### List Versus String
 Both lists and {term}`strings<string>` support indexing and slicing. It is important to remember that {term}`strings<string>` are immutable while lists are mutable. Consequently, you cannot alter the elements and slices of a {term}`string`, but you can for a list. Since both are iterables they can be converted from and to another ([](#example_list_list_function),[](#example_string_convert_list),[](#example_string_join_list)).
@@ -705,8 +705,8 @@ Will give the output:
 :class: no-copybutton
 {1, 2}
 ```
-:::{note} `.difference()` returns a set containing items that exist only in the first set, and not in both sets.
-Using `.difference()` only returns the elements of `s1` that differ from `s2`.
+:::{note} Note
+`.difference()` returns a set containing items that exist only in the first set, and not in both sets. So it only returns the elements of `s1` that differ from `s2`.
 
 If you want to obtain the elements that differ in both sets use `.symmetric_difference()`
 :::

@@ -251,7 +251,7 @@ Create a suitable Seaborn plot for each question below. Add informative axis lab
 2. Does body mass differ between male and female penguins?
 3. Is body mass related to bill length, and does this differ among species?
 
-:::{note} Remember that the purpose of a figure is to answer a question clearly
-Adding more aesthetics does not automatically make a better plot.
+:::{note} Note
+Remember that the purpose of a figure is to answer a question clearly. Adding more aesthetics does not automatically make a better plot.
 :::
 ``````
