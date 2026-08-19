@@ -11,8 +11,10 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- connect and transfer files securely to and from remote servers using protocols like SSH, SCP, and rsync.
+- navigate and adapt to restrictions in a remote Linux environment, including local software installations via package managers like Conda or Mamba.
+- configure and submit batch jobs using specialized workload managers and resource schedulers like Slurm.
+- evaluate performance parameters such as memory utilization, walltime, and data integrity to keep remote workflows stable and cost-efficient.
 ```
 
 ## Introduction
