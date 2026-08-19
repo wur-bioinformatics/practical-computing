@@ -42,9 +42,11 @@ program > filename
 ```
 ``````
 
-```{caution} Be careful when using >
+:::{caution} Important
+Be careful when using `>`.
+
 Using the redirect symbol `>` will overwrite any contents of the file given, which cannot be undone. 
-```
+:::
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -411,9 +413,11 @@ The output will be:
 ```
 ``````
 
-```{caution} When to use awk?
+:::{note} Note
+When to use awk?
+
 For some operations you can use either [`grep`](#grep_section) or `awk`. For simple searches [`grep`](#grep_section) might be more suitable and it is a bit easier to understand. Even though, `awk` is a bit harder to understand, it can do some things that [`grep`](#grep_section) cannot. Namely, when you want to find something and print something else, `awk` can be very powerful. Additionally, `awk` can work with columns.
-```
+:::
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
