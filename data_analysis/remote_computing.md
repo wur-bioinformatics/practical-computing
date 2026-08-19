@@ -25,7 +25,7 @@ To analyse large biological datasets, we often use the computing power of machin
 {term}`High-Performance Computing` that uses {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>` working in parallel to process huge data sets and solve complex problems. Therefore, remote computing brings its own set of usage and good practice.
 
 ## High-Performance Computing
-In advance of {term}`HPC<High-Performance Computing>`, the first computer that could successfully use multiple {term}`CPUs<CPU>` was the [Cray 2](wiki:Cray-2). If we compare the specifications of the Cray 2 to a modern smartphone ([](#table_supercomputers_specs)), one could see that we are currently carrying devices 2000 times faster than the first {term}`supercomputer` in our pockets, running on just a few watts. Though, the current champion of modern {term}`supercomputers<supercomputer>` far exceeds both: the [LineShine](https://en.wikipedia.org/wiki/LineShine) (China) reached 2.198 ExaFLOPS performance and operates exclusively on 13.79 million {term}`CPU` {term}`cores<core>` [@top500_june_2026].
+In the advent of {term}`HPC<High-Performance Computing>`, the first computer that could successfully use multiple {term}`CPUs<CPU>` was the [Cray 2](wiki:Cray-2). If we compare the specifications of the Cray 2 to a modern smartphone ([](#table_supercomputers_specs)), one could see that we are currently carrying devices 2000 times faster than the first {term}`supercomputer` in our pockets, running on just a few watts. Though, the current champion of modern {term}`supercomputers<supercomputer>` far exceeds both: the [LineShine](https://en.wikipedia.org/wiki/LineShine) (China) reached 2.198 ExaFLOPS performance and operates exclusively on 13.79 million {term}`CPU` {term}`cores<core>` [@top500_june_2026].
 
 (table_supercomputers_specs)=
 :::{list-table} Old supercomputer vs. modern smartphone
@@ -61,7 +61,7 @@ Diagram of a computer cluster containing one head node and three compute nodes
 :::
 
 
-WUR has a {term}`HPC<High-Performance Computing>` system called [Anunna](https://wiki.anunna.wur.nl/Main_Page). An {term}`HPC<High-Performance Computing>` system is comprised of a multitude of integrated processing and storage elements, designed to handle high volumes of data and/or large numbers of floating-point operations (FLOPS) with the highest possible performance. Be aware that the {term}`HPC<High-Performance Computing>` systems are among the most powerful computers in the world. Most machines on the Top-500 list are {term}`HPC<High-Performance Computing>` systems. The {term}`HPC<High-Performance Computing>` systems are often maintained in centers specifically designed to support heavy computing and with large bandwidths (i.e. the maximum rate of data transfer).
+WUR has an {term}`HPC<High-Performance Computing>` system called [Anunna](https://wiki.anunna.wur.nl/Main_Page). An {term}`HPC<High-Performance Computing>` system is comprised of a multitude of integrated processing and storage elements, designed to handle high volumes of data and/or large numbers of floating-point operations (FLOPS) with the highest possible performance. Be aware that the {term}`HPC<High-Performance Computing>` systems are among the most powerful computers in the world. Most machines on the Top-500 list are {term}`HPC<High-Performance Computing>` systems. The {term}`HPC<High-Performance Computing>` systems are often maintained in centers specifically designed to support heavy computing and with large bandwidths (i.e. the maximum rate of data transfer).
 
 Anunna contains 100 "normal sized" compute {term}`nodes<node>`, six "fat" {term}`nodes<node>` (64 {term}`cores<core>` each with 4 TB of {term}`memory`), six {term}`GPU` {term}`nodes<node>`, and a 3.0PB parallel {term}`file system` ([Lustre](https://en.wikipedia.org/wiki/Lustre_(file_system))).
 
@@ -94,7 +94,7 @@ On computer {term}`clusters<cluster>`, jobs need to be scheduled because there a
 Anunna uses [slurm](https://slurm.schedmd.com/overview.html) as job scheduler. {term}`slurm` is a free and open-source job scheduler for Linux and Unix-like {term}`kernels<kernel>`, used by many of the world's {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>`. {term}`slurm` is the "manager" between the head {term}`node` and the compute {term}`nodes<node>`.
 
 
-When running jobs on a {term}`HPC<High-Performance Computing>` system you need to specify the resources required for the job up front. You need to write a "batch" script that you can submit to the job scheduler ([](#example_skeleton_slurm_job_script)). This means that you need to think about the number of {term}`CPUs<CPU>` and amount of {term}`memory` your job requires. {term}`slurm` will find the right time and place to execute the job. Some important requirements are listed in [](#table_job_script_directives). 
+When running jobs on an {term}`HPC<High-Performance Computing>` system you need to specify the resources required for the job up front. You need to write a "batch" script that you can submit to the job scheduler ([](#example_skeleton_slurm_job_script)). This means that you need to think about the number of {term}`CPUs<CPU>` and amount of {term}`memory` your job requires. {term}`slurm` will find the right time and place to execute the job. Some important requirements are listed in [](#table_job_script_directives). 
 
 (table_job_script_directives)=
 :::{list-table} Some directives to include in a job script
@@ -154,17 +154,17 @@ When running jobs on a {term}`HPC<High-Performance Computing>` system you need t
 
 
 ### File systems
-All {term}`nodes<node>` on the {term}`HPC<High-Performance Computing>` {term}`cluster` have the same network file system mounted. A network file system (NFS) is one physical filesystem served by one machine to many others. It behaves a bit like the 'M:' drive in Windows. Alternatively, a {term}`HPC<High-Performance Computing>` {term}`cluster` can have a parallel filesystem, which has a much higher read/write speed than an NFS. Lustre on Anunna is a parallel filesystem.
+All {term}`nodes<node>` on the {term}`HPC<High-Performance Computing>` {term}`cluster` have the same network file system mounted. A network file system (NFS) is one physical filesystem served by one machine to many others. It behaves a bit like the 'M:' drive in Windows. Alternatively, an {term}`HPC<High-Performance Computing>` {term}`cluster` can have a parallel filesystem, which has a much higher read/write speed than an NFS. Lustre on Anunna is a parallel filesystem.
 
 *#! is this correct?*
 
 ### Software
-On a {term}`HPC<High-Performance Computing>` {term}`cluster`, it might be necessary to have dozens of different versions of the same {term}`software` to be available. {term}`Software<software>` may need to be compiled from source and doing that across a {term}`HPC<High-Performance Computing>` {term}`cluster` is a dependency nightmare. Thus, users do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the {term}`file system`. 
+On an {term}`HPC<High-Performance Computing>` {term}`cluster`, it might be necessary to have dozens of different versions of the same {term}`software` to be available. {term}`Software<software>` may need to be compiled from source and doing that across an {term}`HPC<High-Performance Computing>` {term}`cluster` is a dependency nightmare. Thus, users do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the {term}`file system`. 
 
 To ensure multiple modules and dependencies are correct for your specific task, it is best to use a package manager such as [conda](https://docs.conda.io/en/latest/) or [mamba](https://mamba.readthedocs.io/en/latest/). 
 
 ### Performance and Capacity
-The Anunna {term}`cluster` may be big, but it is finite in size. The following considerations should be taken into account when using a {term}`HPC<High-Performance Computing>` system.
+The Anunna {term}`cluster` may be big, but it is finite in size. The following considerations should be taken into account when using an {term}`HPC<High-Performance Computing>` system.
 
 First, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. A strategy used to accelerate processing certain tasks is {term}`parallel computing`, where a big task is divided in many smaller tasks that can be run simultaneously. 
 
@@ -394,7 +394,7 @@ Unzip the archive to [[SERVER_NAME]], and make the directory '`W5D3`' in your wo
 Make sure you understand which files and folders it contains, notably what is in the '`dna_files`' directory.
 ``````
 
-``````{exercise} Use secure copy to copy the data to a HPC system
+``````{exercise} Use secure copy to copy the data to an HPC system
 Secure copy `scp` works similarly to the [`cp`](#cp_section) command you encountered in the first week of the course, on the first day we started working on the command-line. 
 
 :::{caution} In the next line of code the `:` is important to include.
@@ -414,7 +414,7 @@ rm -rf dna_files
 ```
 ``````
 
-``````{exercise} Use rsync to copy the data do a HPC system
+``````{exercise} Use rsync to copy the data do an HPC system
 Now we will copy the `dna_file` folder and contents again, but this time using the `rsync` command:
 
 ```{code-block} bash
