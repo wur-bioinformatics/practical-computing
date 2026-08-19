@@ -1068,10 +1068,10 @@ x = 0 # initialize x to 0
 ``````
 
 You can also use comments to temporarily switch off some code. Many editors have keybord short cuts for this.
-```{tip}
+:::{tip} Tip
 In PyCharm to comment/uncomment a line or multiple lines of code use: \
 {kbd}`Ctrl` + {kbd}`/` (Windows) or {kbd}`⌘Cmd` + {kbd}`/` (macOS) while standing with your cursor on the line or selecting the line(s) [@jetbrains_pycharmkeyboard_13072026].
-```
+:::
 
 
 
@@ -1091,11 +1091,11 @@ To start the notebook, first start a terminal by typing in your search bar "Anac
 
 In the terminal, navigate to the directory where you saved the notebook.
 
-```{tip}
+:::{tip} Tip
 Use [](#cd_section).
 
 On Windows the directory path contains backward slashes (`\`) instead of forward slashes (`/`).
-```
+:::
 
 Start the notebook server by typing `jupyter notebook` at the command prompt. 
 

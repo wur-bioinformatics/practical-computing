@@ -165,9 +165,10 @@ The further assignments combine the aspects of the first two assignments. The la
 
 This time, we do not supply a Jupyter Notebook. For really working with files a notebook has its shortcomings, as you might have noticed with the first exercises on files. Working with command line arguments from a notebook is not possible at all (well, not reasonably).
 
-::::{tip} For trying code fragments, you can create your own notebook
-For testing command line arguments, `sys.argv` will only give the command line arguments of the Python system running in the notebook; not very usefull. For experimenting, you can create a variable `sys_argv`, like we did for line yesterday. Note that command line arguments are passed as a list of strings, and that the name of the script is in position 0 of the list.
+::::{tip} Tip
+For trying code fragments, you can create your own notebook.
 
+For testing command line arguments, `sys.argv` will only give the command line arguments of the Python system running in the notebook; not very usefull. For experimenting, you can create a variable `sys_argv`, like we did for line yesterday. Note that command line arguments are passed as a list of strings, and that the name of the script is in position 0 of the list.
 ::::
 
 For testing the new aspects of today, you will have to write scripts in their own files, and execute those from the terminal window. Although it is possible to run programs with command line arguments inside PyCharm, it is far easier using the terminal when experimenting with command line arguments.
@@ -179,15 +180,15 @@ For testing the new aspects of today, you will have to write scripts in their ow
 
 The program that you have to write for this exercise must take its inputs from the command line and print its output to the console. 
 
-:::{tip}
+:::{tip} Tip
 Import `sys` and use `sys.argv` for accepting inputs. Remember that command line arguments are always supplied as strings.
 :::
 
-:::{tip}
+:::{tip} Tip
 For the multiplication, use a result variable that the program initializes to `1` – not `0` – before processing the numbers.
 :::
 
-:::{tip}
+:::{tip} Tip
 Output of `print()` goes to {term}`standard output <stdout>`. That is not what we want in this case. Instead, the output should go to `sys.stderr`.
 :::
 

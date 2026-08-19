@@ -526,9 +526,9 @@ When that works, use the {term}`Regular Expression` in the whole file to find th
 ``````{exercise} Use an anchor in a Regular Expression
 **How many protein sequences in the file do not have an M as the first amino acid?**
 
-```{tip}
+:::{tip} Tip
 Check the two functions of the `^` character in {term}`Regular Expression` ([](#anchors_section))
-```
+:::
 ``````
 
 

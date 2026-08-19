@@ -308,7 +308,7 @@ The python script read the `Sc_chr3.fa` file and calculates the GC percentage.
 
 **Finish the `gc_content()` function in the python script.**
 
-:::{tip}
+:::{tip} Tip
 To finish `gc_content()` function, look at the W2D4 Exercise [GC content](#exc_wf_gc_content_function)
 :::
 
@@ -448,7 +448,7 @@ Use `md5sum` to check the checksum of `dna00.fa` on the {term}`HPC<High-Performa
 ``````{exercise} Check the checksum of all the FASTA files in dna_files on the HPC system
 Use `md5sum` to create the md5sum of all the fasta files in one command and capture them in a file `fasta_files_checksums.txt`
 
-:::{tip}
+:::{tip} Tip
 Use wildcarding, for instance `*.fa`
 :::
 ``````

@@ -99,9 +99,9 @@ You could add the directory to `PATH`, but the simplest solution is to specify t
 ./hello_world.sh
 ```
 
-```{tip}
+:::{tip} Tip
 The `.` represents the current directory. 
-```
+:::
  
 Second, you may now receive a "permission denied" error. For security reasons, Linux does not allow every file to be executed as a command. You can view the permission flags of a file using:
 ```{code-block} bash

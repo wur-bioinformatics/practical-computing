@@ -168,8 +168,8 @@ DROP TABLE IF EXISTS blast_results;
 ```
 Recreate the table by running your modified `CREATE TABLE` command.
 
-:::{tip} Make sure to always include the semicolon at the end of an SQL command
-SQLite will only process your SQL command when it encounters the` ;` symbol. The benefit of this is that you can spread the command over multiple lines. 
+:::{tip} Tip
+Make sure to always include the semicolon at the end of an SQL command. SQLite will only process your SQL command when it encounters the` ;` symbol. The benefit of this is that you can spread the command over multiple lines. 
 :::
 
 Check that the create command worked: 
@@ -196,7 +196,8 @@ This looks good, until you realize that it there are two headers, the old one an
 ```{code-block} sql
 DELETE FROM blast_results WHERE query = "Query_label";
 ```
-:::{note} In SQL we use `=` for equals, instead of `==` in Python
+:::{note} Note
+In SQL we use `=` for equals, instead of `==` in Python
 
 :::
 
@@ -341,7 +342,8 @@ FASTA_file.close()
 
 Run the script on Linux (it is a Python script, so do not use SQLite for this 😊) and write the result to a file called `plant_proteins.csv`.
 
-:::{tip} Redirect the output with `>`
+:::{tip} Tip
+Redirect the output with `>`
 :::
 
 Check that the file indeed has lines with comma separated fields.
@@ -440,7 +442,7 @@ Modify the `get_rows_for_target()` function to also filter for the provided e-va
 ::::{exercise} Challenge 2
 Make the `get_rows_for_target()` function work for only the last part of the target ID, so instead of having to use the full `"sp|P62258|1433E_HUMAN"`, it should also work for `"1433E_HUMAN"` 
 
-:::{tip}
+:::{tip} Tip
 Look at the SQL `LIKE` keyword
 :::
 ::::

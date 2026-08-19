@@ -55,20 +55,22 @@ Computing Skills for Biologists - a Tool box
 ## Advanced Linux Commands
 Now that you have mastered the basics of using the {term}`shell` in [](#basic_linux_commands_page), let's explore some more advanced command-line tools. The tools explored here are by no means an exhaustive list of Linux tools, but these tools are very useful for handling biological data (files). 
 
-``````{tip} Remember how to search for help
+::::{tip} Tip
+Remember how to search for help. 
+
 Part of mastering the command line shell is knowing how to search for help. Most tools have a help page that is printed to screen when running (depending on the tool) either:
-```{code-block} bash
+:::{code-block} bash
 <tool> -h
-```
+:::
 or
-```{code-block} bash
+:::{code-block} bash
 <tool> --help
-```
+:::
 Alternatively, you can open the manual via:
-```{code-block} bash
+:::{code-block} bash
 man <tool>
-```
-``````
+:::
+::::
 
 (wget_section)=
 ### `wget`
@@ -100,9 +102,9 @@ grep [OPTION] PATTERNS [FILE]
 ```
 where `PATTERNS` is/are the pattern(s) to search for in each `FILE` ([](#grep_basic_example)).
 
-```{tip}
+:::{tip} Tip
 When using the `--color` {term}`option`, the part of the line that is matched will be colored in the {term}`stdout`.
-```
+:::
 
 
 (grep_basic_example)=
@@ -152,9 +154,9 @@ AAAAAAAAAADYDGSPPPPRGKKKKDDEERSSSLPEEKDAKNGGGDEVLSAVTTEDSSAG
 ```
 ``````
 
-```{tip}
+:::{tip} Tip
 The `-m` {term}`option` limits the number of matching lines.
-```
+:::
 
 (grep_regex_example_3)=
 ``````{prf:example} Filter lines containing a pattern showing only the first occurence
@@ -605,14 +607,14 @@ In the following exercises, you will:
 For each of the exercises you will get commands which serve as building blocks of the pipeline. Connect them in the right order using the pipe (`|`) symbol as discussed in [](#section_alcap_pipelines). 
 
 
-``````{tip}
+::::{tip} Tip
 As you add parts of your pipeline, check what actually comes out after each addition. 
 
 To not "flood" your screen by intermediary output, you can always add a temporary [`head`](#head_section) command. For example, if you only want the first five lines to be printed to {term}`stdout`, add: 
-```{code-block} bash
+:::{code-block} bash
 | head -5
-```
-``````
+:::
+::::
 
 :::{note} Note
 The exact syntax of [`awk`](#awk_section) is not that important, but try to see what it does. 
@@ -622,19 +624,19 @@ The exact syntax of [`awk`](#awk_section) is not that important, but try to see 
 ### Working with Column-Separated Data
 For these exercises you will work with a smaller sample of the `crane.csv` dataset containing only the first and last one hundred lines of the original: `first_and_last_100_lines_crane_data.csv`. You will practice with extracting specific columns from tab-delimited files and selecting lines based on matches in only one column. You will also practice with two other very useful tools that can sort columns and extract and count unique content of columns and text.
 
-```{tip}
+:::{tip} Tip
 Many of the shell tools that work easily with column data, recognize TAB (or any whitespace) as default delimiter. 
 
 Converting from comma- to tab-delimited text therefore saves having to specify the delimiter for every tool separately. There can be vast differences in what {term}`option` each tool used to specify the delimiter.
-```
+:::
 
 *#! add how to get the file*
 
 ``````{exercise} Extract columns from data
 Extract the first and third column of the data
-```{tip}
+:::{tip} Tip
 The first command should read the data file.
-```
+:::
 ```{code-block} bash
 sed 's/,/\t/g' | sed 's/\t /, /g'
 ```
@@ -943,8 +945,8 @@ sed "s/^'//"
 sed "s/'$//"
 ```
 
-```{tip}
+:::{tip} Tip
 They will not be useful at the end of your previous pipeline.
-```
+:::
 **Is there a difference in the result?**
 ``````
