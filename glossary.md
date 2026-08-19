@@ -28,11 +28,17 @@ character class
 character group
 : group of characters that is captured by the pattern and can be returned or replaced.
 
+cluster
+: a collection of multiple interconnected computers (nodes) that work together as a single, powerful system.
+
 command-line interface
 : Text-based interface for the user to interact with an operating system.
 
 compression
 : Reducing the size of a data file to save space and network transfer time.
+
+core
+: the individual processing unit inside a computer's CPU that reads and executes instructions. A modern CPU usually has multiple cores, allowing it to handle several tasks at once.
 
 CPU
 : **C**entral **P**rocessing **U**nit. The brain of the computer that executes instructions and manages operations. 
@@ -57,6 +63,9 @@ group (regex)
 
 hardware
 : the physical components of a computer system
+
+High-Performance Computing
+: or HPC, the practice of aggregating computing power to solve complex, massive computational problems much faster than a standard computer.
 
 index
 : A data structure that stores and organizes information within a file in such a way that it is easy to find.
@@ -91,6 +100,9 @@ network port
 nibble
 : data unit of four bits, representing any number from 0 to 15
 
+node
+: an individual, standalone computer system (containing CPUs, memory, and network access) that acts as a single building block inside a larger HPC cluster.
+
 non-printable character
 : character that does not represent a visible, written symbol, also called control character.
 
@@ -102,6 +114,9 @@ option
 
 output
 : The destination of the outgoing information (data).
+
+Parallel Computing
+: a type of computation where many calculations or processes are carried out simultaneously to save time.
 
 prompt
 : Input field in a text-based user interface screen for an operating system.
@@ -115,6 +130,9 @@ Regular Expression
 relative path
 : Path that points to a position in the directory tree from your current position.
 
+scalability
+: the ability of a software program or hardware system to handle growing amounts of work by adding more resources.
+
 set
 : specific characters or a range of characters to match.
 
@@ -123,6 +141,9 @@ shell
 
 shell script
 : a (text) file containing a series of commands that the shell can interpret and execute
+
+slurm
+: a popular, open-source cluster management and job scheduling system used on Linux-based supercomputers to distribute computational tasks across different nodes.
 
 software
 : non-physical parts of a computer system, the applications and programs that interact with the computer hardware to performs tasks
@@ -138,6 +159,12 @@ stdout
 
 string
 : a sequence of characters. How a computer stores and works with text. Written between quotes ("/')
+
+supercomputer
+: a highly advanced computer system with extreme processing power, built by linking thousands of compute cores together.
+
+throughput
+: the amount of data or the number of computational tasks a system can successfully process within a given amount of time.
 
 wildcard
 : a specific symbol (`.`) that represents any character.
