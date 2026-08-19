@@ -53,7 +53,6 @@ In advance of {term}`HPC<High-Performance Computing>`, the first computer that c
   - max 25W
 :::
 
-## Clusters and Servers
 Computer {term}`clusters<cluster>` consist of many computers, or compute {term}`nodes<node>`. Compute {term}`nodes<node>` are the workhorses of a {term}`cluster`. Many {term}`HPC<High-Performance Computing>` {term}`clusters<cluster>` have several {term}`nodes<node>` optimized for particular jobs. Some {term}`nodes<node>` may have larger amounts of {term}`memory`, or specialized resources such as {term}`Graphical Processing Units<GPU>` (GPUs). {term}`Clusters<cluster>` also have a shared {term}`file system` and one or several "head {term}`nodes<node>`" that mastermind the processes ([](#figure_computer_cluster)). The head {term}`nodes<node>` ensure resource allocation to tasks and distribute jobs to the compute {term}`nodes<node>`.
 
 (figure_computer_cluster)=
