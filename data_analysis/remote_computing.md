@@ -66,10 +66,13 @@ WUR has a {term}`HPC<High-Performance Computing>` system called [Anunna](https:/
 Anunna contains 100 "normal sized" compute {term}`nodes<node>`, six "fat" {term}`nodes<node>` (64 {term}`cores<core>` each with 4 TB of {term}`memory`), six {term}`GPU` {term}`nodes<node>`, and a 3.0PB parallel {term}`file system` ([Lustre](https://en.wikipedia.org/wiki/Lustre_(file_system))).
 
 
-## Using a HPC system
-Almost all computer {term}`clusters<cluster>` and many servers run Linux. Copying the files that are required for your analyses (data, scripts, and anything else) from one machine to the machine you will use to perform the analysis is an important step. Connections are made using ssh-based protocols ([](#table_connection_protocols)). SSH is a general communication protocol between Linux and Unix (e.g. Mac) machines that is always available. Sometimes when a remote machine refuses a connection, it is possible that it is not properly configured to be a ssh-server. But your local machine will usually have the 'client' ssh {term}`software` to connect to any remote machine.
+## Using an HPC system
+Almost all computer {term}`clusters<cluster>` and many servers run Linux. When using a remote computer, you will have at least a terminal and in most cases you will not have anything else. Apart from that, there are other restrictions. Not everything is possible on a remote computer that you can do on your own desktop due to system permissions. This is to ensure stability and security of system. Therefore, you need to know how to deal with that by understanding the limitations and the work-arounds. 
 
-Two methods that are often used to copy files over the ssh-protocol to a remote (Linux/Unix) machine, are: secure copy (`scp`) and `rsync`. The difference between them (in behavior) is that `scp` will just copy everything, and `rsync` will only copy the things that are not yet present. If no files were previously copied, `rsync` will just behave as `scp`. For copying files to other computers, `rsync` is generally the preferred option.
+### Connection Protocols
+Copying the files that are required for your analyses (data, scripts, and anything else) from one machine to the machine you will use to perform the analysis is an important step. Connections are made using ssh-based protocols ([](#table_connection_protocols)). SSH is a general communication protocol between Linux and Unix (e.g. Mac) machines that is always available. Sometimes when a remote machine refuses a connection, it is possible that it is not properly configured to be a ssh-server. But your local machine will usually have the 'client' ssh {term}`software` to connect to any remote machine.
+
+Two methods that are often used to copy files over the ssh-protocol to a remote (Linux/Unix) machine, are: secure copy (`scp`) and `rsync`. The difference between them in behavior is that `scp` will just copy everything, and `rsync` will only copy the things that are not yet present. If no files were previously copied, `rsync` will just behave as `scp`. For copying files to other computers, `rsync` is generally the preferred option.
 
 
 (table_connection_protocols)=
@@ -85,18 +88,13 @@ Two methods that are often used to copy files over the ssh-protocol to a remote 
   - Syncing file, can also be done over ssh
 :::
 
-When using a remote computer, you will have at least a terminal and in most cases you will not have anything else. Apart from that, there are other restrictions. Not everything is possible on a remote computer that you can do on your own desktop due to system permissions. This is to ensure stability and security of system. Therefore, you need to know how to deal with that by understanding the limitations and the work-arounds. 
-
-
 ### Resource Allocation
 On computer {term}`clusters<cluster>`, jobs need to be scheduled because there are often more jobs than space or capacity on the {term}`cluster`. If everybody just starts their jobs at random {term}`nodes<node>` it will soon get quite messy and the system might be overloaded with tasks. Hence, {term}`HPC<High-Performance Computing>` systems work with a workload manager or job scheduler. The jobs are are scheduled based on estimated {term}`memory` and {term}`CPU` {term}`core` usage. 
 
-Anunna uses [slurm](https://slurm.schedmd.com/overview.html) as job scheduler. {term}`slurm` is a free and open-source job scheduler for Linux and Unix-like kernels, used by many of the world's {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>`. {term}`slurm` is therefore the "manager" between the head {term}`node` and the compute {term}`nodes<node>`.
+Anunna uses [slurm](https://slurm.schedmd.com/overview.html) as job scheduler. {term}`slurm` is a free and open-source job scheduler for Linux and Unix-like {term}`kernels<kernel>`, used by many of the world's {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>`. {term}`slurm` is the "manager" between the head {term}`node` and the compute {term}`nodes<node>`.
 
 
-To perform tasks on the {term}`HPC<High-Performance Computing>` {term}`cluster` you need to write a "batch" script that you can submit to the job scheduler ([](#example_skeleton_slurm_job_script)). SLURM will take care of the job and will assign it to a free {term}`node`.
-
-When running jobs on a {term}`HPC<High-Performance Computing>` system you need to specify the resources required for the job up front. This means that you need to think about the number of {term}`CPUs<CPU>` and amount of {term}`memory` your job requires. These requirements help the scheduler to find the right time and place to execute the job. Some important requirements are listed in [](#table_job_script_directives)
+When running jobs on a {term}`HPC<High-Performance Computing>` system you need to specify the resources required for the job up front. You need to write a "batch" script that you can submit to the job scheduler ([](#example_skeleton_slurm_job_script)). This means that you need to think about the number of {term}`CPUs<CPU>` and amount of {term}`memory` your job requires. {term}`slurm` will find the right time and place to execute the job. Some important requirements are listed in [](#table_job_script_directives). 
 
 (table_job_script_directives)=
 :::{list-table} Some directives to include in a job script
@@ -161,7 +159,7 @@ All {term}`nodes<node>` on the {term}`HPC<High-Performance Computing>` {term}`cl
 *#! is this correct?*
 
 ### Software
-On a {term}`HPC<High-Performance Computing>` {term}`cluster`, it might be necessary to have dozens of different versions of the same {term}`software` to be available. {term}`Software<software>` may need to be compiled from source and doing that across a {term}`HPC<High-Performance Computing>` {term}`cluster` is a dependency nightmare. Thus, user do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the {term}`file system`. 
+On a {term}`HPC<High-Performance Computing>` {term}`cluster`, it might be necessary to have dozens of different versions of the same {term}`software` to be available. {term}`Software<software>` may need to be compiled from source and doing that across a {term}`HPC<High-Performance Computing>` {term}`cluster` is a dependency nightmare. Thus, users do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the {term}`file system`. 
 
 To ensure multiple modules and dependencies are correct for your specific task, it is best to use a package manager such as [conda](https://docs.conda.io/en/latest/) or [mamba](https://mamba.readthedocs.io/en/latest/). 
 
@@ -170,7 +168,7 @@ The Anunna {term}`cluster` may be big, but it is finite in size. The following c
 
 First, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. A strategy used to accelerate processing certain tasks is {term}`parallel computing`, where a big task is divided in many smaller tasks that can be run simultaneously. 
 
-Next, it is important to be aware of file sizes and {term}`file system` use. Preferably, we keep data in a compressed format, and read and write from and to compressed files. 
+Next, it is important to be aware of file sizes and {term}`file system` use. Preferably, we keep data in a {term}`compressed<compression>` format, and read and write from and to {term}`compressed<compression>` files. 
 
 Next, we should aim to reduce redundancy and to retain data integrity by not having multiple copies of the same file stored on the system. Copying files to different locations results in multiple instances of the original data. This raises a few concerns. One concern is the small, but non-zero, probability that errors were made in the process of copying. For instance, if the copying process was interrupted, the copy might not contain all the information of the original. Another concern is that the dataset can loose aspects of its integrity due to the existence of a copy. This can happen by altering even trivial attributes (e.g. filename) or the content of the file. When the copy becomes the working version in your data analysis, the loss of data integrity can become a problem. Therefore, it is good practice to always check the integrity of the copy against the original. A common method to check the integrity of a copy against an original is to use a checksum. The checksum is usually applied on a file or contents of a file by an algorithm that converts the byte-content of the information into a so called checksum. The checksum can be seen as a "fingerprint" of the original file. If the byte-content changes even ever-so slightly, the checksum will be different.
 
