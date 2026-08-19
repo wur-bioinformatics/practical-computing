@@ -22,10 +22,10 @@ As biological datasets continue to expand, your local desktop quickly hits its l
 
 ## Why Remote Computing?
 To analyse large biological datasets, we often use the computing power of machines that are physically remote. They could be on the other side of the planet, behind a door you are not allowed in, or they are shared by massive amounts of users. Moreover, some of these machines are dedicated to specialized tasks. There are different kinds of servers for specific tasks such as a webserver and a databaseserver. There is also 
-{term}`High-Performance Computing` that uses {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>` working in parallel to process huge data sets and solve complex problems. Therefore, remote computing brings its own set of usage and good practice
+{term}`High-Performance Computing` that uses {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>` working in parallel to process huge data sets and solve complex problems. Therefore, remote computing brings its own set of usage and good practice.
 
 ## High-Performance Computing
-In advance of {term}`HPC<High-Performance Computing>`, the first computer that could successfully use multiple CPUs was the [Cray 2](wiki:Cray-2). If we compare the specifications of the Cray 2 to a modern smartphone ([](#table_supercomputers_specs)), one could see that we are currently carrying devices 2000 times faster than the first {term}`supercomputer` in our pockets, running on just a few watts. Though, the current champion of modern {term}`supercomputers<supercomputer>` far exceeds both: the [LineShine](https://en.wikipedia.org/wiki/LineShine) (China) reached 2.198 ExaFLOPS performance and operates exclusively on 13.79 million {term}`CPU` {term}`cores<core>` [@top500_june_2026].
+In advance of {term}`HPC<High-Performance Computing>`, the first computer that could successfully use multiple {term}`CPUs<CPU>` was the [Cray 2](wiki:Cray-2). If we compare the specifications of the Cray 2 to a modern smartphone ([](#table_supercomputers_specs)), one could see that we are currently carrying devices 2000 times faster than the first {term}`supercomputer` in our pockets, running on just a few watts. Though, the current champion of modern {term}`supercomputers<supercomputer>` far exceeds both: the [LineShine](https://en.wikipedia.org/wiki/LineShine) (China) reached 2.198 ExaFLOPS performance and operates exclusively on 13.79 million {term}`CPU` {term}`cores<core>` [@top500_june_2026].
 
 (table_supercomputers_specs)=
 :::{list-table} Old supercomputer vs. modern smartphone
@@ -54,7 +54,7 @@ In advance of {term}`HPC<High-Performance Computing>`, the first computer that c
 :::
 
 ## Clusters and Servers
-Computer {term}`clusters<cluster>` consist of many computers, or compute {term}`nodes<node>`. Compute {term}`nodes<node>` are the workhorses of a {term}`cluster`. Many {term}`HPC<High-Performance Computing>` {term}`clusters<cluster>` have several {term}`nodes<node>` optimized for particular jobs. Some {term}`nodes<node>` may have larger amounts of memory, or specialized resources such as Graphical Processing Units (GPUs). Clusters also have a shared file system and one or several "head {term}`nodes<node>`" that mastermind the processes ([](#figure_computer_cluster)). The head {term}`nodes<node>` ensure resource allocation to tasks and distribute jobs to the compute {term}`nodes<node>`.
+Computer {term}`clusters<cluster>` consist of many computers, or compute {term}`nodes<node>`. Compute {term}`nodes<node>` are the workhorses of a {term}`cluster`. Many {term}`HPC<High-Performance Computing>` {term}`clusters<cluster>` have several {term}`nodes<node>` optimized for particular jobs. Some {term}`nodes<node>` may have larger amounts of {term}`memory`, or specialized resources such as {term}`Graphical Processing Units<GPU>` (GPUs). {term}`Clusters<cluster>` also have a shared {term}`file system` and one or several "head {term}`nodes<node>`" that mastermind the processes ([](#figure_computer_cluster)). The head {term}`nodes<node>` ensure resource allocation to tasks and distribute jobs to the compute {term}`nodes<node>`.
 
 (figure_computer_cluster)=
 :::{figure} img/computer_clusters.svg
@@ -64,11 +64,11 @@ Diagram of a computer cluster containing one head node and three compute nodes
 
 WUR has a {term}`HPC<High-Performance Computing>` system called [Anunna](https://wiki.anunna.wur.nl/Main_Page). An {term}`HPC<High-Performance Computing>` system is comprised of a multitude of integrated processing and storage elements, designed to handle high volumes of data and/or large numbers of floating-point operations (FLOPS) with the highest possible performance. Be aware that the {term}`HPC<High-Performance Computing>` systems are among the most powerful computers in the world. Most machines on the Top-500 list are {term}`HPC<High-Performance Computing>` systems. The {term}`HPC<High-Performance Computing>` systems are often maintained in centers specifically designed to support heavy computing and with large bandwidths (i.e. the maximum rate of data transfer).
 
-Anunna contains 100 "normal sized" compute {term}`nodes<node>`, six "fat" {term}`nodes<node>` (64 {term}`cores<core>` each with 4 TB of memory), six {term}`GPU` {term}`nodes<node>`, and a 3.0PB parallel file system ([Lustre](https://en.wikipedia.org/wiki/Lustre_(file_system))).
+Anunna contains 100 "normal sized" compute {term}`nodes<node>`, six "fat" {term}`nodes<node>` (64 {term}`cores<core>` each with 4 TB of {term}`memory`), six {term}`GPU` {term}`nodes<node>`, and a 3.0PB parallel {term}`file system` ([Lustre](https://en.wikipedia.org/wiki/Lustre_(file_system))).
 
 
 ## Using a HPC system
-Almost all computer {term}`clusters<cluster>` and many servers run Linux. Copying the files that are required for your analyses (data, scripts, and anything else) from one machine to the machine you will use to perform the analysis is an important step. Connections are made using ssh-based protocols ([](#table_connection_protocols)). SSH is a general communication protocol between Linux and Unix (e.g. Mac) machines that is always available. Sometimes when a remote machine refuses a connection, it is possible that it is not properly configured to be a ssh-server. But your local machine will usually have the 'client' ssh software to connect to any remote machine.
+Almost all computer {term}`clusters<cluster>` and many servers run Linux. Copying the files that are required for your analyses (data, scripts, and anything else) from one machine to the machine you will use to perform the analysis is an important step. Connections are made using ssh-based protocols ([](#table_connection_protocols)). SSH is a general communication protocol between Linux and Unix (e.g. Mac) machines that is always available. Sometimes when a remote machine refuses a connection, it is possible that it is not properly configured to be a ssh-server. But your local machine will usually have the 'client' ssh {term}`software` to connect to any remote machine.
 
 Two methods that are often used to copy files over the ssh-protocol to a remote (Linux/Unix) machine, are: secure copy (`scp`) and `rsync`. The difference between them (in behavior) is that `scp` will just copy everything, and `rsync` will only copy the things that are not yet present. If no files were previously copied, `rsync` will just behave as `scp`. For copying files to other computers, `rsync` is generally the preferred option.
 
@@ -90,14 +90,14 @@ When using a remote computer, you will have at least a terminal and in most case
 
 
 ### Resource Allocation
-On computer {term}`clusters<cluster>`, jobs need to be scheduled because there are often more jobs than space or capacity on the {term}`cluster`. If everybody just starts their jobs at random {term}`nodes<node>` it will soon get quite messy and the system might be overloaded with tasks. Hence, {term}`HPC<High-Performance Computing>` systems work with a workload manager or job scheduler. The jobs are are scheduled based on estimated memory and {term}`CPU` {term}`core` usage. 
+On computer {term}`clusters<cluster>`, jobs need to be scheduled because there are often more jobs than space or capacity on the {term}`cluster`. If everybody just starts their jobs at random {term}`nodes<node>` it will soon get quite messy and the system might be overloaded with tasks. Hence, {term}`HPC<High-Performance Computing>` systems work with a workload manager or job scheduler. The jobs are are scheduled based on estimated {term}`memory` and {term}`CPU` {term}`core` usage. 
 
 Anunna uses [slurm](https://slurm.schedmd.com/overview.html) as job scheduler. {term}`slurm` is a free and open-source job scheduler for Linux and Unix-like kernels, used by many of the world's {term}`supercomputers<supercomputer>` and computer {term}`clusters<cluster>`. {term}`slurm` is therefore the "manager" between the head {term}`node` and the compute {term}`nodes<node>`.
 
 
 To perform tasks on the {term}`HPC<High-Performance Computing>` {term}`cluster` you need to write a "batch" script that you can submit to the job scheduler ([](#example_skeleton_slurm_job_script)). SLURM will take care of the job and will assign it to a free {term}`node`.
 
-When running jobs on a {term}`HPC<High-Performance Computing>` system you need to specify the resources required for the job up front. This means that you need to think about the number of CPUs and amount of memory your job requires. These requirements help the scheduler to find the right time and place to execute the job. Some important requirements are listed in [](#table_job_script_directives)
+When running jobs on a {term}`HPC<High-Performance Computing>` system you need to specify the resources required for the job up front. This means that you need to think about the number of {term}`CPUs<CPU>` and amount of {term}`memory` your job requires. These requirements help the scheduler to find the right time and place to execute the job. Some important requirements are listed in [](#table_job_script_directives)
 
 (table_job_script_directives)=
 :::{list-table} Some directives to include in a job script
@@ -162,7 +162,7 @@ All {term}`nodes<node>` on the {term}`HPC<High-Performance Computing>` {term}`cl
 *#! is this correct?*
 
 ### Software
-On a {term}`HPC<High-Performance Computing>` {term}`cluster`, it might be necessary to have dozens of different versions of the same software to be available. Software may need to be compiled from source and doing that across a {term}`HPC<High-Performance Computing>` {term}`cluster` is a dependency nightmare. Thus, user do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the file system. 
+On a {term}`HPC<High-Performance Computing>` {term}`cluster`, it might be necessary to have dozens of different versions of the same {term}`software` to be available. {term}`Software<software>` may need to be compiled from source and doing that across a {term}`HPC<High-Performance Computing>` {term}`cluster` is a dependency nightmare. Thus, user do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the {term}`file system`. 
 
 To ensure multiple modules and dependencies are correct for your specific task, it is best to use a package manager such as [conda](https://docs.conda.io/en/latest/) or [mamba](https://mamba.readthedocs.io/en/latest/). 
 
@@ -171,7 +171,7 @@ The Anunna {term}`cluster` may be big, but it is finite in size. The following c
 
 First, using resources may come at a monetary cost. It is, therefore, important to monitor and benchmark behavior by time (walltime and total time) and RAM. A strategy used to accelerate processing certain tasks is {term}`parallel computing`, where a big task is divided in many smaller tasks that can be run simultaneously. 
 
-Next, it is important to be aware of file sizes and file system use. Preferably, we keep data in a compressed format, and read and write from and to compressed files. 
+Next, it is important to be aware of file sizes and {term}`file system` use. Preferably, we keep data in a compressed format, and read and write from and to compressed files. 
 
 Next, we should aim to reduce redundancy and to retain data integrity by not having multiple copies of the same file stored on the system. Copying files to different locations results in multiple instances of the original data. This raises a few concerns. One concern is the small, but non-zero, probability that errors were made in the process of copying. For instance, if the copying process was interrupted, the copy might not contain all the information of the original. Another concern is that the dataset can loose aspects of its integrity due to the existence of a copy. This can happen by altering even trivial attributes (e.g. filename) or the content of the file. When the copy becomes the working version in your data analysis, the loss of data integrity can become a problem. Therefore, it is good practice to always check the integrity of the copy against the original. A common method to check the integrity of a copy against an original is to use a checksum. The checksum is usually applied on a file or contents of a file by an algorithm that converts the byte-content of the information into a so called checksum. The checksum can be seen as a "fingerprint" of the original file. If the byte-content changes even ever-so slightly, the checksum will be different.
 
@@ -247,13 +247,13 @@ Now let's explore one of the worker {term}`nodes<node>`:
 ```{code-block} bash
 sinfo -n node200 -o "%n %c %m"
 ```
-**What is the number of CPUs and memory available?**
+**What is the number of {term}`CPUs<CPU>` and {term}`memory` available?**
 
 Do the same for one of the "fat" {term}`nodes<node>`. **What do you notice?**
 ``````
 
 ### Working with a Job Scheduler
-Here, we will build up to submit a job to {term}`slurm` to perform a small task on the {term}`HPC<High-Performance Computing>` system. For the task we will write a small script that calculates the GC content of chromosome 3 from yeast (*Saccharomyces cerevisiae*). We will just use one CPU on one {term}`node`.
+Here, we will build up to submit a job to {term}`slurm` to perform a small task on the {term}`HPC<High-Performance Computing>` system. For the task we will write a small script that calculates the GC content of chromosome 3 from yeast (*Saccharomyces cerevisiae*). We will just use one {term}`CPU` on one {term}`node`.
 
 ``````{exercise} Download the FASTA file
 First download the fasta file using following command:
@@ -331,7 +331,7 @@ This will show if your job is pending, running, or has completed. To get a real 
 ```{code-block} bash
 watch -n 15 squeue -u username
 ```
-To cancel a job you can use `scancel` together with the job-id, the job-id is shown when you submit the job and also in the first column of the `squeue` output
+To cancel a job you can use `scancel` together with the job-id, the job-id is shown when you submit the job and also in the first column of the `squeue` {term}`output`
 ```{code-block} bash
 scancel <job-id>
 ```
@@ -347,23 +347,23 @@ Note that working on a shared {term}`cluster` also means you need to work respon
 
 ### Using Software via Modules
 ``````{exercise} Check what software is available on the HPC system
-Many users use similar software to perform computations on their datasets. Therefore, a large collection of software is readily available on the {term}`HPC<High-Performance Computing>`. Run the following command to get a list of the software that is available:
+Many users use similar {term}`software` to perform computations on their datasets. Therefore, a large collection of {term}`software` is readily available on the {term}`HPC<High-Performance Computing>`. Run the following command to get a list of the {term}`software` that is available:
 ```{code-block} bash
 module load 2023
 module avail
 ```
 ``````
 
-:::{note} Many of the standard bioinformatics utilities (i.e. calculating GC content of a fasta file) are also available in existing software utilities. 
+:::{note} Many of the standard bioinformatics utilities (i.e. calculating GC content of a fasta file) are also available in existing {term}`software` utilities. 
 :::
 
 
 ``````{exercise} Use an existing module 
-We will use one of the existing software packages to calculate the GC content of the `Sc_chr3.fa` file again. Load the module `seqtk`:
+We will use one of the existing {term}`software` packages to calculate the GC content of the `Sc_chr3.fa` file again. Load the module `seqtk`:
 ```{code-block} bash
 module load seqtk
 ```
-`seqtk` is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. If you want to check where a particular software is stored you can use the `which` command:
+`seqtk` is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. If you want to check where a particular {term}`software` is stored you can use the `which` command:
 ```{code-block} bash
 which seqtk
 ```
@@ -398,7 +398,7 @@ Make sure you understand which files and folders it contains, notably what is in
 ``````
 
 ``````{exercise} Use secure copy to copy the data to a HPC system
-Secure copy `scp` works similarly to the [`cp`](#cp_section) command you encountered in the first week of the course, on the first day we started working on the command line. 
+Secure copy `scp` works similarly to the [`cp`](#cp_section) command you encountered in the first week of the course, on the first day we started working on the command-line. 
 
 :::{caution} In the next line of code the `:` is important to include.
 This means that you are copying this to your home directory. What happens when you forget this (you can try it, if you do check the home directory on Anunna *#! missing in the exc pdf assuming anunna*)?
