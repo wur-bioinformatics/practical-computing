@@ -118,6 +118,9 @@ output
 Parallel Computing
 : a type of computation where many calculations or processes are carried out simultaneously to save time.
 
+pattern matching
+: the act of checking a specific sequence of tokens or text data for the presence of the constituents of some pattern.
+
 prompt
 : Input field in a text-based user interface screen for an operating system.
 
@@ -162,6 +165,9 @@ string
 
 supercomputer
 : a highly advanced computer system with extreme processing power, built by linking thousands of compute cores together.
+
+syntax
+: the specific set of rules, symbols, and structural guidelines that define how a programming language or regex string must be written.
 
 throughput
 : the amount of data or the number of computational tasks a system can successfully process within a given amount of time.

@@ -16,10 +16,10 @@ After completing this section you should be able to:
 ## Introduction
 Biologists often work with large amounts of text-based data, including DNA and protein sequences, gene identifiers, sample names, annotation files, and experimental metadata. {term}`Regular Expressions <Regular Expression>` provide a powerful way to describe and search for patterns in such data. They can be used, for example, to find dates, extract gene identifiers, validate sequence formats, or identify motifs in strings of text. In this section, you will learn how to recognize and construct regular-expression patterns and apply them to biological data.
 
-Many programming language can use {term}`Regular Expressions <Regular Expression>` and there can be slight differences in syntax. Here, we mainly use the Bash syntax (for [`grep`](#grep_section), [`awk`](#awk_section), and [`sed`](#sed_section)) and the Python syntax (*#! forward ref to python part*). 
+Many programming language can use {term}`Regular Expressions <Regular Expression>` and there can be slight differences in {term}`syntax`. Here, we mainly use the Bash {term}`syntax` (for [`grep`](#grep_section), [`awk`](#awk_section), and [`sed`](#sed_section)) and the Python {term}`syntax` (*#! forward ref to python part*). 
 
 ## What are Regular Expressions and why use them?
-{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in pattern matching with {term}`strings <string>`, or {term}`string` matching, i.e. 'Find and Replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are also called 'Regex' or abbreviated as 'RE'. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
+{term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in {term}`pattern matching` with {term}`strings <string>`, or {term}`string` matching, i.e. 'Find and Replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are also called 'Regex' or abbreviated as 'RE'. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
 
 (example-patterns-in-text)=
 ``````{prf:example} Patterns in text
@@ -41,7 +41,7 @@ Computing Skills for Biologists - a Tool box
 
 
 ## Metacharacters
-{term}`Regular Expressions <Regular Expression>` make use of a syntax that describes the search pattern. The syntax is made up of literal characters ([](#normal_char_example)) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`character classes <character class>`, {term}`wildcard`, {term}`non-printable characters <non-printable character>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, {term}`anchors <anchor>`, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
+{term}`Regular Expressions <Regular Expression>` make use of a {term}`syntax` that describes the search pattern. The {term}`syntax` is made up of literal characters ([](#normal_char_example)) and {term}`metacharacters <metacharacter>`. A {term}`metacharacter` is a symbol with a special, non-literal meaning. Here, we will discuss the most important {term}`metacharacters <metacharacter>`: {term}`character classes <character class>`, {term}`wildcard`, {term}`non-printable characters <non-printable character>`, {term}`quantifiers <quantifier>`, {term}`sets <set>`, {term}`anchors <anchor>`, and alternations, and how to make them literal (by {term}`escaping <escape>`). 
 
 
 (normal_char_example)=
@@ -381,7 +381,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Notes and Tips
-We have introduced you to the basics of {term}`Regular Expressions <Regular Expression>`, but note that this is not an exhaustive explanation of the syntax. If you want to practice with simple exercises, you can go through the tutorial of [RegexOne](https://regexone.com/).
+We have introduced you to the basics of {term}`Regular Expressions <Regular Expression>`, but note that this is not an exhaustive explanation of the {term}`syntax`. If you want to practice with simple exercises, you can go through the tutorial of [RegexOne](https://regexone.com/).
 
 Writing a good {term}`Regex <Regular Expression>` involves striking a balance among three concerns:
 1. Matching what you want, but ONLY what you want
@@ -505,15 +505,14 @@ Result should look like this:
 ### Converting a PROSITE Pattern to a Regular Expression
 Load the file `sp_human_single_line.fasta` in your editor. Use the Find/Replace settings of your specific editor ([](#graphical_text_editors_table)) for the following exercises.
 
-This file contains the human proteins that are in the SwissProt section of the UniProt database. The SwissProt section contains manually curated protein sequences and is considered more reliable than the trEMBL section, which contains protein sequences
-obtained by translating predicted open reading frames. The newlines were removed from the sequences to facility pattern matching.
+This file contains the human proteins that are in the SwissProt section of the UniProt database. The SwissProt section contains manually curated protein sequences and is considered more reliable than the trEMBL section, which contains protein sequences obtained by translating predicted open reading frames. The newlines were removed from the sequences to facilitate {term}`pattern matching`.
 
 Look up the [PROSITE consensus pattern for ACTINS_1](https://prosite.expasy.org/PDOC00340).
 
 ``````{exercise} Convert PROSITE pattern to Regular Expression
 Convert the PROSITE pattern to a {term}`Regular Expression`. 
 
-The syntax is quite similar, but PROSITE patterns:
+The {term}`syntax` is quite similar, but PROSITE patterns:
 - have a '`-`' to separate elements in
 - use an '`x`' to indicate any amino acid
 - use parentheses '`()`' instead of curly braces '`{}`' to indicate repetition. 
