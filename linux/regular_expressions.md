@@ -11,6 +11,10 @@ bibliography:
 ```{important} Learning outcomes
 After completing this section you should be able to:
 - explain the concept of pattern matching and identify scenarios where regular expressions are useful.
+- identify and use core Regex components, including wildcards, boundaries, and quantifiers.
+- employ escape characters to differentiate between literal characters and metacharacters.
+- capture and rearrange specific textual data using regex groups for powerful find-and-replace tasks.
+- apply pattern matching techniques to clean and manipulate real-world biological files like FASTA and animal tracking databases.
 ```
 
 ## Introduction
