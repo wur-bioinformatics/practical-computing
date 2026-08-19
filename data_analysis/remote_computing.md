@@ -18,7 +18,7 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-As biological datasets continue to expand, your local desktop quickly hits its limits. Analyzing massive datasets requires scaling up to {term}`High-Performance Computing` (HPC) and {term}`supercomputer` {term}`clusters<cluster>`. This section introduces Remote Computing, teaching you how to step out of your local machine and navigate shared, Linux-based server environments. You will learn how to operate securely inside a text-only terminal, install software without root privileges, and work alongside job schedulers. Mastering these remote command-line strategies is a vital milestone for running large-scale, computationally heavy biological analyses smoothly and efficiently.
+As biological datasets continue to expand, your local desktop quickly hits its limits. Analyzing massive datasets requires {term}`scaling up<scalability>` to {term}`High-Performance Computing` (HPC) and {term}`supercomputer` {term}`clusters<cluster>`. This section introduces Remote Computing, teaching you how to step out of your local machine and navigate shared, Linux-based server environments. You will learn how to operate securely inside a text-only terminal, install {term}`software` without root privileges, and work alongside job schedulers. Mastering these remote command-line strategies is a vital milestone for running large-scale, computationally heavy biological analyses smoothly and efficiently.
 
 
 ## High-Performance Computing
