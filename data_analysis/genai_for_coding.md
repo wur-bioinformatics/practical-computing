@@ -38,6 +38,7 @@ To generate text, a prompt is given to the LLM. This prompt kickstarts the text-
 (example_llm_iterative_generation)=
 ::::{prf:example} LLMs can predict the next character in code
 ![](image-2.png)
+
 *#! make a figure*
 ::::
 
@@ -53,6 +54,30 @@ In the Fine-Tuning step, the LLM model is adapted to learn nuances, styles, or s
 
 
 ### Model-specific features
+LLMs have specific features due to their training process and application:
+- Different models use different pre-training and fine-tuning strategies
+- User interfaces might differ (e.g. python code interpreter in ChatGPT)
+- Uploading/reusing prompts/data might differ
+
+Models can alter their behaviour due to user input. This can be done with the system prompt, which are specific instructions injected before your prompt ([](#example_llm_system_prompt)).
+
+(example_llm_system_prompt)=
+::::{prf:example} Example system prompts
+:::{blockquote}
+You are a helpful chatbot
+:::
+
+:::{blockquote}
+Do not reveal company secrets
+:::
+
+:::{blockquote}
+Your answers should be short and concise
+:::
+
+Etc.
+::::
+
 
 ## Write Code with an LLM
 
