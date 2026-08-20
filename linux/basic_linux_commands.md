@@ -884,13 +884,13 @@ ls -l
 
 The length in nucleotides of human chromosome 22 is 50,818,468. Knowing that and the size of the file, you can determine the ratio of {term}`bytes <byte>` per nucleotide. You could use a calculator, but for now let's do a preview to the next part of the course and use Python to do the calculation. 
 
-Python is a programming language that is very popular for all kinds of analyses. It is available on [[SERVER_NAME]] as the
+Python is a programming language that is very popular for all kinds of analyses. It is available on bork as the
 command-line program `python3`, run it like this: (replace `file_size` with the number you found with `ls -l`)
 
 ```{code-block} bash
 :class: no-copybutton
-user001@[[SERVER_NAME]]:~/exercises/week1/day1_2$ python3
-user001@[[SERVER_NAME]]:/usr/local/bin$ python3
+user001@bork:~/exercises/week1/day1_2$ python3
+user001@bork:/usr/local/bin$ python3
 Python 3.13.6 (main, Aug 7 2025, 18:15:40) [GCC 11.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more
 information.
@@ -1021,7 +1021,7 @@ Now run `blastp` again , but change the {term}`output` file name to `proteinX.ht
 The resulting file can be viewed in a web browser, so let's copy it over to your own computer. The easiest way to do that is to use the `scp` command on your computer:
 
 ```{code-block} bash
-scp [[SERVER_NAME]]:~/exercises/week1/day1_2/proteinX.html .
+scp bork:~/exercises/week1/day1_2/proteinX.html .
 ```
 
 Locate the file on your computer and open it with a web browser.

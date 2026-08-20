@@ -387,10 +387,10 @@ You will notice that `seqtk` does not report a GC percentage directly. Instead, 
 ### Transferring Files
 Make sure that during these exercises you keep (at least) one terminal open in Anunna (your home dir), and one in your server (in the W5D3 working dir).
 
-``````{exercise} Download data onto [[SERVER_NAME]]
+``````{exercise} Download data onto bork
 First download the data for this day from Brightspace. 
 
-Unzip the archive to [[SERVER_NAME]], and make the directory '`W5D3`' in your working directory. 
+Unzip the archive to bork, and make the directory '`W5D3`' in your working directory. 
 
 Make sure you understand which files and folders it contains, notably what is in the '`dna_files`' directory.
 ``````

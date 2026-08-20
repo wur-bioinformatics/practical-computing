@@ -52,7 +52,7 @@ In this course, we will use [Linux](wiki:linux). It was created by [Linus Torval
 
 The Linux {term}`kernel` is typically bundled with several applications into a Linux distribution to make it more user friendly. You can choose between a lot of different distributions for different purposes, for an overview see: [Linux distribution](wiki:Linux_distribution). 
 
-We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called [[SERVER_NAME]]. Servers are not always connected to the internet. Therefore, it is necessary to jump from your computer via a host or proxy server to the WUR Bioinformatics servers. 
+We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called bork. Servers are not always connected to the internet. Therefore, it is necessary to jump from your computer via a host or proxy server to the WUR Bioinformatics servers. 
 
 :::{margin}
 *#! update fun fact for relevant server*
@@ -306,13 +306,13 @@ One application is to make a genome of an organism better searchable, as was don
 ## Exercises
 
 ### Connecting to a server
-We will connect to the server [[SERVER_NAME]]. 
+We will connect to the server bork. 
 
-```{exercise} Connecting to [[SERVER_NAME]] from ...
-Follow the "Connecting to [[SERVER_NAME]] from ..." description on BrightSpace that is appropriate for your {term}`operating system` (Windows or macOS). If you have another OS, ask one of the teachers.
+```{exercise} Connecting to bork from ...
+Follow the "Connecting to bork from ..." description on BrightSpace that is appropriate for your {term}`operating system` (Windows or macOS). If you have another OS, ask one of the teachers.
 ```
 
-If everything worked out well and you logged in to [[SERVER_NAME]], you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` [@techtarget_command_prompt]. It looks something like this:
+If everything worked out well and you logged in to bork, you should see a list of all our servers and their current usage, followed by a so-called {term}`prompt` [@techtarget_command_prompt]. It looks something like this:
 
 ```{code-block} bash
 :class: no-copybutton
@@ -328,7 +328,7 @@ You are now a Linux user identified by your WUR username. To see your username y
 
 ```{code-block} bash
 :class: no-copybutton
-user001@[[SERVER_NAME]]:~$ whoami
+user001@bork:~$ whoami
 user001
 ```
 ``````
@@ -338,7 +338,7 @@ To see who else is currently on this server, you can use the `who` command:
 
 ```{code-block} bash
 :class: no-copybutton
-user001@[[SERVER_NAME]]:~$ who
+user001@bork:~$ who
 ```
 
 This will give you a list of usernames. 
@@ -356,7 +356,7 @@ command:
 
 ```{code-block} bash
 :class: no-copybutton
-user001@[[SERVER_NAME]]:~$ finger nijve002
+user001@bork:~$ finger nijve002
 ```
 ``````
 
@@ -368,7 +368,7 @@ individual {term}`CPUs <CPU>`, numbered starting at 1. Below that you can see ho
 
 ```{code-block} bash
 :class: no-copybutton
-user001@[[SERVER_NAME]]:~$ htop
+user001@bork:~$ htop
 ```
 
 **How many {term}`CPUs <CPU>` does the server have?** \
@@ -380,7 +380,7 @@ You can exit `htop` by pressing the {kbd}`F10` or {kbd}`q`.
 ``````
 
 ``````{exercise} Let's have a look at another server
-To connect from [[SERVER_NAME]] to a server called **doudna** you can run:
+To connect from bork to a server called **doudna** you can run:
 
 ```{code-block} bash
 ssh doudna
@@ -423,7 +423,7 @@ nvtop
 
 The company making these {term}`GPUs <GPU>` is currently one of the World's most valuable companies.
 
-Leave doudna to come back to [[SERVER_NAME]] by either running `exit` or using {kbd}`Ctrl`+{kbd}`d`.
+Leave doudna to come back to bork by either running `exit` or using {kbd}`Ctrl`+{kbd}`d`.
 ``````
 
 ```{seealso} Further Reading
@@ -434,7 +434,7 @@ Computing Skills for Biologists - a Tool box
 
 ### Data storage
 
-Back on [[SERVER_NAME]], let's have a look at the data storage locations.
+Back on bork, let's have a look at the data storage locations.
 
 ``````{exercise} Data storage
 The `df` command shows the available disks and their sizes. If you run it, you will get quite a long list. With some {term}`options <option>` we can filter the list:

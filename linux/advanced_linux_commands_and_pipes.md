@@ -851,7 +851,7 @@ Remember that problem you solved yesterday? The one where you found the longest 
 
 Here we will do the same exercise, but now we will extract ONLY the words that are 18 (word) characters long.
 
-The file is available on [[SERVER_NAME]] at: `/mnt/local_scratch/BIF21806/TOoS.txt` *#! still correct?*
+The file is available on bork at: `/mnt/local_scratch/BIF21806/TOoS.txt` *#! still correct?*
 
 (exc_18_char_words)=
 ``````{exercise} Select words that are 18 characters long

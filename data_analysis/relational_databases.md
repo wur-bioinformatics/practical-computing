@@ -108,7 +108,7 @@ sqlite3
 You should see something like this:
 ```{code-block} bash
 :class: no-copybutton
-user001@[[SERVER_NAME]]:~/exercises/blast_browser$ sqlite3
+user001@bork:~/exercises/blast_browser$ sqlite3
 SQLite version 3.41.2 2023-03-22 11:56:21
 Enter ".help" for usage hints.
 Connected to a transient in-memory database.
@@ -391,7 +391,7 @@ Last Friday, you created the `plants_vs_humans` SQLite3 Database containing resu
 Here, we will create Python functions to query the `plants_vs_humans` SQLite3 database. This code will be used tomorrow to build a website via which a user can select a human protein ID and retrieve all BLAST matches for that protein with plant proteins.
 
 ``````{exercise} Start the W5D1 on the remote server
-Copy this notebook in your `exercises/blast_browser` folder on [[SERVER_NAME]] and run it through an `ssh` tunnel like before ("Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel").
+Copy this notebook in your `exercises/blast_browser` folder on bork and run it through an `ssh` tunnel like before ("Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel").
 ``````
 
 Like before, the Jupyter Notebook contains all instructions.
