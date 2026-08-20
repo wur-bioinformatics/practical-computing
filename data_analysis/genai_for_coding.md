@@ -80,6 +80,19 @@ Etc.
 
 
 ## Write Code with an LLM
+There has been lots of innovations in using LLMs for coding. Namely, innovations in shaping the developer experience, such as the Python interpreter in ChatGPT, IDE plugins (e.g. VSCode), and automatic code reviews on GitHub. Additionally, now there exist fine-tuned models that are specifically optimized to write code. 
+
+Though these improvements have helped, one must ask: Is good code the same as readable text?
+
+(example_llm_generating_code)=
+::::{prf:example} Using an LLM to generate code
+*#! insert images*
+::::
+
+(example_llm_optimizing_existing_code)=
+::::{prf:example} Using an LLM to optimize existing code
+*#! insert images*
+::::
 
 ## LLM Developments
 
