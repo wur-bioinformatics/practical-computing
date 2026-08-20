@@ -55,7 +55,7 @@ The Linux {term}`kernel` is typically bundled with several applications into a L
 We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called bork. Servers are not always connected to the internet. Therefore, it is necessary to jump from your computer via a host or proxy server to the WUR Bioinformatics servers. 
 
 :::{margin}
-*#! update fun fact for relevant server*
+The bork server is named after [](https://en.wikipedia.org/wiki/Peer_Bork), a German Bioinformatician known for his work at the European Molecular Biology Laboratory (EMBL).
 :::
 
 ```{figure} img/working_on_remote_server.svg
