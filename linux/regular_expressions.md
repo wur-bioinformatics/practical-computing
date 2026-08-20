@@ -87,7 +87,7 @@ The {term}`character classes <character class>` and what they match are presente
   - tabs and spaces
 * - `\w`
   - any 'word' character 
-  - alphabet + digits *#! also underscore?*
+  - alphabet + digits + underscore
 * - `\d`
   - any digits
   - [0-9] *#! in slide says [1-9] but is zero not also a digit?*
