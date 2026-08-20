@@ -45,6 +45,12 @@ Modern LLMs are trained on large amounts of data and are large models. They are 
 
 
 ### How Are LLMs Trained?
+To understand what to expect of a LLM, it is necessary to understand the training procedues. LLMs are trained with various techniques, using various targets. These can be divided into two steps: Pre-Training and Fine-Tuning.
+
+In the Pre-Training step, the goal for the LLM is to simply reproduce (large amounts of) existing text. Here, large amounts of training data are used. This is a fast and efficient training step. However, it creates a 'random parrot'. 
+
+In the Fine-Tuning step, the LLM model is adapted to learn nuances, styles, or specific applications. It is fine-tuned on more complex and specific tasks using reinforcement learning. Here, less training data is used. The fine-tuning process is slower than the pre-training process but it is more effective for the LLM's final objective.
+
 
 ### Model-specific features
 
