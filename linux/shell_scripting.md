@@ -201,7 +201,7 @@ Let's turn first the pipeline from [](#pipe_grep_sed_example) in @adv_linux_comm
 grep ">" plants.fasta | sed 's/>.*|//'
 ```
 
-We have now hard-coded the filename `plants.fasta` into the script, meaning that everytime we run the script, it will print the protein identifiers of `plants.fasta`. If we would want to do the same thing but for a different file (for example `trees.fasta` containing all protein sequences of your favourite tree), we would have to make a copy of the script and alter the FASTA filename. This is of course tedious and misses the point of creating {term}`shell scripts <shell script>`. 
+We have now {term}`hard-coded<hard-code>` the filename `plants.fasta` into the script, meaning that everytime we run the script, it will print the protein identifiers of `plants.fasta`. If we would want to do the same thing but for a different file (for example `trees.fasta` containing all protein sequences of your favourite tree), we would have to make a copy of the script and alter the FASTA filename. This is of course tedious and misses the point of creating {term}`shell scripts <shell script>`. 
 
 Instead, we can supply the script with the FASTA file as an argument and use variable calling in the script.
 
