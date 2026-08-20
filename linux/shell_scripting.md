@@ -157,7 +157,7 @@ echo $GREETING
 ```
 In line **3** the variable is introduced. Note that there should be zero spaces around the '`=`' sign. By convention, variable names are written in all caps. Additionally, because variables can only contain one item, here string quotes are added because "Hello World" contains a space. In line **4** the variable is called by writing the dollar sign (`$`) before the variable name. 
 
-We can also use variable calling when running a script with arguments. Instead of hard-coding *#! hardcoding a term?* the greeting into the file, we can supply it on the command line as an argument, making the script more flexible:
+We can also use variable calling when running a script with arguments. Instead of {term}`hard-coding<hard-code>` the greeting into the file, we can supply it on the command line as an argument, making the script more flexible:
 
 ```{code-block} bash
 :filename: greeting.sh

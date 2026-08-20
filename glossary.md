@@ -61,6 +61,9 @@ greedy
 group (regex)
 : group of matched characters captured by a part of a match to a Regular Expression search pattern
 
+hard-code
+: a value is explicitly included in the code (like a path), as opposed to using a variable
+
 hardware
 : the physical components of a computer system
 
