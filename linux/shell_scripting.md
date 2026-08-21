@@ -28,7 +28,7 @@ The shebang (`#!`) is a combination of the sharp or hash symbol (`#`) and an exc
 
 The advantages of turning pipelines into scripts are that your commands are saved into a file and can be executed any time on any (relevant) file. For example, if you have multiple FASTA files on which you want to perform the same operations, you don't have to rewrite your pipeline many times, you can just execute the script with those files. Additionally, if in 6 months you want to perform that same operation on a new FASTA file, you don't have to go through your notes to find the right pipeline. Instead, you can use your written script. 
 
-
+(section_basic_structure_of_a_shell_script)=
 ### Basic Structure of a Shell Script
 A {term}`shell script` is a (text) file containing a series of commands that the {term}`shell` can interpret and execute [@geeksforgeeks_shellscripting_2026]. 
 
@@ -73,6 +73,8 @@ Let's add the command:
 # Script to write 'Hello World' to screen
 echo "Hello World"
 ```
+
+To close the editor and save the file, press: {kbd}`Ctrl` + {kbd}`x`, then {kbd}`Y` and press {kbd}`enter` to accept the filename.
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -455,5 +457,48 @@ Good evening <YOUR NAME>,  you look great today!
 
 
 ## Exercises
+In the following exercises, we will create {term}`shell scripts <shell script>`. Easiest is to use the Linux text editor `nano`, as described [before](#section_basic_structure_of_a_shell_script).
 
+### Organizing Text in a Script
+``````{exercise} Turn the code to extract the words from The Origin of Species into a script
+We will now turn the code you used to extract the words from The Origin of Species into a proper script. 
+
+Use the Linux text editor `nano` to create a script (text file) called `wordlength.sh` using:
+
+```{code-block} bash
+nano wordlength.sh
+```
+
+Fill it with the following lines:
+```{code-block} bash
+:filename: wordlength.sh
+:linenos:
+:emphasize-lines: 2,3
+#!/bin/bash
+LEN=$1
+TEXTFILE=$2
+cat $TEXTFILE | sed "s/[^{A-Za-z'}]/\n/g" | grep -E "^\w{$LEN}$"
+```
+In line **2**, we store the length of the words we want to extract in the variable `LEN`.\
+In line **3**, we store the filename in the variable `TEXTFILE`.
+
+
+To close the editor and save the file, press: {kbd}`Ctrl` + {kbd}`x`, then {kbd}`Y` and press {kbd}`enter` to accept the filename.
+``````
+
+::::{exercise} Make `wordlength.sh` executable
+The permissions can be changed with the `chmod` command, as seen [before](#section_running_a_shell_script). 
+
+To give the owner execute permissions:
+```{code-block} bash
+chmod u+x wordlength.sh
+```
+::::
+
+::::{exercise} Run the `wordlength.sh` script
+Now that the script is executable, we can run it with:
+```{code-block} bash
+./wordlength.sh 18 TOoS2.txt
+```
+::::
 
