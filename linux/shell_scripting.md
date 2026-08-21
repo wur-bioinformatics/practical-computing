@@ -502,3 +502,64 @@ Now that the script is executable, we can run it with:
 ```
 ::::
 
+### A Shell Script for Sequence Alignment
+In these exercoes, we will make a function that takes an input sequence, finds the most similar sequences in a protein database using BLAST, and then makes a multiple sequence alignment.
+
+First we need a protein database to search in, we can use the human proteins from the SwissProt database that we used before.
+
+::::{exercise} Create a link to the human proteins from the SwissProt database
+In the directory that you might have already created for today, create a **l**i**n**k (shortcut) to the `sp_human_single_line` FASTA file, for instance like this:
+```{code-block} bash
+cd ~/exercises/week1/day5
+```
+```{code-block} bash
+ln -s ~/exercises/week1/day1_2/sp_human_single_line.fasta ./
+```
+:::{note} Note
+You could also copy it, but for large files that is a waste of disk space.
+:::
+
+Since `ln` does not give an error if the source file does not exist, check that the file is there using:
+```{code-block} bash
+head -n 10 sp_human_single_line.fasta
+```
+::::
+
+::::{exercise} Make a BLAST database
+Remember how you created a BLAST database using `makeblastdb`? 
+
+We now need to add an additional {term}`option` to make sure we can retrieve protein sequences from the database with protein IDs: `parse_seqids`
+
+**Create the BLAST database**. For the next part it is useful to get the BLAST results in table format, which is achieved with the
+{term}`option`: `-outfmt 7` (see [documentation](https://www.ncbi.nlm.nih.gov/books/NBK279684/table/appendices.T.options_common_to_all_blast/)).
+
+**Test your BLAST database** by searching it with the `proteinX.fasta` that you used in [](#exc_cmdline_blast) from [](#basic_linux_commands_page). You can copy it to the current directory, or use it directly with its path, e.g: `../day1_2/proteinX.fasta`
+
+Now you should see a table, with the BLAST hits in the rows and a number of columns with properties of the matches. As you may know. BLAST not only reports exact matches, but also similar sequences. The *bit score* column is a measure of the similarity between the query sequence and the matching sequence, and the *e-value* column gives an indication of the number of random hits we
+would expect with that score. Therefore, BLAST matches with a high e-value are often not very useful, since they are likely to have been found by chance, so we usually filter these out. 
+
+The default behavior of BLAST is to remove hits with e-values over 10.0, but here we want to be stricter and set that to 0.001 (also written as 1e-3). 
+
+**Please add the appropriate {term}`option` and check that it works.**
+::::
+
+::::{exercise} Catch the protein IDs of the matching sequences
+For the next steps we only need the IDs of the matching sequences, which are in the "subject accessions" column. 
+
+To do this you should use this value for the output format {term}`option`: `"6 sacc"` (including the quotes).
+
+Because we want to create a script to do the whole analysis, the results of the BLAST run should be stored in a Shell variable (much more about variables in the next weeks).
+
+To catch the output in a new Shell variable called `BLASTHITS`, you can run it like this:
+```{code-block} bash
+BLASTHITS=`blastp -query proteinX.fasta -db sp_human -evalue 1e-3 -outfmt "6 sacc"`
+```
+:::{caution} Important
+The quotes surrounding the whole command should be backticks: `. 
+:::
+
+You can view the resulting value of the `BLASTHITS` variable this way:
+```{code-block} bash
+echo $BLASTHITS
+```
+::::
