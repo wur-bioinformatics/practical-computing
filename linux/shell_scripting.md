@@ -230,6 +230,7 @@ Computing Skills for Biologists - a Tool box
 A `for` loop in a {term}`shell script` allows you to execute commands or pipelines repeatedly, for a specified amount of times, or for multiple files. The basic structure of a for loop in a {term}`shell script` is:
 
 ```{code-block} bash
+:class: no-copybutton
 for i in range
 do 
     action
@@ -296,24 +297,153 @@ Computing Skills for Biologists - a Tool box
 
 (conditional_statements_section)=
 ### Conditional Statements
-*#! if statements*
+Conditional statements are used in scripts to let only a certain part of code be run if the condition is met. There are three conditional statements: `if`, `elif`, and `else`. We will illustrate them by altering `greeting.sh`, so the greeting is specific to the time of day.
 
-En wat inspiratie voor conditional statements:
- 
-printwelcome() {
-    HOUR=`date "+%H"`
-    NAME=`finger $USER | grep Fullname: | sed 's/Fullname:\s\+//'`
-    if [ $HOUR -lt 12 ]; then
+Let's start with the basic structure of the program:
+
+```{code-block} bash
+:filename: greeting_daytime.sh
+:linenos:
+:emphasize-lines: 3,4,5,6
+#!/bin/bash
+
+HOUR=`date "+%H"`
+NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
+TIMEOFDAY="day"
+echo Good $TIMEOFDAY $NAME, you look great today!
+```
+In line **3**, we save the hour of the day in a variable `HOUR` by using command `date` (look at the help to see what `+%H` does).\
+In line **4**, we save the name of the user in a variable `NAME`.\
+In line **5**, we set the `TIMEOFDAY` variable to `"day"`.\
+In line **6**, we print to screen the greeting using the `TIMEOFDAY` variable and the `NAME` variable.
+
+Running the script (after [making it executable](#section_running_a_shell_script)):
+```{code-block} bash
+./greeting_daytime.sh
+```
+Will give the output:
+```{code-block} bash
+:class: no-copybutton
+Good day <YOUR NAME>,  you look great today!
+```
+
+
+An `if`-statement has the following basic structure:
+```{code-block} bash
+:class: no-copybutton
+if [ condition ]; then
+    action
+fi
+```
+
+
+Now let's add an `if`-statement, so if it is before 12:00, we will greet with "Good morning":
+
+```{code-block} bash
+:filename: greeting_daytime.sh
+:linenos:
+:emphasize-lines: 6,7,8
+#!/bin/bash
+
+HOUR=`date "+%H"`
+NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
+TIMEOFDAY="day"
+if [ $HOUR -lt 12 ]; then
         TIMEOFDAY="morning"
-    elif [ $HOUR -lt 18 ]; then
-        TIMEOFDAY="afternoon"
-    else
-        TIMEOFDAY="evening"
-    fi
- 
-    echo Good $TIMEOFDAY $NAME, you look great today!
-}
+fi
+echo Good $TIMEOFDAY $NAME, you look great today!
+```
 
+If you would run this script in the morning:
+```{code-block} bash
+./greeting_daytime.sh
+```
+It would give the output:
+```{code-block} bash
+:class: no-copybutton
+Good morning <YOUR NAME>,  you look great today!
+```
+
+We can also add an `elif`-statement, that condition is only checked when the previous conditional statements were not met. Then the basic structure is:
+```{code-block} bash
+:class: no-copybutton
+if [ condition ]; then
+    action
+elif [ condition ]; then
+    action
+fi
+```
+
+Let's add an `elif`-statement for when it is afternoon:
+
+```{code-block} bash
+:filename: greeting_daytime.sh
+:linenos:
+:emphasize-lines: 8,9
+#!/bin/bash
+
+HOUR=`date "+%H"`
+NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
+TIMEOFDAY="day"
+if [ $HOUR -lt 12 ]; then
+        TIMEOFDAY="morning"
+elif [ $HOUR -lt 18 ]; then
+    TIMEOFDAY="afternoon"
+fi
+echo Good $TIMEOFDAY $NAME, you look great today!
+```
+
+If you would run this script in the afternoon:
+```{code-block} bash
+./greeting_daytime.sh
+```
+It would give the output:
+```{code-block} bash
+:class: no-copybutton
+Good afternoon <YOUR NAME>,  you look great today!
+```
+
+Last, we can add an `else`-statement, for when all previous conditions are not met. Here, we do not specify the condition, so in all other cases, this part of the code will be run:
+```{code-block} bash
+:class: no-copybutton
+if [ condition ]; then
+    action
+elif [ condition ]; then
+    action
+else
+    action
+fi
+```
+
+For the remaining day-time, the evening, let's add the else statement:
+```{code-block} bash
+:filename: greeting_daytime.sh
+:linenos:
+:emphasize-lines: 10,11
+#!/bin/bash
+
+HOUR=`date "+%H"`
+NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
+TIMEOFDAY="day"
+if [ $HOUR -lt 12 ]; then
+        TIMEOFDAY="morning"
+elif [ $HOUR -lt 18 ]; then
+    TIMEOFDAY="afternoon"
+else
+    TIMEOFDAY="evening"
+fi
+echo Good $TIMEOFDAY $NAME, you look great today!
+```
+
+If you would run this script in the evening:
+```{code-block} bash
+./greeting_daytime.sh
+```
+It would give the output:
+```{code-block} bash
+:class: no-copybutton
+Good evening <YOUR NAME>,  you look great today!
+```
 
 
 
