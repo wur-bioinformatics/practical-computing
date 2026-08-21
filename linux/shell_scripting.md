@@ -235,7 +235,8 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.7 Basic Scripting
 ```
 
-### for loops
+(section_ss_for_loop)=
+### `for` loops
 A `for` loop in a {term}`shell script` allows you to execute commands or pipelines repeatedly, for a specified amount of times, or for multiple files. The basic structure of a `for` loop in a {term}`shell script` is:
 
 ```{code-block} bash
@@ -555,7 +556,7 @@ To catch the output in a new Shell variable called `BLASTHITS`, you can run it l
 BLASTHITS=`blastp -query proteinX.fasta -db sp_human -evalue 1e-3 -outfmt "6 sacc"`
 ```
 :::{caution} Important
-The quotes surrounding the whole command should be backticks: `. 
+The quotes surrounding the whole command should be backticks. 
 :::
 
 You can view the resulting value of the `BLASTHITS` variable this way:
@@ -563,3 +564,34 @@ You can view the resulting value of the `BLASTHITS` variable this way:
 echo $BLASTHITS
 ```
 ::::
+
+::::{exercise} Extract the sequences for each hit from the `sp_human` BLAST database
+The `BLASTHITS` is a list of subject accessions; to print them out individually use a so-called [`for`-loop](#section_ss_for_loop). Much more about `for`-loops in the [](#python_intro) block.
+
+```{code-block} bash
+for BLASTHIT in $BLASTHITS; do
+    echo $BLASTHIT
+done
+```
+
+Next, we can use the `blastdbcmd` command to extract the sequences for each hit from the `sp_human` BLAST database:
+```{code-block} bash
+for BLASTHIT in $BLASTHITS; do
+    blastdbcmd -db sp_human -entry $BLASTHIT -long_seqids
+done
+```
+
+And by [redirecting](#section_redirection) the output using the `>` character we can write these sequences to a FASTA file:
+
+```{code-block} bash
+for BLASTHIT in $BLASTHITS; do
+    blastdbcmd -db sp_human -entry $BLASTHIT -long_seqids
+done > blasthits.fasta
+```
+
+Last, you can use [](#sed_section) to beautify the IDs in the FASTA file (what does the `-i` {term}`option` do?)
+```{code-block} bash
+sed -i 's/>.*[|]/>/' blasthits.fasta
+```
+::::
+
