@@ -73,7 +73,7 @@ Computing Skills for Biologists - a Tool box
 - Chapter 1.7 Basic Scripting
 ```
 
-
+(section_running_a_shell_script)=
 ### Running a Shell Script
 Now that we have written a simple {term}`shell script`, we would like to run it in the same way as a Linux command:
 ```{code-block} bash
@@ -208,7 +208,7 @@ Instead, we can supply the script with the FASTA file as an argument and use var
 ```{code-block} bash
 :filename: extract_protein_ids.sh
 #!/bin/bash
-# Print all protein identifiers in a fasta file to screen
+# Print all protein identifiers in a FASTA file to screen
 grep ">" $1 | sed 's/>.*|//'
 ```
 
@@ -266,15 +266,27 @@ Hello world
 
 (for_loop_files_example)=
 ``````{prf:example} Looping over files in a directory
-```{code-block} bash
-
-```
+Suppose we want to extract the protein IDs for multiple FASTA files in a directory. We can use a `for` loop and a wildcard ('`*`') as follows:
 
 ```{code-block} bash
-:class: no-copybutton
-
+:filename: extract_protein_ids_all_fasta_files.sh
+:linenos:
+:emphasize-lines: 3
+#!/bin/bash
+# Print all protein identifiers in all FASTA files in the current directory to screen
+for file in *.fasta
+    do grep ">" $file | sed 's/>.*|//'
+done
 ```
+In Line **3**, we create the variable `file` that, for each iteration in the `for` loop takes on the name of the filenames that end in `.fasta`. We use the bash wildcard `*` to represent zero or more characters.
 
+If we run the script (after [making it executable](#section_running_a_shell_script)) in the directory that has multiple FASTA files, it would print all protein IDs from all FASTA files to screen.
+```{code-block} bash
+chmod +x extract_protein_ids_all_fasta_files.sh
+```
+```{code-block} bash
+ ./extract_protein_ids_all_fasta_files.sh
+```
 ``````
 
 ```{seealso} Further Reading
