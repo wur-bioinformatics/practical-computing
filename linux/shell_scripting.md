@@ -30,9 +30,15 @@ The advantages of turning pipelines into scripts are that your commands are save
 
 
 ### Basic Structure of a Shell Script
-A {term}`shell script` is a (text) file containing a series of commands that the shell can interpret and execute [@geeksforgeeks_shellscripting_2026]. 
+A {term}`shell script` is a (text) file containing a series of commands that the {term}`shell` can interpret and execute [@geeksforgeeks_shellscripting_2026]. 
 
 Let's build a simple {term}`shell script` that writes 'Hello World' to screen called `hello_world.sh`. 
+
+To create or open a file we can use the `nano` command, which is a simple text editor on Linux:
+
+```{code-block} bash
+nano hello_world.sh
+```
 
 
 The first line of a {term}`shell script` is called the shebang line. It tells the {term}`shell` the path to the program it should use to interpret the script with. Here, that program is `bash`, so the first line of our {term}`shell script` is:
@@ -118,10 +124,10 @@ The first 10 characters indicate file properties/permissions:
 -rw-r--r--
 1234567890
 ```
-- The very first character (1) is `-` for normal files, and for instance `d` for **d**irectories. 
-- Characters 2-4 show the permissions for the owner of the file (`user001`), who can **r**ead and **w**rite (`rw-`).
-- Characters 5-7 show the permissions for users in the usergroup (`domain users`), who can only **r**ead (`r--`) 
-- Characters 8-0 show the permissions for all other users on the system, who also can only **r**ead (`r--`)
+The very first character (**1**) is `-` for normal files, and for instance `d` for **d**irectories. \
+Characters **2-4** show the permissions for the owner of the file (`user001`), who can **r**ead and **w**rite (`rw-`).\
+Characters **5-7** show the permissions for users in the usergroup (`domain users`), who can only **r**ead (`r--`). \
+Characters **8-10** show the permissions for all other users on the system, who also can only **r**ead (`r--`).
 
 An `x` would indicate e**x**ecution permission, which nobody has for this file. To give the script executable permission, we can run the `chmod` command:
 ```{code-block} bash
@@ -155,7 +161,8 @@ To introduce the usage of variables, let's make a new version of the `hello_worl
 GREETING="Hello World"
 echo $GREETING
 ```
-In line **3** the variable is introduced. Note that there should be zero spaces around the '`=`' sign. By convention, variable names are written in all caps. Additionally, because variables can only contain one item, here string quotes are added because "Hello World" contains a space. In line **4** the variable is called by writing the dollar sign (`$`) before the variable name. 
+In line **3** the variable is introduced. Note that there should be zero spaces around the '`=`' sign. By convention, variable names are written in all caps. Additionally, because variables can only contain one item, here string quotes are added because "Hello World" contains a space. \
+In line **4** the variable is called by writing the dollar sign (`$`) before the variable name. 
 
 We can also use variable calling when running a script with arguments. Instead of {term}`hard-coding<hard-code>` the greeting into the file, we can supply it on the command line as an argument, making the script more flexible:
 
@@ -227,7 +234,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### for loops
-A `for` loop in a {term}`shell script` allows you to execute commands or pipelines repeatedly, for a specified amount of times, or for multiple files. The basic structure of a for loop in a {term}`shell script` is:
+A `for` loop in a {term}`shell script` allows you to execute commands or pipelines repeatedly, for a specified amount of times, or for multiple files. The basic structure of a `for` loop in a {term}`shell script` is:
 
 ```{code-block} bash
 :class: no-copybutton
@@ -415,7 +422,7 @@ else
 fi
 ```
 
-For the remaining day-time, the evening, let's add the else statement:
+For the remaining day-time, the evening, let's add the `else`-statement:
 ```{code-block} bash
 :filename: greeting_daytime.sh
 :linenos:
@@ -424,7 +431,6 @@ For the remaining day-time, the evening, let's add the else statement:
 
 HOUR=`date "+%H"`
 NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
-TIMEOFDAY="day"
 if [ $HOUR -lt 12 ]; then
         TIMEOFDAY="morning"
 elif [ $HOUR -lt 18 ]; then
@@ -434,6 +440,8 @@ else
 fi
 echo Good $TIMEOFDAY $NAME, you look great today!
 ```
+We have removed the initation of the `TIMEOFDAY` variable, because now all possible conditions are explored.
+
 
 If you would run this script in the evening:
 ```{code-block} bash
@@ -444,7 +452,6 @@ It would give the output:
 :class: no-copybutton
 Good evening <YOUR NAME>,  you look great today!
 ```
-
 
 
 ## Exercises
