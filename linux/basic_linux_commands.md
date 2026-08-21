@@ -975,7 +975,7 @@ With BLAST you can search for a protein or nucleotide sequence in a database of 
 
 BLAST is extensively covered in the [Introduction to Bioinformatics](https://wur-bioinformatics.github.io/introduction-to-bioinformatics/chapter2/#blast) course. Most researchers will use BLAST via the [NCBI website](https://blast.ncbi.nlm.nih.gov/Blast.cgi), which works fine for a few sequences. If you have a lot of protein or nucleotide sequences that you want to search, using BLAST from the command-line is more efficient. 
 
-
+(exc_cmdline_blast)=
 ``````{exercise} command-line BLAST a protein sequence
 Using the command [`cp`](#cp_section), copy the file `proteinX.fasta` from the `/mnt/local_scratch/BIF21806` directory to your `day2` directory.
 
