@@ -46,3 +46,5 @@ site:
     style: ./custom.css
   #   favicon: favicon.ico
   #   logo: site_logo.png
+    logo: BIF_logo.png
+    logo_text: Practical Computing

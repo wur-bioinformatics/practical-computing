@@ -9,16 +9,22 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- Understand what HTML is and how it is used to build web pages
+- Understand how dynamic web pages can be built using Python
 ```
 
 ## Introduction
 
 ## HTML
-HTML is the standard language for creating Web pages. It describes the structure of the Web page. An HTML page consists of a series of elements and these elements tell the Web browser how to display the content.
+HTML is the standard language for creating Web pages. It describes the structure of the Web page. An HTML page consists of a series of elements and these elements tell the Web browser how to display the content. Elements are delimited by so-called HTML tags that are enclosed in < and > symbols. For instance, if a piece of text should be printed in bold, with HTML you can use the `<b>` tag and its accompanying closing tag `</b>`:
+(example_bold_tag)=
+ ``````{prf:example} bold tag
+ This HTML:  
+ `print <b>this text</b> in bold`
 
-
+Will be shown in the browser as:  
+print <b>this text</b> in bold
+``````
 
 (example_html_simple_page)=
 ``````{prf:example} Simple HTML page
