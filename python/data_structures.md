@@ -9,8 +9,10 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- Describe the main characteristics of lists, dictionaries, tuples, and sets.
+- Create and access data stored in these Python data structures.
+- Explaint the difference between indexing and slicing.
+- Modify data structures and apply basic operations such as indexing, slicing, and set operations.
 ```
 
 ## Introduction

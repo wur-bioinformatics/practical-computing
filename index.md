@@ -20,15 +20,21 @@ After successful completion of this course students are expected to be able to:
 - write and modify simple computer scripts (in Python) for data analysis and visualization
 ```
 
-## Usage *different header title? idk how to describe this*
-*Here information on how the course/reader is set up? Like each day ends with exercises, each section has specific learning goals*
+## Reader Structure
+This reader is organized to guide you step-by-step through the practical skills required for computing in bioinformatics.
 
-### Book
+### Section Layout
+* **Learning Goals:** Each section begins with specific learning goals detailing what you should understand and be able to do by the end.
+* **Theory & Examples:** Concepts are explained alongside hands-on code examples and practical demonstrations.
+* **Exercises:** Every chapter/day ends with practical exercises designed to test your understanding and reinforce key concepts.
+
+## Book
+As reference we use the book (available from the WUR library as ebook):  
 Computing Skills for Biologists – A Toolbox, Stefano Allesina & Madlen Wilmes. Paperback | 2019 ISBN: 9780691182759 | eBook | eISBN: 9780691183961.
 
 https://computingskillsforbiologists.com/
 
-### Reading Guide
+## Reading Guide
 The text in this reader is decorated with different colors and colored boxes to represent specific material. Here, we will clarify the meaning of these styles. 
 
 Any link or cross-reference is colored blue: like the [](#glossary_md) page. Terms in the glossary are colored purple, like: {term}`hardware`. Hovering over the term will give the definition and clicking on the term will send you to the glossary. Abbreviations have a grey underline like: DNA. Hovering over the abbreviation will give you the full word or phrase. In-text code is depicted as pink in monospaced font like: `"Hello"`. 
@@ -91,12 +97,12 @@ In the light blue box, you will find the exercises.
 
 
 
-### Lab journal
+## Lab journal
 We highly recommend keeping a lab journal to record your exercise work:
 - What did you do?
 - Specify URLs, programs, settings, etc.
 - What were the results?
 
-You can simply use a text file, for instance a Word or Google docs document. You can also use more advanced software, like Microsoft OneNote, Notion, or Obsidian.
+You can simply use a text file, for instance a Word or Google docs document. You can also use more advanced software, like [Obsidian](https://obsidian.md/), [Microsoft OneNote](https://onenote.cloud.microsoft/) or [Notion](https://www.notion.com/).
 
 It is a time investment which will pay off by solving the same problem twice or having to reconstruct what you did two weeks ago.

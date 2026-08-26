@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- Explain the difference between linear flow, conditional branching, and looping.
+- Recognize and understand simple if, for, and while statements in Python.
+- Use simple loops and conditional statements in a Python program.
 ```
 
 ## Introduction

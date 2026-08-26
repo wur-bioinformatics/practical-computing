@@ -8,22 +8,30 @@ bibliography:
 ---
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- Understand what Python is and why it is used in scientific computing
+- Explain the different Python data types
 ```
 ## Introduction
+[Python](wiki:Python_(programming_language)) is a popular programming language known for its clear syntax and readability. It was created by [Guido van Rossum](wiki:guido_van_rossum) at the Centrum Wiskunde & Informatica (CWI) in the Netherlands, it has grown into one of the most widely used languages in the world for data science, web development and artificial intelligence.
 
 ## Why Python?
+Python is currently one of the most used programming languages in academia. Its clean syntax reads much like plain English, allowing beginners to pick up fundamental programming concepts quickly without getting bogged down by complex syntax rules. At the same time, a vast ecosystem of third-party libraries makes it powerful enough to handle advanced tasks in for instance machine learning.
 
 ## Writing and Running Python
+Python code can be run in several different ways depending on your specific goals.
 
 ### Interactive Python Shell
+The Python shell allows you to type code directly into your terminal or command prompt and immediately see the results. You can start it by opening a terminal and typing `python` (or `python3`). It is great for testing snippets of code, or doing calculations.
 
 ### Text Editor for Creating a Program
+For longer scripts and applications, you write Python code into plain text files saved with the .py extension (for example, `script.py`). You can use any code editor like Notepad++. Once saved, you execute the program from your terminal using the command: `python script.py`
 
 ### Using an IDE
+An Integrated Development Environment (IDE) combines a text editor with all kinds of development tools. Popular choices are PyCharm and Visualy Studio Code (VS Code). These offer useful features like automatic code completion (autocompletion), error checking, debugging, and built-in version control. IDEs are best suited for managing medium-to-large, multi-file software projects.
+
 
 ### Jupyter Notebook
+A Jupyter Notebook is an interactive web document that combines runnable Python code blocks (cells) with formatted text (Markdown), and data visualizations. It is a standard tool for data science and machine learning because you can run code cell-by-cell and immediately display charts or data tables directly beneath your code.
 
 
 (data_types_section)=
@@ -101,18 +109,20 @@ Will give the output:
 ``````
 
 (example_float_scientific)=
-``````{prf:example} Floats can be scientific numbers
+``````{prf:example} Floats can be scientific numbers, using the E (expontential) notation
 ```{code-block} python
-12E4
+1.2E4
 ```
+(i.e. $1.2 \times 10^4$)  
+
 Will give the output:
 ```{code-block} python
 :class: no-copybutton
-120000.0
+12000.0
 ```
 Let's check the type:
 ```{code-block} python
-type(12E4)
+type(1.2E4)
 ```
 Will give the output:
 ```{code-block} python
@@ -122,7 +132,7 @@ Will give the output:
 ``````
 
 ### Booleans
-A {term}`Boolean <Boolean data type>`, or bool, represents truth values and can be one of two values: `True` or `False` ([](#example_bool_truth_values)). They are often the result for when evalutating an expression ([](#boolean_operators_section)). 
+A {term}`Boolean <Boolean data type>`, or bool, represents truth values and can be one of two values: `True` or `False` ([](#example_bool_truth_values)). They are often the result an evalutated expression ([](#boolean_operators_section)). 
 
 (example_bool_truth_values)=
 ``````{prf:example} Booleans can be either True or False

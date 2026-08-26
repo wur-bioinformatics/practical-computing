@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- Explain how loops can be used to process collections of data.
+- Loop over lists, dictionaries, tuples, and sets to access their elements.
+- Combine loops, conditional statements, and data structures in simple Python programs.
 ```
 
 ## Introduction
