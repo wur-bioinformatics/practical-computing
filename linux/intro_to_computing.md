@@ -32,8 +32,8 @@ Role of operating system in connecting the user with the hardware and software o
 :::
 
 An {term}`operating system` has several components. Two important ones are the kernel and the shell: 
-- The {term}`kernel` is the core component of the {term}`operating system`. It manages system resources and contains, among other things, {term}`software` that allow it to interact with {term}`hardware` devices. It herefore provides the main interface between {term}`applications <application>` and the {term}`hardware`.
-- The {term}`shell` is the outermost layer of the {term}`operating system`. It acts as an interface between the user and the {term}`operating system`. It interprets commands entered by the user ({term}`input`), passes them to the {term}`operating system` for execution, and handles the resulting {term}`output`.
+- The {term}`kernel` is the core component of the {term}`operating system`. It manages system resources and contains, among other things, {term}`software` that allows it to interact with {term}`hardware` devices. It therefore provides the main interface between {term}`applications <application>` and the {term}`hardware`.
+- The {term}`shell` provides an interface between the user and the {term}`operating system`. It interprets commands entered by the user ({term}`input`), passes them to the {term}`operating system` for execution, and handles the resulting {term}`output`.
 
 Some {term}`operating systems<operating system>` you might be familiar with:
 - Windows
@@ -75,7 +75,7 @@ We will now go over a number of fundamental concepts in computing to make sure w
 ### Network
 A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **bork**. Hostnames can have a domain: bork.**bioinformatics\.nl**. Web servers are often called **www** (www.wur.nl)
 
-Computers communicate with each other for many different purposes, such as sending email, browsing a web page or sending a document to a network printer. Different types of communication use different network protocols, and many of these protocols are associated with a specific {term}`network port`, depending on the application. These {term}`network ports <network port>` are numbered from 0 top 65,535 and by convention specific numbers are reserved for different services ([](#network_ports)). 
+Computers communicate with each other for many different purposes, such as sending email, browsing a web page or sending a document to a network printer. Different types of communication use different network protocols, and many of these protocols are associated with a specific {term}`network port`, depending on the application. These {term}`network ports <network port>` are numbered from 0 to 65,535 and by convention specific numbers are reserved for different services ([](#network_ports)). 
 
 You can imagine these {term}`network ports  <network port>` as service desks at the municipality. For each service there is a different desk, one for getting a new passport, one for getting married, one for registering yourself when you have just moved, etc. Similarly, each {term}`network port` directs incoming network traffic to the appropriate service or application on the computer. [@geeksforgeeks_networkport_2025 ;@juric_port_nodate]
 
@@ -190,7 +190,7 @@ The amount of data that can be stored, processed, or transferred in a computer s
   - MB
 * - gigabyte
   - 1000{sup}`3`
-  - MB
+  - GB
 * - terabyte
   - 1000{sup}`4`
   - TB
