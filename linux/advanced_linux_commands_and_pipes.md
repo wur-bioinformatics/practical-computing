@@ -176,7 +176,7 @@ ILNSPDRACNLAKQAFDEAISELDSLGEESYKDSTLIMQLLXDNLTLWTSDTNEDGGDEI
 (grep_regex_example_4)=
 ``````{prf:example} Filter lines containing a character 59 times showing only the first occurence
 ```{code-block} bash
-grep --color -E –m 1 "(.)\1{59}" plants.fasta 
+grep --color -E -m 1 "(.)\1{59}" plants.fasta 
 ```
 Will give the output:
 ```{code-block} bash
@@ -288,7 +288,6 @@ event-id,visible,timestamp,location-long,location-lat,argos:altitude,gps:hdop,gr
 1119958188,true,2015-12-10 14:45:00.000,9.63322,53.296234,35.0,3.8,0.0,,"3",3.65,"gps","Grus grus","7558","7558","GPS telemetry of Common Cranes, Sweden"
 1119958189,true,2015-12-10 14:14:00.000,9.638817,53.296185,34.0,1.4,2.0,,"3",3.65,"gps","Grus grus","7558","7558","GPS telemetry of Common Cranes, Sweden"
 ```
-*#! this is different in the slides, there the header line is not shown*
 ``````
 
 ```{seealso} Further Reading
@@ -498,7 +497,7 @@ Now that we have seen some more advanced Linux commands, let's explore how we ca
 ``````{prf:example} Count lines in a file 2
 Only lines in `plants.fasta` that contain 'sp'.
 ```{code-block} bash
-wc –l out.txt
+wc -l out.txt
 ```
 Will give the output:
 ```{code-block} bash
@@ -512,7 +511,7 @@ To illustrate, we combined the commands from [](#grep_redirect_example) and [](#
 (pipeline_example)=
 ``````{prf:example} Pipeline example
 ```{code-block} bash
-cat plants.fasta | grep sp | wc –l
+cat plants.fasta | grep sp | wc -l
 ```
 Will give the output:
 ```{code-block} bash
@@ -584,7 +583,7 @@ The first three lines of the output will be:
 >sp|P19084|11S3_HELAN 11S globulin seed storage protein G3 OS=Helianthus annuus GN=HAG3 PE=3 SV=1
 ```
 
-Then we can extract just the protein identifiers with [`sed`](#sed_section) as was done in [](#sed_fasta_example>`.
+Then we can extract just the protein identifiers with [`sed`](#sed_section) as was done in [](#sed_fasta_example)`.
 
 ```{code-block} bash
 grep ">" plants.fasta | sed 's/>.*|//'
@@ -635,7 +634,7 @@ Many of the shell tools that work easily with column data, recognize TAB (or any
 Converting from comma- to tab-delimited text therefore saves having to specify the delimiter for every tool separately. There can be vast differences in what {term}`option` each tool used to specify the delimiter.
 :::
 
-*#! add how to get the file*
+Copy the file to your own directory from `/mnt/local_scratch/BIF21806/first_and_last_100_lines_crane_data.csv`
 
 ``````{exercise} Extract columns from data
 Extract the first and third column of the data
@@ -661,7 +660,7 @@ Extract first and third columns, create separate columns for date and time, and 
 cut -f1,3
 ```
 ```{code-block} bash
-awk '{print $2"\t"$3"\t"$1}
+awk '{print $2"\t"$3"\t"$1}'
 ```
 ```{code-block} bash
 cat first_and_last_100_lines_crane_data.csv
@@ -792,7 +791,7 @@ sed 's/,/\t/g' | sed 's/\t /, /g'
 sed 's/ /\t/'
 ```
 ```{code-block} bash
-awk '$5~/9480'
+awk '$5~/9480/'
 ```
 **Count the number of occurrences.**
 ``````
@@ -832,7 +831,7 @@ cut -f3,4,5,14
 sed 's/ /\t/'
 ```
 ```{code-block} bash
-awk '$3>5&&$3<6&&$4>51&&$4<52
+awk '$3>5&&$3<6&&$4>51&&$4<52'
 ```
 ```{code-block} bash
 zcat GPS_telemetry_of_Common_Cranes_Sweden.csv.gz
@@ -852,7 +851,7 @@ Remember that problem you solved yesterday? The one where you found the longest 
 
 Here we will do the same exercise, but now we will extract ONLY the words that are 18 (word) characters long.
 
-The file is available on bork at: `/mnt/local_scratch/BIF21806/TOoS.txt` *#! still correct?*
+The file is available on bork at: `/mnt/local_scratch/BIF21806/TOoS.txt`
 
 (exc_18_char_words)=
 ``````{exercise} Select words that are 18 characters long
@@ -861,10 +860,10 @@ Find and extract the longest words using:
 grep -E '^\w{18}$'
 ```
 ```{code-block} bash
-sed "s/[^{A-Za-z'}]/\n/g"
+sed "s/[^A-Za-z']/\n/g"
 ```
 ```{code-block} bash
-cat TooS.txt
+cat TOoS.txt
 ```
 Note that the [`sed`](#sed_section) expressions are now double-quoted because of searching for single-quote in the expression itself. You can use either single or double quotes, but they have to close correctly.
 ``````
@@ -882,7 +881,7 @@ Let's first get a copy:
 wget http://www.bioinformatics.nl/courses/BIF-21806/Examples/Shakespeare/shakespeare.tar.gz
 ```
 
-Mind that this is actually a collection of files (an archive), first "tarred" into a single file, then zipped. This is common practice in Linux systems to compress entire directories and their content.
+Mind that this is actually a collection of files (an archive), first combined into a tar archive and then compressed using gzip. This is common practice in Linux systems to compress entire directories and their content.
 
 To upack, do:
 ```{code-block} bash
@@ -895,7 +894,7 @@ cd Shakespeare
 
 (exc_shakespeare_words_1)=
 ``````{exercise} Print the 30 most frequent words 1
-Process the text by putting each word on its own line (split on non-word characters), remove all empty lines, then sort alphabetically so that you can make the words unique and get their counts, and then sort the result by going from most frequent to least frequent word. Finally display the 30 most frequent words.
+Process the text by putting each word on its own line (split on anything other than letters and apostrophes), remove all empty lines, then sort alphabetically so that you can make the words unique and get their counts, and then sort the result by going from most frequent to least frequent word. Finally display the 30 most frequent words.
 
 You should start with:
 ```{code-block} bash
@@ -911,7 +910,7 @@ grep -v '^$'
 uniq -c
 ```
 ```{code-block} bash
-sed "s/[^{A-Za-z'}]/\n/g"
+sed "s/[^A-Za-z']/\n/g"
 ```
 ```{code-block} bash
 sort

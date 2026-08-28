@@ -286,7 +286,7 @@ Computing Skills for Biologists - a Tool box
 
 (mv_section)=
 ### `mv`
-With `mv`, you can **m**o**v**e a file or directory. Similarly to [`cp`](#cp_section), you need the `SOURCE` and `DESTINATION` to supply of the file/directory you want to move as arguments:
+With `mv`, you can **m**o**v**e a file or directory. As with [`cp`](#cp_section), you supply source and destination as arguments:
 ```{code-block} bash
 :class: no-copybutton
 mv [OPTION] SOURCE DESTINATION
@@ -305,7 +305,7 @@ Will give the output:
 :class: no-copybutton
 /home/user001
 ```
-Suppose we don't want to use the `exercises` directory at all, but want to have all our exercises in our `home` directory. In general, this is not recommended, because it will get unorganized quickly. But for this example's sake:
+Suppose we don't want to use the `exercises` directory at all, but want to have all our exercises in our `home` directory. In general, this is not recommended, because it will get disorganized quickly. But for this example's sake:
 
 ```{code-block} bash
 mv exercises/w1d2/ .
@@ -557,7 +557,7 @@ Computing Skills for Biologists - a Tool box
 
 (less_section)=
 ### `less`
-With `less` you can progressively look at a file, meaning it does not open the whole file in a text editor, but allows you to view a file without loading it into a text editor, making it particularly useful for large files. 
+`less` allows you to view and browse through a text file and is particularly useful for large files. 
 
 To navigate the `less` environment:
 - {kbd}`Ctrl`+ {kbd}`F` for moving one screen **f**orward
@@ -616,7 +616,7 @@ To see the line, word, and byte count of a file, we can use `wc`:
 :class: no-copybutton
 wc [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest ([](#wc_no_options_example)). You can also only print the **l**ine ([](#wc_lines_example_1)), only the **w**ord or only the byte (**c**) count by using {term}`options <option>` `-l`, `-w`, `-c`, respectively.
+Where `FILE` is the file of interest ([](#wc_no_options_example)). Use {term}`options <option>` `-l`, `-w` and `-c` to report only the lines, words or bytes respectively ([](#wc_lines_example_1)).
 
 (wc_no_options_example)=
 ``````{prf:example} wc default usage
@@ -628,11 +628,11 @@ Will give the output:
 :class: no-copybutton
   250177   565372 15617658 plants.fasta
 ```
-The output is the amount of **lines**, **words**, and **byte counts** for each file.
+The output is the number of **lines**, **words**, and **byte counts** for each file.
 ``````
 
 (wc_lines_example_1)=
-``````{prf:example} Count lines in a file 1
+``````{prf:example} Count lines in a file
 ```{code-block} bash
 wc -l plants.fasta
 ```
@@ -656,7 +656,7 @@ To inspect the **head** of a file, or the first couple of lines, you can use `he
 :class: no-copybutton
 head [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) are printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#example_head_n)).
+Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) are printed for each file. With {term}`option` `-n` you can specify the number of lines you want to print ([](#example_head_n)).
 
 (example_head_n)=
 ``````{prf:example} Print the first 3 lines of cranes.csv
@@ -684,7 +684,7 @@ You can print the **tail**, or last couple of lines, of a file using `tail`:
 :class: no-copybutton
 tail [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest. When multiple files are supplied, the last lines (default is 10) are printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#example_tail_n)).
+Where `FILE` is the file of interest. When multiple files are supplied, the last lines (default is 10) are printed for each file. With {term}`option` `-n` you can specify the number of lines you want to print ([](#example_tail_n)).
 
 
 (example_tail_n)=
@@ -777,20 +777,14 @@ ls /usr/bin/bla*
 ```
 In the list of files, you should see the program `blastp` that we will use at the end of this practical.
 
-To find programs that contain 'seq' in their name, try:
-```{code-block} bash
-ls /usr/bin/*seq*
-```
-To find programs that start with a 'q' or a 'z', try: 
+Similarly, try to find programs in the /usr/bin directory that contain 'seq' in their name.
 
-```{code-block} bash
-ls /usr/bin/[qz]*
-```
+Next, try to find programs in the /usr/bin/ directory that start with either a 'q' or a 'z' (using one ls command) 
 ``````
 
 
 ``````{exercise} Absolute and relative paths
-Compare what you get with the following commands (in this order):
+Predict your location in the directory tree after you issue the following commands (in this order):
 
 ```{code-block} bash
 cd /usr
@@ -800,23 +794,27 @@ cd /usr
 cd bin
 ```
 
+Check with the pwd command
+
 ```{code-block} bash
 pwd
 ```
+
+And this
 
 ```{code-block} bash
 cd /bin
 ```
 
 ```{code-block} bash
-pwd
-```
-
-```{code-block} bash
 cd bin
 ```
 
-The last [`cd`](#cd_section) gave an error, because there is no `/bin/bin` directory.
+```{code-block} bash
+pwd
+```
+
+Why does the last [`cd`](#cd_section) give an error?
 
 In {term}`relative paths <relative path>` you can use `..` to move up one directory and `.` for the current
 directory:
@@ -848,21 +846,19 @@ cd ~
 ### Getting Organized
 
 ``````{exercise} Creating a new directory
-Create a new directory called `exercises` using the command [`mkdir`](#mkdir_section). Inside that directory, create a directory called `week1`, and inside that directory create a directory called `day2`. 
+Create a new directory called `exercises` inm your home directory using the command [`mkdir`](#mkdir_section). Inside that directory, create a directory called `week1`, and inside that directory create a directory called `day2`. 
 ```{code-block} bash
 mkdir exercises
 ```
-Move to the `exercises` directory with the command you've just learned.
-```{code-block} bash
-mkdir week1
-```
-Move to the `week1` directory and make the `day2` directory with the commands you've just learned.
+Now move to the `exercises` directory and create the week1 directory
+Move into the `week1` directory and make the `day2` directory.
 
 Alternatively, you can create all three directories in one command using the `-p` {term}`option`.
 ```{code-block} bash
-mkdir -p exercises/week1/day2
+mkdir -p ~/exercises/week1/day2
 ```
 ``````
+(what does the `~` character do in that mkdir command?)
 
 ### Investigating a chromosome
 The DNA sequence of the [human genome](wiki:Human_genome) cost a few billion dollars to determine, but now you can download it for free. Here we will explore the human chromosome 22 sequence that can be downloaded as a {term}`FASTA` file. To understand what is actually in the file, we will answer these questions:
@@ -890,10 +886,6 @@ wget https://ftp.ensembl.org/pub/release-116/fasta/homo_sapiens/dna/Homo_sapiens
 
 **What is the size of the file in {term}`bytes <byte>`?**
 
-```{code-block} bash
-ls -l
-```
-
 The length in nucleotides of human chromosome 22 is 50,818,468. Knowing that and the size of the file, you can determine the ratio of {term}`bytes <byte>` per nucleotide. You could use a calculator, but for now let's do a preview to the next part of the course and use Python to do the calculation. 
 
 Python is a programming language that is very popular for all kinds of analyses. It is available on bork as the
@@ -902,7 +894,6 @@ command-line program `python3`, run it like this: (replace `file_size` with the 
 ```{code-block} bash
 :class: no-copybutton
 user001@bork:~/exercises/week1/day2$ python3
-user001@bork:/usr/local/bin$ python3
 Python 3.13.6 (main, Aug 7 2025, 18:15:40) [GCC 11.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more
 information.
@@ -921,7 +912,7 @@ file Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz
 
 This should tell you that the file is compressed (to save space), the filename extension `.gz` also indicates that. 
 
-A compressed file cannot be read directly, you first should uncompress/unzip it using `gunzip`:
+To work with the uncompressed FASTA file in the following exercises, decompress it using `gunzip`:
 ```{code-block} bash
 gunzip Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz
 ```
@@ -981,7 +972,7 @@ rm Homo_sapiens.GRCh38.dna.chromosome.22.fa
 ``````
 
 ### Using BLAST from the command line
-Now, let's do some biology on the command line. One of the most used programs in bioinformatics is called BLAST.
+Now, let's do some biology on the command line. One of the most widely used programs in bioinformatics is called BLAST.
 
 With BLAST you can search for a protein or nucleotide sequence in a database of known sequences. It does not only find exact matches, but also similar sequences. This allows you to identify sequences that may be homologous. These are sequences that originate from the same ancestral gene, for instance the human hemoglobin beta and delta proteins have a very similar amino acid sequence.
 
@@ -993,7 +984,7 @@ Using the command [`cp`](#cp_section), copy the file `proteinX.fasta` from the `
 
 Inspect the file with [`less`](#less_section) to see that it contains one protein sequence in FASTA format. 
 
-We will search for it in the human protein sequences from the SwissProt database. SwissProt contains high-quality manually annotated and reviewed protein sequences [@uniprot_2022].
+We will search for it in the human protein sequences from the Swiss-Prot database. Swiss-Prot contains high-quality manually annotated and reviewed protein sequences [@uniprot_2022].
 
 Copy the file `sp_human_single_line.fasta` from `/mnt/local_scratch/BIF21806` to your `day2` directory.
 
@@ -1028,7 +1019,7 @@ Use the [`less`](#less_section) command to view the {term}`output` file.
 
 **What is proteinX?**
 
-Now run `blastp` again , but change the {term}`output` file name to `proteinX.html` and add the {term}`option` `-html`.
+Now run `blastp` again, but change the {term}`output` file name to `proteinX.html` and add the {term}`option` `-html`.
 
 The resulting file can be viewed in a web browser, so let's copy it over to your own computer. The easiest way to do that is to use the `scp` command on your computer:
 

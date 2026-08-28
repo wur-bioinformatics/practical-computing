@@ -18,10 +18,10 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
-Biologists often work with large amounts of text-based data, including DNA and protein sequences, gene identifiers, sample names, annotation files, and experimental metadata. Finding, cleaning, and formatting this information manually is virtually impossible. {term}`Regular Expressions <Regular Expression>` provide a powerful way to describe and search for patterns in such data. By learning how to construct precise textual search patterns, you will unlock a fundamental skill needed to efficiently parse, clean, and manipulate complex data. For example, {term}`Regular Expressions <Regular Expression>` can be used, to find dates, extract gene identifiers, validate sequence formats, or identify motifs in strings of text. In this section, you will learn how to recognize and construct regular-expression patterns and apply them to biological data.
+Biologists often work with large amounts of text-based data, including DNA and protein sequences, gene identifiers, sample names, annotation files, and experimental metadata. Finding, cleaning, and formatting this information manually is virtually impossible. {term}`Regular Expressions <Regular Expression>` provide a powerful way to describe and search for patterns in such data. By learning how to construct precise textual search patterns, you will unlock a fundamental skill needed to efficiently parse, clean, and manipulate complex data. For example, {term}`Regular Expressions <Regular Expression>` can be used to find dates, extract gene identifiers, validate sequence formats, or identify motifs in strings of text. In this section, you will learn how to recognize and construct regular-expression patterns and apply them to biological data.
 
 
-Many programming language can use {term}`Regular Expressions <Regular Expression>` and there can be slight differences in {term}`syntax`. Here, we mainly use the Bash {term}`syntax` (for [`grep`](#grep_section), [`awk`](#awk_section), and [`sed`](#sed_section)) and the Python {term}`syntax` from the [`re` module](#section_mordule_re) discussed later in the Python block. 
+Many programming languages can use {term}`Regular Expressions <Regular Expression>` and there can be slight differences in {term}`syntax`. Here, we mainly use the Bash {term}`syntax` (for [`grep`](#grep_section), [`awk`](#awk_section), and [`sed`](#sed_section)) and the Python {term}`syntax` from the [`re` module](#section_mordule_re) discussed later in the Python block. 
 
 ## What are Regular Expressions and why use them?
 {term}`Regular Expressions <Regular Expression>` are a sequence of characters that define a search pattern, mainly for use in {term}`pattern matching` with {term}`strings <string>`, or {term}`string` matching, i.e. 'Find and Replace'-like operations [@wikipedia_regular_2026]. {term}`Regular Expressions <Regular Expression>` are also called 'Regex' or abbreviated as 'RE'. {term}`Regular Expressions <Regular Expression>` are often used to find (and replace) patterns in text, as can be seen in [](#example-patterns-in-text).
@@ -89,7 +89,7 @@ The {term}`character classes <character class>` and what they match are presente
   - any 'word' character 
   - alphabet + digits + underscore
 * - `\d`
-  - any digits
+  - any digit
   - [0-9] *#! in slide says [1-9] but is zero not also a digit?*
 * - `\W`
   - any non-word character
@@ -168,8 +168,6 @@ The backslash '`\`' is also a {term}`metacharacter`.
 :class: dropdown
 You can {term}`escape` the backslash by using another backslash: \
 `\\`\
-Or by using square brackets:\
-`[\]`
 ```
 
 ```{seealso} Further Reading
@@ -179,7 +177,7 @@ Computing Skills for Biologists - a Tool box
 
 
 ### Non-printable characters
-When writing or processing text, we also use characters that are not visibily seen but do exist to control the text. For example, when you press {kbd}`tab`, you have moved somehwat towards the right in the text but there are no visible characters written. Another example is when you press {kbd}`enter` in a text file, you have moved to the next line but nothing is visibly written in your document. There are actually characters representing this: the {term}`non-printable characters <non-printable character>`. In a text editor or processor, they can often be made visible (in Word: clicking ¶, or {kbd}`control`+{kbd}`shift`+{kbd}`8` (Windows) {kbd}`command`+{kbd}`8` (Mac)). The most commonly used ones are presented in [](#nonprintable_table).
+When writing or processing text, we also use characters that are not visibly seen but do exist to control the text. For example, when you press {kbd}`tab`, you have moved somewhat towards the right in the text but there are no visible characters written. Another example is when you press {kbd}`enter` in a text file, you have moved to the next line but nothing is visibly written in your document. There are actually characters representing this: the {term}`non-printable characters <non-printable character>`. In a text editor or processor, they can often be made visible (in Word: clicking ¶, or {kbd}`control`+{kbd}`shift`+{kbd}`8` (Windows) {kbd}`command`+{kbd}`8` (Mac)). The most commonly used ones are presented in [](#nonprintable_table).
 
 ```{list-table} Non-printable characters
 :header-rows: 1
@@ -204,7 +202,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ### Quantifiers
-Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1), [](#pattern_matching_example_2), [](#escaping_wrong_example), [](#escaping_correct_example)), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how often the previous character, {term}`character group` or {term}`character class` should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in [](#quantifiers_table).
+Instead of using `\w\w` in the previous examples ([](#pattern_matching_example_1), [](#pattern_matching_example_2), [](#escaping_wrong_example), [](#escaping_correct_example)), we could have used a {term}`quantifier`. {term}`Quantifiers <quantifier>` are {term}`metacharacters <metacharacter>` that specify how many times the preceding character, group or character class occurs, {term}`character group` or {term}`character class` should occur [@w3schools_javascript_nodate]. The different {term}`quantifiers <quantifier>` are listed in [](#quantifiers_table).
 
 ```{list-table} Quantifiers
 :header-rows: 1
@@ -240,14 +238,20 @@ It might not seem worth it to use a {term}`quantifier` when we try to match only
 
 (greediness_note)=
 :::{note} Note
-In [](#quantifier_example_1), we used the specific {term}`quantifier` `{2}`. This is because {term}`Regular Expressions <Regular Expression>` are, by default, {term}`greedy`. {term}`Greedy <greedy>` means that the pattern will search for the longest match. If, instead, we would have used the `+` {term}`quantifier`, the following would have matched:
+In [](#quantifier_example_1), we used the specific {term}`quantifier` `{2}`. This is because {term}`Regular Expressions <Regular Expression>` are, by default, {term}`greedy`. {term}`Greedy <greedy>` means that the pattern will search for the longest match. If we had instead used the `+` {term}`quantifier`, the following would have matched:
 
 For the text:\
 The bear likes blueberries
 
 The pattern `b\w+r` finds the following matches:\
 The <span class="regex-match">bear</span> likes <span class="regex-match">blueberr</span>ies 
+
+A quantifier can be made non-greedy by adding a **?**. 
+
+The pattern `b\w+?r` matches until the first **r**:\
+The <span class="regex-match">bear</span> likes <span class="regex-match">blueber</span>ies 
 :::
+
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -261,7 +265,7 @@ In certain cases, you might want to match specific characters or a range of char
 
 (set_example)=
 ```{prf:example} SNP in Sickle Cell Hemoglobin peptide
-In a protein string, the amino acid at a certain position can be either glutamine or valine:\
+In a protein string, the amino acid at a certain position can be either glutamic acid or valine:\
 VHLTPEEK\
 VHLTPVEK
 
@@ -329,6 +333,8 @@ However, when the hat symbol is used in a {term}`set`, such as `[^a]`, it repres
 Computing Skills for Biologists - a Tool box
 - Chapter 5.4.5 Anchors
 ```
+### Word boundaries
+The metacharacter \b matches the boundary between a word character and a non-word character. For example, \bcat\b matches cat but not cattle or copycat.
 
 ### Alternations
 Sometimes the patterns we want to match contain either one pattern or another pattern ([](#alternation_example)). This can be achieved by the pipe symbol (`|`). 
@@ -340,7 +346,7 @@ While studying biology, she was majoring in zoology.\
 While studying archeology, she was majoring in anthropology.\
 While studying archeology, she was majoring in biology.
 
-We want to capture the only the lines with life science subjects. 
+We want to capture only the lines with life science subjects. 
 
 The pattern `.+\W(bi|zo)ology.+` captures the lines:\
 <span class="regex-match">While studying biology, she was majoring in zoology.</span>\
@@ -349,7 +355,7 @@ While studying archeology, she was majoring in anthropology.\
 ```
 
 :::{caution} Important
-Because the pipe symbol (`|`) occurs in some file formats, such as the [FASTA format](wiki:fasta_format), remember to {term}`escape` it when you want to search for it literally!
+Because the pipe symbol (`|`) can occur in some file formats, such as the [FASTA format](wiki:fasta_format), remember to {term}`escape` it when you want to search for it literally!
 :::
 
 ```{seealso} Further Reading
@@ -359,9 +365,9 @@ Computing Skills for Biologists - a Tool box
 
 (section_re_capturing_and_replacing)=
 ## Capturing (and Replacing)
-Until now, we have only illustrated what text matches a {term}`Regex <Regular Expression>` pattern. But what makes {term}`Regex <Regular Expression>` so useful is that we can capture part of the match for further processing or that we can replace parth of the match with something else. 
+Until now, we have only illustrated what text matches a {term}`Regex <Regular Expression>` pattern. But what makes {term}`Regex <Regular Expression>` so useful is that we can capture part of the match for further processing or that we can replace part of the match with something else. 
 
-To capture part of a match, we can enclose it in parentheses (`(` and `)`). {term}`Groups <group (regex)>` are especially useful for when we want to capture only a specific part of a pattern ([](#capturing_example)).
+To capture part of a match, we can enclose it in parentheses (`(` and `)`). {term}`Groups <group (regex)>` are especially useful when we want to capture only a specific part of a pattern ([](#capturing_example)).
 
 (capturing_example)=
 ```{prf:example} Life sciences 2
@@ -374,6 +380,8 @@ We want to capture the subjects. We can perform a Find & Replace as follows:\
 **Result:** biology zoology
 
 The `\1` and `\2` refer to the first and second {term}`group <group (regex)>` captured, i.e. the text that matches the patterns within the parentheses. By stating the Replace as done here, we replace the original text with only the text matched for the {term}`groups <group (regex)>`. 
+
+Captured groups can also be referred to later in the regular expression. For example, `(\w+) \1` matches the same word repeated twice.
 ```
 
 ```{seealso} Further Reading
@@ -389,7 +397,7 @@ Writing a good {term}`Regex <Regular Expression>` involves striking a balance am
 2. Keeping the {term}`Regex <Regular Expression>` manageable and understandable
 3. Keep it computationally efficient (not of immediate concern)
 
-Performing Find-Replace operations can become complex. It might be necessary to perform them in multiple steps. It helps to make steps transparent (especially for yourself). One way to do that is, as an intermediate step, Replace with obviously non-existing symbols or sequences (e.g. `#&#`), but avoid {term}`metacharacters <metacharacter>`. That way, you can make it cleary visible what is being replaced and assess whether that is what you expected. 
+Performing Find-Replace operations can become complex. It might be necessary to perform them in multiple steps. It helps to make steps transparent (especially for yourself). One way to do that is, as an intermediate step, Replace with obviously non-existing symbols or sequences (e.g. `#&#`), but avoid {term}`metacharacters <metacharacter>`. That way, you can make it clearly visible what is being replaced and assess whether that is what you expected. 
 
 Additionally, it can help to make the search pattern more verbose than strictly necessary. Sometimes {term}`Regular Expressions <Regular Expression>` become very hard to read. Explicitly stating what each part of the {term}`Regular Expression` matches, with for example comments (`#`), can aid readability and reusability. 
 
