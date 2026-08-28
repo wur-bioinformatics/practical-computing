@@ -10,6 +10,9 @@ absolute path
 anchor
 : symbol that represents either the start (`^`) or end (`$`) of a line.
 
+application
+: A software program designed to help a user perform a specific task, such as editing text, browsing the web, or analysing data. Applications use the operating system to access hardware and other system resources.
+
 argument
 : Value passed to a program that specifies the input or modifies the behaviour.
 
@@ -46,6 +49,9 @@ CPU
 escape
 : make a metacharacter to be interpreted as a literal character by using the backslash `\`.
 
+FASTA
+: A text-based file format for storing nucleotide or protein sequences. Each sequence starts with a header line beginning with >, followed by one or more lines containing the sequence.
+
 file system
 : System that organizes how files are stored on a hard disk.
 
@@ -74,19 +80,19 @@ index
 : A data structure that stores and organizes information within a file in such a way that it is easy to find.
 
 input
-: The source of incoming information (data).
+: the source of incoming information (data).
 
 integer
 : or int, a whole number, positive or negative, and can be of unlimited length.
 
 kernel
-: Core component of the operating system. It is the primary interface between the operating system an the hardware, containing the software libraries that are required to interact with the hardware.
+: the core component of the operating system. It provides the main interface between applications and the hardware, and manages system resources such as running processes and memory.
 
 load average
-: average number of processes actively running on the server.
+: the average number of processes actively running on the server.
 
 memory
-: Temporary storage used by programs.
+: Temporary data storage used by programs.
 
 metacharacter
 : a symbol with a special, non-literal meaning.

@@ -12,6 +12,8 @@ bibliography:
 ```{important} Learning outcomes
 After completing this section you should be able to:
 - navigate and manipulate the Linux file system using core directory and file management utilities (cd, ls, mkdir, cp, mv, rm)
+- use command-line tools and their options, and find help when needed
+- inspect and manipulate biological data files using basic Linux utilities
 ```
 
 ## Introduction
@@ -56,7 +58,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Basic Linux Commands
-When working on a server, there is no graphical user interface (GUI). Instead, there is a {term}`command-line interface`, which means you will type in commands, and often assess the text-based output printed to screen. That also means that there is no GUI {term}`file system` ([](#file_system)), where you can see where you are, and what files are available for you to manipulate (such as File Explorer for Windows and Finder for macOS). Luckily, Linux comes with utilities that help to navigate the Linux {term}`file system`: `pwd`, `ls`, and `cd`. Additionally, there are utilities that allow you to create, copy, move, and remove files and directories: `mkdir`, `cp`, `mv`, and `rm`, respectively. 
+When working on a server, there is no graphical user interface (GUI). Instead, there is a {term}`command-line interface`, which means you will type in commands, and often assess the text-based output printed to screen. That also means that there is no graphical file browser, where you can see where you are, and what files are available for you to manipulate (such as File Explorer for Windows and Finder for macOS). Luckily, Linux comes with utilities that help to navigate the Linux {term}`file system`: `pwd`, `ls`, and `cd`. Additionally, there are utilities that allow you to create, copy, move, and remove files and directories: `mkdir`, `cp`, `mv`, and `rm`, respectively. 
 
 When navigating and managing the {term}`file system`, you will use either {term}`absolute paths <absolute path>` or {term}`relative paths <relative path>` to indicate where you want to go or where you want to manage files/directories. An {term}`absolute path` points to a fixed position in the directory tree, like `/usr/bin`. A {term}`relative path` is the path from your current location in the directory tree to the designated location. A {term}`relative path` does not start with `/`.
 
@@ -158,7 +160,7 @@ Computing Skills for Biologists - a Tool box
 
 (ls_section)=
 ### `ls`
-Without GUI to see what files and subdirectories are present in your current directory or a directory of interest, you can use `ls`. It **l**i**s**ts all the files and subdirectories.
+Without GUI to see what files and subdirectories are present in your current directory or a directory of interest, you can use `ls`. It **l**i**s**ts all the files and subdirectories (except hidden ones).
 ```{code-block} bash
 :class: no-copybutton
 ls [OPTION] FILE
@@ -290,7 +292,7 @@ With `mv`, you can **m**o**v**e a file or directory. Similarly to [`cp`](#cp_sec
 mv [OPTION] SOURCE DESTINATION
 ```
 
-In contrast to [`cp`](#cp_section), `mv` will automatically copy all the contents of a directory to the new destination, without the need of adding an {term}`option` ([](#example_mv_dir)).
+In contrast to [`cp`](#cp_section), `mv` will automatically move all the contents of a directory to the new destination, without requiring the **-r** {term}`option` ([](#example_mv_dir)).
 
 (example_mv_dir)=
 ``````{prf:example} Move w1d2 directory to home
@@ -555,7 +557,7 @@ Computing Skills for Biologists - a Tool box
 
 (less_section)=
 ### `less`
-With `less` you can progressively look at a file, meaning it does not open the whole file in a text editer, but loads only the bits that are displayed on screen. This makes it especially useful when you want to inspect large files. 
+With `less` you can progressively look at a file, meaning it does not open the whole file in a text editor, but allows you to view a file without loading it into a text editor, making it particularly useful for large files. 
 
 To navigate the `less` environment:
 - {kbd}`Ctrl`+ {kbd}`F` for moving one screen **f**orward
@@ -609,12 +611,12 @@ Computing Skills for Biologists - a Tool box
 
 (wc_section)=
 ### `wc`
-To see the line, **w**ord, and byte (**c**haracter) count of a file, we can use `wc`:
+To see the line, word, and byte count of a file, we can use `wc`:
 ```{code-block} bash
 :class: no-copybutton
 wc [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest ([](#wc_no_options_example)). You can also only print the **l**ine ([](#wc_lines_example_1)), only the **w**ord or only the byte/**c**haracter count by using {term}`options <option>` `-l`, `-w`, `-c`, respectively.
+Where `FILE` is the file of interest ([](#wc_no_options_example)). You can also only print the **l**ine ([](#wc_lines_example_1)), only the **w**ord or only the byte (**c**) count by using {term}`options <option>` `-l`, `-w`, `-c`, respectively.
 
 (wc_no_options_example)=
 ``````{prf:example} wc default usage
@@ -632,7 +634,7 @@ The output is the amount of **lines**, **words**, and **byte counts** for each f
 (wc_lines_example_1)=
 ``````{prf:example} Count lines in a file 1
 ```{code-block} bash
-wc –l plants.fasta
+wc -l plants.fasta
 ```
 Will give the output:
 ```{code-block} bash
@@ -654,12 +656,12 @@ To inspect the **head** of a file, or the first couple of lines, you can use `he
 :class: no-copybutton
 head [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) is printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#example_head_n)).
+Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) are printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#example_head_n)).
 
 (example_head_n)=
 ``````{prf:example} Print the first 3 lines of cranes.csv
 ```{code-block} bash
-head -3 cranes.csv
+head -n 3 cranes.csv
 ```
 Will give the output:
 ```{code-block} bash
@@ -682,13 +684,13 @@ You can print the **tail**, or last couple of lines, of a file using `tail`:
 :class: no-copybutton
 tail [OPTION] [FILE]
 ```
-Where `FILE` is the file of interest. When multiple files are supplied, the first lines (default is 10) is printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#example_tail_n)).
+Where `FILE` is the file of interest. When multiple files are supplied, the last lines (default is 10) are printed for each file. With {term}`option` `-n` you can specify the amount of lines you want to print ([](#example_tail_n)).
 
 
 (example_tail_n)=
 ``````{prf:example} Print the last 3 lines of cranes.csv
 ```{code-block} bash
-tail -3 cranes.csv
+tail -n 3 cranes.csv
 ```
 Will give the output:
 ```{code-block} bash
@@ -705,6 +707,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Exercises
+Your goal for today is to identify an unknown human protein using the bioinformatics program BLAST from the command line. Before we can do that, we need to learn how to navigate the server, organise our files and inspect biological data.
 
 ### Finding your Way Around the Server
 On a Linux server you are always inside a directory, starting out in your home directory.
@@ -743,8 +746,8 @@ Use the {kbd}`↑` (up-arrow) to scroll through your command-line history.
 
 You can think of the directory structure in Linux as a tree with a root and a lot of branches extending from this root ({numref}`file_system_structure`). 
 
-``````{exercise} List all the files in root
-To list the files in the root of the system you can simply use: 
+``````{exercise} List the contents of the root directory
+To list the contents of the root directory you can simply use: 
 ```{code-block} bash
 ls /
 ```
@@ -861,19 +864,28 @@ mkdir -p exercises/week1/day2
 ```
 ``````
 
-### Working with Text
+### Investigating a chromosome
+The DNA sequence of the [human genome](wiki:Human_genome) cost a few billion dollars to determine, but now you can download it for free. Here we will explore the human chromosome 22 sequence that can be downloaded as a {term}`FASTA` file. To understand what is actually in the file, we will answer these questions:
+- How large is the downloaded file?
+- What type of file is it?
+- Why is the file much smaller than the chromosome itself?
+- What happens to its size after decompression?
+- Inspect the beginning and end of the sequence. What do you notice?
+- The file is larger than the number of nucleotides it contains. Where do the extra bytes come from?
+
 ``````{exercise} DNA sequence of human chromosome 22
+
 To explore working with text in a {term}`command-line interface`, we will first download the sequence of human chromosome 22 from the ENSEMBL website. 
 
 Make sure you are in the `exercises/week1/day2` directory.
 
 Downloading from a website usually requires a web browser. There is a command-line browser:
 ```{code-block} bash
-lynx www.ensembl.org
+lynx www.wur.nl
 ```
 This is not very user friendly. Fortunately, there is a command called `wget` that allows you to download a file from a website: (the URL is too long for one line)
 ```{code-block} bash
-wget https://ftp.ensembl.org/pub/release-114/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz
+wget https://ftp.ensembl.org/pub/release-116/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz
 ```
 
 **What is the size of the file in {term}`bytes <byte>`?**
@@ -889,7 +901,7 @@ command-line program `python3`, run it like this: (replace `file_size` with the 
 
 ```{code-block} bash
 :class: no-copybutton
-user001@bork:~/exercises/week1/day1_2$ python3
+user001@bork:~/exercises/week1/day2$ python3
 user001@bork:/usr/local/bin$ python3
 Python 3.13.6 (main, Aug 7 2025, 18:15:40) [GCC 11.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more
@@ -914,9 +926,9 @@ A compressed file cannot be read directly, you first should uncompress/unzip it 
 gunzip Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz
 ```
 
-Again, check the size of the now uncompressed file in {term}`bytes <byte>` using Python.
+Again, check the size of the now uncompressed file in {term}`bytes <byte>` using ls -l.
 
-For most text files on a Linux system, one character takes up exactly one {term}`byte`.
+The characters used in this FASTA file are encoded using one {term}`byte` each.
 
 **Now what is the ratio of {term}`bytes <byte>` per nucleotide?**
 ``````
@@ -969,11 +981,11 @@ rm Homo_sapiens.GRCh38.dna.chromosome.22.fa
 ``````
 
 ### Using BLAST from the command line
-Now, let's do some biology on the command-line. One of the most used programs in bioinformatics is called BLAST.
+Now, let's do some biology on the command line. One of the most used programs in bioinformatics is called BLAST.
 
-With BLAST you can search for a protein or nucleotide sequence in a database of known sequences. It does not only find exact matches, but also similar sequences. This allows you to look for homologous sequences. These are sequences that originate from the same ancestral gene, for instance the human hemoglobin beta and delta proteins have a very similar amino acid sequence.
+With BLAST you can search for a protein or nucleotide sequence in a database of known sequences. It does not only find exact matches, but also similar sequences. This allows you to identify sequences that may be homologous. These are sequences that originate from the same ancestral gene, for instance the human hemoglobin beta and delta proteins have a very similar amino acid sequence.
 
-BLAST is extensively covered in the [Introduction to Bioinformatics](https://wur-bioinformatics.github.io/introduction-to-bioinformatics/chapter2/#blast) course. Most researchers will use BLAST via the [NCBI website](https://blast.ncbi.nlm.nih.gov/Blast.cgi), which works fine for a few sequences. If you have a lot of protein or nucleotide sequences that you want to search, using BLAST from the command-line is more efficient. 
+BLAST is extensively covered in the [Introduction to Bioinformatics](https://wur-bioinformatics.github.io/introduction-to-bioinformatics/chapter2/#blast) course. Most researchers will use BLAST via the [NCBI website](https://blast.ncbi.nlm.nih.gov/Blast.cgi), which works fine for a few sequences. If you have a lot of protein or nucleotide sequences that you want to search, using BLAST from the command line is more efficient. 
 
 (exc_cmdline_blast)=
 ``````{exercise} command-line BLAST a protein sequence
@@ -1021,7 +1033,7 @@ Now run `blastp` again , but change the {term}`output` file name to `proteinX.ht
 The resulting file can be viewed in a web browser, so let's copy it over to your own computer. The easiest way to do that is to use the `scp` command on your computer:
 
 ```{code-block} bash
-scp bork:~/exercises/week1/day1_2/proteinX.html .
+scp bork:~/exercises/week1/day2/proteinX.html .
 ```
 
 Locate the file on your computer and open it with a web browser.

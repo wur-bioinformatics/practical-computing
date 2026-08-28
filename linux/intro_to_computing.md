@@ -23,7 +23,7 @@ Biological data analysis can often be performed using ready-made {term}`software
 
 
 ## Operating Systems
-A computer system consists of {term}`hardware` and {term}`software`. {term}`Hardware <hardware>` are the physical components, whereas {term}`software` are the programs and applications that control the {term}`hardware`. An {term}`operating system` (OS) is the {term}`software` that manages computer {term}`hardware` and {term}`software` resources of computing devices and acts as an interface between the user and {term}`hardware` [@geeksforgeeks_introduction_operating]. More simply put, an {term}`operating system` acts as a bridge between you (the user) and your computer, illustrated in {numref}`operating_system`. 
+A computer system consists of {term}`hardware` and {term}`software`. {term}`Hardware <hardware>` refers to the physical components, whereas {term}`software` are the programs and {term}`applications <application>` that control the {term}`hardware`. The {term}`operating system` (OS) is the {term}`software` that manages computer {term}`hardware` and {term}`software` resources of computing devices and acts as an interface between the {term}`applications <application>` and {term}`hardware` [@geeksforgeeks_introduction_operating]. More simply put, an {term}`operating system` acts as a bridge between {term}`applications <application>` and your computer, illustrated in {numref}`operating_system`. 
 
 
 :::{figure} img/operating_system_vs_user.svg
@@ -31,9 +31,9 @@ A computer system consists of {term}`hardware` and {term}`software`. {term}`Hard
 Role of operating system in connecting the user with the hardware and software of a computer
 :::
 
-An {term}`operating system` contains two basic components: 
-- The {term}`kernel` is the core component of the {term}`operating system`. It contains the {term}`software` libraries that are required to interact with the {term}`hardware` and is therefore the primary interface between the {term}`operating system` and the {term}`hardware`
-- The {term}`shell` is the outermost layer of the {term}`operating system`. It acts as an intermediate between the user and the {term}`operating system`. It interprets {term}`input` for the {term}`operating system` and handles the {term}`output` from the {term}`operating system`.
+An {term}`operating system` has several components. Two important ones are the kernel and the shell: 
+- The {term}`kernel` is the core component of the {term}`operating system`. It manages system resources and contains, among other things, {term}`software` that allow it to interact with {term}`hardware` devices. It herefore provides the main interface between {term}`applications <application>` and the {term}`hardware`.
+- The {term}`shell` is the outermost layer of the {term}`operating system`. It acts as an interface between the user and the {term}`operating system`. It interprets commands entered by the user ({term}`input`), passes them to the {term}`operating system` for execution, and handles the resulting {term}`output`.
 
 Some {term}`operating systems<operating system>` you might be familiar with:
 - Windows
@@ -45,17 +45,17 @@ Some {term}`operating systems<operating system>` you might be familiar with:
 - Chrome OS
 
 
-In this course, we will use [Linux](wiki:linux). It was created by [Linus Torvalds](wiki:linus_torvalds) and has various advantages:
+In this course, we will use [Linux](wiki:linux). It was created by [Linus Torvalds](wiki:linus_torvalds) in 1991 and has various advantages:
 - Linux has a powerful (remote) {term}`shell`
 - Linux has many {term}`software` tools available
 - Supercomputers run Linux
 
 The Linux {term}`kernel` is typically bundled with several applications into a Linux distribution to make it more user friendly. You can choose between a lot of different distributions for different purposes, for an overview see: [Linux distribution](wiki:Linux_distribution). 
 
-We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called bork. Servers are not always connected to the internet. Therefore, it is necessary to jump from your computer via a host or proxy server to the WUR Bioinformatics servers. 
+We will work on the WUR Bioinformatics servers, which all run Ubuntu (one of the most popular Linux distributions). The server we will mostly work on is called **bork**. Our servers are not directly connected to the internet. Therefore, it is necessary to jump from your computer via a host or proxy server to the WUR Bioinformatics servers. 
 
 :::{margin}
-The bork server is named after [](https://en.wikipedia.org/wiki/Peer_Bork), a German Bioinformatician known for his work at the European Molecular Biology Laboratory (EMBL).
+The bork server is named after [](https://en.wikipedia.org/wiki/Peer_Bork), a German Bioinformatician who was director of the European Molecular Biology Laboratory (EMBL).
 :::
 
 ```{figure} img/working_on_remote_server.svg
@@ -73,16 +73,18 @@ Computing Skills for Biologists - a Tool box
 We will now go over a number of fundamental concepts in computing to make sure we have a shared understanding of what they mean. Some of these you will already know, for others you may not directly see their relevance yet until we encounter them again later in the course.
 
 ### Network
-A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **smith**. Hostnames can have a domain: smith.**bioinformatics\.nl**.
+A {term}`network` connects different computers together. An example is the Internet. Each computer has an IP address, like 10.250.0.175, that is a unique label assigned to each device connected to a computer {term}`network` that uses the Internet Protocol for communication [@geeksforgeeks_ip]. Some computers have a hostname, like **bork**. Hostnames can have a domain: bork.**bioinformatics\.nl**. Web servers are often called **www** (www.wur.nl)
 
-There are different communication protocols between devices, which each use a different {term}`network port`, depending on the application ([](#network_ports)). You can imagine these {term}`network ports  <network port>` to act like a service desk at for example the municipality: for each service there is a different desk, one for getting a new passport, one for getting married, one for registering yourself when you have just moved, etc.. Similarly, each {term}`network port` serves as a virtual connection to provide different services. [@geeksforgeeks_networkport_2025 ;@juric_port_nodate]
+Computers communicate with each other for many different purposes, such as sending email, browsing a web page or sending a document to a network printer. Different types of communication use different network protocols, and many of these protocols are associated with a specific {term}`network port`, depending on the application. These {term}`network ports <network port>` are numbered from 0 top 65,535 and by convention specific numbers are reserved for different services ([](#network_ports)). 
+
+You can imagine these {term}`network ports  <network port>` as service desks at the municipality. For each service there is a different desk, one for getting a new passport, one for getting married, one for registering yourself when you have just moved, etc. Similarly, each {term}`network port` directs incoming network traffic to the appropriate service or application on the computer. [@geeksforgeeks_networkport_2025 ;@juric_port_nodate]
 
 ```{list-table} Examples of network ports
 :header-rows: 1
 :name: network_ports
 * - Network port
-  - Abbreviation
   - Service
+  - Explanation
 * - 22
   - SSH
   - Remote computing
@@ -95,9 +97,9 @@ There are different communication protocols between devices, which each use a di
 * - 443
   - HTTPS
   - Encrypted web traffic
-* - 3000
-  - HTTP 
-  - Local web development
+* - 25565 
+  - Minecraft 
+  - Hosting your own Minecraft server
 ```
 
 ### CPU and GPU
@@ -107,7 +109,11 @@ The Graphical Processing Unit, {term}`GPU` or video card, is a specialized proce
 
 
 ### Memory
-Data is stored in basic units of information. There are multiple ways to encode data: binary, decimal, and hexidecimal. The binary encoding uses two symbols: 0 and 1. One unit of binary information is called a {term}`bit`. A {term}`byte` is a unit of computer information consisting of a number of {term}`bits <bit>`. When a {term}`byte` consists of eight bits it can represent any number from 0 to 255. Four bits is called a {term}`nibble`, which can represent any number from 0 to 15 ([](#nibble_example)). Alternatively, data can be encoded using ten symbols (0-9, decimal encoding) or sixteen symbols (0-9 and A-F, hexidecimal encoding) ([](#encoding_example)). 
+Data is stored in basic units of information called {term}`bits <bit>`. A {term}`bit` can have one of two values: **0** and **1**. By combining bits we can represent larger numbers. In computing, we typically start counting at zero, so two bits can represent the numbers 0 (00), 1 (01), 2 (10) and 3 (11). 
+
+A group of four bits is called a {term}`nibble`, which can represent any number from 0 to 15 ([](#nibble_example)). A {term}`byte` consists of eight bits and can represent values from 0 to 255. 
+
+This way of representing numbers using only 0 and 1 is called the binary number system. Binary values can also be represented using other number systems, such as the commonly used **decimal** system (using digits 0-9) and **hexadecimal** (with 16 numbers, using 0-9 and A-F). The benefit of the **hexadecimal** system is that one {term}`byte` is always representated by exactly two characters ([](#encoding_example)).
 
 (nibble_example)= 
 ``````{prf:example} Nibbles
@@ -165,7 +171,7 @@ Back to decimal: \
 14 x 16{sup}`1` + 2 = 226
 ```
 
-The amount of data that can be stored, processed, or transferred in a computer system is represented by the amount of {term}`bytes <byte>` [@geeksforgeeks_memory]. There are two conventions: kilo-based ([](#multiple-byte_units_kilo)) or kibi-based ([](#multiple-byte_units_kibi)). However, often kibi-based storage systems are called using the kilo-based naming conventions, which can be confusing. 
+The amount of data that can be stored, processed, or transferred in a computer system is represented in {term}`bytes <byte>` [@geeksforgeeks_memory]. For larger quantities, two different conventions are used: powers of 1000, using prefixes such as kilo-, mega- and giga- ([](#multiple-byte_units_kilo)) or  powers of 1024, using prefixes such as kibi-, mebi- and gibi- ([](#multiple-byte_units_kibi)). These conventions are not always strictly followed. For example, 1024 bytes may be referred to as a kilobyte, even though the technically correct binary term is a kibibyte.
 
 ::::{grid} 1 1 2 2 
 :::{grid-item}
@@ -222,13 +228,15 @@ The amount of data that can be stored, processed, or transferred in a computer s
 
 ::::
 
-The {term}`memory`, or RAM, is used by programs to temporarily store information (data). Because it is temporary, it is not persistent and the data contained here is lost when power is shut off. However, it is much faster than a hard disk (long-term memory): 20-80 GB/s. A computer often has a {term}`memory` in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications need over 1 TB. If the {term}`memory` is full, the hard disk is used as "overflow". This is called swapping and is very slow.
+The {term}`memory`, or RAM, is used by programs to temporarily store data. RAM is volatile, meaning that its contents are lost when the computer is switched off. However, it is can be read and written much faster than a hard disk (long-term storage). A computer often has a {term}`memory` in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications require even more than 1 TB. If the {term}`memory` is full, the hard disk is used as "overflow". This is called swapping and is very slow.
 
-Some {term}`operating systems <operating system>` also have so-called {term}`mounted drives <mounted drive>` . {term}`Mounted drives <mounted drive>` are hard disks that are accessible across devices within the {term}`operating system`.
+Computers also have persistent storage to keep data for longer periods and when the computer is powered off. This storage can be local, such as an internal or external disk, or remote, such as storage provided over a network. Examples of the latter are Google Drive and Microsoft One Drive.
+
+Storage that has been made accessible at a particular location in a computer's {term}`file system` is called a {term}`mounted drive`. 
 
 (file_system)=
 ### File System
-The {term}`file system` is the system that organizes how files are stored on a hard disk. Many different {term}`file systems <file system>` exist, differing in:
+A {term}`file system` is the system that organizes how files are stored on a disk. Many different {term}`file systems <file system>` exist, differing in:
 - maximum file size
 - security
 - redundancy
@@ -276,9 +284,9 @@ Compressed files:
 
 
 ### Indexing
-An {term}`index` can help to quickly find some information in a large file, like an index at the end of a book. Usually, the {term}`index` of a file is stored in a separate file. The structure depends on the kind of data that is indexed. It is mainly created and used by computer programs. 
+An {term}`index` can help to quickly find some information in a large file, similar to an index at the end of a book. Usually, the {term}`index` of a file is stored in a separate file. The structure depends on the kind of data that is indexed. It is mainly created and used by computer programs. 
 
-One application is to make a genome of an organism better searchable, as was done for the plant *Arabidopsis thaliana* in {numref}`index_a_thaliana`.
+One application of an {term}`index` is shown in {numref}`index_a_thaliana`. This {term}`index` comes with the file that contains the genome sequence of the plant *Arabidopsis thaliana* and it indicates at which position (in bytes) in the file the DNA sequence for each chromosome starts.
 
 ```{list-table} Index of a file with the genome of *Arabidopsis thaliana*
 :header-rows: 1
@@ -304,9 +312,12 @@ One application is to make a genome of an organism better searchable, as was don
 ```
 
 ## Exercises
+Your first day on the bioinformatics servers
 
-### Connecting to a server
-We will connect to the server bork. 
+You have been given access to the Bioinformatics compute infrastructure and will use it throughout this course. Before starting an analysis, you need to find out where you are, what computing resources are available, who you are sharing them with, and where you can store your data.
+
+### Connecting to the server
+We will connect to the server **bork**. 
 
 ```{exercise} Connecting to bork from ...
 Follow the "Connecting to bork from ..." description on BrightSpace that is appropriate for your {term}`operating system` (Windows or macOS). If you have another OS, ask one of the teachers.
@@ -316,13 +327,13 @@ If everything worked out well and you logged in to bork, you should see a list o
 
 ```{code-block} bash
 :class: no-copybutton
-user001@server:~$
+user001@bork:~$
 ```
 
 This is the {term}`command-line interface` that allows you to type all kinds of commands. The commands you type are actually handled by the {term}`shell`.
 
 
-### Looking around the server
+### Where am I, and who am I sharing the server with?
 ``````{exercise} Who am I?
 You are now a Linux user identified by your WUR username. To see your username you can type `whoami` after the {term}`prompt`, followed by {kbd}`enter`. For example:
 
@@ -389,7 +400,10 @@ Also here try `htop` to see the number of {term}`CPUs <CPU>` and the amount of {
 ```{code-block} bash
 htop
 ```
-**Does that work?**
+**How much memory is currently being used?** \
+**What is the load average?** \
+**Which user is currently using the most CPU or memory?** \
+**Based on what you see, does the server look busy?** 
 
 Again, you can use {kbd}`F10` or {kbd}`q` to get out of `htop`.
 
@@ -419,7 +433,8 @@ The doudna server has a couple of {term}`GPUs <GPU>`. To see the {term}`GPUs <GP
 nvtop
 ```
 
-**What kind of {term}`GPUs <GPU>` are in doudna?** (look between the square brackets)
+**What kind of {term}`GPUs <GPU>` are in doudna?** (look between the square brackets) \
+**Are any of the GPUs currently being used? If so, how much GPU memory is being used?**
 
 The company making these {term}`GPUs <GPU>` is currently one of the World's most valuable companies.
 
@@ -464,4 +479,16 @@ This mounted home drive is not very large, considering the number of users, so w
 ```{code-block} bash
 df -h /lustre/BIF
 ```
+``````
+
+
+``````{exercise} Right server for the job
+You want to run a bioinformatics analysis that:
+
+requires 500 GB RAM,
+benefits from a GPU, and
+produces 900 GB of output.
+
+**Based on what you discovered, where would you run the analysis and where would you store the results? You can check some of the other servers in the list. Explain your choices.**
+
 ``````
