@@ -894,9 +894,8 @@ command-line program `python3`, run it like this: (replace `file_size` with the 
 ```{code-block} bash
 :class: no-copybutton
 user001@bork:~/exercises/week1/day2$ python3
-Python 3.13.6 (main, Aug 7 2025, 18:15:40) [GCC 11.4.0] on linux
-Type "help", "copyright", "credits" or "license" for more
-information.
+Python 3.14.7 (main, Aug 29 2026, 16:44:58) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
 >>> file_size / 50818468
 ```
 
@@ -994,12 +993,12 @@ Create a BLAST database of the `sp_human_single_line.fasta` file using:
 makeblastdb -in sp_human_single_line.fasta -out sp_human
 ```
 
-This should create a BLAST database called sp_human, but something is still missing. Look in the {term}`options <option>` for `makeblastdb` to solve the problem:
+This should create a BLAST database called sp_human, but something is still missing. Carefully read the error message and check the {term}`options <option>` for `makeblastdb` to solve the problem:
 ```{code-block} bash
 makeblastdb -help
 ```
 
-When you've found the right {term}`option`, make the BLAST database with the corrected command. The database uses an {term}`index` to find sequences faster.
+When you have found the right {term}`option`, make the BLAST database with the corrected command. The database uses an {term}`index` to find sequences faster.
 
 The BLAST command-line programs come in several [flavors](https://wur-bioinformatics.github.io/introduction-to-bioinformatics/chapter2/#blast-types), depending on whether you want to search protein or nucleotide sequences, in a protein or a nucleotide database. In this case we want to search a protein database for a protein sequence, which requires `blastp`.
 

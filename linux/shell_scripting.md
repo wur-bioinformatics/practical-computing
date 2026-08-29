@@ -41,7 +41,7 @@ nano hello_world.sh
 ```
 
 
-The first line of a {term}`shell script` is called the shebang line. It tells the {term}`shell` the path to the program it should use to interpret the script with. Here, that program is `bash`, so the first line of our {term}`shell script` is:
+The first line of a {term}`shell script` is called the shebang line. It tells the {term}`shell` which program should be used to execute the script. Here, that program is `bash`, so the first line of our {term}`shell script` is:
 ```{code-block} bash
 :filename: hello_world.sh
 :linenos:
@@ -133,9 +133,9 @@ Characters **8-10** show the permissions for all other users on the system, who 
 
 An `x` would indicate e**x**ecution permission, which nobody has for this file. To give the script executable permission, we can run the `chmod` command:
 ```{code-block} bash
-chmod +x hello_world.sh
+chmod u+x hello_world.sh
 ```
-This gives everyone on the system executable permission. 
+This gives the owner of the file permission to execute it. 
 
 
 After that, you can run the script with:
@@ -161,9 +161,9 @@ To introduce the usage of variables, let's make a new version of the `hello_worl
 #!/bin/bash
 # Script to write a greeting to screen
 GREETING="Hello World"
-echo $GREETING
+echo "$GREETING"
 ```
-In line **3** the variable is introduced. Note that there should be zero spaces around the '`=`' sign. By convention, variable names are written in all caps. Additionally, because variables can only contain one item, here string quotes are added because "Hello World" contains a space. \
+In line **3** the variable is introduced. Note that there should be zero spaces around the '`=`' sign. By convention, variable names are written in all caps. Quotes allow text containing spaces to be treated together and protect it from special interpretation by the shell. \
 In line **4** the variable is called by writing the dollar sign (`$`) before the variable name. 
 
 We can also use variable calling when running a script with arguments. Instead of {term}`hard-coding<hard-code>` the greeting into the file, we can supply it on the command line as an argument, making the script more flexible:
@@ -174,9 +174,9 @@ We can also use variable calling when running a script with arguments. Instead o
 :emphasize-lines: 3
 #!/bin/bash
 # Script to write a greeting to screen
-echo $1
+echo "$1"
 ```
-The `$1` is the first argument given to the script on the command line. The arguments are separated by spaces and stored in order of occurence.
+The `$1` is the first argument given to the script on the command line. The arguments are separated by spaces and stored in order of occurrence.
 
 Running the script as:
 ```{code-block} bash
@@ -210,7 +210,7 @@ Let's turn first the pipeline from [](#pipe_grep_sed_example) in [](#adv_linux_c
 grep ">" plants.fasta | sed 's/>.*|//'
 ```
 
-We have now {term}`hard-coded<hard-code>` the filename `plants.fasta` into the script, meaning that everytime we run the script, it will print the protein identifiers of `plants.fasta`. If we would want to do the same thing but for a different file (for example `trees.fasta` containing all protein sequences of your favourite tree), we would have to make a copy of the script and alter the FASTA filename. This is of course tedious and misses the point of creating {term}`shell scripts <shell script>`. 
+We have now {term}`hard-coded<hard-code>` the filename `plants.fasta` into the script, meaning that every time we run the script, it will print the protein identifiers of `plants.fasta`. If we would want to do the same thing but for a different file (for example `trees.fasta` containing all protein sequences of your favourite tree), we would have to make a copy of the script and alter the FASTA filename. This is of course tedious and misses the point of creating {term}`shell scripts <shell script>`. 
 
 Instead, we can supply the script with the FASTA file as an argument and use variable calling in the script.
 
@@ -218,7 +218,7 @@ Instead, we can supply the script with the FASTA file as an argument and use var
 :filename: extract_protein_ids.sh
 #!/bin/bash
 # Print all protein identifiers in a FASTA file to screen
-grep ">" $1 | sed 's/>.*|//'
+grep ">" "$1" | sed 's/>.*|//'
 ```
 
 Now we can run the script with any FASTA file:
@@ -237,7 +237,7 @@ Computing Skills for Biologists - a Tool box
 
 (section_ss_for_loop)=
 ### `for` loops
-A `for` loop in a {term}`shell script` allows you to execute commands or pipelines repeatedly, for a specified amount of times, or for multiple files. The basic structure of a `for` loop in a {term}`shell script` is:
+A `for` loop in a {term}`shell script` allows you to execute commands or pipelines repeatedly, for a specified number of times, or for multiple files. The basic structure of a `for` loop in a {term}`shell script` is:
 
 ```{code-block} bash
 :class: no-copybutton
@@ -317,8 +317,8 @@ Let's start with the basic structure of the program:
 :emphasize-lines: 3,4,5,6
 #!/bin/bash
 
-HOUR=`date "+%H"`
-NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
+HOUR=$(date "+%H")
+NAME=$(finger $USER | grep Name: | sed 's/.*Name:\s\+//')
 TIMEOFDAY="day"
 echo Good $TIMEOFDAY $NAME, you look great today!
 ```
@@ -355,8 +355,8 @@ Now let's add an `if`-statement, so if it is before 12:00, we will greet with "G
 :emphasize-lines: 6,7,8
 #!/bin/bash
 
-HOUR=`date "+%H"`
-NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
+HOUR=$(date "+%H")
+NAME=$(finger $USER | grep Name: | sed 's/.*Name:\s\+//')
 TIMEOFDAY="day"
 if [ $HOUR -lt 12 ]; then
         TIMEOFDAY="morning"
@@ -392,8 +392,8 @@ Let's add an `elif`-statement for when it is afternoon:
 :emphasize-lines: 8,9
 #!/bin/bash
 
-HOUR=`date "+%H"`
-NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
+HOUR=$(date "+%H")
+NAME=$(finger $USER | grep Name: | sed 's/.*Name:\s\+//')
 TIMEOFDAY="day"
 if [ $HOUR -lt 12 ]; then
         TIMEOFDAY="morning"
@@ -432,8 +432,8 @@ For the remaining day-time, the evening, let's add the `else`-statement:
 :emphasize-lines: 10,11
 #!/bin/bash
 
-HOUR=`date "+%H"`
-NAME=`finger $USER | grep Name: | sed 's/.*Name:\s\+//'`
+HOUR=$(date "+%H")
+NAME=$(finger $USER | grep Name: | sed 's/.*Name:\s\+//')
 if [ $HOUR -lt 12 ]; then
         TIMEOFDAY="morning"
 elif [ $HOUR -lt 18 ]; then
@@ -443,7 +443,7 @@ else
 fi
 echo Good $TIMEOFDAY $NAME, you look great today!
 ```
-We have removed the initation of the `TIMEOFDAY` variable, because now all possible conditions are explored.
+We have removed the initialisation of the `TIMEOFDAY` variable, because now all possible conditions are explored.
 
 
 If you would run this script in the evening:
@@ -504,11 +504,11 @@ Now that the script is executable, we can run it with:
 ::::
 
 ### A Shell Script for Sequence Alignment
-In these exercoes, we will make a function that takes an input sequence, finds the most similar sequences in a protein database using BLAST, and then makes a multiple sequence alignment.
+In these exercises, we will make a function that takes an input sequence, finds the most similar sequences in a protein database using BLAST, and then makes a multiple sequence alignment.
 
-First we need a protein database to search in, we can use the human proteins from the SwissProt database that we used before.
+First we need a protein database to search in, we can use the human proteins from the Swiss-Prot database that we used before.
 
-::::{exercise} Create a link to the human proteins from the SwissProt database
+::::{exercise} Create a link to the human proteins from the Swiss-Prot database
 In the directory that you might have already created for today, create a **l**i**n**k (shortcut) to the `sp_human_single_line` FASTA file, for instance like this:
 ```{code-block} bash
 cd ~/exercises/week1/day5
@@ -553,11 +553,8 @@ Because we want to create a script to do the whole analysis, the results of the 
 
 To catch the output in a new Shell variable called `BLASTHITS`, you can run it like this:
 ```{code-block} bash
-BLASTHITS=`blastp -query proteinX.fasta -db sp_human -evalue 1e-3 -outfmt "6 sacc"`
+BLASTHITS=$($blastp -query proteinX.fasta -db sp_human -evalue 1e-3 -outfmt "6 sacc")
 ```
-:::{caution} Important
-The quotes surrounding the whole command should be backticks. 
-:::
 
 You can view the resulting value of the `BLASTHITS` variable this way:
 ```{code-block} bash
