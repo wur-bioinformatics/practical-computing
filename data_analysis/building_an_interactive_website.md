@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- Understand what HTML is and how it is used to build web pages
-- Understand how dynamic web pages can be built using Python
+- explain how HTML elements are used to structure the content of a web page
+- create a simple web page using HTML
+- build a simple interactive web application that retrieves and presents information from a database
 ```
 
 ## Introduction

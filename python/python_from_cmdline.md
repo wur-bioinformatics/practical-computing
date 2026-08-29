@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- pass command-line arguments to a Python script and access them using sys.argv
+- read from standard input and write to standard output and standard error in Python
+- use Python scripts as part of command-line pipelines
 ```
 
 ## Introduction

@@ -113,7 +113,7 @@ Data is stored in basic units of information called {term}`bits <bit>`. A {term}
 
 A group of four bits is called a {term}`nibble`, which can represent any number from 0 to 15 ([](#nibble_example)). A {term}`byte` consists of eight bits and can represent values from 0 to 255. 
 
-This way of representing numbers using only 0 and 1 is called the binary number system. Binary values can also be represented using other number systems, such as the commonly used **decimal** system (using digits 0-9) and **hexadecimal** (with 16 numbers, using 0-9 and A-F). The benefit of the **hexadecimal** system is that one {term}`byte` is always representated by exactly two characters ([](#encoding_example)).
+This way of representing numbers using only 0 and 1 is called the binary number system. Binary values can also be represented using other number systems, such as the commonly used **decimal** system (using digits 0-9) and **hexadecimal** (with 16 symbols, using 0-9 and A-F). The benefit of the **hexadecimal** system is that one {term}`byte` is always represented by exactly two characters ([](#encoding_example)).
 
 (nibble_example)= 
 ``````{prf:example} Nibbles
@@ -228,7 +228,7 @@ The amount of data that can be stored, processed, or transferred in a computer s
 
 ::::
 
-The {term}`memory`, or RAM, is used by programs to temporarily store data. RAM is volatile, meaning that its contents are lost when the computer is switched off. However, it is can be read and written much faster than a hard disk (long-term storage). A computer often has a {term}`memory` in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications require even more than 1 TB. If the {term}`memory` is full, the hard disk is used as "overflow". This is called swapping and is very slow.
+The {term}`memory`, or RAM, is used by programs to temporarily store data. RAM is volatile, meaning that its contents are lost when the computer is switched off. However, it can be read and written much faster than a hard disk (long-term storage). A computer often has a {term}`memory` in the gigabyte range in size. Laptops/PCs often have 16-64GB, but some bioinformatic applications require even more than 1 TB. If the {term}`memory` is full, the {term}`operating system` can move data temporality from RAM to storage. This is called swapping and is very slow.
 
 Computers also have persistent storage to keep data for longer periods and when the computer is powered off. This storage can be local, such as an internal or external disk, or remote, such as storage provided over a network. Examples of the latter are Google Drive and Microsoft One Drive.
 
@@ -243,7 +243,7 @@ A {term}`file system` is the system that organizes how files are stored on a dis
 - speed
 - etc.
 
-Example of {term}`file systems <file system>` are: NTFS, FAT32, EXT4, and ZFS. The size of {term}`file systems <file system>` are nowadays in the terabyte range. {term}`File systems <file system>` are often organized in a directory or folder structure as illustrated in [](#file_system_structure).
+Examples of {term}`file systems <file system>` are: NTFS, FAT32, EXT4, and ZFS. The sizes of {term}`file systems <file system>` are nowadays in the terabyte range. {term}`File systems <file system>` are often organized in a directory or folder structure as illustrated in [](#file_system_structure).
 
 :::{figure} img/file_system.svg
 :label: file_system_structure
@@ -279,7 +279,7 @@ Text data is usually not stored efficiently in a {term}`file system`. For exampl
 
 Compressed files:
 - are much smaller
-- cannot be used directly, must be uncompressed (unzipped)
+- may need to be decompressed (unzipped) before they can be used
 - typically have file name extensions like: `.zip` or `.gz`
 
 
@@ -385,9 +385,9 @@ user001@bork:~$ htop
 **How many {term}`CPUs <CPU>` does the server have?** \
 **How much {term}`memory` does the server have?**
 
-In addition to the {term}`CPU` and {term}`memory` use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The {term}`load average` tells you how busy the server is. As a rule of thumb the number indicates how many of the {term}`CPUs <CPU>` are being used, if the {term}`load average` is higher than the number of {term}`CPUs <CPU>` then the server is overloaded and will run less efficiently. 
+In addition to the {term}`CPU` and {term}`memory` use, `htop` also shows which processes are currently running, with separate columns for the username, the used memory (RES) and the running command. The {term}`load average` tells you how busy the server is. As a rule of thumb the number roughly indicates how many processes are running or waiting to run, if the {term}`load average` is higher than the number of {term}`CPUs <CPU>` then the server is overloaded and will run less efficiently. 
 
-You can exit `htop` by pressing the {kbd}`F10` or {kbd}`q`.
+You can exit `htop` by pressing {kbd}`F10` or {kbd}`q`.
 ``````
 
 ``````{exercise} Let's have a look at another server
@@ -417,13 +417,13 @@ The command `free` shows the amount of {term}`memory`:
 free
 ```
 
-The numbers you see can be a bit ({term}`byte` 😉) confusing. To tell `free` to report the {term}`memory` in a more human readable form, you use the {term}`option` `-h`:
+The numbers you see can be a bit ({term}`byte` 😉) confusing. To tell `free` to report the {term}`memory` in a more human-readable form, you use the {term}`option` `-h`:
 ```{code-block} bash
 free -h
 ```
 ``````
 ```{margin}
-Doudna is named after [Jennifer Doudna](wiki:Jennifer_Doudna), who won the Nobel prize in Chemistry for her pioneer work on CRISPR gene editing.
+Doudna is named after [Jennifer Doudna](wiki:Jennifer_Doudna), who won the Nobel prize in Chemistry for her pioneering work on CRISPR gene editing.
 ```
 
 ``````{exercise} GPUs on the doudna server
@@ -436,7 +436,7 @@ nvtop
 **What kind of {term}`GPUs <GPU>` are in doudna?** (look between the square brackets) \
 **Are any of the GPUs currently being used? If so, how much GPU memory is being used?**
 
-The company making these {term}`GPUs <GPU>` is currently one of the World's most valuable companies.
+The company making these {term}`GPUs <GPU>` is currently one of the world's most valuable companies.
 
 Leave doudna to come back to bork by either running `exit` or using {kbd}`Ctrl`+{kbd}`d`.
 ``````
@@ -457,7 +457,7 @@ The `df` command shows the available disks and their sizes. If you run it, you w
 ```{code-block} bash
 df -h -l --type ext4
 ```
-- `-h` for human readable sizes
+- `-h` for human-readable sizes
 - `-l` local, to see disks that are in the server
 - `--type ext4` for disks that use the Linux {term}`file system`
 
@@ -475,7 +475,7 @@ Every user on a Linux server has a home directory in which they can store files.
 df -h /home
 ```
 
-This mounted home drive is not very large, considering the number of users, so we have an another {term}`mounted drive` for storing data that is much larger. Check the size of the `/lustre/BIF` drive and how much is already in use:
+This mounted home drive is not very large, considering the number of users, so we have another {term}`mounted drive` for storing data that is much larger. Check the size of the `/lustre/BIF` drive and how much is already in use:
 ```{code-block} bash
 df -h /lustre/BIF
 ```

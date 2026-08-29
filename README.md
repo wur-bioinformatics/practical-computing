@@ -2,7 +2,7 @@
 
 ## Dev Installation
 ```{code} bash
-conda install mystmd   
+conda install -c conda-forge mystmd
 conda install -c conda-forge "nodejs>=20,<21"
 npx mystmd init # first time
 npx mystmd start # after that

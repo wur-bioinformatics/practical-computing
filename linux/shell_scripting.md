@@ -241,12 +241,12 @@ A `for` loop in a {term}`shell script` allows you to execute commands or pipelin
 
 ```{code-block} bash
 :class: no-copybutton
-for i in range
+for i in list
 do 
     action
 done
 ```
-The `range` here can be a range of numbers ([](#for_loop_number_example)) or multiple files in a directory ([](#for_loop_files_example)).
+The `list` here can be a range of numbers ([](#for_loop_number_example)) or multiple files in a directory ([](#for_loop_files_example)).
 
 (for_loop_number_example)=
 ``````{prf:example} Looping over a range of numbers
@@ -286,7 +286,8 @@ Suppose we want to extract the protein IDs for multiple FASTA files in a directo
 #!/bin/bash
 # Print all protein identifiers in all FASTA files in the current directory to screen
 for file in *.fasta
-    do grep ">" $file | sed 's/>.*|//'
+do
+    grep ">" $file | sed 's/>.*|//'
 done
 ```
 In Line **3**, we create the variable `file` that, for each iteration in the `for` loop takes on the name of the filenames that end in `.fasta`. We use the bash wildcard `*` to represent zero or more characters.
@@ -320,7 +321,7 @@ Let's start with the basic structure of the program:
 HOUR=$(date "+%H")
 NAME=$(finger $USER | grep Name: | sed 's/.*Name:\s\+//')
 TIMEOFDAY="day"
-echo Good $TIMEOFDAY $NAME, you look great today!
+echo "Good $TIMEOFDAY $NAME, you look great today!"
 ```
 In line **3**, we save the hour of the day in a variable `HOUR` by using command `date` (look at the help to see what `+%H` does).\
 In line **4**, we save the name of the user in a variable `NAME`.\
@@ -361,7 +362,7 @@ TIMEOFDAY="day"
 if [ $HOUR -lt 12 ]; then
         TIMEOFDAY="morning"
 fi
-echo Good $TIMEOFDAY $NAME, you look great today!
+echo "Good $TIMEOFDAY $NAME, you look great today!"
 ```
 
 If you would run this script in the morning:
@@ -400,7 +401,7 @@ if [ $HOUR -lt 12 ]; then
 elif [ $HOUR -lt 18 ]; then
     TIMEOFDAY="afternoon"
 fi
-echo Good $TIMEOFDAY $NAME, you look great today!
+echo "Good $TIMEOFDAY $NAME, you look great today!"
 ```
 
 If you would run this script in the afternoon:
@@ -441,7 +442,7 @@ elif [ $HOUR -lt 18 ]; then
 else
     TIMEOFDAY="evening"
 fi
-echo Good $TIMEOFDAY $NAME, you look great today!
+echo "Good $TIMEOFDAY $NAME, you look great today!"
 ```
 We have removed the initialisation of the `TIMEOFDAY` variable, because now all possible conditions are explored.
 
@@ -476,9 +477,9 @@ Fill it with the following lines:
 :linenos:
 :emphasize-lines: 2,3
 #!/bin/bash
-LEN=$1
-TEXTFILE=$2
-cat $TEXTFILE | sed "s/[^{A-Za-z'}]/\n/g" | grep -E "^\w{$LEN}$"
+LEN="$1"
+TEXTFILE="$2"
+cat "$TEXTFILE" | sed "s/[^A-Za-z']/\n/g" | grep -E "^\w{$LEN}$"
 ```
 In line **2**, we store the length of the words we want to extract in the variable `LEN`.\
 In line **3**, we store the filename in the variable `TEXTFILE`.
@@ -504,7 +505,7 @@ Now that the script is executable, we can run it with:
 ::::
 
 ### A Shell Script for Sequence Alignment
-In these exercises, we will make a function that takes an input sequence, finds the most similar sequences in a protein database using BLAST, and then makes a multiple sequence alignment.
+In these exercises, we will make a script that takes an input sequence, finds the most similar sequences in a protein database using BLAST, and then makes a multiple sequence alignment.
 
 First we need a protein database to search in, we can use the human proteins from the Swiss-Prot database that we used before.
 
@@ -529,15 +530,14 @@ head -n 10 sp_human_single_line.fasta
 ::::{exercise} Make a BLAST database
 Remember how you created a BLAST database using `makeblastdb`? 
 
-We now need to add an additional {term}`option` to make sure we can retrieve protein sequences from the database with protein IDs: `parse_seqids`
+We now need to add an additional {term}`option` to make sure we can retrieve protein sequences from the database with protein IDs: `-parse_seqids`
 
 **Create the BLAST database**. For the next part it is useful to get the BLAST results in table format, which is achieved with the
 {term}`option`: `-outfmt 7` (see [documentation](https://www.ncbi.nlm.nih.gov/books/NBK279684/table/appendices.T.options_common_to_all_blast/)).
 
 **Test your BLAST database** by searching it with the `proteinX.fasta` that you used in [](#exc_cmdline_blast) from [](#basic_linux_commands_page). You can copy it to the current directory, or use it directly with its path, e.g: `../day1_2/proteinX.fasta`
 
-Now you should see a table, with the BLAST hits in the rows and a number of columns with properties of the matches. As you may know. BLAST not only reports exact matches, but also similar sequences. The *bit score* column is a measure of the similarity between the query sequence and the matching sequence, and the *e-value* column gives an indication of the number of random hits we
-would expect with that score. Therefore, BLAST matches with a high e-value are often not very useful, since they are likely to have been found by chance, so we usually filter these out. 
+Now you should see a table, with the BLAST hits in the rows and a number of columns with properties of the matches. As you may know. BLAST not only reports exact matches, but also similar sequences. The *bit score* is a measure of the similarity between the query sequence and the matching sequence: higher bit scores indicate better aligning sequences. The *e-value* indicates how many alignments with this score or better are expected to occur by chance in a database of this size. Therefore, BLAST matches with a high e-value are often not very useful, since they are likely to have been found by chance, so we usually filter these out. 
 
 The default behavior of BLAST is to remove hits with e-values over 10.0, but here we want to be stricter and set that to 0.001 (also written as 1e-3). 
 

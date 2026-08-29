@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- recognise common types of programming errors and use error messages to help identify their cause
+- apply basic debugging strategies to locate and correct errors in a program
+- design tests, including edge cases, to check whether a program behaves as expected
 ```
 
 ## Introduction

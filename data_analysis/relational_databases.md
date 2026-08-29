@@ -8,8 +8,9 @@ bibliography:
 ---
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- explain how data are organised in a relational database using tables, records and fields
+- create and query relational databases using SQL, including filtering and combining information from multiple tables
+- access and query an SQLite database from Python
 ```
 
 ## Introduction

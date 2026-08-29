@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- import Python modules and use functions provided by them
+- distinguish between Python’s standard library and third-party libraries
+- use the re module to search and manipulate text using regular expressions
 ```
 
 ## Introduction

@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- explain in broad terms how large language models generate text and code
+- use a generative AI tool to generate, explain, debug or improve code
+- critically evaluate AI-generated code for correctness, readability and potential limitations
 ```
 
 ## Introduction

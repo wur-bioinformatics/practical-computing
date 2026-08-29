@@ -8,8 +8,9 @@ bibliography:
 ---
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- explain how data can be structured in text files and distinguish text files from binary files
+- read, parse and write structured text files using Python
+- process files record by record, including files with multi-line records such as FASTA files
 ```
 
 ## Introduction

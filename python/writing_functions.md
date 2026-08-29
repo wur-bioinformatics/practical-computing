@@ -9,8 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- learning_outcome1
-- learning_outcome2
+- define and call Python functions using parameters, arguments and return values
+- use functions to divide a program into reusable components
+- organise reusable functions into modules and import them into other Python programs
 ```
 
 ## Introduction
