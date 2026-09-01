@@ -779,7 +779,7 @@ In the list of files, you should see the program `blastp` that we will use at th
 
 Similarly, try to find programs in the /usr/bin directory that contain 'seq' in their name.
 
-Next, try to find programs in the /usr/bin/ directory that start with either a 'q' or a 'z' (using one ls command) 
+Next, try to find programs in the /usr/bin/ directory that start with either a 'q' or a 'z' (using one ls command with `[qz]`) 
 ``````
 
 
