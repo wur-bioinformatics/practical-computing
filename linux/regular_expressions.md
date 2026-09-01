@@ -526,7 +526,7 @@ The {term}`syntax` is quite similar, but PROSITE patterns:
 - use an '`x`' to indicate any amino acid
 - use parentheses '`()`' instead of curly braces '`{}`' to indicate repetition. 
 
-You are advised to first test the {term}`Regular Expression` on [regex101](https://regex101.com/) with the "sp|P62736|ACTA_HUMAN Actin" sequence. 
+You are advised to first test the {term}`Regular Expression` on [regex101](https://regex101.com/) with the "sp|P62736|ACTA_HUMAN Actin" sequence (from the `sp_human_single_line.fasta` file). 
 
 When that works, use the {term}`Regular Expression` in the whole file to find the human proteins that belong to the actin family. 
 
