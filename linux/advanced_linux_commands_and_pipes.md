@@ -185,7 +185,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 ``````
 
-You can use {numref}`redirection <Redirection>` (`>`) to redirect the filtered lines to a file ([](#grep_redirect_example)).
+You can use {ref}`redirection <section_redirection>` (`>`) to redirect the filtered lines to a file ([](#grep_redirect_example)).
 
 (grep_redirect_example)=
 ``````{prf:example} Redirect grep stdout

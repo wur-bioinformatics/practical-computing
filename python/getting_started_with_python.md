@@ -25,6 +25,16 @@ Python code can be run in several different ways depending on your specific goal
 ### Interactive Python Shell
 The Python shell allows you to type code directly into your terminal or command prompt and immediately see the results. You can start it by opening a terminal and typing `python` (or `python3`). It is great for testing snippets of code, or doing calculations.
 
+(example_interactive Python shell)=
+``````{prf:example} Python shell 
+```{code-block} python
+Python 3.14.7 (main, Aug 29 2026, 16:44:58) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("Hello world")
+Hello world
+```
+``````
+
 ### Text Editor for Creating a Program
 For longer scripts and applications, you write Python code into plain text files saved with the .py extension (for example, `script.py`). You can use any code editor like Notepad++. Once saved, you execute the program from your terminal using the command: `python script.py`
 
@@ -828,7 +838,7 @@ Formatting explained:
 
 (comparison_operators_section)=
 ### Comparison Operators
-Comparison operators are used to compare two values. There are presented in [](#comparison_operators_table).
+Comparison operators are used to compare two values, they typically return a Boolean value, see [](#comparison_operators_table).
 
 :::{table} Comparison operators
 :label: comparison_operators_table
@@ -843,7 +853,37 @@ Comparison operators are used to compare two values. There are presented in [](#
 | `<=` | Less than or equal to | At least for numeric and string types |
 :::
 
-*#! add example*
+(example_comparison_operators)=
+``````{prf:example} Comparing two values
+In the Python shell
+```{code-block} python
+>>> 1 == 1
+True
+>>> "a" == "a"
+True
+>>> 1 != 1
+False
+>>> 1 != 2
+True
+>>> 1 < 2
+True
+>>> 1 > 2
+False
+>>> 1 > 1
+False
+>>> 1 >= 1
+True
+>>> 1 <= 1
+True
+>>> True == False
+False
+>>> "a" > "b"
+False
+>>> "a" < "b"
+True
+```
+``````
+
 
 (boolean_operators_section)=
 ### Boolean Operators
@@ -859,7 +899,18 @@ Boolean or logical operators are used to combine multiple Boolean expressions or
 | `not` | Negation | Flips a Boolean value, False becomes True and True becomes False |
 :::
 
-*#! add example*
+(example_boolean_operators)=
+``````{prf:example} Boolean Operators
+```{code-block} python
+>>> True and True
+True
+>>> True or False
+True
+>>> not False
+True
+```
+``````
+
 
 :::{caution} Important
 The book also mentions that you can use the `&`, `|`, and `!` bit-wise operators instead of the `and`, `or`, and `not` logical operators, respectively, but we advise against that because they have different meaning in standard Python.
@@ -906,8 +957,6 @@ Will give the output:
 ```
 `pow(a,b)` is the same as `a**b`
 ``````
-
-*#! add examples*
 
 ### `len()`
 With function `len(a)` you can return the **len**gth of the variable `a`. For a {term}`string`, the length is the number of characters ([](#example_length_string)).

@@ -136,6 +136,9 @@ prompt
 quantifier
 : symbol that specifies how often the previous character (or group or character class) must occur.
 
+redirection
+: sending the output of a shell command to a different destination (usually a file)
+
 Regular Expression
 : a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations.
 
