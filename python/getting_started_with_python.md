@@ -69,77 +69,30 @@ Computing Skills for Biologists - a Tool box
 ### Integers
 An {term}`integer`, abbreviated as int, is a whole number ([](#example_int_whole_number)). An {term}`integer` can be positive or negative ([](#example_int_negative)), and can be of unlimited length. 
 
-(example_int_whole_number)=
-``````{prf:example} Integers are whole numbers
+(example_integers)=
+``````{prf:example} Integers
+Integers are positive or negative whole numbers
 ```{code-block} python
-type(12345)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'int'>
-```
-``````
-
-(example_int_negative)=
-``````{prf:example} Integers can be positive or negative
-```{code-block} python
-type(-1)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'int'>
+42
+6
+7
+1
+-1
+43758923475982
 ```
 ``````
 
 ### Floats
 A {term}`float`, or floating point number, is a positive or negative number containing one or more decimals ([](#example_float_decimal_number), [](#example_float_negative)). {term}`Floats<float>` can also be scientific numbers. Then they use the `e` to represent the power of 10 ([](#example_float_scientific)).
 
-(example_float_decimal_number)=
+(example_floats)=
 ``````{prf:example} Floats are numbers containing one or more decimals
 ```{code-block} python
-type(1.2345)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'float'>
-```
-``````
-
-(example_float_negative)=
-``````{prf:example} Floats can be positive or negative
-```{code-block} python
-type(-1.2345)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'float'>
-```
-``````
-
-(example_float_scientific)=
-``````{prf:example} Floats can be scientific numbers, using the E (exponential) notation
-```{code-block} python
-1.2E4
-```
-(i.e. $1.2 \times 10^4$)  
-
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+1.2345
+0.7
+pi = 3.1415
+1.2E4 
 12000.0
-```
-Let's check the type:
-```{code-block} python
-type(1.2E4)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'float'>
 ```
 ``````
 
@@ -149,20 +102,8 @@ A {term}`Boolean <Boolean data type>`, or bool, represents truth values and can 
 (example_bool_truth_values)=
 ``````{prf:example} Booleans can be either True or False
 ```{code-block} python
-type(True)
-```
-
-```{code-block} python
-:class: no-copybutton
-<class 'bool'>
-```
-```{code-block} python
-type(False)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'bool'>
+valid = True
+choice = False
 ```
 ``````
 
@@ -185,33 +126,15 @@ Will give the output:
 (example_str_quotes)=
 ``````{prf:example} Strings can be defined with either single or double quotes
 ```{code-block} python
-type("this is a single quote ' within a double quoted string")
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'str'>
-```
-
-```{code-block} python
-type('this is a double quote " within a single quoted string')
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'str'>
+"this is a single quote ' within a double quoted string"
+'this is a double quote " within a single quoted string'
 ```
 ``````
 
 (example_str_complex)=
 ``````{prf:example} Strings can contain different characters
 ```{code-block} python
-type("H3ll0 W0rld!")
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'str'>
+"H3ll0 W0rld!"
 ```
 ``````
 
@@ -242,7 +165,7 @@ Will give the output:
 If you expected it to be `'G'`:
 
 :::{note} Note
-Python uses 0-based counting: Python starts counting from 0, so the first character has count `0`, the second `1`, the third `2`, etc.
+Python uses 0-based counting: Python starts counting from 0, so the first character has index `0`, the second `1`, the third `2`, etc.
 :::
 ``````
 
@@ -302,7 +225,7 @@ object.method()
 ```
 Where `object` can be a variable or value, and `method` is the relevant method for that object. 
 
-There exist many useful string methods, we will discuss the following here: `.replace()` ([](#example_str_method_replace)), `.find()` ([](#example_str_method_find)), `.count()` ([](#example_str_method_count)), `.split()` ([](#example_str_method_split)), `.strip()` ([](#example_str_method_strip)), `.lower()` ([](#example_str_method_lower)), and `.upper()` ([](#example_str_method_upper)). 
+There are many useful string methods, we will discuss the following here: `.replace()` ([](#example_str_method_replace)), `.find()` ([](#example_str_method_find)), `.count()` ([](#example_str_method_count)), `.split()` ([](#example_str_method_split)), `.strip()` ([](#example_str_method_strip)), `.lower()` ([](#example_str_method_lower)), and `.upper()` ([](#example_str_method_upper)). 
 
 (example_str_method_replace)=
 ``````{prf:example} Replace a character in a string with another character
@@ -346,9 +269,6 @@ Will give the output:
 :class: no-copybutton
 0
 ```
-:::{note} Note
-Python uses 0-based counting: Python starts counting from 0, so the first character has count `0`, the second `1`, the third `2`, etc.
-:::
 ``````
 
 (example_str_method_count)=
@@ -446,208 +366,43 @@ Computing Skills for Biologists - a Tool box
 ### Conversions
 Some values of data types can be converted between each other. This is especially useful when handling user input data or files. 
 
-If values are {term}`integer`-like but are currently stored in a different data type, they can be converted to an {term}`integer` using built-in function `int()` ([](#example_int_convert_str)). 
+Adding strings and integers normally does not work. However, if the string contains only numbers it can be converted to an {term}`integer` using the built-in function `int()`. Similarly, an integer can be converted to a string using the  built-in function `str()` ([](#example_int_str_convert)). 
 
-(example_int_convert_str)=
-``````{prf:example} Convert the string "1" to integer 1 
-Let's check the type of `"1"`:
+(example_int_str_convert)=
+``````{prf:example} Converting strings to integers and vise versa 
+Adding a string and a number does not work
 ```{code-block} python
-type("1")
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'str'>
-```
-
-It is a {term}`string`, but it could also be seen as a whole number. Let's convert it to an {term}`integer`:
-```{code-block} python
-int("1")
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-1
-```
-
-To be sure, let's check the type:
-```{code-block} python
-type(int("1"))
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'int'>
+>>> "1" + 2
+Traceback (most recent call last):
+  File "<python-input-0>", line 1, in <module>
+    "1" + 2
+    ~~~~^~~
+TypeError: can only concatenate str (not "int") to str
+>>> int("1") + 2
+3
+>>> "1" + str(2)
+'12'
 ```
 ``````
 
-Similarly, you can convert an {term}`integer` or {term}`string` to a float using `float()` ([](#example_float_convert_integer) [](#example_float_convert_string)).
+Similarly, you can convert an {term}`integer` or {term}`string` to a float using `float()` ([](#example_float_convert_integer_str)).
 
-(example_float_convert_integer)=
-``````{prf:example} Convert the integer 1 to float 1.0
-Let's check the type of `1`:
+(example_float_convert_integer_str)=
+``````{prf:example} Convert an integer and a string to a float
 ```{code-block} python
-type(1)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'int'>
-```
-
-It is a {term}`integer`, but it could also be seen as a floating point number. Let's convert it to a {term}`float`:
-```{code-block} python
-float(1)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-1.0
-```
-
-To be sure, let's check the type:
-```{code-block} python
-type(float(1))
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'float'>
+>>> float(37) + float("37")
+74.0
 ```
 ``````
 
-
-(example_float_convert_string)=
-``````{prf:example} Convert the string "1.0" to float 1.0
-Let's check the type of `"1.0"`:
-```{code-block} python
-type("1.0")
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'str'>
-```
-
-It is a {term}`string`, but it could also be seen as a floating point number. Let's convert it to a {term}`float`:
-```{code-block} python
-float("1.0")
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-1.0
-```
-
-To be sure, let's check the type:
-```{code-block} python
-type(float("1.0"))
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'float'>
-```
-``````
-
-You can convert any data type to a {term}`string` using `str()` ([](#example_string_convert_float), [](#example_string_convert_int), [](#example_string_convert_bool)).
-
-(example_string_convert_float)=
-``````{prf:example} Convert the float 1.0  to string "1.0"
-Let's check the type of `1.0`:
-```{code-block} python
-type(1.0)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'float'>
-```
-
-It is a {term}`float`, but let's convert it to a {term}`string`:
-```{code-block} python
-str(1.0)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-'1.0'
-```
-
-To be sure, let's check the type:
-```{code-block} python
-type(str(1.0))
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'str'>
-```
-``````
-
-(example_string_convert_int)=
-``````{prf:example} Convert the integer 1  to string "1"
-Let's check the type of `1`:
-```{code-block} python
-type(1)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'int'>
-```
-
-It is a {term}`integer`, but let's convert it to a {term}`string`:
-```{code-block} python
-str(1)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-'1'
-```
-
-To be sure, let's check the type:
-```{code-block} python
-type(str(1))
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'str'>
-```
-``````
+You can convert any data type to a {term}`string` using `str()` ([](#example_string_convert_bool)).
 
 (example_string_convert_bool)=
 ``````{prf:example} Convert the Boolean True to string "True"
 Let's check the type of `True`:
 ```{code-block} python
-type(True)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'bool'>
-```
-
-It is a {term}`Boolean <Boolean data type>`, but let's convert it to a {term}`string`:
-```{code-block} python
-str(True)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> str(True)
 'True'
-```
-
-To be sure, let's check the type:
-```{code-block} python
-type(str(True))
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-<class 'str'>
 ```
 ``````
 
@@ -658,14 +413,8 @@ A variable is a named place to store a value. Often, we do not only use a value 
 (example_variable_assignment_simple)=
 ``````{prf:example} Assign a value to a variable
 ```{code-block} python
-x_1 = 3
-```
-```{code-block} python
-x_1
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> x_1 = 3
+>>> x_1
 3
 ```
 ``````
@@ -680,14 +429,8 @@ Variables can be used instead of literals in formulas ([](#example_variable_assi
 (example_variable_assignment_formula)=
 ``````{prf:example} Variables can be used in formulas
 ```{code-block} python
-y = x_1 * x_1 // 2
-```
-```{code-block} python
-y
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> y = x_1 * x_1 // 2
+>>> y
 4
 ```
 ``````
@@ -695,11 +438,7 @@ Will give the output:
 (example_variable_assignment_operation)=
 ``````{prf:example} Variables can be used in operations
 ```{code-block} python
-x_1 > y
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> x_1 > y
 False
 ```
 ``````
@@ -708,14 +447,8 @@ False
 (example_variable_assignment_new_value)=
 ``````{prf:example} Variables can be assigned new values
 ```{code-block} python
-x_1 = y + 1
-```
-```{code-block} python
-x_1
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> x_1 = y + 1
+>>> x_1
 5
 ```
 ``````
@@ -752,7 +485,6 @@ Numerical operators are used with numeric values to perform common mathematical 
 
 (example_numercial_operators)=
 ``````{prf:example} operators
-In the Python shell
 ```{code-block} python
 >>> 10/2
 5.0
@@ -795,11 +527,7 @@ String operators work on, you guessed it, {term}`strings <string>`. They are lis
 (example_string_concatenation)=
 ``````{prf:example} string concatenation
 ```{code-block} python
-'hello' + ' ' + 'world'
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> 'hello' + ' ' + 'world'
 'hello world'
 ```
 ``````
@@ -807,12 +535,8 @@ Will give the output:
 (example_string_multiplication)=
 ``````{prf:example}string multiplication
 ```{code-block} python
-'bla ' * 50
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-'bla bla bla bla bla bla bla bla bla bla '
+>>> 'bla ' * 5
+'bla bla bla bla bla '
 ```
 ``````
 
@@ -823,22 +547,24 @@ Other data types can only be combined with {term}`strings <string>` if we use st
 ``````{prf:example} Old-style string formatting
 Let's format a {term}`string` using an int `4`, a {term}`string` `"abc"`, and a {term}`float` `1.234` all separated by an `@`:
 ```{code-block} python
-"%d@%s@%.2f" % (4, "abc", 1.234)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-'4@abc@1.23'
+>>> 'The gc content of sequence nr %d = %.2f'%(12,45.7)
+'The gc content of sequence nr 12 = 45.70'
 ```
 Formatting explained:
 - the {term}`integer` is formatted with the placeholder `%d`
 - the {term}`string` is formatted with the placeholder `%s`
 - the {term}`float` is formatted with the placeholder `%.2f`, the `.2` means rounding to two decimal points
+
+The more modern string formatting uses f-strings:
+```{code-block} python
+>>> f'The gc content of sequence nr {12} = {45.7:.2f}'
+'The gc content of sequence nr 12 = 45.70'
+```
 ``````
 
 (comparison_operators_section)=
 ### Comparison Operators
-Comparison operators are used to compare two values, they typically return a Boolean value, see [](#comparison_operators_table).
+Comparison operators ([](#comparison_operators_table)) are used to compare two values, they typically return a Boolean value.
 
 :::{table} Comparison operators
 :label: comparison_operators_table
@@ -948,11 +674,7 @@ Then, you can use for example `math.sin(a)` for returning the sine of `a`, and `
 (example_pow_function)=
 ``````{prf:example} Using pow(a,b) to return a to the power of b
 ```{code-block} python
-pow(3,2)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> pow(3,2)
 9
 ```
 `pow(a,b)` is the same as `a**b`
@@ -1089,74 +811,32 @@ To take input from the console, we can use the `input()` function ([](#example_i
 (example_input_string)=
 ``````{prf:example} Take a name as input from the console
 ```{code-block} python
-name  = input('What is your name?')
-```
-In the console, it will state:
-```{code-block} python
-:class: no-copybutton
-What is your name?
-```
-We can type directly after the question our name:
-```{code-block} python
-:class: no-copybutton
-What is your name?User
-```
-Then if we print the variable `name`:
-```{code-block} python
-print(name)
-```
-It will give the output:
-```{code-block} python
-:class: no-copybutton
-User
+>>> name  = input('What is your name? ')
+What is your name? Guido
+>>> print(name)
+Guido
 ```
 ``````
 
 (example_input_int)=
 ``````{prf:example} Take a number n as input from the console to print a string n amount of times
-Take the input for `n` as:
-```{code-block} bash
-n = input('How many times?')
-```
-In the console, it will state:
+Print a text repeatedly for a user provide number of times
 ```{code-block} python
-:class: no-copybutton
-How many times?
-```
-We can type directly after the question our number
-```{code-block} python
-:class: no-copybutton
+>>> n = input('How many times?')
 How many times?4
-```
-Then if we print the variable `n`:
-```{code-block} python
-print(n)
-```
-It will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> print(n)
 4
+>>> print('bla '*n)
+Traceback (most recent call last):
+  File "<python-input-52>", line 1, in <module>
+    print('bla '*n)
+          ~~~~~~^~
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> print('bla '*int(n))
+bla bla bla bla
 ```
 
-Print the string `'z'` `n` amount of times:
-```{code-block} bash
-print('z' * n)
-```
-Will give an error! 
-
-We need to convert `n` to an {term}`integer`:
-```{code-block} python
-n = int(n)
-```
-If we try again:
-```{code-block} bash
-print('z' * n)
-```
-Will give the output:
-```{code-block} bash
-:class: no-copybutton
-zzzz
-```
+the `input()` function returns a string, so we had to convert it to an integer to use it
 ``````
 
 
