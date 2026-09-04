@@ -9,10 +9,13 @@ bibliography:
 ```{important} Learning outcomes
 After completing this section you should be able to:
 - Understand what Python is and why it is used in scientific computing
-- Explain the different Python data types
+- Recognize and use basic Python data types, variables, operators, and functions.
+- Perform simple calculations and manipulate strings in Python.
+- Write and run a short Python program that takes input and produces output.
+- 
 ```
 ## Introduction
-[Python](wiki:Python_(programming_language)) is a popular programming language known for its clear syntax and readability. It was created by [Guido van Rossum](wiki:guido_van_rossum) at the Centrum Wiskunde & Informatica (CWI) in the Netherlands, it has grown into one of the most widely used languages in the world for data science, web development and artificial intelligence.
+[Python](wiki:Python_(programming_language)) is a popular programming language known for its clear syntax and readability. It was created by [Guido van Rossum](wiki:guido_van_rossum) at the Centrum Wiskunde & Informatica (CWI) in the Netherlands. It has grown into one of the most widely used languages in the world for data science, web development and artificial intelligence.
 
 ## Why Python?
 Python is currently one of the most used programming languages in academia. Its clean syntax reads much like plain English, allowing beginners to pick up fundamental programming concepts quickly without getting bogged down by complex syntax rules. At the same time, a vast ecosystem of third-party libraries makes it powerful enough to handle advanced tasks in for instance machine learning.
@@ -109,7 +112,7 @@ Will give the output:
 ``````
 
 (example_float_scientific)=
-``````{prf:example} Floats can be scientific numbers, using the E (expontential) notation
+``````{prf:example} Floats can be scientific numbers, using the E (exponential) notation
 ```{code-block} python
 1.2E4
 ```
@@ -132,7 +135,7 @@ Will give the output:
 ``````
 
 ### Booleans
-A {term}`Boolean <Boolean data type>`, or bool, represents truth values and can be one of two values: `True` or `False` ([](#example_bool_truth_values)). They are often the result an evalutated expression ([](#boolean_operators_section)). 
+A {term}`Boolean <Boolean data type>`, or bool, represents truth values and can be one of two values: `True` or `False` ([](#example_bool_truth_values)). They are often the result of an evalutated expression ([](#boolean_operators_section)). 
 
 (example_bool_truth_values)=
 ``````{prf:example} Booleans can be either True or False
@@ -156,7 +159,7 @@ Will give the output:
 
 
 ### Strings
-{term}`Strings <string>` are how Python handles textual data. A {term}`string`, or str, is a sequences of characters ([](#example_str_basic)). They are written by surrounding text by either single (`'`) or double (`"`) quotes, so that if you want to include on or the other in your {term}`string`, you can ([](#example_str_quotes)). {term}`Strings <string>` can contain any type of character (defined in for example [](wiki:ASCII) or [](wiki:UTF-8) by [](wiki:Unicode)), such as, but not limited to: letters, numbers, and punctuation characters ([](#example_str_complex)). {term}`Strings <string>` are immutable, meaning that they cannot be changed. You can assign a new value to a variable that holds a {term}`string`, but you cannot in-place alter the value of a {term}`string` variable (for example by changing a character to another character in a {term}`string`). 
+{term}`Strings <string>` are how Python handles textual data. A {term}`string`, or str, is a sequence of characters ([](#example_str_basic)). They are written by surrounding text by either single (`'`) or double (`"`) quotes, so that if you want to include one or the other in your {term}`string`, you can ([](#example_str_quotes)). {term}`Strings <string>` can contain any type of character (defined in for example [](wiki:ASCII) or [](wiki:UTF-8) by [](wiki:Unicode)), such as, but not limited to: letters, numbers, and punctuation characters ([](#example_str_complex)). {term}`Strings <string>` are immutable, meaning that they cannot be changed. You can assign a new value to a variable that holds a {term}`string`, but you cannot in-place alter the value of a {term}`string` variable (for example by changing a character to another character in a {term}`string`). 
 
 (example_str_basic)=
 ``````{prf:example} Strings are a sequence of text 
@@ -213,12 +216,12 @@ my_string[index]
 where `my_string` is a {term}`string` and `index` is the position in the {term}`string` we want to access ([](#example_str_indexing)).
 
 (example_str_indexing)=
-``````{prf:example} Obtain the third character of a string via indexing
+``````{prf:example} Obtain the character at a position from a string via indexing
 Let's define a {term}`string` with a DNA sequence:
 ```{code-block} python
 dna = "ATGTGACT"
 ```
-Let's take the third character of `dna`:
+Using indexing we can select one specific position in the string:
 ```{code-block} python
 dna[3]
 ```
@@ -234,7 +237,7 @@ Python uses 0-based counting: Python starts counting from 0, so the first charac
 :::
 ``````
 
-We can also access a substring of a {term}`string`, by so-called slicing:
+We can access part of a {term}`string`, which is called a **substring**, using slicing:
 ```{code-block} python
 :class: no-copybutton
 my_string[start:end]
@@ -281,7 +284,7 @@ Will give the output:
 
 
 #### String Methods
-Since Python is object-oriented, all variables are objects. Objects contain both the data (value(s)) and methods that can be used on the data. A method can be seen as a function specifically designed for that object. To see all methods associated with a Python variable or value you can use function `dir()`. 
+Python values such as strings have methods: functions that belong to that type of object. Methods are called using dot notation, for example `dna.lower()` (returning the string in lower case). A method can be seen as a function specifically designed for that object. To see all methods associated with a Python variable or value you can use function `dir()`. 
 
 Methods are called in the format:
 ```{code-block} python
@@ -310,12 +313,12 @@ Will give the output:
 ``````
 
 (example_str_method_find)=
-``````{prf:example} Find the first occurence of a substring in a string
+``````{prf:example} Find the first occurrence of a substring in a string
 Let's define a {term}`string` with:
 ```{code-block} python
 dna = "ATGTGACT"
 ```
-Let's find the first occurence of `"C"` using the `.find()` string method:
+Let's find the first occurrence of `"C"` using the `.find()` string method:
 ```{code-block} python
 dna.find("C")
 ```
@@ -325,7 +328,7 @@ Will give the output:
 6
 ```
 
-Let's find the first occurence of `"ATG"` using the `.find()` string method:
+Let's find the first occurrence of `"ATG"` using the `.find()` string method:
 ```{code-block} python
 dna.find("ATG")
 ```
@@ -345,7 +348,7 @@ Let's define a {term}`string` with:
 ```{code-block} python
 dna = "ATGTGACT"
 ```
-Let's count the first occurences of `"G"` using the `.count()` string method:
+Let's count the first occurrences of `"G"` using the `.count()` string method:
 ```{code-block} python
 dna.count("G")
 ```
@@ -393,7 +396,7 @@ Will give the output:
 ```
 
 :::{note} Note
-`.strip()` strips whitespace by default. You can strip other characters by supplying the character you want to strip as argument.
+`.strip()` strips whitespace by default. You can strip other characters by supplying the set of characters you want to strip as argument.
 :::
 
 ``````
@@ -639,118 +642,9 @@ Will give the output:
 ```
 ``````
 
-## Operators
-Operators can be used to perform operations on values (and [variables](#variables_section)) [@w3schools_pythonoperators_nodate]. Operators have different functionalities when used on different [data types](#data_types_section).
-
-```{seealso} Further Reading
-Computing Skills for Biologists - a Tool box
-- Chapter 3.3.3 Simple Calculations with Basic Data Types
-```
-
-### Numerical Operators
-Numerical operators are used with numeric values to perform common mathematical operations. In this way, Python can be used as a calculator. The various numerical operators are presented in [](#numerical_operators_table). 
-
-:::{table} Numerical operators
-:label: numerical_operators_table
-
-| Numerical operator | Operation | Note |
-| :---: | :--- | :--- |
-| `+` | Addition | Also used as prefix operator (unary operator) representing a positive number |
-| `-` | Subtraction | Also used as prefix operator (unary operator) representing a negative number |
-| `*` | Multiplication | So no '`X`' or other similar symbol |
-| `/` | Division | Always gives float result |
-| `//` | Floor division | Always gives int result, rounds the number down |
-| `%` | Modulo | Remainder of integer division |
-| `**` | Exponentiation | Can't write superscripts in code |
-:::
-
-*#! if time left: add examples, esp. modulo example*
-
-(string_operators_example)=
-### String Operators
-String operators work on, you guessed it, {term}`strings <string>`. They are listed in [](#string_operators_table)
-
-:::{table} String operators
-:label: string_operators_table
-
-| String operator | Operation | Note |
-| :---: | :--- | :--- |
-| `+` | Concatenation | To combine strings, either side of the operator must be a string |
-| `*` | Multiplication | Repetition, one side of the operator must be int the other must be str|
-| `%` | Formatting | Format a string according to `format % values` |
-:::
-
-*#! add example*
-
-Other data types can only be combined with {term}`strings <string>` if we use string formatting. An older style of string formatting uses the `%` symbol. The left hand must be a {term}`string` containing the `%` placeholder(s) for other data types. The right hand must contain as many values as placeholders ([](#example_string_formatting_old)).
-
-(example_string_formatting_old)=
-``````{prf:example} Old-style string formatting
-Let's format a {term}`string` using an int `4`, a {term}`string` `"abc"`, and a {term}`float` `1.234` all separated by an `@`:
-```{code-block} python
-"%d@%s@%.2f" % (4, "abc", 1.234)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-'4@abc@1.23'
-```
-Formatting explained:
-- the {term}`integer` is formatted with the placeholder `%d`
-- the {term}`string` is formatted with the placeholder `%s`
-- the {term}`float` is formatted with the placeholder `%.2f`, the `.2` means rounding to two decimal points
-``````
-
-(comparison_operators_section)=
-### Comparison Operators
-Comparison operators are used to compare two values. There are presented in [](#comparison_operators_table).
-
-:::{table} Comparison operators
-:label: comparison_operators_table
-
-| Comparison operator | Operation | Data types |
-| :---: | :--- | :--- |
-| `==` | Equal to | Any data type, test for equality |
-| `!=` | Differs from | Any data type, test for inequality |
-| `>` | Greather than | At least for numeric and string types |
-| `<` | Less than | At least for numeric and string types |
-| `>=` | Greather than or equal to | At least for numeric and string types |
-| `<=` | Less than or equal to | At least for numeric and string types |
-:::
-
-*#! add example*
-
-(boolean_operators_section)=
-### Boolean Operators
-Boolean or logical operators are used to combine multiple Boolean expressions or objects. They are listed in [](#boolean_operators_table). Boolean operators are lazy (also called they short-circuit), meaning that they stop evaluating the expressions if a decision is met. For example, if we have two conditions and they both need to be true (`and`), the interpreter will not assess the second condition if the first one is `False`. Additionally, when either side is not a Bool, the meaning of the operation may not be intuitive. 
-
-:::{table} Boolean operators
-:label: boolean_operators_table
-
-| Boolean operator | Operation | Data types |
-| :---: | :--- | :--- |
-| `and` | Conjunction | If both conditions are True, the expression returns True |
-| `or` | Disjunction | If one of the conditions is True, the expression returns True  |
-| `not` | Negation | If both conditions are False, the expression returns True |
-:::
-
-*#! add example*
-
-:::{caution} Important
-The book also mentions that you can use the `&`, `|`, and `!` bit-wise operators instead of the `and`, `or`, and `not` logical operators, respectively, but we advise against that because they have different meaning in standard Python.
-:::
-
-```{margin}
-Here are the reasons (you don't need to remember these):
-- In Python, `!` is not an operator.
-- The `&` and `|` operators are bit-wise operators, meaning they compare at the binary representation of integers and perform math at the bit-level, whereas `and` and `or` are logical operators, meaning they assess the truthiness of the entire Boolean expression.
-- Logical operators are lazy (they short-circuit), whereas bit-wise operators do not.
-- Logical operators have very low priority in Python's order of operation, whereas bit-wise operators have very high priority, meaning your logic can break if you do not account for this.
-```
-
 (variables_section)=
 ## Variables and Variable Assignment
-A variable is a named place to store a value. Often, we do not only use a value once. If we assign it to a variable, we can use it later on in our program and manipulate it. To create a variable, you simple assign it a value by using the `=` ([](#example_variable_assignment_simple)). On the left-hand of the `=` is the variable name, on the right-hand the value. 
+A variable is a named place to store a value. Often, we do not only use a value once. If we assign it to a variable, we can use it later on in our program and manipulate it. To create a variable, you simply assign it a value by using the `=` ([](#example_variable_assignment_simple)). On the left-hand of the `=` is the variable name, on the right-hand the value. 
 
 (example_variable_assignment_simple)=
 ``````{prf:example} Assign a value to a variable
@@ -768,7 +662,7 @@ Will give the output:
 ``````
 
 The following rules apply for naming a variable:
-- The name has to start with a letter, then the remaining characters can be letters, digits, and underscores.
+- The name may contain letters, numbers and underscores, the first character cannot be a number.
 - Names are case-sensitive, so `x_1` and `X_1` are two different variables.
 - Keywords (such as 'if', 'else', 'and', etc.) by itself cannot be used as variable names. 
 
@@ -820,6 +714,164 @@ Will give the output:
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
 - Chapter 3.3.4 Variable Assignment
+```
+
+## Operators
+Operators can be used to perform operations on values (and [variables](#variables_section)) [@w3schools_pythonoperators_nodate]. Operators have different functionalities when used on different [data types](#data_types_section).
+
+```{seealso} Further Reading
+Computing Skills for Biologists - a Tool box
+- Chapter 3.3.3 Simple Calculations with Basic Data Types
+```
+
+### Numerical Operators
+Numerical operators are used with numeric values to perform common mathematical operations. In this way, Python can be used as a calculator. The various numerical operators are presented in [](#numerical_operators_table). 
+
+:::{table} Numerical operators
+:label: numerical_operators_table
+
+| Numerical operator | Operation | Note |
+| :---: | :--- | :--- |
+| `+` | Addition | Also used as prefix operator (unary operator) representing a positive number |
+| `-` | Subtraction | Also used as prefix operator (unary operator) representing a negative number |
+| `*` | Multiplication | So no '`X`' or other similar symbol |
+| `/` | Division | Always gives float result |
+| `//` | Floor division | Rounds the number down |
+| `%` | Modulo | Remainder of integer division |
+| `**` | Exponentiation | Can't write superscripts in code |
+:::
+
+(example_numercial_operators)=
+``````{prf:example} operators
+In the Python shell
+```{code-block} python
+>>> 10/2
+5.0
+>>> 10//2
+5
+>>> 10/3
+3.3333333333333335
+>>> 10//3
+3
+>>> 10.0//3 
+3.0
+>>> 10*2
+20
+>>> 10**2
+100
+>>> 10%2
+0
+>>> 10%3
+1
+```
+Some comments:
+- if one of the numbers is a float, the result is a float.
+- the result of 10/3 is an infinite number, while a float is stored in a limited set of bits (usually 64). This causes the last digit of 10/3 to be different from a 3. (also try 0.1 + 0.2, and immediately forget what the result is :) )
+``````
+
+(string_operators_example)=
+### String Operators
+String operators work on, you guessed it, {term}`strings <string>`. They are listed in [](#string_operators_table)
+
+:::{table} String operators
+:label: string_operators_table
+
+| String operator | Operation | Note |
+| :---: | :--- | :--- |
+| `+` | Concatenation | To combine strings, either side of the operator must be a string |
+| `*` | Multiplication | Repetition, one side of the operator must be int the other must be str|
+| `%` | Formatting | Format a string according to `format % values` |
+:::
+
+(example_string_concatenation)=
+``````{prf:example} string concatenation
+```{code-block} python
+'hello' + ' ' + 'world'
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'hello world'
+```
+``````
+
+(example_string_multiplication)=
+``````{prf:example}string multiplication
+```{code-block} python
+'bla ' * 50
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'bla bla bla bla bla bla bla bla bla bla '
+```
+``````
+
+
+Other data types can only be combined with {term}`strings <string>` if we use string formatting. An older style of string formatting uses the `%` symbol. The left hand must be a {term}`string` containing the `%` placeholder(s) for other data types. The right hand must contain as many values as placeholders ([](#example_string_formatting_old)).
+
+(example_string_formatting_old)=
+``````{prf:example} Old-style string formatting
+Let's format a {term}`string` using an int `4`, a {term}`string` `"abc"`, and a {term}`float` `1.234` all separated by an `@`:
+```{code-block} python
+"%d@%s@%.2f" % (4, "abc", 1.234)
+```
+Will give the output:
+```{code-block} python
+:class: no-copybutton
+'4@abc@1.23'
+```
+Formatting explained:
+- the {term}`integer` is formatted with the placeholder `%d`
+- the {term}`string` is formatted with the placeholder `%s`
+- the {term}`float` is formatted with the placeholder `%.2f`, the `.2` means rounding to two decimal points
+``````
+
+(comparison_operators_section)=
+### Comparison Operators
+Comparison operators are used to compare two values. There are presented in [](#comparison_operators_table).
+
+:::{table} Comparison operators
+:label: comparison_operators_table
+
+| Comparison operator | Operation | Data types |
+| :---: | :--- | :--- |
+| `==` | Equal to | Any data type, test for equality |
+| `!=` | Differs from | Any data type, test for inequality |
+| `>` | Greater than | At least for numeric and string types |
+| `<` | Less than | At least for numeric and string types |
+| `>=` | Greater than or equal to | At least for numeric and string types |
+| `<=` | Less than or equal to | At least for numeric and string types |
+:::
+
+*#! add example*
+
+(boolean_operators_section)=
+### Boolean Operators
+Boolean or logical operators are used to combine multiple Boolean expressions or objects. They are listed in [](#boolean_operators_table). Boolean operators are lazy (also called they short-circuit), meaning that they stop evaluating the expressions if a decision is met. For example, if we have two conditions and they both need to be true (`and`), the interpreter will not assess the second condition if the first one is `False`. Additionally, when either side is not a Bool, the meaning of the operation may not be intuitive. 
+
+:::{table} Boolean operators
+:label: boolean_operators_table
+
+| Boolean operator | Operation | Data types |
+| :---: | :--- | :--- |
+| `and` | Conjunction | If both conditions are True, the expression returns True |
+| `or` | Disjunction | If one of the conditions is True, the expression returns True  |
+| `not` | Negation | Flips a Boolean value, False becomes True and True becomes False |
+:::
+
+*#! add example*
+
+:::{caution} Important
+The book also mentions that you can use the `&`, `|`, and `!` bit-wise operators instead of the `and`, `or`, and `not` logical operators, respectively, but we advise against that because they have different meaning in standard Python.
+:::
+
+```{margin}
+Here are the reasons (you don't need to remember these):
+- In Python, `!` is not an operator.
+- The `&` and `|` operators are bit-wise operators, meaning they compare at the binary representation of integers and perform math at the bit-level, whereas `and` and `or` are logical operators, meaning they assess the truthiness of the entire Boolean expression.
+- Logical operators are lazy (they short-circuit), whereas bit-wise operators do not.
+- Logical operators have very low priority in Python's order of operation, whereas bit-wise operators have very high priority, meaning your logic can break if you do not account for this.
 ```
 
 ## Built-in Functions
@@ -1077,7 +1129,7 @@ x = 0 # initialize x to 0
 ```
 ``````
 
-You can also use comments to temporarily switch off some code. Many editors have keybord short cuts for this.
+You can also use comments to temporarily switch off some code. Many editors have keybord shortcuts for this.
 :::{tip} Tip
 In PyCharm to comment/uncomment a line or multiple lines of code use: \
 {kbd}`Ctrl` + {kbd}`/` (Windows) or {kbd}`⌘Cmd` + {kbd}`/` (macOS) while standing with your cursor on the line or selecting the line(s) [@jetbrains_pycharmkeyboard_13072026].
@@ -1139,7 +1191,7 @@ The W2D1 Jupyter Notebook contains all instructions for the exercises. They are 
 ``````
 
 ``````{exercise} Counting DNA nucleotides
-- Find the appriopriate method for counting letters, and apply it for finding the counts for each of the nucleotides.
+- Find the appropriate method for counting letters, and apply it for finding the counts for each of the nucleotides.
 - Now write Python code that prints these counts together on one line, separated by spaces.
 - Find out what type of value is contained in each of the variables introduced in this section.
 ``````
