@@ -9,7 +9,7 @@ bibliography:
 ```{important} Learning outcomes
 After completing this section you should be able to:
 - explain what a shell script is and when it can be useful
-- explain how the shell locates and executes scripts using executable flags (chmod +x) and the $PATH variable.
+- explain how the shell locates and executes scripts using executable flags (chmod u+x) and the $PATH variable.
 ```
 
 ## Introduction
@@ -294,7 +294,7 @@ In Line **3**, we create the variable `file` that, for each iteration in the `fo
 
 If we run the script (after [making it executable](#section_running_a_shell_script)) in the directory that has multiple FASTA files, it would print all protein IDs from all FASTA files to screen.
 ```{code-block} bash
-chmod +x extract_protein_ids_all_fasta_files.sh
+chmod u+x extract_protein_ids_all_fasta_files.sh
 ```
 ```{code-block} bash
  ./extract_protein_ids_all_fasta_files.sh

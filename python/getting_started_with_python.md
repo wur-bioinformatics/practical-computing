@@ -12,7 +12,6 @@ After completing this section you should be able to:
 - Recognize and use basic Python data types, variables, operators, and functions.
 - Perform simple calculations and manipulate strings in Python.
 - Write and run a short Python program that takes input and produces output.
-- 
 ```
 ## Introduction
 [Python](wiki:Python_(programming_language)) is a popular programming language known for its clear syntax and readability. It was created by [Guido van Rossum](wiki:guido_van_rossum) at the Centrum Wiskunde & Informatica (CWI) in the Netherlands. It has grown into one of the most widely used languages in the world for data science, web development and artificial intelligence.
