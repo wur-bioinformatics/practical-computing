@@ -25,7 +25,7 @@ Python code can be run in several different ways depending on your specific goal
 ### Interactive Python Shell
 The Python shell allows you to type code directly into your terminal or command prompt and immediately see the results. You can start it by opening a terminal and typing `python` (or `python3`). It is great for testing snippets of code, or doing calculations.
 
-(example_interactive Python shell)=
+(example_interactive_Python_shell)=
 ``````{prf:example} Python shell 
 ```{code-block} python
 Python 3.14.7 (main, Aug 29 2026, 16:44:58) [GCC 11.4.0] on linux
@@ -45,6 +45,26 @@ An Integrated Development Environment (IDE) combines a text editor with all kind
 ### Jupyter Notebook
 A Jupyter Notebook is an interactive web document that combines runnable Python code blocks (cells) with formatted text (Markdown), and data visualizations. It is a standard tool for data science and machine learning because you can run code cell-by-cell and immediately display charts or data tables directly beneath your code.
 
+## Basic ingredients of Python
+A Python program consists of instructions that tell the computer what to do. When writing programs, we mainly work with four things:
+
+* **Data** the values that a program works with, such as numbers, text, or DNA sequences.
+* **Instructions** commands that tell Python to do something with the data, such as perform a calculation.
+* **Functions** reusable pieces of code that perform a particular task.
+* **Flow** the order in which instructions are executed, including making decisions and repeating instructions.
+
+For example, a program could store a DNA sequence, use a function to determine its length, calculate its GC content, and then decide whether that GC content is high or low.
+
+To work with data, we often give values a **name**. Such a name is called a [variable](#variables_section):
+
+```python
+dna = "ATGCGTAC"
+temperature = 21.5
+```
+
+Here, `dna` and `temperature` are variables that refer to values. Once a value has a name, we can use it again later in the program.
+
+Different values represent different kinds of data. Python calls these [data types](#data_types_section). We will start by looking at some of the most common ones.
 
 (data_types_section)=
 ## Data Types
@@ -75,24 +95,37 @@ Integers are positive or negative whole numbers
 ```{code-block} python
 42
 6
-7
-1
 -1
-43758923475982
+4375892
 ```
 ``````
 
 ### Floats
-A {term}`float`, or floating point number, is a positive or negative number containing one or more decimals ([](#example_float_decimal_number), [](#example_float_negative)). {term}`Floats<float>` can also be scientific numbers. Then they use the `e` to represent the power of 10 ([](#example_float_scientific)).
+A {term}`float`, or floating point number, is a positive or negative number containing one or more decimals ([](#example_floats)). {term}`Floats<float>` can also be scientific numbers. Then we use the `e` or `E` to represent the power of 10 ([](#example_float_scientific)).
 
 (example_floats)=
 ``````{prf:example} Floats are numbers containing one or more decimals
 ```{code-block} python
 1.2345
-0.7
+-0.7
 pi = 3.1415
-1.2E4 
+```
+``````
+
+(example_float_scientific)=
+``````{prf:example} Using e notation to represent very large or small numbers
+
+```{code-block} python
+Python 3.14.7 (main, Aug 29 2026, 16:44:58) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 1.2e4
 12000.0
+>>> 1.2E4
+12000.0
+>>> -1.2e-3
+-0.0012
+>>> 6.022E23
+6.022e+23
 ```
 ``````
 
@@ -112,13 +145,9 @@ choice = False
 {term}`Strings <string>` are how Python handles textual data. A {term}`string`, or str, is a sequence of characters ([](#example_str_basic)). They are written by surrounding text by either single (`'`) or double (`"`) quotes, so that if you want to include one or the other in your {term}`string`, you can ([](#example_str_quotes)). {term}`Strings <string>` can contain any type of character (defined in for example [](wiki:ASCII) or [](wiki:UTF-8) by [](wiki:Unicode)), such as, but not limited to: letters, numbers, and punctuation characters ([](#example_str_complex)). {term}`Strings <string>` are immutable, meaning that they cannot be changed. You can assign a new value to a variable that holds a {term}`string`, but you cannot in-place alter the value of a {term}`string` variable (for example by changing a character to another character in a {term}`string`). 
 
 (example_str_basic)=
-``````{prf:example} Strings are a sequence of text 
+``````{prf:example} Strings are a sequence of characters 
 ```{code-block} python
-type("Hello World")
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> type("H3ll0 W0rld!")
 <class 'str'>
 ```
 ``````
@@ -131,12 +160,6 @@ Will give the output:
 ```
 ``````
 
-(example_str_complex)=
-``````{prf:example} Strings can contain different characters
-```{code-block} python
-"H3ll0 W0rld!"
-```
-``````
 
 (section_str_indexing_and_slicing)=
 #### String Indexing and Slicing
@@ -145,7 +168,7 @@ Since {term}`strings<string>` are a sequence of characters, we can obtain indivi
 :class: no-copybutton
 my_string[index]
 ```
-where `my_string` is a {term}`string` and `index` is the position in the {term}`string` we want to access ([](#example_str_indexing)).
+where `my_string` is a {term}`string` and `index` is the position in the {term}`string` we want to access. For this position, Python starts to count at 0 instead of 1.
 
 (example_str_indexing)=
 ``````{prf:example} Obtain the character at a position from a string via indexing
@@ -174,7 +197,7 @@ We can access part of a {term}`string`, which is called a **substring**, using s
 :class: no-copybutton
 my_string[start:end]
 ```
-where `my_string` is a {term}`string`, `start` is the start index of the slice (inclusive), and `end` is the end index of the slice (exclusive) ([](#example_str_slicing)). 
+where `my_string` is a {term}`string`, `start` is the start index of the slice (inclusive), and `end` is the end index of the slice (exclusive). 
 
 
 (example_str_slicing)=
@@ -194,7 +217,7 @@ Will give the output:
 ```
 ``````
 
-You can also use negative indexing in indexing and slicing. That way you can access elements from the end of the {term}`string`. The last characters has index `-1`, the second to last `-2` etc. ([](#example_str_negative_indexing)).
+You can also use negative indexing in indexing and slicing. That way you can access elements from the end of the {term}`string`. The last characters has index `-1`, the second to last `-2` etc.
 
 
 (example_str_negative_indexing)=
@@ -370,7 +393,7 @@ Adding strings and integers normally does not work. However, if the string conta
 
 (example_int_str_convert)=
 ``````{prf:example} Converting strings to integers and vise versa 
-Adding a string and a number does not work
+Adding a string and a number does not work. Depending on what we want to achieve, we have to convert one data type to another.
 ```{code-block} python
 >>> "1" + 2
 Traceback (most recent call last):
@@ -403,6 +426,29 @@ Let's check the type of `True`:
 ```{code-block} python
 >>> str(True)
 'True'
+```
+``````
+
+Boolean conversions are a bit less intuitive: zero (`integer` or `float`) and an empty string are converted to `False`, other values to `True`.
+
+(example_boolean_conversions)=
+``````{prf:example} Booleans conversions
+Let's convert some strings, integers and floats to booleans
+```{code-block} python
+>>> bool(0)
+False
+>>> bool(1)
+True
+>>> bool(123)
+True
+>>> bool("False")
+True
+>>> bool("")
+False
+>>> bool(0.0)
+False
+>>> bool(1.1)
+True
 ```
 ``````
 
@@ -507,7 +553,7 @@ Numerical operators are used with numeric values to perform common mathematical 
 ```
 Some comments:
 - if one of the numbers is a float, the result is a float.
-- the result of 10/3 is an infinite number, while a float is stored in a limited set of bits (usually 64). This causes the last digit of 10/3 to be different from a 3. (also try 0.1 + 0.2, and immediately forget what the result is :) )
+- the result of `10/3` has an infinitely repeating decimal representation, but a floating-point number can store only limited precision. This causes the last digit of 10/3 to be different from a 3. (also try 0.1 + 0.2, and immediately forget what the result is :) )
 ``````
 
 (string_operators_example)=
@@ -613,7 +659,7 @@ True
 
 (boolean_operators_section)=
 ### Boolean Operators
-Boolean or logical operators are used to combine multiple Boolean expressions or objects. They are listed in [](#boolean_operators_table). Boolean operators are lazy (also called they short-circuit), meaning that they stop evaluating the expressions if a decision is met. For example, if we have two conditions and they both need to be true (`and`), the interpreter will not assess the second condition if the first one is `False`. Additionally, when either side is not a Bool, the meaning of the operation may not be intuitive. 
+Boolean or logical operators are used to combine multiple Boolean expressions or objects. They are listed in [](#boolean_operators_table). When these operators are used with other datatypes, the result may not be intuitive. 
 
 :::{table} Boolean operators
 :label: boolean_operators_table
