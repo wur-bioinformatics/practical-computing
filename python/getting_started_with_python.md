@@ -379,6 +379,42 @@ Will give the output:
 ```
 ``````
 
+#### String formatting
+Values of other data types can be included in {term}`strings <string>` using **string formatting**. You may encounter three different ways of doing this in Python. The most common and recommended method is to use **f-strings**.
+
+(example_string_formatting)=
+````{prf:example} String formatting
+Suppose we want to include the length and GC content of a DNA sequence in a string:
+
+```{code-block} python
+>>> length = 12
+>>> gc_content = 45.7
+>>> f'The sequence length is {length} and the GC content is {gc_content:.2f}%'
+'The sequence length is 12 and the GC content is 45.70%'
+```
+
+An f-string starts with `f` before the starting quote. Values or variables are inserted by placing them between `{` and `}`. Formatting instructions can be added after a colon. For example, `.2f` formats a {term}`float` with two digits after the decimal point.
+
+You may also encounter two older styles of string formatting:
+
+```{code-block} python
+>>> 'The sequence length is {} and the GC content is {:.2f}%'.format(length, gc_content)
+'The sequence length is 12 and the GC content is 45.70%'
+
+>>> 'The sequence length is %d and the GC content is %.2f%%' % (length, gc_content)
+'The sequence length is 12 and the GC content is 45.70%'
+```
+
+The last example uses `%`-style formatting. Here:
+
+- `%d` is a placeholder for an {term}`integer`
+- `%s` is a placeholder for a {term}`string`
+- `%.2f` is a placeholder for a {term}`float` formatted with two digits after the decimal point
+- `%%` produces a literal `%` character
+
+For new Python code, we recommend using **f-strings**.
+````
+
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -567,7 +603,7 @@ String operators work on, you guessed it, {term}`strings <string>`. They are lis
 | :---: | :--- | :--- |
 | `+` | Concatenation | To combine strings, either side of the operator must be a string |
 | `*` | Multiplication | Repetition, one side of the operator must be int the other must be str|
-| `%` | Formatting | Format a string according to `format % values` |
+| `%` | Old-style formatting | Format a string according to `format % values` |
 :::
 
 (example_string_concatenation)=
@@ -583,28 +619,6 @@ String operators work on, you guessed it, {term}`strings <string>`. They are lis
 ```{code-block} python
 >>> 'bla ' * 5
 'bla bla bla bla bla '
-```
-``````
-
-
-Other data types can only be combined with {term}`strings <string>` if we use string formatting. An older style of string formatting uses the `%` symbol. The left hand must be a {term}`string` containing the `%` placeholder(s) for other data types. The right hand must contain as many values as placeholders ([](#example_string_formatting_old)).
-
-(example_string_formatting_old)=
-``````{prf:example} Old-style string formatting
-Let's format a {term}`string` using an int `4`, a {term}`string` `"abc"`, and a {term}`float` `1.234` all separated by an `@`:
-```{code-block} python
->>> 'The gc content of sequence nr %d = %.2f'%(12,45.7)
-'The gc content of sequence nr 12 = 45.70'
-```
-Formatting explained:
-- the {term}`integer` is formatted with the placeholder `%d`
-- the {term}`string` is formatted with the placeholder `%s`
-- the {term}`float` is formatted with the placeholder `%.2f`, the `.2` means rounding to two decimal points
-
-The more modern string formatting uses f-strings:
-```{code-block} python
->>> f'The gc content of sequence nr {12} = {45.7:.2f}'
-'The gc content of sequence nr 12 = 45.70'
 ```
 ``````
 

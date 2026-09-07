@@ -116,7 +116,7 @@ Computing Skills for Biologists - a Tool box
 
 (section_foap1_looping)=
 ### Looping
-Another flow structure are loops. These are used when part of the program needs to be repeated. There are two variants: the `for` loop and the `while` loop. 
+Another flow structure is a loop. This is used when part of the program needs to be repeated. It has two variants: the `for` loop and the `while` loop. 
 
 
 
@@ -248,13 +248,13 @@ Example structures of flow charts
 ## Exercises
 Most exercises of today are essentially taken from [Rosalind](https://rosalind.info/problems/locations/). Rosalind is a platform where you can learn bioinformatics via computational problem solving. You can sign up to the platform (if you want) to join the Rosalind competition. 
 
-The title of an assignment from Rosalind starst with an abbreviation, this is the the identifier used by Rosalind. For example, yesterday we did one Rosalind problem already: (DNA) Counting DNA Nucleotides.
+The title of an assignment from Rosalind starts with an abbreviation, this is the identifier used by Rosalind. For example, yesterday we did one Rosalind problem already: (DNA) Counting DNA Nucleotides.
 
-When doing these assignments at Rosalind, you will have to download a file containing the input, then run your script, and finally upload (or copy) your answer, all within a set time. For example, if you download the file for problem DNA (Counting DNA Nucleotides), the file is named `rosalind_dna.txt`.  If your script is in file `dna.py`, your can run the script on the given data by this command (in the terminal):  
+When doing these assignments at Rosalind, you will have to download a file containing the input, then run your script, and finally upload (or copy) your answer, all within a set time. For example, if you download the file for problem DNA (Counting DNA Nucleotides), the file is named `rosalind_dna.txt`.  If your script is in file `dna.py`, you can run the script on the given data by this command (in the terminal):  
 ```{code-block} python
-python dna.py < rosalin_dna.txt
+python dna.py < rosalind_dna.txt
 ```
-This will give the answer in the terminal. If you rather want the answer in a file again (e.g. `rosalind_dna.out`), you should redirect the output to file:
+This will give the answer in the terminal. If you would rather have the answer in a file again (e.g. `rosalind_dna.out`), you should redirect the output to file:
 ```{code-block} python
 python dna.py < rosalind_dna.txt > rosalind_dna.out
 ```

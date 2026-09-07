@@ -28,14 +28,8 @@ Lists are ordered collections of items. The items within a list can be of differ
 (example_list_different_data_types)=
 ``````{prf:example} Items in lists can have different data types
 ```{code-block} python
-a = ["ATG", 4, 1.5, True]
-```
-```{code-block} python
-print(a)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> a = ["ATG", 4, 1.5, True]
+>>> print(a)
 ['ATG', 4, 1.5, True]
 ```
 ``````
@@ -43,15 +37,9 @@ Will give the output:
 (example_list_same_values)=
 ``````{prf:example} Items in lists can have the same value
 ```{code-block} python
-b = ["ATG", "TATA", "ATG"]
-```
-```{code-block} python
-print(b)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-["ATG", "TATA", "ATG"]
+>>> b = ["ATG", "TATA", "ATG"]
+>>> print(b)
+['ATG', 'TATA', 'ATG']
 ```
 ``````
 
@@ -67,30 +55,22 @@ There are several ways to create a list. First, a list can be created by so-call
 (example_list_one_item)=
 ``````{prf:example} Create a one-item list using list display
 ```{code-block} python
-c = [42]
-```
-```{code-block} python
-print(c)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> c = [42]
+>>> print(c)
 [42]
 ```
 ``````
 
 (example_list_empty)=
-``````{prf:example} Create an empty list using list display
+``````{prf:example} Create an empty and use append() to add values 
 ```{code-block} python
-d = []
-```
-```{code-block} python
-print(d)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-[]
+>>> d = []
+>>> d.append(42)
+>>> print(d)
+[42]
+>>> d.append(42)
+>>> print(d)
+[42, 42]
 ```
 ``````
 
@@ -99,14 +79,8 @@ Second, we can create a list by repeating a single-element list ([](#example_lis
 (example_list_intialise_repeating_zeros)=
 ``````{prf:example} Create a list of zeros by repeating a single-element list
 ```{code-block} python
-e = [0] * 5
-```
-```{code-block} python
-print(e)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> e = [0] * 5
+>>> print(e)
 [0, 0, 0, 0, 0]
 ```
 ``````
@@ -114,14 +88,8 @@ Will give the output:
 (example_list_intialise_repeating_None)=
 ``````{prf:example} Create a list of None by repeating a single-element list
 ```{code-block} python
-f = [None] * 5
-```
-```{code-block} python
-print(f)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> f = [None] * 5
+>>> print(f)
 [None, None, None, None, None]
 ```
 `None` type can be used to create a list of "empty" cells.
@@ -132,14 +100,8 @@ Last, a list can be created using the `list()` function ([](#example_list_list_f
 (example_list_list_function)=
 ``````{prf:example} Create a list by using the list() function
 ```{code-block} python
-g = list("12345")
-```
-```{code-block} python
-print(g)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> g = list("12345")
+>>> print(g)
 ['1', '2', '3', '4', '5']
 ```
 ``````
@@ -152,11 +114,7 @@ Similar to [](#section_str_indexing_and_slicing), we can also access elements in
 ``````{prf:example} Access an element in a list using indexing
 Given list `b` created in [](#example_list_same_values), we can access the second element using:
 ```{code-block} python
-b[1]
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> b[1]
 'TATA'
 ```
 The result of indexing is the value of the indexed item, with as data type the data type of the value.
@@ -166,11 +124,7 @@ The result of indexing is the value of the indexed item, with as data type the d
 ``````{prf:example} Access part of a list using slicing
 Given list `g` created in [](#example_list_list_function), we can access slice going from the second to the fourth element by:
 ```{code-block} python
-g[1:4]
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> g[1:4]
 ['2', '3', '4']
 ```
 The result of slicing is a copy of the elements in the list.
@@ -182,14 +136,8 @@ Since lists are mutable, you can replace values of items using indexing for repl
 ``````{prf:example} Replace a value of an item in a list using indexing
 Given list `g` created in [](#example_list_list_function), we can replace the first item in the list (with value `'1'`) by:
 ```{code-block} python
-g[0] = '0'
-```
-```{code-block} python
-g
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> g[0] = '0'
+>>> g
 ['0', '2', '3', '4', '5']
 ```
 ``````
@@ -198,15 +146,9 @@ Will give the output:
 ``````{prf:example} Replace values of items in a list using slicing
 Given list `g` created in [](#example_list_list_function), we can replace the second and third item in the list by:
 ```{code-block} python
-g[1:3] = [2,3]
-```
-```{code-block} python
-g
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-['1', 2, 3, '4', '5']
+>>> g[1:3] = [2,3]
+>>> g
+['0', 2, 3, '4', '5']
 ```
 ``````
 
@@ -223,33 +165,20 @@ Both lists and {term}`strings<string>` support indexing and slicing. It is impor
 ``````{prf:example} Convert a string to a list and the list to a string
 Convert a {term}`string` to a list using `list()`:
 ```{code-block} python
-my_string = 'abcdefg'
-```
-```{code-block} python
-my_list =  list(my_string)
-```
-```{code-block} python
-my_list
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> my_string = 'abcdefg'
+>>> my_list =  list(my_string)
+>>> my_list
 ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 ```
 Convert a list to a {term}`string` using `str()`:
 ```{code-block} python
-my_string_2 = str(mylist)
-```
-```{code-block} python
-my_string_2
-```
-
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> my_string_2 = str(my_list)
+>>> my_string_2
 "['a', 'b', 'c', 'd', 'e', 'f', 'g']"
 ```
+It may still look like a list, but it is really a string.
 ``````
+
 
 (example_string_join_list)=
 ``````{prf:example} Create a string by joining the elements of a list
@@ -257,21 +186,13 @@ With the string method `.join()` you can join elements of an iterable with the s
 
 When you want to concatenate the elements of a list together into a string, use an empty string: 
 ```{code-block} python
-''.join(my_list)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> ''.join(my_list)
 'abcdefg'
 ```
 
 When you want to join the elements by anything else (like spaces), use that as the string:
 ```{code-block} python
-' '.join(my_list)
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> ' '.join(my_list)
 'a b c d e f g'
 ```
 ``````
@@ -293,17 +214,11 @@ A dictionary can be created in two manners: by "dictionary display" ([](#example
 ``````{prf:example} Create a dictionary with multiple entries using dictionary display
 While creating a dictionary, you can put each key-value pair on a new line to make it clearer:
 ```{code-block} python
-transcription_dict = {'A' : 'U', 
-                      'C' : 'G', 
-                      'G' : 'C', 
-                      'T' : 'A'}
-```
-```{code-block} python
-transcription_dict
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> transcription_dict = {'A' : 'U',
+...                       'C' : 'G',
+...                       'G' : 'C',
+...                       'T' : 'A'}
+>>> transcription_dict
 {'A': 'U', 'C': 'G', 'G': 'C', 'T': 'A'}
 ```
 ``````
@@ -311,15 +226,9 @@ Will give the output:
 (example_dict_dictionary_display_single)=
 ``````{prf:example} Create a dictionary with one entry using dictionary display
 ```{code-block} python
-int2str_dict = {37 : '37'}
-```
-```{code-block} python
-int2str_dict
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
-{37 : '37'}
+>>> int2str_dict = {37 : '37'}
+>>> int2str_dict
+{37: '37'}
 ```
 ``````
 
@@ -327,14 +236,8 @@ Will give the output:
 ``````{prf:example} Create a dictionary with multiple entries using dict()
 When using `dict()`, specify the key-value pairs with `key = value` for the arguments, separated by a comma:
 ```{code-block} python
-transcription_dict = dict(A = 'U', C = 'G', G = 'C', T = 'A')
-```
-```{code-block} python
-transcription_dict
-```
-Will give the output:
-```{code-block} python
-:class: no-copybutton
+>>> transcription_dict = dict(A = 'U', C = 'G', G = 'C', T = 'A')
+>>> transcription_dict
 {'A': 'U', 'C': 'G', 'G': 'C', 'T': 'A'}
 ```
 ``````
