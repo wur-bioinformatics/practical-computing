@@ -773,7 +773,7 @@ zcat GPS_telemetry_of_Common_Cranes_Sweden.csv.gz
 Similar to [](#exc_count_observations_date), extract date and time (put in different, tab-delimited columns), latitude, longitude,
 and animal ID, for animal with ID 9480 for the month of November for every year. 
 ```{code-block} bash
-cut -f1,3,4,5,14
+cut -f3,4,5,14
 ```
 ```{code-block} bash
 wc -l
