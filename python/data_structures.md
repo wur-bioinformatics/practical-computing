@@ -725,7 +725,7 @@ We look at the date contained in the file of Crane data. For this exercise we ne
 ``````
 
 ``````{exercise} Types of Data 2 - Alone
-Take another data file that you have been using before (for example, you could use file `SRR1740460_example.fq` from week 1 day...).
+Take another data file that you have been using before (for example, you could use file `SRR1740460_example.fq` in the BrightSpace week 2 data section).
 
 **Find out which kinds of data are present**; usually not more than 10 or 20.
 
