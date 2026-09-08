@@ -199,15 +199,15 @@ When you want to join the elements by anything else (like spaces), use that as t
 
 
 ### Dictionaries
-A dictionary (in short, dict) is a mutable collection of data. They are also calles "lookup table" or "associative array". Entries in a dictionary are stored as a key-value pair. Each key in a dictionary is unique and immutable, it can be seen as the "index" of the entry. The value associated with a key is mutable and can be any data type (even a dictionary). 
+A dictionary (in short, dict) is a mutable collection of data. They are also called "lookup table" or "associative array". Entries in a dictionary are stored as a key-value pair. Each key in a dictionary is unique and immutable, it can be seen as the "index" of the entry. The value associated with a key is mutable and can be any data type (even a dictionary). 
 
 You cannot slice into a dictionary or add entries via concatenation. 
 
-The advantage of a dictionary is that it is very effient in lookup. Namely, lookup is almost independent of the number of entries in the dictionary, and checking if a key is present takses the same time as lookup. If the order of your entries does not really matter, and you want to quickly access entries, the dictionary is the way to go for storing your data. 
+The advantage of a dictionary is that it is very effient in lookup. Namely, lookup is almost independent of the number of entries in the dictionary, and checking if a key is present takes the same time as lookup. If the order of your entries does not really matter, and you want to quickly access entries, the dictionary is the way to go for storing your data. 
 
 
 #### Creating a Dictionary
-A dictionary can be created in two manners: by "dictionary display" ([](#example_dict_dictionary_display_multiple), [](#example_dict_dictionary_display_single)) or by using the `dict()` function ([](#example_dict_dict_function_multiple)). When using `dict()`, specify the key-value pairs with `key = value` as arguments, separated by a comma. The key should not be quoted if it's a string. 
+A dictionary can be created in two manners: by (dictionary display)[https://docs.python.org/3.16/reference/expressions.html?utm_source=chatgpt.com#dictionary-displays] ([](#example_dict_dictionary_display_multiple), [](#example_dict_dictionary_display_single)) or by using the `dict()` function ([](#example_dict_dict_function_multiple)). When using `dict()`, specify the key-value pairs with `key = value` as arguments, separated by a comma. The key should not be quoted if it's a string. 
 
 
 (example_dict_dictionary_display_multiple)=
@@ -327,7 +327,7 @@ Will give the output:
 
 
 ### Tuples
-Tuples are immutable ordered collections of elements. They are very similar to lists, but unlike lists, tuples cannot be changed (hence, immutable). Consequently, they can be used as keys for a dictionary ([](#example_tuple_as_dict_key)).
+Tuples are immutable ordered collections of elements. They are very similar to lists, but unlike lists, tuples cannot be changed (hence, immutable). One benefit of that is that tuples can be used as keys for a dictionary ([](#example_tuple_as_dict_key)).
 
 (example_tuple_as_dict_key)=
 ``````{prf:example} Tuples can be keys of a dictionary
