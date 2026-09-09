@@ -112,7 +112,7 @@ We can apply the function defined in [](#example_defining_a_function_subs) in []
 
 (example_applying_a_function_subs)=
 ``````{prf:example} Apply function for SUBS
-We first set the dna and motif variables with appropriate string valyes:
+We first set the dna and motif variables with appropriate string values:
 ```{code-block} python
 dna = 'GATATATGCATATACTT'
 motif = 'ATAT'
@@ -121,7 +121,7 @@ Then, we can apply the function `solve_subs()` defined before:
 ```{code-block} python
 locations = solve_subs(dna, motif)
 ```
-The returned list of integers can now be accessed with the locations variable, that we can subsequently print as a string:
+The returned list of integers can now be accessed with the `locations` variable, that we can subsequently print as a string:
 ```{code-block} python
 str_locs = [str(loc) for loc in locations]
 print(' '.join(str_locs))
@@ -156,7 +156,7 @@ print(' '.join(str_locs(locations)))
 ```
 ``````
 
-Not all functions create a result, meaning they do not contain a `return` statement. By default the function then returns `None`. The function call can be seen as a command on its own. This is useful for complicated printing routines ([](#example_function_without_return)). The print statements are then inside the function instead of returning something and then printing that. Alternatively, this is used for filling data into a list or dictionary. The list or dictionary is one of the parameters and is edited in-place instead of returning. *#! is this correct?*
+Not all functions have a `return` statement (the function then returns the value `None`). This can for instance be useful for complicated printing routines ([](#example_function_without_return)). 
 
 (example_function_without_return)=
 ``````{prf:example} Write a printing function for SUBS
@@ -181,6 +181,34 @@ Last, we call `print_numbers()` to print the output:
 print_numbers(locations)
 ```
 ``````
+
+If you pass a list, dictionary or other *mutable* object to a function, the function can modify the contents
+(example_function_with_list)=
+``````{prf:example} Function to add the next Fibonacci number:
+Let's define a function that takes a list of Fibonacci numbers and adds the next one:
+```{code-block} python
+def fibonacci(f):
+    f.append(f[-2]+f[-1]) # add the last two numbers of the list
+```
+We create a list with the first two values:
+```{code-block} python
+fib = [1, 1]
+```
+Then, we call `fibonacci()` with that lists:
+```{code-block} python
+fibonacci(fib)
+```
+
+This does not return anything, but it does update the `fib` list:
+```{code-block} python
+print(fib)
+```
+
+```{code-block} python
+[1, 1, 2]
+```
+``````
+
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
