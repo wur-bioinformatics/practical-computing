@@ -325,6 +325,40 @@ Will give the output:
 ```
 ``````
 
+(example_dict_non_existing_key)= 
+``````{prf:example} Using a key that is not in the dictionary
+Given the dictionary: 
+```{code-block} python
+transcription_dict = {'A' : 'U', 
+                      'C' : 'G', 
+                      'G' : 'C', 
+                      'T' : 'A'}
+```
+Get the associated value for the non-existing `'U'` key:
+```{code-block} python
+transcription_dict['U']
+```
+Will give and error:
+```{code-block} python
+:class: no-copybutton
+Traceback (most recent call last):
+  File "<python-input-9>", line 1, in <module>
+    transcription_dict['U']
+    ~~~~~~~~~~~~~~~~~~^^^^^
+KeyError: 'U'
+```
+
+You can use the dictionary .get() method to return a default value if a key is not present:
+```{code-block} python
+transcription_dict.get('U', 'unknown')
+```
+Will return:
+```{code-block} python
+:class: no-copybutton
+'unknown'
+```
+``````
+
 
 ### Tuples
 Tuples are immutable ordered collections of elements. They are very similar to lists, but unlike lists, tuples cannot be changed (hence, immutable). One benefit of that is that tuples can be used as keys for a dictionary ([](#example_tuple_as_dict_key)).
