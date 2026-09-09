@@ -207,7 +207,7 @@ The advantage of a dictionary is that it is very effient in lookup. Namely, look
 
 
 #### Creating a Dictionary
-A dictionary can be created in two manners: by (dictionary display)[https://docs.python.org/3.16/reference/expressions.html?utm_source=chatgpt.com#dictionary-displays] ([](#example_dict_dictionary_display_multiple), [](#example_dict_dictionary_display_single)) or by using the `dict()` function ([](#example_dict_dict_function_multiple)). When using `dict()`, specify the key-value pairs with `key = value` as arguments, separated by a comma. The key should not be quoted if it's a string. 
+A dictionary can be created in two manners: by [dictionary display](https://docs.python.org/3.16/reference/expressions.html#dictionary-displays) ([](#example_dict_dictionary_display_multiple), [](#example_dict_dictionary_display_single)) or by using the `dict()` function ([](#example_dict_dict_function_multiple)). When using `dict()`, specify the key-value pairs with `key = value` as arguments, separated by a comma. The key should not be quoted if it's a string. 
 
 
 (example_dict_dictionary_display_multiple)=
