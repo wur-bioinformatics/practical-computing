@@ -52,11 +52,11 @@ The function body contains:
   - statements, indented relative to function header
   - parameters for values into function
 - in line **3**:
-  - a `return` statement that specifies what the output the function **return**s
+  - a `return` statement that specifies what output the function **return**s
 
-The function body is self-contained, meaning the code will only be executed if the function is called.
+This only defines the function, it does nog actually run the code, that only happens when the function is called.
 
-In [](#example_defining_a_function_subs), we rewrite the code for solving the Rosalind SUBS problem into a function.
+In [](#example_defining_a_function_subs), we rewrite the code for solving the Rosalind SUBS (Finding a Motif in DNA) problem into a function.
 
 
 (example_defining_a_function_subs)=
@@ -96,8 +96,8 @@ Note that here we do not use the `input()` and `print()` functions.
 
 
 
-### Applying Functions
-Applying, or calling, a self-defined function is exactly as for standard functions. The whole call is a (sub-)formula: we can assign the result to a variable, or use it in a larger formula. The previously defined `sum_of_two_numbers()` can be called as follows:
+### Using Functions
+Using (calling) a self-defined function works exactly as for standard functions. The function call is a (sub-)formula: we can assign the result to a variable, or use it in a larger formula. The previously defined `sum_of_two_numbers()` can be called as follows:
 
 ```{code-block} python
 :class: no-copybutton
@@ -108,20 +108,20 @@ The function call contains the elements:
 - parentheses `()`
 - between the parentheses: arguments, one per parameter (here: `3,6`), separated with commas, can be any formula
 
-We can apply the function in [](#example_defining_a_function_subs) in [](#example_applying_a_function_subs). We can also rewrite the conversion to a string in [](#example_applying_a_function_subs) into a function ([](#example_define_apply_str_locs)).
+We can apply the function defined in [](#example_defining_a_function_subs) in [](#example_applying_a_function_subs). We can also rewrite the conversion to a string in [](#example_applying_a_function_subs) into a function ([](#example_define_apply_str_locs)).
 
 (example_applying_a_function_subs)=
 ``````{prf:example} Apply function for SUBS
-First, let's ask the user for input for the DNA and the motif:
+We first set the dna and motif variables with appropriate string valyes:
 ```{code-block} python
-dna = input('dna = ')
-motif = input('motif = ')
+dna = 'GATATATGCATATACTT'
+motif = 'ATAT'
 ```
-Then, let's apply the function `solve_subs()` defined before:
+Then, we can apply the function `solve_subs()` defined before:
 ```{code-block} python
 locations = solve_subs(dna, motif)
 ```
-Last, let's create the desired output by printing:
+The returned list of integers can now be accessed with the locations variable, that we can subsequently print as a string:
 ```{code-block} python
 str_locs = [str(loc) for loc in locations]
 print(' '.join(str_locs))
@@ -130,17 +130,18 @@ print(' '.join(str_locs))
 
 (example_define_apply_str_locs)=
 ``````{prf:example} Turn the string conversion into a function for SUBS
-The first part is the same as in [](#example_applying_a_function_subs), we ask the user for input DNA and motif:
+The first part is the same as in [](#example_applying_a_function_subs), we set the DNA and motif strings:
 ```{code-block} python
-dna = input('dna = ')
-motif = input('motif = ')
+dna = 'GATATATGCATATACTT'
+motif = 'ATAT'
 ```
 Then, we call `solve_subs()`:
 ```{code-block} python
 locations = solve_subs(dna, motif)
 ```
+The returned list of integers can now be accessed with the locations variable.
 
-Now, let's define `str_locs()`, a function to turn the locations into strings:
+Next we can define `str_locs()`, a function to convert the locations into strings:
 ```{code-block} python
 def str_locs(locs):
     locations = []
@@ -165,10 +166,10 @@ def print_numbers(numbers):
     str_numbers = [str(n) for n in numbers]
     print(' '.join(str_numbers)
 ```
-Again, ask the user for input:
+We assign some appropriate values to dna and motif:
 ```{code-block} python
-dna = input('dna = ')
-motif = input('motif = ')
+dna = 'GATATATGCATATACTT'
+motif = 'ATAT'
 ```
 Then, we call `solve_subs()`:
 ```{code-block} python
