@@ -671,7 +671,7 @@ Create fixed dictionaries and retrieve data from them.
 ``````
 
 ``````{exercise} 
-Start with a small distionary and add data to it.
+Start with a small dictionary and add data to it.
 
 ``````
 
