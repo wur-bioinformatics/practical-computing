@@ -9,9 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- import Python modules and use functions provided by them
-- distinguish between Python’s standard library and third-party libraries
-- use the re module to search and manipulate text using regular expressions
+- Import modules and use functions provided by the Python standard library.
+- Use the re module to search for and extract patterns from biological sequence data.
+- Recognize when existing Python modules can replace functionality that would otherwise need to be written manually.
 ```
 
 ## Introduction
@@ -116,7 +116,10 @@ Among these modules are tools to interact with the {term}`operating system`, wit
 ### Third-Party Libraries
 There are many more modules and libraries available that are not included by default. They are external or third-party libraries and sometimes need to be installed separately by an installation manager (e.g. conda or pip). 
 
-In this course, we use an Anaconda distribution that already provides some third-party libraries (e.g. `NumPy` and `Pandas`) because they are so commonly used. Some of the third-party libraries that we will use later in this course are listed in [](#table_third_party_libraries).
+Installing a third-party package like NumPy with miniconda as:
+`conda install numpy` 
+
+Some of the third-party libraries that we will use later in this course are listed in [](#table_third_party_libraries).
 
 (table_third_party_libraries)=
 :::{list-table} Some useful third-party libraries
@@ -249,7 +252,7 @@ To only search for a **match** at the beginning of a string, we can use `re.matc
 :class: no-copybutton
 m = re.match(pattern, string)
 ```
-It returns an `re.Match` object if zero or more characters at the beginning of the `string` match the `pattern` and `None` when the `string`  does not match the `pattern` ([](#example_re_match)).
+`re.match` tries to match the pattern at the beginning of the string. It returns a `re.Match` object if a match is found  and `None` otherwise ([](#example_re_match)).
 
 (example_re_match)=
 ::::{prf:example} `re.match()` function returns the identified match when it is at the beginning of a string
@@ -339,7 +342,7 @@ Define the pattern:
 ```{code-block} python
 p = r'Bananas'
 ```
-Search for a match only at the beginning of the string:
+Find all matches in the string:
 ```{code-block} python
 m = re.findall(p, s)
 ```
@@ -388,13 +391,13 @@ Will give the output:
 Retrieve the matches in `m`:
 ```{code-block} python
 for matches in m:
-    matches.group()
+    print(matches.group())
 ```
 Will give the output:
 ```{code-block} python
 :class: no-copybutton
-'Bananas'
-'Bananas'
+Bananas
+Bananas
 ```
 ::::
 
@@ -405,7 +408,7 @@ To **split** a string based on a character or pattern, we can use `re.split()`:
 :class: no-copybutton
 re.split(pattern, string)
 ```
-Returns a list of the remaining characters ([](#example_re_split))
+Returns a list containing the parts of the string between matches ([](#example_re_split))
 
 (example_re_split)=
 ::::{prf:example} Split a string on a character or pattern using `re.split()`
@@ -572,7 +575,7 @@ We will look at a number of functions of module `re`: `findall`, `split`, `sub`,
 In the [previous ORF exercise](#exc_wd_orf), we had to find start codons and stop codons (or stop signs in the translation). This is typically a task that we can do with {term}`regular expressions <regular expression>`.
 
 ``````{exercise} Refining ORF
-First define a regular expression that matches an open reading frame, i.e it starts with a start codon (AUG) and ends at the first following stop codon (UAA, UAG, or UGA). 
+First define a regular expression that matches an open reading frame, i.e it starts with a start codon (AUG) and ends at the first following in-frame stop codon (UAA, UAG, or UGA). 
 
 The length of the result should be a multiple of 3.
 
@@ -586,21 +589,21 @@ The drawback of processing data immediately is that we often have to duplicate c
 
 
 ``````{exercise}  Reading FASTA files - Revisited
-While reading the file, the program should create a dictionary with identifications as keys and sequences as associated values. So instead of printing or writing the counts immediately, the program stores the identification and sequence in a dictionary.
+While reading the file, the program should create a dictionary with sequence identifiers as keys and sequences as associated values. So instead of printing or writing the counts immediately, the program stores the identifiers and sequence in a dictionary.
 
 Then after reading the input file, and closing it, the program can process the data from the dictionary. Thus, reading and further processing become
-independent parts of the program, making it easier to chance details of the processing part.
+independent parts of the program, making it easier to change details of the processing part.
 
-In particular, we postpone any writing to an output file until after the whole input file has been processed (and closed).
+In particular, we postpone any writing to an output file until after the whole input file has been processed.
 
-As an intermediate step in creating this program, after reading all indentifcations and sequences, you might print the identifications and sequences from the dictionary.
+As an intermediate step in creating this program, after reading all indentifcations and sequences, you might print the identifiers and sequences from the dictionary.
 
-The process step for the previous version of this exercise consisted of computing nucleotide counts and writing these with the identification to an output file. For [Rosalind](https://rosalind.info/problems/locations/)'s problem GC, the program has to compute GC content for each sequence (and has keep track of the largest GC content as well, but we leave that out for now).
+The process step for the previous version of this exercise consisted of computing nucleotide counts and writing these with the identification to an output file. For [Rosalind](https://rosalind.info/problems/locations/)'s problem GC, the program has to compute GC content for each sequence (and has to keep track of the largest GC content as well, but we leave that out for now).
 
-As an additional exercise in dictionaries, create a new dictionary with identifications as keys again and now GC content as associated values. This part
+As an additional exercise in dictionaries, create a new dictionary with identifiers as keys again and now GC content as associated values. This part
 of the program should go after closing the input file.
 
-Finish this program to produce an output file consisting of identifications and corresponding GC contents.
+Finish this program to produce an output file consisting of identifiers and corresponding GC contents.
 ``````
 
 ### Combining FASTA and ORF
@@ -615,10 +618,7 @@ If we plug in that code – using functions – instead of computing GC content,
 
 ### Parsing Command Line Options and Arguments
 As noted during one of the lectures, many programmers use their own conventions for command line arguments and especially command line options.
-There is a standard for the format of command line options. However, it is hard to keep to that a standard like that, if you have to write new code for parsing options in every new program. (Remember that parsing is the process of recognizing structure and extracting meaningful elements from textual data.)
-
-Fortunately, many programming languages and programming environments come with tools that can be reused for defining and parsing command line
-options and command line arguments.
+Command-line programs generally follow conventions for specifying arguments and options. Parsing these manually for every program would require a lot of repetitive code. (Remember that parsing is the process of recognizing structure and extracting meaningful elements from textual data.)
 
 Python has a standard module `argparse` for defining which options and arguments a program accepts. That module then also takes care of parsing of
 options and arguments, and even creates appropriate error messages when things go wrong.
