@@ -194,15 +194,15 @@ In line **5**, we use `.write()` to write the `line` which contains each element
 To create the file object, we use function `open()`:
 ```{code-block} python
 :class: no-copybutton
-open(file_name, access_mode)
+my_file = open(file_name, access_mode)
 ```
-where `file_name` is the name (or path) of the file we want to open and the `access_mode` is the mode in which the file will be opened. The default mode (without specifying it) is `'r'` for **r**ead. If we want to **w**rite to a file, we use `'w'`. 
+where `file_name` is the name (or path) of the file we want to open and the `access_mode` is the mode in which the file will be opened. The default mode (without specifying it) is `'r'` for **r**ead. If we want to **w**rite to a file, we use `'w'`. The resulting file object is captured by the my_file variable.
 
 After we are done processing the file, we need to explicitly close is using the file object method `.close()`. This ensures Python disconnects from the file on disk (and the write "buffer"). 
 
 ```{code-block} python
 :class: no-copybutton
-file_name.close()
+my_file.close()
 ```
 
 :::{caution} Important
@@ -222,7 +222,7 @@ In the `with` statement, we write the program for processing the file. This adds
 To write a string to a file, we can use the file object method `.write()`:
 ```{code-block} python
 :class: no-copybutton
-file_name.write(text)
+my_file.write(text)
 ```
 where `text` is a string to write to the file. If we want to write multiple lines (for example, one record per line), we need to write the newline character explicitly.
 
@@ -231,7 +231,7 @@ where `text` is a string to write to the file. If we want to write multiple line
 To read one line from a file, we can use file object method `.readline()`:
 ```{code-block} python
 :class: no-copybutton
-file_name.readline()
+my_file.readline()
 ```
 This method should **not** be inside a loop that goes over each line of the file. Instead, we can use it to skip a line such as a header line ([](#example_text_file_reading)).
 
@@ -357,17 +357,15 @@ See file `plantsvshuman_selected_expected.csv` for the expected output.
 ### Reading FASTA Files
 (exc_wwf_reading_fasta)=
 ``````{exercise} (DNA) Counting DNA Nucleotides
-In the first set of Python exercises (*#! cross ref?*), we have done the essential part of [Rosalind](https://rosalind.info/problems/locations/)'s problem "(DNA) Counting DNA Nucleotides". 
+In the first set of Python exercises, we have done the essential part of [Rosalind](https://rosalind.info/problems/locations/)'s problem "(DNA) Counting DNA Nucleotides". 
 
-*#! this bit is confusing, what are we trying to say?*\
 For some other problems on Rosalind (e.g. GC), we have to be able to read a file in FASTA format. 
 
-For Rosalind's "(ORF) Open Reading Frames" problem, we have done all other steps last week; for completely finishing that problem, the program should read a FASTA file again. *#! until here*
+For Rosalind's "(ORF) Open Reading Frames" problem, we have done all other steps last week; for completely finishing that problem, the program should read a FASTA file again. 
 
 Now, we will apply Rosalind's DNA to FASTA files.
 
-
-A FASTA file can contain multiple sequences, were one sequence usually spans multiple lines. At the start of each sequence, one line that starts with a right-pointed bracket (or larger sign, `>`) gives meta-information on that sequence.
+A FASTA file can contain multiple sequences, where one sequence usually spans multiple lines. At the start of each sequence, one line that starts with a right-pointed bracket (or greater than sign, `>`) gives meta-information on that sequence.
 
 For example, a sample input file from Rosalind is:
 ```{code-block} bash
@@ -381,9 +379,9 @@ ATATCCATTTGTCAGCAGACACGC
 CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
 TGGGAACCTGCGGGCAGTAGGTGGAAT
 ```
-Such input is hard to process by `input()`. But once we know files *#! what?*, we can let Python assemble the lines that belong together.
+Such input is hard to process by `input()`. But once we know files, we can let Python assemble the lines that belong together.
 
-The assignment is to make a Python program that reads a file in FASTA format, and for each sequence write the identification and counts of nucleotides to another text file.
+The assignment is to make a Python program that reads a file in FASTA format, and for each sequence writes the identification and counts of nucleotides to another text file.
 
 The program does not have to remember any sequences after their nucleotide counts were computed.
 
