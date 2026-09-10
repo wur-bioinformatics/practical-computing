@@ -46,7 +46,7 @@ We can also rename features while importing:
 :class: no-copybutton
 from module_name import feature as ftr
 ```
-This is sometimes useful for redefining.
+This can be useful to give an imported module a shorter name.
 
 
 We can import a limited number of features:
@@ -55,13 +55,13 @@ We can import a limited number of features:
 from module_name import f1, f2, f3, f4
 ```
 
-We can import all names from a module in the current name space:
+We can import all names from a module in the current namespace:
 ```{code-block} python
 :class: no-copybutton
 from module_name import *
 ```
 :::{caution} Important
-In general, it is advised against importing all names from a module in the current name space. If you have names already defined in your name space that are the same as some from the module, you will overwrite them.
+In general, importing all names from a module using * is discouraged. If you have names already defined in your namespace that are the same as some from the module, you will overwrite them.
 :::
 
 
@@ -78,7 +78,7 @@ The list of built-in functions in Python is very limited, and the remainder of t
 
 But, obviously, sometimes we need a bigger toolbox. And Python does provide that too. Any basic installation of Python includes the so called 'standard library' - modules that are a standard part of Python but do not belong to the core of the language.  
 
-A list of modules that are present in any Python installation by default can be found [here](https://docs.python.org/3/library/index.html).
+A list of modules that are included with Python and therefor do not need to be installed separately can be found [here](https://docs.python.org/3/library/index.html).
 
 Among these modules are tools to interact with the {term}`operating system`, with files and {term}`file systems <file system>`, do mathematical operations, {term}`regular expressions<regular expression>`, random number generation, and many, many more tools that may not be relevant right now, but could become indispensible tools for you at some later stage. Some of them are listed in [](#table_standard_libraries).
 
@@ -125,15 +125,15 @@ In this course, we use an Anaconda distribution that already provides some third
   - Description
 * - `NumPy`
   - Numerical and scientific computing (short for **Num**erical **Py**thon)
-* - `Pandas` 
+* - `pandas` 
   - Data analysis and manipulation, built on top of NumPy, features data structures to handle spreadsheet-like data
 * - `matplotlib`
   - Data visualization 
-* - `Seaborn`
+* - `seaborn`
   - Data visualization 
 * - `SciPy`
   - Extension of NumPy to perform advanced mathematical, scientific and engineering computing (short for **Sci**entific **Py**thon)
-* - `BioPython`
+* - `Biopython`
   - Working with sequences, interfacing to standard bioinformatics tools
 * - `MySQLdb`
   - Interfacing to relational databases
@@ -143,17 +143,10 @@ In this course, we use an Anaconda distribution that already provides some third
 ## Module `re`
 In [week 1](#regular_expressions), we have seen {term}`regular expressions<regular expression>` on the command line. The tools that can use {term}`regular expressions<regular expression>` are very powerful and efficient. However, when we want to do {term}`pattern matching` in the middle of a Python program, calling these tools is not easily done. Instead, we can use **r**egular **e**xpressions in Python with the standard module `re`. The `re` module offers functions and methods for performing {term}`pattern matching` within the context of a Python program. 
 
-The {term}`regular expression<regular expression>` syntax is the same as for the Linux tools. If you need a refresh head to: [](#regular_expressions). 
+The {term}`regular expression<regular expression>` syntax is very similar to that for the Linux tools. If you need a refresh head to: [](#regular_expressions). 
 
-The {term}`regular expression<regular expression>` when using the `re` module can be written in a Python string. In a Python string, we need to {term}`escape` characters such as dot (`.`), square brackets (`[]`), and parentheses (`()`). In addition, the back slashes (and quotes) need to be {term}`escaped<escape>` ([](#example_re_python_string)). Because we need to {term}`escape` so many characters, the pattern can become quite cluttered. Instead, we can use "**r**aw" strings, denoted as `r''` ([](#example_re_raw_string)).
+The {term}`regular expression<regular expression>` when using the `re` module can be written in a Python string. Regular expressions often contain backslashes, for example `\d` for a digit. Backslashes also have a special meaning in Python strings, remember the newline character `\n`. This can make regular expressions difficult to read because some backslashes need to be escaped twice. Therefore, regular expressions in Python are usually written as raw strings, indicated by an `r` before the opening quote. ([](#example_re_raw_string)).
 
-(example_re_python_string)=
-``````{prf:example} Regular expression written in a Python string
-```{code-block} python
-pattern = '\\(\\w*\\[\\d+\\]\\)'
-```
-
-``````
 (example_re_raw_string)=
 ``````{prf:example} Regular expression written in a raw string
 ```{code-block} python
