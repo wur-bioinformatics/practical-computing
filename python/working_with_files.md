@@ -63,9 +63,9 @@ Then, open the file:
 ```{code-block} python
 infile = open('WoF.txt')
 ```
-Read the first line, so we ignore the header line when storing the records:
+We read the header line first and then start storing the records:
 ```{code-block} python
-header = infile.readline() # ignore
+header = infile.readline() 
 ```
 Then, loop over the remaining lines, storing each record as a separate entry in the dictionary:
 ```{code-block} python

@@ -1,5 +1,5 @@
 ---
-title: Python from the Command Line
+title: Python from the command-line
 label: python_from_cmdline
 abbreviations:
     
@@ -9,9 +9,9 @@ bibliography:
 
 ```{important} Learning outcomes
 After completing this section you should be able to:
-- pass command-line arguments to a Python script and access them using sys.argv
-- read from standard input and write to standard output and standard error in Python
-- use Python scripts as part of command-line pipelines
+- Run a Python script from the command-line and supply command-line arguments.
+- Use sys.argv to access command-line arguments and convert them into appropriate data types
+- Use standard input, standard output and standard error to make a Python script suitable for use in a shell pipeline
 ```
 
 ## Introduction
@@ -24,9 +24,16 @@ The book advises to "export" the Jupyter notebook "as Python" (p135). However, t
 It is better to copy the whole program/script into a cell, then copy the content of that cell into a Python file (`.py`).
 :::
 
+## Python Scripts from the Command-Line
+Until now we mostly ran Python code from a notebook, a Python script stored in a `.py` file can also directory be executed from the shell. This works simply by invoking the python3 program and telling it which script to run:
+
+```{code-block} bash
+python3 my_script.py
+```
+
 
 ## Python Script as Part of a Pipeline
-[Previously](#section_alcap_pipelines), we have seen that we can build pipelines using command line tools. We can also use a Python script within a Bash pipeline:
+[Previously](#section_alcap_pipelines), we have seen that we can build pipelines using command-line tools. We can also use a Python script within a Bash pipeline:
 
 ```{code-block} bash
 :class: no-copybutton
@@ -43,7 +50,7 @@ python3 script.py < in.txt > out.txt
 
 
 ## Module `sys`
-The `sys` module contains **sys**tem-specific parameters and functions. The module is especially useful for handling command line arguments, and reading input and writing output, but it has [more utilities](https://docs.python.org/3/library/sys.html) that we will not discuss here. 
+The `sys` module contains **sys**tem-specific parameters and functions. The module is especially useful for handling command-line arguments, and reading input and writing output, but it has [more utilities](https://docs.python.org/3/library/sys.html) that we will not discuss here. 
 
 We can import `sys` as seen [before](#section_mal_importing):
 ```{code-block} bash
@@ -51,13 +58,13 @@ import sys
 ```
 
 ### `sys.argv`
-To access command line arguments supplied with a script, we can use `sys.argv`.
+To access command-line arguments supplied with a script, we can use `sys.argv`.
 
-Imagine we use our script on the command line as follows:
+Imagine we use our script on the command-line as follows:
 ```{code-block} bash
 python3 my_script.py arg1 arg2 arg3
 ```
-Where `arg1`, `arg2`, and `arg3` are command line arguments that will be used in our script.
+Where `arg1`, `arg2`, and `arg3` are command-line arguments that will be used in our script.
 
 `sys.argv` returns a list of strings. It contains the whole command that comes after `python3`, including the name of the script ([](#example_sys_argv_whole)).
 
@@ -70,7 +77,7 @@ import sys
 arguments = sys.argv
 print(arguments)
 ```
-Suppose we run our script on the command line:
+Suppose we run our script on the command-line:
 ```{code-block} bash
 python3 my_script.py 2 "ATG"
 ```
@@ -81,10 +88,10 @@ Will give the output:
 ```
 ``````
 
-We can also index `sys.argv`, with `sys.argv[0]` being the name of the script and the other elements the command line arguments and options ([](#example_sys_argv_index)). As with any other [list indexing](#section_list_indexing_and_slicing) `sys.argv[-1]` represents the last argument.
+We can also index `sys.argv`, with `sys.argv[0]` being the name of the script and the other elements the command-line arguments and options ([](#example_sys_argv_index)). As with any other [list indexing](#section_list_indexing_and_slicing) `sys.argv[-1]` represents the last argument.
 
 (example_sys_argv_index)=
-::::{prf:example} Index `sys.argv` to obtain separate command line arguments
+::::{prf:example} Index `sys.argv` to obtain separate command-line arguments
 In our script:
 ```{code-block} python
 :filename: my_script.py
@@ -95,7 +102,7 @@ codon = sys.argv[2]
 print(n)
 print(codon)
 ```
-Suppose we run our script on the command line:
+Suppose we run our script on the command-line:
 ```{code-block} bash
 python3 my_script.py 2 "ATG"
 ```
@@ -108,13 +115,13 @@ ATG
 ::::
 
 ### `sys.stdin`, `sys.stdout`, and `sys.stderr`
-In [](#section_alcap_stdin_stdout_stderr), we saw that on the command line we have three data streams. This is similar when running a Python script from the command line. We can access {term}`stdin`, {term}`stdout`, and {term}`stderr` in our Python script with `sys.stdin`, `sys.stdout`, and `sys.stderr`, respectively [@geeksforgeeks_pythonsysmodule_2025]. They are file-like objects, and we can use [](#section_wwf_file_methods) on them.
+In [](#section_alcap_stdin_stdout_stderr), we saw that on the command-line we have three data streams. This is similar when running a Python script from the command-line. We can access {term}`stdin`, {term}`stdout`, and {term}`stderr` in our Python script with `sys.stdin`, `sys.stdout`, and `sys.stderr`, respectively [@geeksforgeeks_pythonsysmodule_2025]. They are file-like objects, and we can use [](#section_wwf_file_methods) on them.
 
-`sys.stdin` reads input from the {term}`stdin` data stream. When using `input()`, the result (what is typed by the user) is actually stored in `sys.stdin`.
+`sys.stdin` reads input from the {term}`stdin` data stream. `input()` reads a line from standard input (`sys.stdin`), for instance typed by the user, and returns it as a string.
 
-`sys.stdout` writes output to the {term}`stdout` data stream. We can do so by using `sys.stdout.write()` which works as if writing to a file. Namely, we can only write strings and we need to include newline characters explicitly. Additionally, we can write to the {term}`stdout` data stream by using [`print()`](#section_gswp_print). The advantages of `print()` are that it can take any data type, it prints arguments separated by spaces by default, and, when using multiple `print()` statements, the output is separated by newline characters. 
+`sys.stdout` writes output to the {term}`stdout` data stream. We can do so by using `sys.stdout.write()` which works as if writing to a file. We can only write strings and we need to explicitly include newline characters. Additionally, we can write to the {term}`stdout` data stream by using [`print()`](#section_gswp_print). The advantages of `print()` are that it can take any data type, it prints arguments separated by spaces by default, and, when using multiple `print()` statements, the output is separated by newline characters. 
 
-If the goal is to print something to screen, we must note that using `sys.stdout` only works when the Python script is singly run and not part of a pipeline. Namely, when we use a Python script in a pipeline, the output of `print()` is redirected to the next step or to a file. 
+If the goal is to print something to screen, we must note that using `sys.stdout` only works when the Python script is run separately and not part of a pipeline. When we use a Python script in a pipeline, the output of `print()` is redirected to the next step or to a file. 
 
 
 Alternatively, we can use `print()` and specify the file as `sys.stderr` to utilise that data stream:
@@ -122,11 +129,11 @@ Alternatively, we can use `print()` and specify the file as `sys.stderr` to util
 :class: no-copybutton
 print('Hello', 'World', file=sys.stderr)
 ```
-`sys.stderr` writes to the {term}`stderr` data stream, thereby separating (error) messages from regular output. We can write to {term}`stderr` using `sys.stderr.write()`, which has similar constraints as `sys.stdout.write()` mentioned before. Whatever is written to `sys.stderr` goes to the console, i.e. it is written to screen/shown to the user. It is **not** sent to the next step in the pipeline.
+`sys.stderr` writes to the {term}`stderr` data stream, thereby separating (error) messages from regular output. We can write to {term}`stderr` using `sys.stderr.write()`, which has similar constraints as `sys.stdout.write()` mentioned before. Whatever is written to `sys.stderr` is by default **not** sent to the next step in the pipeline.
 
 
 ## Usage String
-When writing a script that takes command line arguments, it is best practice to include a usage string. This makes it clear to the user what is expected for each argument. 
+When writing a script that takes command-line arguments, it is best practice to include a usage string. This makes it clear to the user what is expected for each argument. 
 
 For the usage string, we can use triple quotes (`"""`) to ensure the string can span multiple lines:
 ```{code-block} python
@@ -138,51 +145,56 @@ Usage: my_script.py [options] <filename>
 """
 ```
 
-It is possible to integrate this in such a way, that when retrieving the command line arguments goes wrong, the usage string is written to {term}`stderr`. 
+This usage string can be printed to {term}`stderr` when there are no command-line arguments, or retrieving the command-line arguments goes wrong. 
 
-## Special Variable `__name__`
-A Python source file (script) has a special variable called `__name__` (with double underscores) which is assigned the name of the Python module by the interpreter [@geeksforgeeks___name___2022]. If the source file is executed as the main program, i.e. it is run from the command line, the `__name__` variable will have the value `'__main__'`. If the file is being imported in another module, the `__name__` variable will have the name of the module as value.
+## Standard layout of a Python script
+As you have seen before, you can use a `.py` file also as a module. Then you do not run it directly, but instead import (some of) its functions to be able to use them in your Python code. To make every Python script usable both as a script as well as a module, it is common to put the central logic of the script also in a function called `main()` and only run that function if the `.py` file is used as a script. To detect how the `.py` file is used, we can make use of a global variable calle `__name__` (with double underscores) which is assigned the name of the Python module [@geeksforgeeks___name___2022]. If the `.py.` is used as script, the `__name__` variable will have the value `'__main__'`. If the file is being imported as a module, the `__name__` variable will have the name of the module as value.
 
-Because the `__name__` variable is a built-in variable, we can use it check whether the current script is being run on its own:
+In the code can check the value of `__name__` to decide whether the `main()` function should be run:
 ```{code-block} python
 :filename: my_script.py
+def main():
+    print('the program starts here')
+
 if __name__ == '__main__':
-    # main code
+    main()
 ```
-This construction can be used to include code in the program that lives outside the function, class, and variable definitions. This code is then not executed when importing the module (because then the `__name__` variable does not equal `'__main__'`). It can also be used to run tests on the module. 
+Even if the `.py` file is intented to only be used as a module, this kind of logic can be used to run test functions included in the module. 
+
+In general it is a good idea to put all your Python code inside a function, to properly organize it.
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
-- Chapter 4.4 Python from the Command Line
+- Chapter 4.4 Python from the command-line
 ```
 
 ## Exercises
-The first exercise of today focuses on preparing a Python program to be part of a shell pipeline. This means that some outputs must go to {term}`standard output <stdout>` (function `print()`) for the next step in the pipeline, while other (typically diagnostic) outputs must still go to console. It also means that some inputs cannot be supplied by {term}`standard input <stdin>` (function `input()`). We will need command line arguments for that purpose.
+The first exercise of today focuses on preparing a Python program to be part of a shell pipeline. A program in a pipeline should use {term}`standard input <stdin>` (function `input()`) and {term}`standard output <stdout>` (function `print()`)  for data. Other information, like filenames or options, can instead be supplied as command-line arguments. Diagnostic messages can be writting to {term}`standard error <stderr>` so that they do not become part of the data stream.
 
 In the second exercise, we make a program more flexible by replacing hard-coded filenames by names asked from the user. The actual input and output are
 read from one file and written to another file.
 
 The further assignments combine the aspects of the first two assignments. The last assignment is open-ended by design.
 
-This time, we do not supply a Jupyter Notebook. For really working with files a notebook has its shortcomings, as you might have noticed with the first exercises on files. Working with command line arguments from a notebook is not possible at all (well, not reasonably).
+This time, we do not supply a Jupyter Notebook. For really working with files a notebook has its shortcomings, as you might have noticed with the first exercises on files. Working with command-line arguments from a notebook is not possible at all (well, not reasonably).
 
 ::::{tip} Tip
 For trying code fragments, you can create your own notebook.
 
-For testing command line arguments, `sys.argv` will only give the command line arguments of the Python system running in the notebook; not very usefull. For experimenting, you can create a variable `sys_argv`, like we did for line yesterday. Note that command line arguments are passed as a list of strings, and that the name of the script is in position 0 of the list.
+For testing command-line arguments, `sys.argv` will only give the command-line arguments of the Python system running in the notebook; not very useful. For experimenting, you can create a variable `sys_argv`, like we did for line yesterday. Note that command-line arguments are passed as a list of strings, and that the name of the script is in position 0 of the list.
 ::::
 
-For testing the new aspects of today, you will have to write scripts in their own files, and execute those from the terminal window. Although it is possible to run programs with command line arguments inside PyCharm, it is far easier using the terminal when experimenting with command line arguments.
+For testing the new aspects of today, you will have to write scripts in their own files, and execute those from the terminal window. You can write the scripts using PyCharm, which also includes a terminal view that you can use to experiment with command-line arguments.
 
 
 ### Multiplication on the Console
 ``````{exercise} Multiplication on the console
-**Write program `multiply.py` that takes one or more numbers as command line arguments, multiply all those numbers, and print the answer to console.** If the user does not supply any arguments, the program prints a usage message.
+**Write program `multiply.py` that takes one or more numbers as command-line arguments, multiplies all those numbers, and print the answer to console.** If the user does not supply any arguments, the program prints a usage message.
 
-The program that you have to write for this exercise must take its inputs from the command line and print its output to the console. 
+The program that you have to write for this exercise should take its inputs from the command-line and print its output to the standard output. 
 
 :::{tip} Tip
-Import `sys` and use `sys.argv` for accepting inputs. Remember that command line arguments are always supplied as strings.
+Import `sys` and use `sys.argv` for accepting inputs. Remember that command-line arguments are always supplied as strings.
 :::
 
 :::{tip} Tip
@@ -190,7 +202,7 @@ For the multiplication, use a result variable that the program initializes to `1
 :::
 
 :::{tip} Tip
-Output of `print()` goes to {term}`standard output <stdout>`. That is not what we want in this case. Instead, the output should go to `sys.stderr`.
+Output of `print()` goes to {term}`standard output <stdout>`. For errors and the usage message the output should go to `sys.stderr` which is not redirected by **>**.
 :::
 
 Some examples of how the program should run with its expected outputs:
@@ -214,12 +226,11 @@ Output should still go to the console if {term}`standard output <stdout>` is red
 ```{code-block} bash
 :class: no-copybutton
 python3 multiply.py 2 3 4 > data.out
-24.0
 ```
 ```{code-block} bash
 :class: no-copybutton
-python3 multiply.py 4 5 < data.out
-20.0
+python3 multiply.py > data.out
+usage: (<your text>)
 ```
 *nothing should be written in `data.out`*
 
@@ -235,9 +246,9 @@ If you want the program to behave nicely in that case, put the part of the progr
 ```{code-block} python
 :filename: multiply.py
 try:
-    <statements causing the problem>
+    <statements that could cause an error>
 except:
-    <alternative action; e.g. print usage>
+    <what to do if the error occurs; e.g. print usage>
 ```
 ``````
 
@@ -256,20 +267,20 @@ The program should ask the user for the names of input file and output file (inc
 input file specified, and it writes the corresponding RNA to the output file specified.
 ``````
 
-``````{exercise} (RNA) Transcribing DNA to RNA - Python script using command line arguments
+``````{exercise} (RNA) Transcribing DNA to RNA - Python script using command-line arguments
 *[extension of previous exercise]*\
-Let the program take names of input file and output file from two command line arguments. If the number of command line arguments is not two, give a usage
+Let the program take names of input file and output file from two command-line arguments. If the number of command-line arguments is not two, give a usage
 message instead.
 ``````
 
 
-``````{exercise} [optional] (RNA) Transcribing DNA to RNA - Python script using advanced command line arguments
+``````{exercise} [optional] (RNA) Transcribing DNA to RNA - Python script using advanced command-line arguments
 *[extension of previous exercise]*\
 Further extend the script:
-- If there are no command line arguments, the program reads from {term}`standard input <stdin>` and writes to {term}`standard output <stdout>`.
-- If the first command line argument is `-f` (actually an {term}`option`), the program reads from file and writes to file;
+- If there are no command-line arguments, the program reads from {term}`standard input <stdin>` and writes to {term}`standard output <stdout>`.
+- If the first command-line argument is `-f` (actually an {term}`option`), the program reads from file and writes to file;
   - If the user supplied the `-f` option but no filenames, the input filename should be `rosalind_rna.txt` and the output filename should be `rosalind_rna_out.txt`.
-  - If there is a command line argument after `-f`, it is the name of the input file. The output filename should be derived from the input file name by appending `_out` to the main part of the file name, i.e. before any file extension.
-  - If there is another command line argument after `-f` and the input filename, it is the name of the output file;
+  - If there is a command-line argument after `-f`, it is the name of the input file. The output filename should be derived from the input file name by appending `_out` to the main part of the file name, i.e. before any file extension.
+  - If there is another command-line argument after `-f` and the input filename, it is the name of the output file;
 - In all other cases, the program should give a usage message.
 ``````
