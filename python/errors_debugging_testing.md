@@ -146,7 +146,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Efficiency
-Apart from writing correct code, it is also worth mentioning to write efficient code. To improve efficiency, we first need to find out where time is spent by for examining using a [profiler] (https://docs.python.org/3.15/library/profiling.html), which is a program that reports how much time is spent in each part of the code.
+Apart from writing correct code, it is also worth mentioning to write efficient code. To improve efficiency, we first need to find out where time is spent by for examining using a [profiler](https://docs.python.org/3.15/library/profiling.html), which is a program that reports how much time is spent in each part of the code.
 
 Some general tips to improve efficiency:
 - avoid re-opening files
