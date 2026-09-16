@@ -154,9 +154,7 @@ When running jobs on an {term}`HPC<High-Performance Computing>` system you need 
 
 
 ### File systems
-All {term}`nodes<node>` on the {term}`HPC<High-Performance Computing>` {term}`cluster` have the same network file system mounted. A network file system (NFS) is one physical filesystem served by one machine to many others. It behaves a bit like the 'M:' drive in Windows. Alternatively, an {term}`HPC<High-Performance Computing>` {term}`cluster` can have a parallel filesystem, which has a much higher read/write speed than an NFS. Lustre on Anunna is a parallel filesystem.
-
-*#! is this correct?*
+All {term}`nodes<node>` on the {term}`HPC<High-Performance Computing>` {term}`cluster` have the same network file system mounted. A network file system (NFS) is one physical filesystem served by one machine to many others. It behaves a bit like the 'M:' drive in Windows. Alternatively, an {term}`HPC<High-Performance Computing>` {term}`cluster` can have a parallel filesystem, which has a much higher read/write speed than an NFS. [Lustre](https://www.lustre.org/) on Anunna is a parallel filesystem.
 
 ### Software
 On an {term}`HPC<High-Performance Computing>` {term}`cluster`, it might be necessary to have dozens of different versions of the same {term}`software` to be available. {term}`Software<software>` may need to be compiled from source and doing that across an {term}`HPC<High-Performance Computing>` {term}`cluster` is a dependency nightmare. Thus, users do not have write permissions to system folders. Instead, one should install in `$HOME/bin` or other shared parts of the {term}`file system`. 
@@ -400,7 +398,7 @@ Secure copy `scp` works similarly to the [`cp`](#cp_section) command you encount
 
 :::{caution} Important
 In the next line of code the `:` is important to include.
-This means that you are copying this to your home directory. What happens when you forget this (you can try it, if you do check the home directory on Anunna *#! missing in the exc pdf assuming anunna*)?
+This means that you are copying this to your home directory. What happens when you forget this (you can try it, if you do check the home directory on Anunna).
 :::
 
 ```{code-block} bash

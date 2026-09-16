@@ -86,7 +86,7 @@ Creating a table in SQL uses the command `CREATE TABLE`, which can be a bit comp
 ## Exercises
 In this exercise we will explore the use of a relational database, first through the SQLite command line (Today) and then from Python (Monday), and finally by building a website (Tuesday). 
 
-As data we will use the results of searching for the human homologs of the plant proteins in the SwissProt database (determined with BLAST) that we have looked at before. *#! when?*
+As data we will use the results of searching for the human homologs of the plant proteins in the SwissProt database (determined with BLAST) that we have looked at before on day 1 of week 3 in [working with files](#working_with_files).
 
 We will work on the server.
 
