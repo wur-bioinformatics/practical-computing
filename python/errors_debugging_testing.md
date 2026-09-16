@@ -120,7 +120,6 @@ Main functionalities of debuggers are:
 - Step-by-step execution: Run the code of the program line-by-line.
 - Changing variables (not in all environments): Changing the content of variables in memory while the program runs
 
-*#! command line debugger obsolete? add that or not?*
 
 ```{seealso} Further Reading
 Computing Skills for Biologists - a Tool box
@@ -147,7 +146,7 @@ Computing Skills for Biologists - a Tool box
 ```
 
 ## Efficiency
-Apart from writing correct code, it is also worth mentioning to write efficient code. To improve efficiency, we first need to find out where time is spent by for examining using a profiler *#! explain what that is?*. 
+Apart from writing correct code, it is also worth mentioning to write efficient code. To improve efficiency, we first need to find out where time is spent by for examining using a [profiler] (https://docs.python.org/3.15/library/profiling.html), which is a program that reports how much time is spent in each part of the code.
 
 Some general tips to improve efficiency:
 - avoid re-opening files
@@ -162,7 +161,7 @@ First, we will do two exercises together, then you can use the Jupyter Notebook 
 ``````{exercise} Start the W3D4 Jupyter Notebook
 Download the W3D4 Jupyter Notebook from Brightspace.
 
-Just like previous days, run the notebook with `jupyter notebook` in the terminal.
+Just like before, run the notebook with `jupyter notebook` in the terminal.
 ``````
 
 
