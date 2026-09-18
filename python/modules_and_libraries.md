@@ -617,7 +617,6 @@ If we plug in that code – using functions – instead of computing GC content,
 
 
 ### Parsing Command Line Options and Arguments
-As noted during one of the lectures, many programmers use their own conventions for command line arguments and especially command line options.
 Command-line programs generally follow conventions for specifying arguments and options. Parsing these manually for every program would require a lot of repetitive code. (Remember that parsing is the process of recognizing structure and extracting meaningful elements from textual data.)
 
 Python has a standard module `argparse` for defining which options and arguments a program accepts. That module then also takes care of parsing of
