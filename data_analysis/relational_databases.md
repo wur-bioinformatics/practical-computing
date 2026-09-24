@@ -14,9 +14,10 @@ After completing this section you should be able to:
 ```
 
 ## Introduction
+So far, you have stored biological data in flat files such as FASTA files and tab-separated BLAST output, and processed them with shell commands and Python scripts. This works well for a single file, but gets more complicated when the data are spread over multiple files. For example, the BLAST results refer to proteins by ID, while the protein descriptions and sequences are in a separate FASTA file. Relational databases solve this by storing data in linked tables that can be searched quickly and combined using a query language called SQL. Many biological resources, such as UniProt, Ensembl and the PDB, run on relational databases. This section explains how relational databases are organised, and in the exercises you will build and query your own database with BLAST results, first in directly in SQLite and then from Python. 
 
 ## Relational Database Management System
-A relational database management system (RDBMS) stores and manages relational databases, provides access to  their tables, enforces data integrity, and is optimised for performance. 
+A relational database management system (RDBMS) stores and manages relational databases, provides access to their tables, enforces data integrity, and is optimised for performance. 
 
 Popular RDBMS are:
 - Oracle Database
@@ -27,7 +28,7 @@ Popular RDBMS are:
 - SQLite
 
 ## Relational Database
-In a relational database, data is organized in tables. Rows (also called records or tuples) represent individual items, while columns represent their attributes or fields. SQL (Structured Query Language) can be used to create, query, modify, and combine these tables.
+In a relational database, data is organised in tables. Rows (also called records or tuples) represent individual items, while columns represent their attributes or fields. SQL (Structured Query Language) can be used to create, query, modify, and combine these tables.
 
 (example_relational_db_sql)=
 ``````{prf:example} Select records whose description contains the word "caffeine"
@@ -53,7 +54,7 @@ This gives the following output:
 ``````
 
 ### Indices
-With large tables, searching the complete table can take a long time. A specific index on one or more fields can dramatically speed up searches. Several kinds of indices are optimized for different kinds of queries (text, numeric, etc.)
+With large tables, searching the complete table can take a long time. A specific index on one or more fields can dramatically speed up searches. Several kinds of indices are optimised for different kinds of queries (text, numeric, etc.).
 
 
 ### Keys
@@ -61,40 +62,40 @@ One attribute is often used to uniquely identify an item (row): the primary key.
 
 
 ### Relations
-A foreign key is a column whose values refer to primary keys in another table. In the blast_results table, the query and target columns contain protein IDs and can therefore be used to link BLAST results to information about those proteins.([](#figure_foreign_keys)).
+A foreign key is a column whose values refer to primary keys in another table. In the `blast_results` table, the query and target columns contain protein IDs and can therefore be used to link BLAST results to information about those proteins ([](#figure_foreign_keys)).
 
 (figure_foreign_keys)=
 :::{figure} img/foreign_keys.svg
 Query and target in the BLAST result table are foreign keys to items in the protein table
 :::
 
-This is one of the strengths of relational databases: keys allow us to connect information about the same item stored in different tables. ([](#figure_relational_databases_example)).
+This is one of the strengths of relational databases: keys allow us to connect information about the same item stored in different tables ([](#figure_relational_databases_example)).
 
 (figure_relational_databases_example)=
 :::{figure} img/relational_databases_example.svg
-Data regarding the same protein can be stored across multiple databases (colors) and connected by a key
+Data regarding the same protein can be stored across multiple tables (colors) and connected by a key
 :::
 
 ## SQL and SQLite
 SQLite has two types of commands:
-- SQL statements, such as SELECT and CREATE TABLE. SQL keywords are conventionally written in uppercase, and statements end with a semicolon `;`
-- SQLite shell commands, such as .help and .schema. These start with a dot and do not end with a semicolon.
+- SQL statements, such as `SELECT` and `CREATE TABLE`. SQL keywords are conventionally written in uppercase, and statements end with a semicolon `;`
+- SQLite shell commands, such as `.help` and `.schema`. These start with a dot and do not end with a semicolon.
 
 Creating a table in SQL uses the command `CREATE TABLE`, which can be a bit complicated to write. Fortunately, SQLite has a convenient `.import` command that directly creates a table and loads a data file into it. By default, this command uses the column headers of the data file to create a table with the same columns. The data type of all columns will always be `TEXT`, which limits how we can filter rows from the table on numeric values. Some columns actually contain `INTEGER` or `REAL` values (floating point values) instead.
 
 
 ## Exercises
-In this exercise we will explore the use of a relational database, first through the SQLite command line (Today) and then from Python (Monday), and finally by building a website (Tuesday). 
+In these exercises we will explore the use of a relational database, first through the SQLite command line (today) and then from Python (Monday), and finally by building a website (Tuesday). 
 
-As data we will use the results of searching for the human homologs of the plant proteins in the SwissProt database (determined with BLAST) that we have looked at before on day 1 of week 3 in [working with files](#working_with_files).
+We will use the BLAST results of plant proteins against human SwissProt proteins, which you worked with in week 3 ([working with files](#working_with_files)).
 
 We will work on the server.
 
 ### SQLite
 ``````{exercise} Preparation
-Make sure to create a new directory `~/exercises/blast_browser` and copy ([`cp`](#cp_section)) or link (`ln -s`) the `plantsvshuman_outmft6.csv` and the `plants.fasta` files in that directory. 
+Make sure to create a new directory `~/exercises/blast_browser` and copy ([`cp`](#cp_section)) or link (`ln -s`) the `plantsvshuman_outmft6.csv` and the `plants.fasta` files into that directory. 
 
-The first file contains `blastp` matches between plant and human proteins, the second contains plant protein sequences in FASTA format (you can also find these files in `/mnt/local_scratch/BIF21806`)
+The first file contains `blastp` matches between plant and human proteins, the second contains plant protein sequences in FASTA format (you can also find these files in `/mnt/local_scratch/BIF21806`).
 ``````
 #### Creating an SQL Table
 ``````{exercise} Creating your first table
@@ -126,7 +127,7 @@ To get help for a specific command, try (for instance):
 .help .import
 ```
 
-Before we can import the data, we should first set the column separators used in the files. For the blast results, the columns are tab-separated despite the `.csv` extension), so please run (`\t` is the tab character):
+Before we can import the data, we should first set the column separators used in the files. For the blast results, the columns are tab-separated (despite the `.csv` extension), so please run (`\t` is the tab character):
 ```{code-block} sql
 .separator \t
 ```
@@ -143,9 +144,11 @@ Run the `.tables` command to check that it worked.
 ```
 To see the rows in the table, you can use an SQL command called `SELECT`:
 ```{code-block} sql
-SELECT * FROM blast_results LIMIT 5;
+SELECT * 
+FROM blast_results
+LIMIT 5;
 ```
-This should show the first five rows, without the column headers. 
+This should show the first five rows (due to `LIMIT`), without the column headers. 
 
 To see the headers, run this SQLite command:
 ```{code-block} sql
@@ -170,7 +173,7 @@ DROP TABLE IF EXISTS blast_results;
 Recreate the table by running your modified `CREATE TABLE` command.
 
 :::{tip} Tip
-Make sure to always include the semicolon at the end of an SQL command. SQLite will only process your SQL command when it encounters the` ;` symbol. The benefit of this is that you can spread the command over multiple lines. 
+Make sure to always include the semicolon at the end of an SQL command. SQLite will only process your SQL command when it encounters the `;` symbol. The benefit of this is that you can spread the command over multiple lines. 
 :::
 
 Check that the create command worked: 
@@ -181,10 +184,13 @@ You can rerun the `SELECT` command as well to see that the table is empty.
 
 Now rerun the `.import` command (with arguments) like before. Because the `blast_results` table already exists, it will not create a new table but use the existing one with the updated column names and data types. If the import succeeded, you can view the contents of the table with this `SELECT` statement:
 ```{code-block} sql
-SELECT query FROM blast_results LIMIT 5;
+SELECT query 
+FROM blast_results
+LIMIT 5;
 ```
 This shows the `query` column for the top five rows and should look like this:
 ```{code-block} sql
+:class: no-copybutton
 query
 Query_label
 sp|P48347|14310_ARATH
@@ -195,10 +201,11 @@ sp|Q9C5W6|14312_ARATH
 
 This initially looks correct, but notice that Query_label appears as the first data row. What happened is that the `.import` command noticed that the table was already created and did not use the first row for column names. Instead, it put all rows in the file into the table. To remove this first row, use this SQL command:
 ```{code-block} sql
-DELETE FROM blast_results WHERE query = 'Query_label';
+DELETE FROM blast_results 
+WHERE query = 'Query_label';
 ```
 :::{note} Note
-In SQL we use `=` for equals, instead of `==` in Python
+In SQL we use `=` for equals, instead of `==` in Python.
 
 :::
 
@@ -214,7 +221,9 @@ Save the table to a database file using:
 ``````{exercise} Searching the data in the database
 Now that you have the data in the table, you can use the `SELECT` command to analyse it. Try this to view the first 10 lines of the table:
 ```{code-block} sql
-SELECT * FROM blast_results LIMIT 10;
+SELECT * 
+FROM blast_results
+LIMIT 10;
 ```
 
 The asterisk symbol `*` here indicates that we want to see all columns from the `blast_results` table. 
@@ -235,15 +244,19 @@ Set the mode to `quote`:
 ```
 To only print the query and target columns, run this:
 ```{code-block} sql
-SELECT query, target FROM blast_results LIMIT 10;
+SELECT query, target 
+FROM blast_results
+LIMIT 10;
 ```
 Counting the number of rows ("records" in SQL) works like this:
 ```{code-block} sql
-SELECT COUNT(*) FROM blast_results;
+SELECT COUNT(*) 
+FROM blast_results;
 ```
 Get the maximum E-value:
 ```{code-block} sql
-SELECT MAX(evalue) FROM blast_results;
+SELECT MAX(evalue) 
+FROM blast_results;
 ```
 (this only works if you set the right data type for the `evalue` column)
 
@@ -251,43 +264,58 @@ SELECT MAX(evalue) FROM blast_results;
 
 Also try:
 ```{code-block} sql
-SELECT evalue FROM blast_results ORDER BY evalue DESC LIMIT 10;
+SELECT evalue 
+FROM blast_results 
+ORDER BY evalue DESC
+LIMIT 10;
 ```
 **What do you think this does?**
 
 To filter the table to get only the records that meet a certain condition, you can use the `WHERE` keyword:
 ```{code-block} sql
-SELECT * FROM blast_results WHERE evalue = 0;
+SELECT * 
+FROM blast_results 
+WHERE evalue = 0;
 ```
-This only shows records where the evalue column has the value `0`
+This only shows records where the `evalue` column has the value `0`.
 
 Use a `SELECT` query to find the hits with a percentage identity above 98% and take a moment to be amazed that these proteins changed so little in more than a billion years of evolution.
 
 You can combine two conditions using the `AND` keyword:
 ```{code-block} sql
-SELECT * FROM blast_results WHERE evalue = 0 AND perc_ident < 30;
+SELECT * 
+FROM blast_results 
+WHERE evalue = 0 AND perc_ident < 30;
 ```
 
-**Now think of a `SELECT` query that finds the records where the query and target length are the same (so not the start or the end, but the lengths)**. You have done a similar task using Python before.
+**Now think of a `SELECT` query that finds the records where the lengths of the aligned regions in query and target are the same (so not the start or the end, but the lengths)**. You have done a similar task using Python before.
 
 
 The `blastp` analysis was run with a limit of only one target per query, but the same target can be reported for multiple queries. This is for instance the case for the protein "IRAK4_HUMAN, Interleukin-1 receptor-associated kinase 4". To find all hits for this protein use:
 ```{code-block} sql
-SELECT * FROM blast_results WHERE target LIKE '%IRAK4_HUMAN';
+SELECT * 
+FROM blast_results 
+WHERE target LIKE '%IRAK4_HUMAN';
 ```
 
-The `LIKE` keyword accepts wildcards in a text query. The wildcard `%` represents zero or more characters (similar to the `*` in the shell).
+The `LIKE` keyword accepts wildcards in a text query. The wildcard `%` represents zero or more characters (similar to the `*` in the shell). The underscore `_` is also a wildcard matching exactly one character. So `'%IRAK4_HUMAN'` would also match e.g. `IRAK4XHUMAN`. In our data this makes no difference, but if you need a literal underscore you can escape it: `LIKE '%IRAK4\_HUMAN' ESCAPE '\'`.
 
 **Now, compare the results from these two queries and try to explain the difference:**
 ```{code-block} sql
-SELECT COUNT(query) FROM blast_results WHERE target LIKE '%IRAK4_HUMAN';
+SELECT COUNT(query) 
+FROM blast_results 
+WHERE target LIKE '%IRAK4_HUMAN';
 ```
 ```{code-block} sql
-SELECT COUNT(DISTINCT query) FROM blast_results WHERE target LIKE '%IRAK4_HUMAN';
+SELECT COUNT(DISTINCT query) 
+FROM blast_results 
+WHERE target LIKE '%IRAK4_HUMAN';
 ```
 This query might help:
 ```{code-block} sql
-SELECT * FROM blast_results WHERE query LIKE '%LRKS2_ARATH';
+SELECT * 
+FROM blast_results 
+WHERE query LIKE '%LRKS2_ARATH';
 ```
 ``````
 
@@ -304,40 +332,44 @@ CREATE TABLE plant_proteins (
 
 No `INTEGER` or `REAL` data types this time. 
 
-To load the data, we need to convert the `plant_proteins.fasta` file to a comma-separated file, with all information per sequence (ID, description and sequence) in one row. Because the description of the protein can contain commas, we have to put quotes around the fields.
+To load the data, we need to convert the `plants.fasta` file to a comma-separated file, with all information per sequence (ID, description and sequence) in one row. Because the description of the protein can contain commas, we have to put quotes around the fields.
 
 A Python script to do this is shown below. Check carefully where it expects the input and how it produces the output.
 
 ```{code-block} python
 :filename: fasta2csv.py
 #!/usr/bin/env python3
-# fasta2csv script
-from sys import argv
+import sys
 
-FASTA_file = open(argv[1])
+def main():
+    if len(sys.argv) == 1:
+        print(f'Usage: {sys.argv[0]} <FASTA filename>')
+        return
 
-ID_line = ""
-sequence = ""
+    with open(sys.argv[1]) as FASTA_file:
+        ID_line = ""
+        sequence = ""
 
-for line in FASTA_file:
-    line = line.strip()
+        for line in FASTA_file:
+            line = line.strip()
 
-    if line.startswith(">"):
+            if line.startswith(">"):
+                if ID_line != "":
+                    (identifier, description) = ID_line.split(' ', 1)
+                    print(f'"{identifier}","{description}","{sequence}"')
+                    ID_line = ""
+                    sequence = ""
+                ID_line = line[1:]
+            else:
+                sequence += line
+
         if ID_line != "":
-            (identifier,description) = ID_line.split(' ',1)
+            (identifier, description) = ID_line.split(' ', 1)
             print(f'"{identifier}","{description}","{sequence}"')
-            ID_line = ""
-            sequence = ""
-        ID_line = line[1:]
-    else:
-        sequence += line
 
-if ID_line != "":
-    (identifier, description) = ID_line.split(' ', 1)
-    print(f'"{identifier}","{description}","{sequence}"')
 
-FASTA_file.close()
-#end script
+if __name__ == "__main__":
+    main()
 ```
 (also in `/mnt/local_scratch/BIF21806/`)
 
@@ -347,7 +379,7 @@ Run the script on Linux (it is a Python script, so do not use SQLite for this ðŸ
 Redirect the output with `>`
 :::
 
-Check that the file indeed has lines with comma separated fields.
+Check that the file indeed has lines with comma-separated fields.
 
 
 Now back to the SQLite shell. 
@@ -357,7 +389,7 @@ If you close it, you can reopen it directly with the right database using:
 sqlite3 plants_vs_humans.db
 ```
 
-The data are now comma separated, so before we can import the data, set the mode to csv:
+The data are now comma-separated, so before we can import the data, set the mode to csv:
 ```{code-block} sql
 .mode csv
 ```
@@ -373,9 +405,9 @@ Load the data into the right table using:
 
 #### Joining Two SQL Tables
 ``````{exercise} Joining tables
-Now we have two tables in the database, we can do a `SELECT` query that combines information from the two tables. For this we have to use the SQL statement `INNER JOIN` and specify which column in the first table corresponds to which column in the second table. In our case the `query` column of the `blast_results` table contains the plant protein identifiers and these correspond to the `ID` column in the `plant_proteins` table.
+Now that we have two tables in the database, we can do a `SELECT` query that combines information from the two tables. For this we have to use the SQL statement `INNER JOIN` and specify which column in the first table corresponds to which column in the second table. In our case the `query` column of the `blast_results` table contains the plant protein identifiers and these correspond to the `ID` column in the `plant_proteins` table.
 
-Now you can add the description from the `plant_proteins` table to the matching `query` and `target` from the `blast_results` table:
+Now you can add the `description` of the query protein to each BLAST hit:
 ```{code-block} sql
 SELECT query, target, evalue, description
 FROM blast_results
@@ -386,13 +418,13 @@ ON blast_results.query = plant_proteins.ID;
 
 
 
-###  Accessing SQLite from Python
+### Accessing SQLite from Python
 Last Friday, you created the `plants_vs_humans` SQLite3 Database containing results of searching for the putative human homologs of the plant proteins in the SwissProt database (determined with BLAST).
 
 Here, we will create Python functions to query the `plants_vs_humans` SQLite3 database. This code will be used tomorrow to build a website via which a user can select a human protein ID and retrieve all BLAST matches for that protein with plant proteins.
 
-``````{exercise} Start the W5D1 on the remote server
-Copy this notebook into your `exercises/blast_browser` folder on bork and run it through an `ssh` tunnel like before ("Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel").
+``````{exercise} Start the W5D1 notebook on the remote server
+On Borrk, copy this notebook from `/mnt/local_scratch/BIF21806/` into your `exercises/blast_browser` folder and run it through an `ssh` tunnel like before ("Starting a Jupyter Notebook on a remote server and connecting via an SSH tunnel").
 ``````
 
 Like before, the Jupyter Notebook contains all instructions.
@@ -404,16 +436,16 @@ We will use the `sqlite3` module. Online documentation can be found [here](https
 ::::{exercise} Create a function that returns a list of all targets from the `blast_results` table
 Given the `get_targets()` function:
 - fix the SQL statement (test this with SQLite3)
-- change the code in the `for loop` to process the result of the query to fill the `targets` list
+- change the code in the `for` loop to process the result of the query to fill the `targets` list
 ::::
 
 
 
 ::::{exercise} Create a function that takes a target as input and returns all matching rows from the `blast_results` table
 
-In addition to the `query` and `target` fields, we also want to return the `evalue` and the `description` for the `target`. That information can be retrieved by linking the `blast_results` table with the `plant_proteins` table, using `INNER JOIN` (see also Friday's exercise). 
+In addition to the `query` and `target` fields, we also want to return the `evalue` and the `description` for the `query`. That information can be retrieved by linking the `blast_results` table with the `plant_proteins` table, using `INNER JOIN` (see also Friday's exercise). 
 
-The function takes two arguments, the target identifier and an e_value threshold. For the latter we provide a default, so it can be left out when calling the function. 
+The function takes two arguments, the target identifier and an E-value threshold. For the latter we provide a default, so it can be left out when calling the function. 
 
 
 
@@ -437,11 +469,11 @@ Given the `get_rows_for_target()` function:
 If you have time left, you can extend the functions with more features using the challenges.
 
 ::::{exercise} Challenge 1
-Modify the `get_rows_for_target()` function to also filter for the provided e-value threshold, so that only rows are returned where the evalue column is `<=` the provided threshold
+Modify the `get_rows_for_target()` function to also filter for the provided E-value threshold, so that only rows are returned where the `evalue` column is `<=` the provided threshold.
 ::::
 
 ::::{exercise} Challenge 2
-Make the `get_rows_for_target()` function work for only the last part of the target ID, so instead of having to use the full `"sp|P62258|1433E_HUMAN"`, it should also work for `"1433E_HUMAN"` 
+Make the `get_rows_for_target()` function work for only the last part of the target ID, so instead of having to use the full `"sp|P62258|1433E_HUMAN"`, it should also work for `"1433E_HUMAN"`.
 
 :::{tip} Tip
 Look at the SQL `LIKE` keyword
@@ -449,7 +481,7 @@ Look at the SQL `LIKE` keyword
 ::::
 
 ::::{exercise} Challenge 3
-Complete the `get_queries_sequence_for_target_seq()` function to take a (human) target as input and create a FASTA file with the sequences for the matching plant proteins. 
+Complete the `get_query_sequences_for_target()` function to take a (human) target as input and create a FASTA file with the sequences for the matching plant proteins. 
 
 Additional challenge: print only 60 amino acids per line.
 ::::
