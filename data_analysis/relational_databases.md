@@ -53,6 +53,7 @@ This gives the following output:
 ```
 ``````
 
+(relational_db_indices)=
 ### Indices
 With large tables, searching the complete table can take a long time. A specific index on one or more fields can dramatically speed up searches. Several kinds of indices are optimised for different kinds of queries (text, numeric, etc.).
 
@@ -418,6 +419,7 @@ ON blast_results.query = plant_proteins.ID;
 
 
 
+(accessing_sqlite_from_python)=
 ### Accessing SQLite from Python
 Last Friday, you created the `plants_vs_humans` SQLite3 Database containing results of searching for the putative human homologs of the plant proteins in the SwissProt database (determined with BLAST).
 
