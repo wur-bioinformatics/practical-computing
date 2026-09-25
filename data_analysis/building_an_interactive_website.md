@@ -136,11 +136,11 @@ def greet():
     return "Hello, World!"
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(port=5001)
 ```
-If you run this on your own computer, you can access the page at [http://localhost:5000](http://localhost:5000/).
+If you run this on your own computer, you can access the page at [http://localhost:5001](http://localhost:5001/).
 
-On a shared server like bork, only one program at a time can listen on a given port, so every user has to choose their own port number (between 1024 and 60000). To view the page from your laptop, you then need an SSH tunnel from port 5000 on your laptop to that port on the server, as you will do in the [exercises](#building_website_exercises).
+On a shared server like bork, only one program at a time can listen on a given port, so every user has to choose their own port number (between 1024 and 60000). To view the page from your laptop, you then need an SSH tunnel from port 5001 on your laptop to that port on the server, as you will do in the [exercises](#building_website_exercises).
 ``````
 
 (example_flask_page_with_template)=
@@ -195,7 +195,7 @@ def index():
     return render_template('index.html', message=msg)
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(port=5001)
 ```
 
 
@@ -250,10 +250,10 @@ This will start a simple web server on bork that listens on the port you chose. 
 
 Your laptop cannot directly connect to the web server. Like you did for running notebooks on bork, you should now set up an SSH tunnel to be able to connect to the port. On your laptop, start a new terminal and run (replace `<port>` with the port you selected in the script):
 ```{code-block} bash
-ssh -L 5000:localhost:<port> bork
+ssh -L 5001:localhost:<port> bork
 ```
 
-Point a web browser to [http://127.0.0.1:5000](http://127.0.0.1:5000). You should now see a web page that says "BLAST Browser".
+Point a web browser to [http://127.0.0.1:5001](http://127.0.0.1:5001). You should now see a web page that says "BLAST Browser".
 ``````
 
 ``````{exercise} Adding a second page
@@ -265,7 +265,7 @@ def show_results():
     return text_to_return
 ```
 
-Start the script again and point your web browser to [http://127.0.0.1:5000/results](http://127.0.0.1:5000/results). Now you should see "Results!".
+Start the script again and point your web browser to [http://127.0.0.1:5001/results](http://127.0.0.1:5001/results). Now you should see "Results!".
 
 :::{note} Note
 `@app.route` is a so-called *decorator* that in this case specifies that the `/results` URL should be handled by the `show_results()` function. How decorators work is beyond the scope of this course; if you want to know more, see the [Python wiki](https://wiki.python.org/moin/PythonDecorators).
@@ -296,7 +296,7 @@ With Flask you can use so-called *template* HTML files to combine HTML with scri
 
 The HTML file starts with the `<html>` opening tag and ends with the `</html>` closing tag. Then there is a header section enclosed in `<head></head>` tags, followed by the body section enclosed in `<body></body>` tags. The body part of the HTML page contains the actual content.
 
-First the title of the page is printed in large font (`<h1>`), and then a form block starts (enclosed in `<form></form>` tags). The form allows users to input data that is then sent back to the web server. The form contains a selection box defined by the `<select></select>` block; the options that can be selected are listed between `<option></option>` tags (currently there are two dummy options). The form also has a *submit* button defined by the `<input type="submit">` tag. Clicking that button submits the form, which in this case calls the [http://127.0.0.1:5000/results](http://127.0.0.1:5000/results) URL.
+First the title of the page is printed in large font (`<h1>`), and then a form block starts (enclosed in `<form></form>` tags). The form allows users to input data that is then sent back to the web server. The form contains a selection box defined by the `<select></select>` block; the options that can be selected are listed between `<option></option>` tags (currently there are two dummy options). The form also has a *submit* button defined by the `<input type="submit">` tag. Clicking that button submits the form, which in this case calls the [http://127.0.0.1:5001/results](http://127.0.0.1:5001/results) URL.
 
 To make your script use this template file, change the return line of the `index()` function in `blast_browser.py` to:
 ```{code-block} python
