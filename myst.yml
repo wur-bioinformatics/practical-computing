@@ -36,7 +36,7 @@ project:
        - file: data_analysis/relational_databases.md
        - file: data_analysis/building_an_interactive_website.md
        - file: data_analysis/remote_computing.md
-       - file: data_analysis/genai_for_coding.md
+       #- file: data_analysis/genai_for_coding.md
     - file: glossary.md
 
 site:
